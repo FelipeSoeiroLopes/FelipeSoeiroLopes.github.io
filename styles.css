@@ -9,75 +9,62 @@
 body {
     line-height: 1.6;
     color: #333;
-    background: linear-gradient(to bottom, #e0e0e0, #f0f4f8); /* Degradê cinza suave */
+    background: linear-gradient(to bottom, #e0e0e0, #f0f4f8); /* Degradê suave */
     display: flex;
     flex-direction: column;
-    min-height: 100vh; /* Garante que o corpo ocupe pelo menos a altura total da janela */
+    min-height: 100vh;
 }
 
+/* Cabeçalho */
 header {
-    background-color: #00796b; /* Verde suave profissional */
+    background: linear-gradient(135deg, #003366, #1a5d8f); /* Gradiente azul escuro a azul claro */
     color: #fff;
-    padding: 20px 0;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Sombra suave */
+    padding: 35px 0;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1); /* Sombra mais intensa */
 }
 
 header h1 {
     text-align: center;
-    font-size: 2.5rem; /* Título maior e mais imponente */
-    letter-spacing: 1px; /* Espaçamento suave entre letras */
-    margin-bottom: 10px;
+    font-size: 3.2rem; /* Tamanho maior */
+    letter-spacing: 3px;
+    margin-bottom: 20px;
     font-weight: 700;
+    text-transform: uppercase;
 }
 
 header nav ul {
     list-style: none;
     text-align: center;
-    margin-top: 10px;
+    margin-top: 15px;
 }
 
 header nav ul li {
     display: inline;
-    margin: 0 20px;
+    margin: 0 30px;
 }
 
 header nav ul li a {
     color: #fff;
     text-decoration: none;
-    font-weight: 500;
-    font-size: 1.1rem;
-    transition: color 0.3s ease, transform 0.3s ease; /* Transição suave */
+    font-weight: 600;
+    font-size: 1.3rem;
+    text-transform: uppercase;
+    transition: color 0.4s ease, transform 0.4s ease; /* Transição mais fluída */
 }
 
 header nav ul li a:hover {
-    color: #b2dfdb;
-    transform: scale(1.1); /* Suave aumento no hover */
+    color: #b2d8e8;
+    transform: translateY(-6px); /* Efeito de movimento */
 }
 
 header nav ul li a:active {
-    color: #004d40; /* Verde escuro ao clicar */
+    color: #004d66;
 }
 
-section {
-    padding: 60px 0;
-    text-align: center;
-    background-color: #ffffff;
-    margin-bottom: 40px;
-    border-radius: 10px;
-    box-shadow: 0 6px 10px rgba(0, 0, 0, 0.1); /* Sombra para destacar */
-}
-
-section h2 {
-    margin-bottom: 30px;
-    font-size: 2.2rem;
-    font-weight: 600;
-    color: #333;
-}
-
-/* Estilo da seção home */
+/* Home */
 #home {
     background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('imagem-de-fundo.jpg') center/cover no-repeat;
-    height: 100vh; /* Ocupa toda a tela */
+    height: 100vh;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -86,46 +73,45 @@ section h2 {
 }
 
 #home .container {
-    max-width: 800px;
-    padding: 20px;
+    max-width: 900px;
+    padding: 30px;
 }
 
 #home h2 {
-    font-size: 3rem;
-    margin-bottom: 20px;
+    font-size: 3.8rem;
+    margin-bottom: 30px;
     font-weight: bold;
-    text-transform: uppercase;
-    letter-spacing: 2px;
+    letter-spacing: 3px;
     color: #fff;
-    animation: fadeInDown 1s ease; /* Animação suave */
+    animation: fadeInDown 1.2s ease;
 }
 
 #home p {
-    font-size: 1.5rem;
-    margin-bottom: 40px;
+    font-size: 1.7rem;
+    margin-bottom: 60px;
     color: #ddd;
-    animation: fadeInUp 1.2s ease; /* Animação suave */
+    animation: fadeInUp 1.4s ease;
 }
 
 #home button {
-    background-color: #00796b;
+    background-color: #003366;
     color: #fff;
     border: none;
-    padding: 15px 30px;
-    font-size: 1.2rem;
-    border-radius: 25px;
+    padding: 20px 40px;
+    font-size: 1.4rem;
+    border-radius: 35px;
     cursor: pointer;
-    transition: background-color 0.3s ease, transform 0.3s ease;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    transition: background-color 0.4s ease, transform 0.4s ease;
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
 }
 
 #home button:hover {
-    background-color: #004d40;
-    transform: translateY(-5px);
+    background-color: #1a5d8f;
+    transform: translateY(-8px);
 }
 
 #home button:active {
-    background-color: #00332d;
+    background-color: #004d66;
 }
 
 /* Animações */
@@ -151,49 +137,46 @@ section h2 {
     }
 }
 
-/* Estilo da seção sobre mim */
+/* Sobre mim */
 #sobre-mim {
-    padding: 60px 0;
-    background-color: #ffffff; /* Cor de fundo suave */
+    padding: 80px 0;
+    background-color: #ffffff;
     text-align: center;
 }
 
 #sobre-mim h2 {
-    font-size: 2.5rem;
-    margin-bottom: 20px;
-    color: #00796b; /* Cor verde elegante */
+    font-size: 2.8rem;
+    margin-bottom: 30px;
+    color: #003366; /* Azul escuro elegante */
     font-weight: bold;
     text-transform: uppercase;
-    letter-spacing: 1px;
+    letter-spacing: 3px;
 }
 
 #sobre-mim p {
-    font-size: 1.2rem;
+    font-size: 1.3rem;
     color: #555;
     line-height: 1.8;
-    max-width: 800px;
-    margin: 0 auto 20px auto;
+    max-width: 900px;
+    margin: 0 auto 30px auto;
 }
 
-#sobre-mim p:last-of-type {
-    margin-bottom: 0; /* Remove margem inferior do último parágrafo */
-}
-
-/* Estilo da seção de projetos */
+/* Projetos */
 #projetos {
-    padding: 60px 0;
+    padding: 80px 0;
     text-align: center;
+    background-color: #f4f4f4;
 }
 
 #projetos h2 {
-    font-size: 2.5rem;
-    margin-bottom: 20px;
-    color: #00796b;
+    font-size: 2.8rem;
+    margin-bottom: 30px;
+    color: #003366;
     font-weight: bold;
 }
 
 #projetos p {
-    font-size: 1.2rem;
+    font-size: 1.3rem;
     color: #555;
     margin-bottom: 40px;
 }
@@ -206,107 +189,85 @@ section h2 {
 
 .projeto {
     background-color: #fff;
-    padding: 20px;
-    margin: 10px;
-    width: calc(33.333% - 40px);
-    border-radius: 8px;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    padding: 30px;
+    margin: 20px;
+    width: calc(33.333% - 60px);
+    border-radius: 15px;
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
+    transition: transform 0.4s ease, box-shadow 0.4s ease;
 }
 
 .projeto:hover {
-    transform: translateY(-10px);
-    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+    transform: translateY(-12px);
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
 }
 
 .projeto h3 {
-    font-size: 1.5rem;
-    margin-bottom: 10px;
-    color: #333;
+    font-size: 1.8rem;
+    margin-bottom: 15px;
+    color: #003366;
 }
 
 .projeto p {
     color: #666;
-    line-height: 1.5;
+    line-height: 1.6;
 }
 
 .projeto a {
-    color: #00796b;
+    color: #003366;
     text-decoration: none;
     font-weight: bold;
-    transition: color 0.3s ease;
+    transition: color 0.4s ease;
 }
 
 .projeto a:hover {
-    color: #004d40;
+    color: #1a5d8f;
 }
 
-/* Estilo da seção de contato */
+/* Contato */
 #contato {
-    background-color: #ffffff; /* Fundo neutro */
-    padding: 40px 0;
+    background-color: #f4f4f4;
+    padding: 50px 0;
     text-align: center;
-    border-radius: 10px;
+    border-radius: 15px;
 }
 
 #contato h2 {
-    font-size: 2.5rem;
-    margin-bottom: 20px;
-    color: #00796b; /* Cor verde elegante */
+    font-size: 2.8rem;
+    margin-bottom: 30px;
+    color: #003366;
     font-weight: bold;
 }
 
 #contato p {
-    font-size: 1.2rem;
+    font-size: 1.3rem;
     color: #555;
-    margin-bottom: 20px;
+    margin-bottom: 25px;
 }
 
 #contato a {
-    color: #00796b; /* Cor verde suave */
+    color: #003366;
     text-decoration: none;
     font-weight: bold;
-    transition: color 0.3s ease;
+    transition: color 0.4s ease;
 }
 
 #contato a:hover {
-    color: #004d40;
+    color: #1a5d8f;
 }
 
-/* Estilo do footer */
+/* Footer */
 footer {
-    background-color: #004d40;
+    background-color: #003366;
     color: #fff;
     text-align: center;
-    padding: 20px 0;
-    margin-top: auto; /* Empurra o footer para baixo */
-    font-size: 0.9rem;
+    padding: 30px 0;
+    margin-top: auto;
+    font-size: 1rem;
 }
 
 footer p {
     margin: 0;
-}
-
-/* Botão de call to action (chamada para ação) */
-button {
-    background-color: #00796b;
-    color: #fff;
-    border: none;
-    padding: 15px 30px;
-    font-size: 1rem;
-    border-radius: 25px;
-    cursor: pointer;
-    transition: background-color 0.3s ease, transform 0.3s ease;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-}
-
-button:hover {
-    background-color: #004d40;
-    transform: translateY(-5px);
-}
-
-button:active {
-    background-color: #00332d;
 }
 
 /* Responsividade */
@@ -321,10 +282,10 @@ button:active {
     }
 
     header nav ul li {
-        margin: 0 10px;
+        margin: 0 15px;
     }
 
     header h1 {
-        font-size: 2rem;
+        font-size: 2.5rem;
     }
 }
