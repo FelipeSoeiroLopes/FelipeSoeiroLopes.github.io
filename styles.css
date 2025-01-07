@@ -288,41 +288,129 @@ footer p {
 }
 
 /* Responsividade para diferentes tamanhos de tela */
-@media (max-width: 1280px) {
+
+@media (max-width: 1440px) {
     header h1 {
-        font-size: 2.6rem;
+        font-size: 2.8rem;
+        line-height: 3.5rem; /* Ajusta a altura da linha */
     }
 
     #home h2 {
-        font-size: 3rem;
+        font-size: 3.5rem;
+        line-height: 4rem;
     }
 
     .projeto {
         width: calc(50% - 40px);
+        min-height: 250px; /* Ajuste da altura mínima dos projetos */
+    }
+
+    .foto-perfil {
+        width: 140px;
+        height: 140px;
+        object-fit: cover; /* Garante que a imagem se ajuste sem distorção */
+    }
+
+    #home button {
+        padding: 15px 30px;
+        font-size: 1.2rem;
+        min-height: 50px; /* Ajuste da altura mínima do botão */
+    }
+}
+
+@media (max-width: 1366px) {
+    header h1 {
+        font-size: 2.6rem;
+        line-height: 3.2rem;
+    }
+
+    #home h2 {
+        font-size: 3.3rem;
+        line-height: 3.8rem;
+    }
+
+    .projeto {
+        width: calc(50% - 40px);
+        min-height: 220px;
+    }
+
+    .foto-perfil {
+        width: 130px;
+        height: 130px;
+    }
+
+    #home button {
+        padding: 14px 28px;
+        font-size: 1.1rem;
+        min-height: 45px;
+    }
+}
+
+@media (max-width: 1280px) {
+    header h1 {
+        font-size: 2.4rem;
+        line-height: 3rem;
+    }
+
+    #home h2 {
+        font-size: 3rem;
+        line-height: 3.5rem;
+    }
+
+    .projeto {
+        width: calc(50% - 40px);
+        min-height: 200px;
+    }
+
+    .foto-perfil {
+        width: 120px;
+        height: 120px;
+    }
+
+    #home button {
+        padding: 14px 28px;
+        font-size: 1.1rem;
+        min-height: 45px;
     }
 }
 
 @media (max-width: 1024px) {
     header h1 {
-        font-size: 2.4rem;
+        font-size: 2.2rem;
+        line-height: 2.7rem;
     }
 
     #home h2 {
         font-size: 2.8rem;
+        line-height: 3.3rem;
     }
 
     .projeto {
         width: calc(50% - 40px);
+        min-height: 180px;
+    }
+
+    .foto-perfil {
+        width: 120px;
+        height: 120px;
+    }
+
+    #home button {
+        padding: 12px 24px;
+        font-size: 1rem;
+        min-height: 40px;
     }
 }
 
 @media (max-width: 768px) {
     header h1 {
-        font-size: 2.2rem;
+        font-size: 2rem;
+        line-height: 2.4rem;
     }
 
     #home h2 {
         font-size: 2.5rem;
+        line-height: 3rem;
     }
 
     #home p {
@@ -331,6 +419,7 @@ footer p {
 
     .projeto {
         width: calc(100% - 40px);
+        min-height: 160px;
     }
 
     .projetos-grid {
@@ -345,15 +434,23 @@ footer p {
     #sobre-mim p, #projetos p, #contato p {
         font-size: 1.2rem;
     }
+
+    #home button {
+        padding: 12px 24px;
+        font-size: 1rem;
+        min-height: 40px;
+    }
 }
 
 @media (max-width: 480px) {
     header h1 {
         font-size: 1.8rem;
+        line-height: 2.2rem;
     }
 
     #home h2 {
         font-size: 2.2rem;
+        line-height: 2.7rem;
     }
 
     #home p {
@@ -363,11 +460,13 @@ footer p {
     #home button {
         padding: 15px 30px;
         font-size: 1.2rem;
+        min-height: 50px;
     }
 
     .projeto {
         width: 90%;
         padding: 20px;
+        min-height: 150px;
     }
 
     #sobre-mim h2, #projetos h2, #contato h2 {
@@ -383,27 +482,71 @@ footer p {
     }
 }
 
-@media (max-width: 320px) {
+@media (max-width: 375px) {
+    header h1 {
+        font-size: 1.8rem;
+        line-height: 2.2rem;
+    }
+
+    #home h2 {
+        font-size: 2rem;
+        line-height: 2.5rem;
+    }
+
+    #home p {
+        font-size: 1.4rem;
+    }
+
+    #home button {
+        padding: 14px 28px;
+        font-size: 1.3rem;
+        min-height: 45px;
+    }
+
+    .projeto {
+        width: 100%;
+        padding: 20px;
+        min-height: 140px;
+    }
+
+    #sobre-mim h2, #projetos h2, #contato h2 {
+        font-size: 2rem;
+    }
+
+    #sobre-mim p, #projetos p, #contato p {
+        font-size: 1rem;
+    }
+
+    footer {
+        font-size: 1rem;
+    }
+}
+
+@media (max-width: 360px) {
     header h1 {
         font-size: 1.6rem;
+        line-height: 2rem;
     }
 
     #home h2 {
         font-size: 1.8rem;
+        line-height: 2.3rem;
     }
 
     #home p {
-        font-size: 1.2rem;
+        font-size: 1.3rem;
     }
 
     #home button {
-        padding: 12px 20px;
-        font-size: 1.1rem;
+        padding: 12px 25px;
+        font-size: 1.2rem;
+        min-height: 40px;
     }
 
     .projeto {
         width: 100%;
         padding: 15px;
+        min-height: 130px;
     }
 
     #sobre-mim h2, #projetos h2, #contato h2 {
@@ -416,5 +559,45 @@ footer p {
 
     footer {
         font-size: 0.8rem;
+    }
+}
+
+@media (max-width: 320px) {
+    header h1 {
+        font-size: 1.4rem;
+        line-height: 1.8rem;
+    }
+
+    #home h2 {
+        font-size: 1.6rem;
+        line-height: 2rem;
+    }
+
+    #home p {
+        font-size: 1.2rem;
+    }
+
+    #home button {
+        padding: 10px 20px;
+        font-size: 1.1rem;
+        min-height: 35px;
+    }
+
+    .projeto {
+        width: 100%;
+        padding: 10px;
+        min-height: 120px;
+    }
+
+    #sobre-mim h2, #projetos h2, #contato h2 {
+        font-size: 1.6rem;
+    }
+
+    #sobre-mim p, #projetos p, #contato p {
+        font-size: 0.8rem;
+    }
+
+    footer {
+        font-size: 0.7rem;
     }
 }
