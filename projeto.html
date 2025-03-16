@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="styles.css" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <title>FELIPE LOPES PROJETOS</title>
+  </head>
+  <body>
+    <header>
+      <nav>
+        <div class="logo">
+          <img src="images/felipelogo.PNG" alt="Felipe logo" />
+        </div>
+        <div class="menu-icon" onclick="toggleMenu()">&#9776;</div>
+        <div class="navbar" id="navbar">
+          <div><a href="index.html">Inicio</a></div>
+          <div><a href="projeto.html">Projeto</a></div>
+          <div><a href="experiencia.html">Experiencia</a></div>
+          <div><a href="contato.html">Contato</a></div>
+        </div>
+      </nav>
+    </header>
+    <section class="container">
+      <h2 class="primary-heading heading-project">PROJETOS</h2>
+      <!----------------------------------------------------------------->
+      <div class="projects">
+        <div class="project-item">
+          <img src="images/projeto1.png" alt="Projeto 1" />
+          <div class="project-title">
+            <a href="https://github.com/FelipeSoeiroLopes/Projetos-banco-de-dados/tree/main" target="_blank">CLICK PARA VISITAR</a>
+            <h3>Banco de dados MySQL</h3>
+          </div>
+        </div>
+        <!----------------------------------------------------------------->
+        <div class="project-item">
+          <img src="images/projeto2.png" alt="Projeto 2" />
+          <div class="project-title">
+            <a href="https://github.com/FelipeSoeiroLopes/Projeto-Ficha-de-colaboradores" target="_blank">CLICK PARA VISITAR</a>
+            <h3>Ficha do Colaborador</h3>
+          </div>
+        </div>
+        <!----------------------------------------------------------------->
+        <div class="project-item">
+          <img src="images/projeto3.png" alt="Projeto 3" />
+          <div class="project-title">
+            <a href="https://github.com/FelipeSoeiroLopes/listadecompras.github.io" target="_blank">CLICK PARA VISITAR</a>
+            <h3>Lista de compras</h3>
+          </div>
+        </div>
+        <!-----------------------------------------------------------------> 
+        <div class="project-item">
+          <img src="images/projeto4.png" alt="Projeto 4" />
+          <div class="project-title">
+            <a href="https://github.com/FelipeSoeiroLopes/FelipeSoeiroLopes.github.io" target="_blank">CLICK PARA VISITAR</a>
+            <h3>Este portfólio</h3>
+          </div>
+        </div>
+        <br><br>
+        <!----------------------------------------------------------------->
+      </div>
+    </section>
+    <footer class="footer2">
+      <div class="footer-container">
+        <p>Desenvolvido por Felipe Soeiro Lopes</p>
+        <a href="https://github.com/FelipeSoeiroLopes" target="_blank">
+          <img class="github-img" src="images/github-mark-white.png" alt="GitHub" />
+        </a>
+      </div>
+    </footer>  
+    <script>
+      function toggleMenu() {
+        const navbar = document.getElementById("navbar");
+        navbar.classList.toggle("active");
+      }
+    </script>  
+  </body>
+</html>

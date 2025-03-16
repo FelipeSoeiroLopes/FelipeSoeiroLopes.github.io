@@ -1,54 +1,64 @@
 <!DOCTYPE html>
-<html lang="pt-br">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Contato - Felipe Soeiro Lopes</title>
-    <link rel="stylesheet" href="styles.css">
-</head>
-<body>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="styles.css" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <title>FELIPE LOPES CONTATO</title>
+  </head>
+  <body>
     <header>
-        <div class="container">
-            <h1>Felipe Soeiro Lopes</h1>
-            <nav>
-                <ul>
-                    <li><a href="index.html">Início</a></li>
-                    <li><a href="sobre.html">Sobre</a></li>
-                    <li><a href="projetos.html">Projetos</a></li>
-                    <li><a href="contato.html">Contato</a></li>
-                </ul>
-            </nav>
+      <nav>
+        <div class="logo">
+          <img src="images/felipelogo.PNG" alt="Felipe logo" />
         </div>
+        <div class="menu-icon" onclick="toggleMenu()">&#9776;</div>
+        <div class="navbar" id="navbar">
+          <div><a href="index.html">Inicio</a></div>
+          <div><a href="projeto.html">Projeto</a></div>
+          <div><a href="experiencia.html">Experiencia</a></div>
+          <div><a href="contato.html">Contato</a></div>
+        </div>
+      </nav>
     </header>
-    
-    <section id="contato">
-        <div class="container">
-            <h2>ENTRE EM CONTATO</h2>
-            <p>Fique à vontade para entrar em contato comigo por e-mail ou pelas redes sociais. <br>Estou sempre aberto para conversar sobre novos projetos e colaborações!</br></p>
-            
-            <div class="contact-info">
-                <div class="contact-item">
-                    <h3>E-mail</h3>
-                    <p>Envie um e-mail para: <a href="mailto:felipesoeiro.contato@outlook.com.br">felipesoeiro.contato@outlook.com.br</a></p>
-                </div>
-
-                <div class="contact-item">
-                    <h3>LinkedIn</h3>
-                    <p>Conecte-se comigo no LinkedIn: <a href="https://www.linkedin.com/in/felipesoeirocontato/" target="_blank">Visitar Perfil</a></p>
-                </div>
-
-                <div class="contact-item">
-                    <h3>GitHub</h3>
-                    <p>Veja meus projetos no GitHub: <a href="https://github.com/FelipeSoeiroLopes" target="_blank">Visitar GitHub</a></p>
-                </div>
-            </div>
-        </div>
-    </section>
-
     <footer>
-        <div class="container">
-            <p>&copy; 2025 Felipe Soeiro Lopes. Todos os direitos reservados.</p>
+      <div class="container">
+        <h2>CONTATO</h2>
+        <p>
+          Estou sempre disponível para novas oportunidades, colaborações e troca de ideias. Se você tem alguma dúvida ou gostaria de conversar sobre um projeto, sinta-se à vontade para me enviar um e-mail ou me conectar através das redes sociais.
+        </p>
+        <div class="email-container">
+          <div><img src="images/icons8-e-mail-48.png" alt="email" /></div>
+          <div>felipesoeiro.contato@outlook.com.br</div>
         </div>
+        <div class="social-links">
+        <!----------------------------------------------------------------->          
+          <div>
+            <a href="https://www.linkedin.com/in/felipesoeirocontato/" target="_blank">
+              <img src="images/icons8-linkedin-48.png" alt="Linkedin"/> 
+            </a>
+          </div>   
+        <!----------------------------------------------------------------->
+        </div>
+        <br><br><br><br>
     </footer>
-</body>
+    <footer class="footer2">
+      <div class="footer-container">
+        <p>Desenvolvido por Felipe Soeiro Lopes</p>
+        <a href="https://github.com/FelipeSoeiroLopes" target="_blank">
+          <img class="github-img" src="images/github-mark-white.png" alt="GitHub" />
+        </a>
+      </div>
+    </footer>   
+    <script>
+      function toggleMenu() {
+        const navbar = document.getElementById("navbar");
+        navbar.classList.toggle("active");
+      }
+    </script> 
+  </body>
 </html>
