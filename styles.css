@@ -18,7 +18,7 @@ a {
 header {
   background-color: #222;
   padding: 10px 20px;
-  position: relative; /* Para posicionar o menu abaixo do header */
+  position: relative;
 }
 
 nav {
@@ -30,19 +30,20 @@ nav {
 }
 
 .logo img {
-  width: 80px; /* Ajuste o tamanho da logo conforme necessário */
+  width: 80px;
 }
 
 .menu-icon {
   font-size: 1.5rem;
   color: #fff;
   cursor: pointer;
-  display: none; /* Esconder o ícone em telas maiores */
+  display: none;
   transition: transform 0.3s ease;
+  padding: 10px; /* Aumenta área de clique do ícone */
 }
 
 .menu-icon:hover {
-  transform: scale(1.1); /* Efeito de escala ao passar o mouse */
+  transform: scale(1.1);
 }
 
 .navbar {
@@ -59,65 +60,82 @@ nav {
   text-decoration: none;
   font-size: 1rem;
   transition: color 0.3s ease, transform 0.3s ease;
+  display: inline-block; /* Melhora área de clique */
+  padding: 5px 0; /* Aumenta área de clique */
 }
 
 .navbar a:hover {
-  color: #ff8660; /* Cor de destaque ao passar o mouse */
-  transform: translateY(-2px); /* Efeito de levitação */
+  color: #ff8660;
+  transform: translateY(-2px);
 }
 
-/* Estilos para dispositivos móveis */
+/* Estilos para dispositivos móveis - ÁREA MODIFICADA */
 @media (max-width: 768px) {
   .menu-icon {
-    display: block; /* Mostrar o ícone em telas menores */
+    display: block;
   }
 
   .navbar {
-    display: none; /* Esconder o menu em telas menores */
+    display: none;
     flex-direction: column;
     width: 100%;
     background-color: #333;
     position: absolute;
-    top: 60px; /* Posiciona o menu abaixo do header */
+    top: 100%;
     left: 0;
-    z-index: 1000; /* Garante que o menu fique acima de outros elementos */
-    border-radius: 0 0 10px 10px; /* Bordas arredondadas na parte inferior */
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2); /* Sombra para um efeito moderno */
-    animation: slideDown 0.3s ease-out; /* Animação de abertura */
+    z-index: 1000;
+    border-radius: 0 0 10px 10px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+    animation: slideDown 0.3s ease-out;
   }
 
   .navbar.active {
-    display: flex; /* Mostrar o menu quando ativo */
+    display: flex;
   }
 
   .navbar div {
-    padding: 15px;
+    padding: 20px 15px; /* Aumentado o padding para maior área de toque */
     text-align: center;
     width: 100%;
-    border-bottom: 1px solid #444; /* Linha divisória entre os itens */
+    border-bottom: 1px solid #444;
     transition: background-color 0.3s ease;
+    min-height: 60px; /* Altura mínima para melhor toque */
+    display: flex;
+    align-items: center;
+    justify-content: center;
   }
 
   .navbar div:last-child {
-    border-bottom: none; /* Remove a borda do último item */
+    border-bottom: none;
   }
 
   .navbar div:hover {
-    background-color: #444; /* Efeito de hover nos itens do menu */
+    background-color: #444;
   }
 
   .navbar a {
-    font-size: 1.1rem; /* Aumenta o tamanho da fonte para melhor legibilidade */
+    font-size: 1.1rem;
+    padding: 10px 0; /* Aumenta área de clique */
+    width: 100%; /* Ocupa toda a largura do item */
+    height: 100%; /* Ocupa toda a altura do item */
+    display: flex;
+    align-items: center;
+    justify-content: center;
   }
 
   nav {
-    flex-direction: row; /* Mantém a logo e o ícone alinhados horizontalmente */
-    justify-content: space-between; /* Logo à esquerda, ícone à direita */
+    flex-direction: row;
+    justify-content: space-between;
     align-items: center;
+  }
+  
+  /* Feedback visual ao tocar */
+  .navbar div:active {
+    background-color: #555;
   }
 }
 
-/* Animação de abertura do menu */
+/* Restante do CSS permanece igual */
 @keyframes slideDown {
   from {
     opacity: 0;
@@ -129,7 +147,6 @@ nav {
   }
 }
 
-/* Estilos do Container */
 .container {
   max-width: 1100px;
   margin: 0 auto;
@@ -221,7 +238,6 @@ nav {
   color: #161513;
 }
 
-/* Seção de Experiências */
 .experience-with {
   text-align: center;
 }
@@ -329,7 +345,6 @@ nav {
   max-width: 800px;
 }
 
-/* Estilos do Footer */
 footer {
   background-color: #191919;
   padding: 40px 20px;
@@ -409,7 +424,6 @@ footer p {
   transform: scale(1.1);
 }
 
-/* Media Queries para telas menores */
 @media (max-width: 768px) {
   .about-text h1 {
     font-size: 2rem;
@@ -533,4 +547,4 @@ footer p {
   footer p {
     font-size: 0.75rem;
   }
-} 
+}
