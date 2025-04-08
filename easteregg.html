@@ -1,0 +1,367 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>🚀 Área Secreta do Felipe Lopes</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
+    <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=Ubuntu+Mono:wght@400;700&display=swap" rel="stylesheet" />
+    <style>
+        :root {
+            --primary: #6e48aa;
+            --secondary: #9d50bb;
+            --dark: #1a1a2e;
+            --light: #f1f1f1;
+            --accent: #ffd166;
+        }
+        
+        body {
+            background-color: var(--dark);
+            color: var(--light);
+            font-family: 'Ubuntu Mono', monospace;
+            line-height: 1.6;
+            margin: 0;
+            padding: 0;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            background-image: 
+                radial-gradient(circle at 25% 25%, rgba(110, 72, 170, 0.1) 0%, transparent 50%),
+                radial-gradient(circle at 75% 75%, rgba(157, 80, 187, 0.1) 0%, transparent 50%);
+            text-align: center;
+            overflow-x: hidden;
+        }
+        
+        .container {
+            max-width: 800px;
+            padding: 2rem;
+            position: relative;
+        }
+        
+        h1 {
+            font-family: 'Press Start 2P', cursive;
+            color: var(--accent);
+            margin-bottom: 2rem;
+            text-shadow: 0 0 10px rgba(255, 209, 102, 0.5);
+            font-size: 1.8rem;
+        }
+        
+        p {
+            margin-bottom: 1.5rem;
+            font-size: 1.1rem;
+        }
+        
+        .secret-link {
+            display: inline-block;
+            margin: 1rem 0;
+            padding: 1rem 2rem;
+            background: linear-gradient(45deg, var(--primary), var(--secondary));
+            color: white;
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: bold;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(110, 72, 170, 0.4);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .secret-link:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 20px rgba(110, 72, 170, 0.6);
+        }
+        
+        .secret-link:active {
+            transform: translateY(1px);
+        }
+        
+        .secret-link::after {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: linear-gradient(
+                to bottom right,
+                rgba(255, 255, 255, 0) 0%,
+                rgba(255, 255, 255, 0) 45%,
+                rgba(255, 255, 255, 0.3) 48%,
+                rgba(255, 255, 255, 0) 52%,
+                rgba(255, 255, 255, 0) 100%
+            );
+            transform: rotate(30deg);
+            animation: shine 3s infinite;
+        }
+        
+        .home-btn {
+            display: inline-block;
+            margin: 1rem 0;
+            padding: 0.8rem 1.5rem;
+            background: rgba(255, 255, 255, 0.1);
+            color: var(--light);
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: bold;
+            transition: all 0.3s ease;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+        
+        .home-btn:hover {
+            background: rgba(255, 255, 255, 0.2);
+            transform: translateY(-2px);
+        }
+        
+        .button-group {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 1rem;
+            margin: 2rem 0;
+        }
+        
+        @keyframes shine {
+            0% { left: -50%; }
+            20% { left: 150%; }
+            100% { left: 150%; }
+        }
+        
+        footer {
+            margin-top: 3rem;
+            font-size: 0.9rem;
+            opacity: 0.7;
+        }
+        
+        .easter-egg {
+            cursor: pointer;
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            width: 30px;
+            height: 30px;
+            opacity: 0.3;
+            transition: opacity 0.3s;
+        }
+        
+        .easter-egg:hover {
+            opacity: 1;
+        }
+        
+        .hidden-message {
+            display: none;
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background: rgba(0, 0, 0, 0.9);
+            padding: 2rem;
+            border-radius: 10px;
+            border: 2px solid var(--accent);
+            max-width: 80%;
+            z-index: 100;
+        }
+        
+        .close-btn {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            cursor: pointer;
+            font-size: 1.5rem;
+        }
+        
+        .matrix-rain {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            opacity: 0;
+            transition: opacity 1s;
+        }
+        
+        .konami-activated .matrix-rain {
+            opacity: 0.2;
+        }
+        
+        .confetti {
+            position: fixed;
+            width: 10px;
+            height: 10px;
+            background-color: var(--accent);
+            opacity: 0;
+            z-index: 999;
+        }
+        
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 1.4rem;
+            }
+            
+            .container {
+                padding: 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1 class="animate__animated animate__fadeInDown">🚨 ÁREA CONFIDENCIAL 🚨</h1>
+        
+        <p class="animate__animated animate__fadeIn animate__delay-1s">Parabéns, explorador(a) intrépido(a)! Você descobriu o easter egg secreto.</p>
+        
+        <p class="animate__animated animate__fadeIn animate__delay-2s">O que está aqui não é para todos os olhos... mas parece que você é especial.</p>
+        
+        <p class="animate__animated animate__fadeIn animate__delay-3s">Este é um espaço reservado para curiosos, hackers e mentes inquisitivas.</p>
+        
+        <div class="button-group animate__animated animate__fadeIn animate__delay-4s">
+            <a href="https://github.com/FelipeSoeiroLopes" target="_blank" class="secret-link">
+                🌌 ACESSAR O COFRE SECRETO 🌌
+            </a>
+            <a href="index.html" class="home-btn">← Voltar à Página Inicial</a>
+        </div>
+        
+        <p class="animate__animated animate__fadeIn animate__delay-5s" style="font-size: 0.8rem; opacity: 0.7;">
+          Dica: Tente o código Konami (↑ ↑ ↓ ↓ ←→ ←→ B A) no teclado...
+        </p>
+    </div>
+    
+    <footer class="animate__animated animate__fadeIn animate__delay-5s">
+        <p># FelpsDev | Área Oculta | Nível de Segurança: ∞</p>
+    </footer>
+    
+    <div class="easter-egg" onclick="showHiddenMessage()">
+        <svg viewBox="0 0 24 24" width="30" height="30" fill="var(--accent)">
+            <path d="M12,2A10,10 0 0,0 2,12A10,10 0 0,0 12,22A10,10 0 0,0 22,12A10,10 0 0,0 12,2M12,4A8,8 0 0,1 20,12A8,8 0 0,1 12,20A8,8 0 0,1 4,12A8,8 0 0,1 12,4M12,10.5A1.5,1.5 0 0,0 10.5,12A1.5,1.5 0 0,0 12,13.5A1.5,1.5 0 0,0 13.5,12A1.5,1.5 0 0,0 12,10.5M7.5,10.5A1.5,1.5 0 0,0 6,12A1.5,1.5 0 0,0 7.5,13.5A1.5,1.5 0 0,0 9,12A1.5,1.5 0 0,0 7.5,10.5M16.5,10.5A1.5,1.5 0 0,0 15,12A1.5,1.5 0 0,0 16.5,13.5A1.5,1.5 0 0,0 18,12A1.5,1.5 0 0,0 16.5,10.5Z" />
+        </svg>
+    </div>
+    
+    <div id="hiddenMessage" class="hidden-message">
+        <span class="close-btn" onclick="hideHiddenMessage()">×</span>
+        <h2>🤫 Segredo dos Segredos 🤫</h2>
+        <p>Você realmente é persistente! Aqui está sua recompensa:</p>
+        <p>O verdadeiro segredo é que não há segredo... ou será que há?</p>
+        <p>Continue explorando e talvez encontre mais surpresas!</p>
+    </div>
+    
+    <canvas id="matrixRain" class="matrix-rain"></canvas>
+    
+    <script>
+        // Easter egg do botão
+        function showHiddenMessage() {
+            document.getElementById('hiddenMessage').style.display = 'block';
+            createConfetti();
+        }
+        
+        function hideHiddenMessage() {
+            document.getElementById('hiddenMessage').style.display = 'none';
+        }
+        
+        // Easter egg do código Konami
+        const konamiCode = ['ArrowUp', 'ArrowUp', 'ArrowDown', 'ArrowDown', 'ArrowLeft', 'ArrowRight', 'ArrowLeft', 'ArrowRight', 'b', 'a'];
+        let konamiIndex = 0;
+        
+        document.addEventListener('keydown', (e) => {
+            if (e.key === konamiCode[konamiIndex]) {
+                konamiIndex++;
+                
+                if (konamiIndex === konamiCode.length) {
+                    activateKonami();
+                    konamiIndex = 0;
+                }
+            } else {
+                konamiIndex = 0;
+            }
+        });
+        
+        function activateKonami() {
+            document.body.classList.add('konami-activated');
+            createConfetti();
+            startMatrixRain();
+            
+            setTimeout(() => {
+                alert('🎉 Código Konami ativado! Você é um verdadeiro hacker! 🎉');
+            }, 500);
+        }
+        
+        // Efeito de confete
+        function createConfetti() {
+            const colors = ['#6e48aa', '#9d50bb', '#ffd166', '#06d6a0', '#ef476f'];
+            
+            for (let i = 0; i < 100; i++) {
+                const confetti = document.createElement('div');
+                confetti.className = 'confetti';
+                confetti.style.left = Math.random() * 100 + 'vw';
+                confetti.style.backgroundColor = colors[Math.floor(Math.random() * colors.length)];
+                confetti.style.opacity = '1';
+                document.body.appendChild(confetti);
+                
+                const animationDuration = Math.random() * 3 + 2;
+                
+                confetti.animate([
+                    { transform: 'translateY(0) rotate(0deg)', opacity: 1 },
+                    { transform: `translateY(${window.innerHeight}px) rotate(${Math.random() * 360}deg)`, opacity: 0 }
+                ], {
+                    duration: animationDuration * 1000,
+                    easing: 'cubic-bezier(0.1, 0.8, 0.3, 1)'
+                });
+                
+                setTimeout(() => {
+                    confetti.remove();
+                }, animationDuration * 1000);
+            }
+        }
+        
+        // Matrix rain effect
+        function startMatrixRain() {
+            const canvas = document.getElementById('matrixRain');
+            const ctx = canvas.getContext('2d');
+            
+            canvas.width = window.innerWidth;
+            canvas.height = window.innerHeight;
+            
+            const katakana = 'アァカサタナハマヤャラワガザダバパイィキシチニヒミリヰギジヂビピウゥクスツヌフムユュルグズブヅプエェケセテネヘメレヱゲゼデベペオォコソトノホモヨョロヲゴゾドボポヴッン';
+            const latin = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
+            const nums = '0123456789';
+            
+            const alphabet = katakana + latin + nums;
+            
+            const fontSize = 16;
+            const columns = canvas.width / fontSize;
+            
+            const rainDrops = [];
+            
+            for (let x = 0; x < columns; x++) {
+                rainDrops[x] = 1;
+            }
+            
+            const draw = () => {
+                ctx.fillStyle = 'rgba(0, 0, 0, 0.05)';
+                ctx.fillRect(0, 0, canvas.width, canvas.height);
+                
+                ctx.fillStyle = '#0F0';
+                ctx.font = fontSize + 'px monospace';
+                
+                for (let i = 0; i < rainDrops.length; i++) {
+                    const text = alphabet.charAt(Math.floor(Math.random() * alphabet.length));
+                    ctx.fillText(text, i * fontSize, rainDrops[i] * fontSize);
+                    
+                    if (rainDrops[i] * fontSize > canvas.height && Math.random() > 0.975) {
+                        rainDrops[i] = 0;
+                    }
+                    rainDrops[i]++;
+                }
+            };
+            
+            const interval = setInterval(draw, 30);
+            
+            window.addEventListener('resize', () => {
+                canvas.width = window.innerWidth;
+                canvas.height = window.innerHeight;
+            });
+        }
+    </script>
+</body>
+</html>

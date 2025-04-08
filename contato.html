@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-BR">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -8,44 +8,46 @@
       href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap"
       rel="stylesheet"
     />
-    <title>FELIPE LOPES CONTATO</title>
+    <title>FELIPE LOPES | CONTATO</title>
   </head>
   <body>
     <header>
       <nav>
-        <div class="logo">
-          <img src="images/felpsdevsemfundo.png" alt="Felipe logo" />
+        <div class="logo" id="logoSecreta">
+          <img src="images/felpsdevsemfundo.png" alt="Logo do Felipe" />
         </div>
-        <div class="menu-icon" onclick="toggleMenu()">&#9776;</div>
+        <div class="menu-icon" onclick="alternarMenu()">&#9776;</div>
         <div class="navbar" id="navbar">
           <div><a href="index.html">INÍCIO</a></div>
-          <div><a href="projeto.html">PROJETOS</a></div>
+          <div><a href="projetos.html">PROJETOS</a></div>
           <div><a href="experiencia.html">EXPERIÊNCIAS</a></div>
           <div><a href="contato.html">CONTATOS</a></div>
         </div>
       </nav>
     </header>
-    <footer>
-      <div class="container">
+
+    <main class="container">
+      <section>
         <h2>CONTATOS</h2>
         <p>
-          Estou sempre disponível para novas oportunidades, colaborações e troca de ideias. Se você tem alguma dúvida ou gostaria de conversar sobre um projeto, sinta-se à vontade para me enviar um e-mail ou me conectar através das redes sociais.
+          Estou sempre disponível para novas oportunidades, colaborações e troca de ideias. Se você tem alguma dúvida ou gostaria de conversar sobre um projeto, sinta-se à vontade para me enviar um e-mail ou me conectar pelas redes sociais.
         </p>
+
         <div class="email-container">
-          <div><img src="images/icons8-e-mail-48.png" alt="email" /></div>
+          <div>
+            <img src="images/icons8-e-mail-48.png" alt="Ícone de e-mail" />
+          </div>
           <div>felipesoeiro.contato@outlook.com.br</div>
         </div>
+
         <div class="social-links">
-        <!----------------------------------------------------------------->          
-          <div>
-            <a href="https://www.linkedin.com/in/felipesoeirocontato/" target="_blank">
-              <img src="images/icons8-linkedin-48.png" alt="Linkedin"/> 
-            </a>
-          </div>   
-        <!----------------------------------------------------------------->
+          <a href="https://www.linkedin.com/in/felipesoeirocontato/" target="_blank">
+            <img src="images/icons8-linkedin-48.png" alt="LinkedIn" />
+          </a>
         </div>
-        <br><br><br><br>
-    </footer>
+      </section>
+    </main>
+
     <footer class="footer2">
       <div class="footer-container">
         <p>Desenvolvido por Felipe Soeiro Lopes</p>
@@ -53,12 +55,8 @@
           <img class="github-img" src="images/github-mark-white.png" alt="GitHub" />
         </a>
       </div>
-    </footer>   
-    <script>
-      function toggleMenu() {
-        const navbar = document.getElementById("navbar");
-        navbar.classList.toggle("active");
-      }
-    </script> 
+    </footer>
+
+    <script src="script.js"></script>
   </body>
 </html>

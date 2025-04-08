@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-BR">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -8,52 +8,53 @@
       href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap"
       rel="stylesheet"
     />
-    <title>FELIPE LOPES EXPERIENCIA</title>
+    <title>FELIPE LOPES | EXPERIÊNCIA</title>
   </head>
   <body>
     <header>
       <nav>
-        <div class="logo">
-          <img src="images/felpsdevsemfundo.png" alt="Felipe logo" />
+        <div class="logo" id="logoSecreta">
+          <img src="images/felpsdevsemfundo.png" alt="Logo do Felipe" />
         </div>
-        <div class="menu-icon" onclick="toggleMenu()">&#9776;</div>
+        <div class="menu-icon" onclick="alternarMenu()">&#9776;</div>
         <div class="navbar" id="navbar">
           <div><a href="index.html">INÍCIO</a></div>
-          <div><a href="projeto.html">PROJETOS</a></div>
+          <div><a href="projetos.html">PROJETOS</a></div>
           <div><a href="experiencia.html">EXPERIÊNCIAS</a></div>
           <div><a href="contato.html">CONTATOS</a></div>
         </div>
       </nav>
     </header>
+
     <section class="container">
       <h2 class="primary-heading heading-experience">EXPERIÊNCIAS</h2>
       <div class="experiences">
-        <!----------------------------------------------------------------->
+        <!-- Experiência 1 -->
         <div class="experience-item">
           <div class="experience-title-container">
-            <div><img src="images/simpar_logo.jpeg" alt="SIMPAR" /></div>
-            <div class="experience-title">Técnico Service Desk JR na SIMPAR</div>
+            <div><img src="images/simpar_logo.jpeg" alt="Logo da SIMPAR" /></div>
+            <div class="experience-title">Técnico Service Desk Júnior | SIMPAR</div>
             <div class="date">Setembro 2024 - Presente</div>
           </div>
           <p>
-            Com foco em excelência no suporte técnico, consegui aumentar em 90% a satisfação dos usuários, reduzir em 70% o tempo de inatividade e garantir que 100% dos usuários tivessem ambientes de trabalho otimizados. Utilizando ferramentas como Jira, Active Directory e Azure, consegui também elevar em 80% a adoção correta das ferramentas, impulsionando a eficiência operacional e a continuidade das operações.
+            Com foco na excelência do suporte técnico, aumentei em 90% a satisfação dos usuários, reduzi em 70% o tempo de inatividade e garanti que 100% dos usuários tivessem ambientes de trabalho otimizados. Utilizando ferramentas como Jira, Active Directory e Azure, contribuí para a elevação de 80% na adoção correta dessas ferramentas, impulsionando a eficiência operacional e garantindo a continuidade das operações.
           </p>
         </div>
-        <!----------------------------------------------------------------->
+
+        <!-- Experiência 2 -->
         <div class="experience-item">
           <div class="experience-title-container">
-            <div><img src="images/tecnocomp_tecnologia_logo.jpeg" alt="TECNOCOMP" /></div>
-            <div class="experience-title">Estagio - TI | Tecnocomp tecnologia | SIMPAR</div>
+            <div><img src="images/tecnocomp_tecnologia_logo.jpeg" alt="Logo da Tecnocomp" /></div>
+            <div class="experience-title">Estagiário de TI | Tecnocomp (SIMPAR)</div>
             <div class="date">Março 2024 - Setembro 2024</div>
           </div>
           <p>
-            Durante meu estágio na empresa terceira TECNOCOMP, prestei suporte técnico eficiente e cordial por telefone, resolvendo questões de software, sistemas e aplicativos, garantindo a continuidade das operações. Realizei a configuração de novos equipamentos e softwares, utilizando ferramentas como Jira, Active Directory e Azure para otimização do ambiente de trabalho. Utilizei o TeamViewer para diagnósticos remotos rápidos, documentei detalhadamente os chamados e colaborei ativamente com equipes internas para resolver questões complexas e garantir fluxo contínuo de suporte.
+            Durante meu estágio na terceira TECNOCOMP, prestei suporte técnico eficiente e cordial por telefone, resolvendo questões de software, sistemas e aplicativos. Realizei configurações de equipamentos e softwares, utilizando Jira, Active Directory e Azure. Também utilizei o TeamViewer para diagnósticos remotos, documentei os chamados com precisão e colaborei com equipes internas para resolver problemas complexos, mantendo o suporte fluido e eficaz.
           </p>
         </div>
-        <br><br><br><br><br>
-        <!----------------------------------------------------------------->
       </div>
     </section>
+
     <footer class="footer2">
       <div class="footer-container">
         <p>Desenvolvido por Felipe Soeiro Lopes</p>
@@ -61,12 +62,8 @@
           <img class="github-img" src="images/github-mark-white.png" alt="GitHub" />
         </a>
       </div>
-    </footer>  
-    <script>
-      function toggleMenu() {
-        const navbar = document.getElementById("navbar");
-        navbar.classList.toggle("active");
-      }
-    </script>    
+    </footer>
+
+    <script src="script.js"></script>
   </body>
 </html>

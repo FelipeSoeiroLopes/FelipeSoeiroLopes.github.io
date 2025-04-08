@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-BR">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -8,57 +8,61 @@
       href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap"
       rel="stylesheet"
     />
-    <title>FELIPE LOPES INICIO</title>
+    <title>FELIPE LOPES | INÍCIO</title>
   </head>
   <body>
     <header>
       <nav>
-        <div class="logo">
-          <img src="images/felpsdevsemfundo.png" alt="Felipe logo" />
+        <div class="logo" id="logoSecreta">
+          <img src="images/felpsdevsemfundo.png" alt="Logo do Felipe" />
         </div>
-        <div class="menu-icon" onclick="toggleMenu()">&#9776;</div>
+        <div class="menu-icon" onclick="alternarMenu()">&#9776;</div>
         <div class="navbar" id="navbar">
           <div><a href="index.html">INÍCIO</a></div>
-          <div><a href="projeto.html">PROJETOS</a></div>
+          <div><a href="projetos.html">PROJETOS</a></div>
           <div><a href="experiencia.html">EXPERIÊNCIAS</a></div>
           <div><a href="contato.html">CONTATOS</a></div>
         </div>
       </nav>
     </header>
+
     <section class="container about">
       <div class="avatar">
-        <img src="images/felpsimagemlogo.png" alt="Felipe lopes logo" />
+        <img src="images/felpsimagemlogo.png" alt="Logo Felipe Lopes" />
       </div>
       <div class="about-text">
-        <h1>Transformando ideias em soluções digitais inovadoras, <br /><span>onde cada linha de código é um passo para o futuro.</span></h1>
+        <h1>
+          Do 'Hello World' à Revolução Digital:<br />
+          <span>Minha Jornada como <br> FullStack</span>
+        </h1>
         <p>
-          Eu sou Felipe Soeiro Lopes, um apaixonado por tecnologia e inovação. Meu sonho é transformar o mundo através do desenvolvimento, criando soluções que façam a diferença
+          Eu sou Felipe Soeiro Lopes, um apaixonado por tecnologia desde sempre e com um objetivo claro: ser um desenvolvedor FullStack que transforma desafios em soluções extraordinárias.
         </p>
         <div class="about-btn">
-          <!-- Botão para baixar o currículo -->
           <a href="path/CV_FELIPESLOPES.pdf" download>
-            <button class="btn-primary">Download CV</button>
+            <button class="btn-primary">Baixar Currículo</button>
           </a>
-          <!-- Botão para contato (abre o email para contato) -->
           <a href="mailto:felipesoeiro.contato@outlook.com.br">
             <button class="btn-secondary">Entre em contato</button>
           </a>
         </div>
       </div>
     </section>
+
     <section class="container experience-with">
-      <h2>EXPERIÊNCIAS EM</h2>
+      <h2>EXPERIÊNCIA COM</h2>
       <div class="experience-with-lang">
-        <div><img src="images/icons8-html-48.png" alt="Html logo" /></div>
-        <div><img src="images/icons8-css-48.png" alt="Css logo" /></div>
-        <div><img src="images/icons8-javascript-48.png" alt="Javascript logo" /></div>
-        <div><img src="images/icons8-logo-java-coffee-cup-48.png" alt="Java logo" /></div>
-        <div><img src="images/icons8-python-48.png" alt="Python logo" /></div>
-        <div><img src="images/icons8-mysql-48.png" alt="MySQL logo" /></div>
-        <div><img src="images/icons8-azure-48.png" alt="Azure logo" /></div>
+        <div><img src="images/icons8-html-48.png" alt="Logo HTML" /></div>
+        <div><img src="images/icons8-css-48.png" alt="Logo CSS" /></div>
+        <div><img src="images/icons8-javascript-48.png" alt="Logo JavaScript" /></div>
+        <div><img src="images/icons8-logo-java-coffee-cup-48.png" alt="Logo Java" /></div>
+        <div><img src="images/icons8-python-48.png" alt="Logo Python" /></div>
+        <div><img src="images/icons8-mysql-48.png" alt="Logo MySQL" /></div>
+        <div><img src="images/icons8-azure-48.png" alt="Logo Azure" /></div>
       </div>
-      <br><br>
+      <br /><br />
     </section>
+
     <footer class="footer2">
       <div class="footer-container">
         <p>Desenvolvido por Felipe Soeiro Lopes</p>
@@ -67,11 +71,7 @@
         </a>
       </div>
     </footer>
-    <script>
-      function toggleMenu() {
-        const navbar = document.getElementById("navbar");
-        navbar.classList.toggle("active");
-      }
-    </script>
+
+    <script src="script.js"></script>
   </body>
 </html>
