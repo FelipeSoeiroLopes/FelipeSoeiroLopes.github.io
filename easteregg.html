@@ -77,25 +77,6 @@
             transform: translateY(1px);
         }
         
-        .secret-link::after {
-            content: '';
-            position: absolute;
-            top: -50%;
-            left: -50%;
-            width: 200%;
-            height: 200%;
-            background: linear-gradient(
-                to bottom right,
-                rgba(255, 255, 255, 0) 0%,
-                rgba(255, 255, 255, 0) 45%,
-                rgba(255, 255, 255, 0.3) 48%,
-                rgba(255, 255, 255, 0) 52%,
-                rgba(255, 255, 255, 0) 100%
-            );
-            transform: rotate(30deg);
-            animation: shine 3s infinite;
-        }
-        
         .home-btn {
             display: inline-block;
             margin: 1rem 0;
@@ -122,77 +103,10 @@
             margin: 2rem 0;
         }
         
-        @keyframes shine {
-            0% { left: -50%; }
-            20% { left: 150%; }
-            100% { left: 150%; }
-        }
-        
         footer {
             margin-top: 3rem;
             font-size: 0.9rem;
             opacity: 0.7;
-        }
-        
-        .easter-egg {
-            cursor: pointer;
-            position: fixed;
-            bottom: 20px;
-            right: 20px;
-            width: 30px;
-            height: 30px;
-            opacity: 0.3;
-            transition: opacity 0.3s;
-        }
-        
-        .easter-egg:hover {
-            opacity: 1;
-        }
-        
-        .hidden-message {
-            display: none;
-            position: fixed;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            background: rgba(0, 0, 0, 0.9);
-            padding: 2rem;
-            border-radius: 10px;
-            border: 2px solid var(--accent);
-            max-width: 80%;
-            z-index: 100;
-        }
-        
-        .close-btn {
-            position: absolute;
-            top: 10px;
-            right: 10px;
-            cursor: pointer;
-            font-size: 1.5rem;
-        }
-        
-        .matrix-rain {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            z-index: -1;
-            opacity: 0;
-            transition: opacity 1s;
-        }
-        
-        .konami-activated .matrix-rain {
-            opacity: 0.2;
-        }
-        
-        .confetti {
-            position: fixed;
-            width: 10px;
-            height: 10px;
-            background-color: var(--accent);
-            opacity: 0;
-            z-index: 999;
         }
         
         @media (max-width: 768px) {
@@ -220,19 +134,59 @@
         .konami-btn:hover {
             background: #ffcc66;
         }
+
+        /* Estilo para o fundo do código Konami */
+        .konami-background {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.9);
+            z-index: -1;
+            display: none;
+        }
+
+        .konami-activated .konami-background {
+            display: block;
+            z-index: -1;
+        }
+
+        .konami-background h1 {
+            color: var(--accent);
+            font-size: 3rem;
+            text-align: center;
+            margin-top: 20%;
+            animation: fadeIn 2s ease-in-out;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
+        }
     </style>
 </head>
 <body>
     <div class="container">
         <h1 class="animate__animated animate__fadeInDown">🚨 ÁREA CONFIDENCIAL 🚨</h1>
         
-        <p class="animate__animated animate__fadeIn animate__delay-1s">Parabéns, explorador(a) intrépido(a)! Você descobriu o easter egg secreto.</p>
+        <p class="animate__animated animate__fadeIn animate__delay-0.5s">
+            Você sabia que a Konami, uma das maiores empresas de games, criou um código secreto que virou lenda?
+        </p>
         
-        <p class="animate__animated animate__fadeIn animate__delay-2s">O que está aqui não é para todos os olhos... mas parece que você é especial.</p>
+        <p class="animate__animated animate__fadeIn animate__delay-1s">
+            O famoso <strong>Código Konami</strong> (↑ ↑ ↓ ↓ ← → ← → B A) foi usado em vários jogos para desbloquear segredos incríveis.
+        </p>
         
-        <p class="animate__animated animate__fadeIn animate__delay-3s">Este é um espaço reservado para curiosos, hackers e mentes inquisitivas.</p>
+        <p class="animate__animated animate__fadeIn animate__delay-1.5s">
+            Como um apaixonado por jogos, decidi trazer essa ideia para o meu portfólio. Afinal, quem não ama um bom easter egg?
+        </p>
         
-        <div class="button-group animate__animated animate__fadeIn animate__delay-4s">
+        <div class="button-group animate__animated animate__fadeIn animate__delay-2s">
             <a href="https://github.com/FelipeSoeiroLopes" target="_blank" class="secret-link">
                 🌌 ACESSAR O MEU GITHUB 🌌
             </a>
@@ -240,42 +194,24 @@
             <button class="konami-btn" onclick="simulateKonamiCode()">Ativar Código Konami</button>
         </div>
         
-        <p class="animate__animated animate__fadeIn animate__delay-5s" style="font-size: 0.8rem; opacity: 0.7;">
-          Dica: Tente o código Konami (↑ ↑ ↓ ↓ ←→ ←→ B A) no teclado...
+        <p class="animate__animated animate__fadeIn animate__delay-2.5s" style="font-size: 0.8rem; opacity: 0.7;">
+          Dica: Tente o código Konami (↑ ↑ ↓ ↓ ←→ ←→ B A) no teclado...<br>
+          Ou, se estiver no celular, clique no botão acima!<br>
+          Desça a tela para ver o que acontece!<br>
         </p>
     </div>
     
-    <footer class="animate__animated animate__fadeIn animate__delay-5s">
+    <footer class="animate__animated animate__fadeIn animate__delay-3s">
         <p># FelpsDev | Área Oculta | Nível de Segurança: ∞</p>
     </footer>
     
-    <div class="easter-egg" onclick="showHiddenMessage()">
-        <svg viewBox="0 0 24 24" width="30" height="30" fill="var(--accent)">
-            <path d="M12,2A10,10 0 0,0 2,12A10,10 0 0,0 12,22A10,10 0 0,0 22,12A10,10 0 0,0 12,2M12,4A8,8 0 0,1 20,12A8,8 0 0,1 12,20A8,8 0 0,1 4,12A8,8 0 0,1 12,4M12,10.5A1.5,1.5 0 0,0 10.5,12A1.5,1.5 0 0,0 12,13.5A1.5,1.5 0 0,0 13.5,12A1.5,1.5 0 0,0 12,10.5M7.5,10.5A1.5,1.5 0 0,0 6,12A1.5,1.5 0 0,0 7.5,13.5A1.5,1.5 0 0,0 9,12A1.5,1.5 0 0,0 7.5,10.5M16.5,10.5A1.5,1.5 0 0,0 15,12A1.5,1.5 0 0,0 16.5,13.5A1.5,1.5 0 0,0 18,12A1.5,1.5 0 0,0 16.5,10.5Z" />
-        </svg>
-    </div>
-    
-    <div id="hiddenMessage" class="hidden-message">
-        <span class="close-btn" onclick="hideHiddenMessage()">×</span>
-        <h2>🤫 Segredo dos Segredos 🤫</h2>
-        <p>Você realmente é persistente! Aqui está sua recompensa:</p>
-        <p>O verdadeiro segredo é que não há segredo... ou será que há?</p>
-        <p>Continue explorando e talvez encontre mais surpresas!</p>
+    <div class="konami-background">
+        <h1>🎮 Código Konami Ativado! 🎮</h1>
     </div>
     
     <canvas id="matrixRain" class="matrix-rain"></canvas>
     
     <script>
-        // Easter egg do botão
-        function showHiddenMessage() {
-            document.getElementById('hiddenMessage').style.display = 'block';
-            createConfetti();
-        }
-        
-        function hideHiddenMessage() {
-            document.getElementById('hiddenMessage').style.display = 'none';
-        }
-        
         // Easter egg do código Konami
         const konamiCode = ['ArrowUp', 'ArrowUp', 'ArrowDown', 'ArrowDown', 'ArrowLeft', 'ArrowRight', 'ArrowLeft', 'ArrowRight', 'b', 'a'];
         let konamiIndex = 0;
