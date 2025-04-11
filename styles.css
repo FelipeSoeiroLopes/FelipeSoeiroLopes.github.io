@@ -1,3 +1,4 @@
+/* Estilos gerais */
 * {
   margin: 0;
   padding: 0;
@@ -14,7 +15,7 @@ a {
   text-decoration: none;
 }
 
-/* Estilos do Header */
+/* Header */
 header {
   background-color: #222;
   padding: 10px 20px;
@@ -39,7 +40,7 @@ nav {
   cursor: pointer;
   display: none;
   transition: transform 0.3s ease;
-  padding: 10px; /* Aumenta área de clique do ícone */
+  padding: 10px;
 }
 
 .menu-icon:hover {
@@ -57,11 +58,10 @@ nav {
 
 .navbar a {
   color: #fff;
-  text-decoration: none;
   font-size: 1rem;
   transition: color 0.3s ease, transform 0.3s ease;
-  display: inline-block; /* Melhora área de clique */
-  padding: 5px 0; /* Aumenta área de clique */
+  display: inline-block;
+  padding: 5px 0;
 }
 
 .navbar a:hover {
@@ -69,7 +69,7 @@ nav {
   transform: translateY(-2px);
 }
 
-/* Estilos para dispositivos móveis - ÁREA MODIFICADA */
+/* Responsividade para Header */
 @media (max-width: 768px) {
   .menu-icon {
     display: block;
@@ -86,7 +86,6 @@ nav {
     z-index: 1000;
     border-radius: 0 0 10px 10px;
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
-    animation: slideDown 0.3s ease-out;
   }
 
   .navbar.active {
@@ -94,15 +93,11 @@ nav {
   }
 
   .navbar div {
-    padding: 20px 15px; /* Aumentado o padding para maior área de toque */
+    padding: 20px 15px;
     text-align: center;
     width: 100%;
     border-bottom: 1px solid #444;
     transition: background-color 0.3s ease;
-    min-height: 60px; /* Altura mínima para melhor toque */
-    display: flex;
-    align-items: center;
-    justify-content: center;
   }
 
   .navbar div:last-child {
@@ -115,27 +110,158 @@ nav {
 
   .navbar a {
     font-size: 1.1rem;
-    padding: 10px 0; /* Aumenta área de clique */
-    width: 100%; /* Ocupa toda a largura do item */
-    height: 100%; /* Ocupa toda a altura do item */
+    padding: 10px 0;
+    width: 100%;
     display: flex;
     align-items: center;
     justify-content: center;
   }
+}
 
-  nav {
-    flex-direction: row;
-    justify-content: space-between;
-    align-items: center;
+/* Footer */
+.footer2 {
+  background-color: #333;
+  color: white;
+  padding: 20px 0;
+  text-align: center;
+  position: fixed; /* Fixa o footer na parte inferior */
+  bottom: 0; /* Alinha na parte inferior */
+  left: 0;
+  width: 100%; /* Garante que ocupe toda a largura */
+  z-index: 1000; /* Garante que fique acima de outros elementos */
+  box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.3); /* Adiciona uma leve sombra */
+}
+
+.footer2 .footer-container {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.footer2 .github-img {
+  width: 40px;
+  height: 40px;
+  cursor: pointer;
+  transition: transform 0.3s ease;
+}
+
+.footer2 .github-img:hover {
+  transform: scale(1.1);
+}
+
+/* Responsividade para Footer */
+@media (max-width: 768px) {
+  .footer2 {
+    padding: 15px 0;
   }
-  
-  /* Feedback visual ao tocar */
-  .navbar div:active {
-    background-color: #555;
+
+  .footer2 p {
+    font-size: 0.875rem;
+  }
+
+  .footer2 .github-img {
+    width: 32px;
+    height: 32px;
   }
 }
 
-/* Restante do CSS permanece igual */
+/* Contatos */
+.email-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 20px;
+  gap: 10px;
+  text-align: center;
+}
+
+.email-container img {
+  width: 48px; /* Aumenta o tamanho do ícone */
+  height: 48px;
+}
+
+.email-container div {
+  font-size: 1rem;
+  word-wrap: break-word; /* Quebra o texto longo */
+  max-width: 90%; /* Limita a largura do texto */
+}
+
+.social-links {
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
+  gap: 15px;
+}
+
+.social-links a {
+  width: 70px; /* Aumenta o tamanho do contêiner da bolinha */
+  height: 70px;
+  display: flex;
+  align-items: center; /* Centraliza verticalmente o ícone */
+  justify-content: center; /* Centraliza horizontalmente o ícone */
+  background-color: #444;
+  border-radius: 50%;
+  transition: transform 0.3s ease, background-color 0.3s ease;
+}
+
+.social-links a:hover {
+  transform: scale(1.1);
+  background-color: #ff8660;
+}
+
+.social-links img {
+  width: 48px; /* Aumenta o tamanho dos ícones sociais */
+  height: 48px;
+}
+
+/* Responsividade para Contatos */
+@media (max-width: 480px) {
+  .email-container div {
+    font-size: 0.9rem; /* Reduz o tamanho da fonte */
+    text-align: center;
+  }
+
+  .social-links a {
+    width: 40px;
+    height: 40px;
+  }
+
+  .social-links img {
+    width: 20px;
+    height: 20px;
+  }
+}
+
+/* Responsividade para Contatos - Remover bolinhas em dispositivos menores */
+@media (max-width: 768px) {
+  .social-links a {
+    width: auto; /* Remove o tamanho fixo do contêiner */
+    height: auto;
+    background-color: transparent; /* Remove o fundo da bolinha */
+    border-radius: 0; /* Remove o formato arredondado */
+    box-shadow: none; /* Remove a sombra */
+  }
+
+  .social-links img {
+    width: 48px; /* Ajusta o tamanho dos ícones sociais */
+    height: 48px;
+  }
+}
+
+@media (max-width: 480px) {
+  .social-links a {
+    width: auto; /* Remove o tamanho fixo do contêiner */
+    height: auto;
+    background-color: transparent; /* Remove o fundo da bolinha */
+    border-radius: 0; /* Remove o formato arredondado */
+    box-shadow: none; /* Remove a sombra */
+  }
+
+  .social-links img {
+    width: 40px; /* Ajusta o tamanho dos ícones sociais */
+    height: 40px;
+  }
+}
+
 @keyframes slideDown {
   from {
     opacity: 0;
@@ -255,9 +381,41 @@ nav {
 }
 
 .experience-with-lang img {
-  width: 42px;
+  width: 100%;
+  max-width: 42px; /* Tamanho padrão */
   margin: 10px;
   cursor: pointer;
+  transition: transform 0.3s ease, box-shadow 0.3s ease, filter 0.3s ease;
+}
+
+.experience-with-lang img:hover {
+  transform: scale(1.2); /* Aumenta o tamanho ao passar o mouse */
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4); /* Adiciona uma sombra mais suave */
+  filter: brightness(1.2) blur(2px); /* Aumenta o brilho e adiciona desfoque */
+}
+
+.experience-with-lang div {
+  position: relative;
+  text-align: center;
+}
+
+.experience-with-lang span {
+  position: absolute;
+  bottom: -10px; /* Ajuste a posição conforme necessário */
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: rgba(0, 0, 0, 0.7); /* Fundo semitransparente */
+  color: #fff;
+  padding: 5px 10px;
+  border-radius: 5px;
+  font-size: 0.8rem;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  pointer-events: none; /* Evita interferência no hover */
+}
+
+.experience-with-lang div:hover span {
+  opacity: 1;
 }
 
 .primary-heading {
@@ -279,28 +437,54 @@ nav {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-  margin: 40px 0;
+  gap: 20px; /* Espaçamento entre os projetos */
+  padding: 20px;
+  max-width: 1200px; /* Limita a largura máxima do contêiner */
+  margin: 0 auto 50px auto; /* Adiciona margem inferior para afastar do footer */
 }
 
 .project-item {
   background: #2a2a2a;
-  margin: 20px;
-  border-radius: 18px 18px 0 0;
-  max-width: 300px;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  max-width: 300px; /* Limita a largura de cada projeto */
   width: 100%;
+}
+
+.project-item:hover {
+  transform: translateY(-10px); /* Elevação ao passar o mouse */
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.5); /* Sombra mais intensa */
 }
 
 .project-item img {
   width: 100%;
-  border-radius: 18px 18px 0 0;
+  height: 200px;
+  object-fit: cover; /* Garante que a imagem se ajuste ao espaço */
 }
 
 .project-title {
   padding: 15px;
+  text-align: center;
+}
+
+.project-title a {
+  display: inline-block;
+  margin-bottom: 10px;
+  color: #ff8660;
+  font-weight: bold;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.project-title a:hover {
+  color: #9a33ff; /* Cor diferente ao passar o mouse */
 }
 
 .project-title h3 {
   color: #fff;
+  font-size: 1.2rem;
 }
 
 .heading-experience {
@@ -358,70 +542,6 @@ footer h2 {
 
 footer p {
   font-size: 1rem;
-}
-
-.footer2 {
-  background-color: #333;
-  color: white;
-  padding: 20px 0;
-  text-align: center;
-  position: fixed;
-  left: 0;
-  bottom: 0;
-  width: 100%;
-  z-index: 10;
-}
-
-.footer2 .footer-container {
-  max-width: 1200px;
-  margin: 0 auto;
-}
-
-.footer2 .github-img {
-  width: 40px;
-  height: 40px;
-  cursor: pointer;
-  transition: transform 0.3s ease;
-}
-
-.footer2 .github-img:hover {
-  transform: scale(1.1);
-}
-
-.email-container {
-  display: flex;
-  align-items: center;
-  margin-top: 40px;
-  flex-wrap: wrap;
-}
-
-.email-container img {
-  margin-right: 10px;
-  width: 24px;
-  height: 24px;
-}
-
-.email-container p {
-  font-size: 1.25rem;
-  color: #c5c5c5;
-  margin: 0;
-}
-
-.social-links {
-  display: flex;
-  margin-top: 40px;
-  flex-wrap: wrap;
-}
-
-.social-links img {
-  margin-right: 20px;
-  width: 32px;
-  height: 32px;
-  transition: transform 0.3s ease;
-}
-
-.social-links img:hover {
-  transform: scale(1.1);
 }
 
 @media (max-width: 768px) {
@@ -505,6 +625,22 @@ footer p {
     width: 28px;
     height: 28px;
   }
+
+  .social-links a {
+    width: 80px; /* Aumenta o tamanho do contêiner da bolinha */
+    height: 80px;
+  }
+
+  .social-links img {
+    width: 60px; /* Aumenta o tamanho dos ícones sociais */
+    height: 60px;
+  }
+
+  .social-links a {
+    display: flex;
+    align-items: center; /* Centraliza verticalmente o ícone */
+    justify-content: center; /* Centraliza horizontalmente o ícone */
+  }
 }
 
 @media (max-width: 480px) {
@@ -546,5 +682,21 @@ footer p {
 
   footer p {
     font-size: 0.75rem;
+  }
+
+  .social-links a {
+    width: 70px; /* Ajusta o tamanho do contêiner da bolinha */
+    height: 70px;
+  }
+
+  .social-links img {
+    width: 50px; /* Ajusta o tamanho dos ícones sociais */
+    height: 50px;
+  }
+
+  .social-links a {
+    display: flex;
+    align-items: center; /* Centraliza verticalmente o ícone */
+    justify-content: center; /* Centraliza horizontalmente o ícone */
   }
 }

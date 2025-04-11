@@ -204,6 +204,22 @@
                 padding: 1rem;
             }
         }
+
+        .konami-btn {
+            margin-top: 1rem;
+            padding: 1rem 2rem;
+            background: var(--accent);
+            color: var(--dark);
+            border: none;
+            border-radius: 50px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        
+        .konami-btn:hover {
+            background: #ffcc66;
+        }
     </style>
 </head>
 <body>
@@ -218,9 +234,10 @@
         
         <div class="button-group animate__animated animate__fadeIn animate__delay-4s">
             <a href="https://github.com/FelipeSoeiroLopes" target="_blank" class="secret-link">
-                🌌 ACESSAR O COFRE SECRETO 🌌
+                🌌 ACESSAR O MEU GITHUB 🌌
             </a>
             <a href="index.html" class="home-btn">← Voltar à Página Inicial</a>
+            <button class="konami-btn" onclick="simulateKonamiCode()">Ativar Código Konami</button>
         </div>
         
         <p class="animate__animated animate__fadeIn animate__delay-5s" style="font-size: 0.8rem; opacity: 0.7;">
@@ -284,6 +301,16 @@
             setTimeout(() => {
                 alert('🎉 Código Konami ativado! Você é um verdadeiro hacker! 🎉');
             }, 500);
+        }
+
+        // Simula o código Konami ao clicar no botão
+        function simulateKonamiCode() {
+            konamiCode.forEach((key, index) => {
+                setTimeout(() => {
+                    const event = new KeyboardEvent('keydown', { key });
+                    document.dispatchEvent(event);
+                }, index * 200); // Intervalo de 200ms entre as teclas
+            });
         }
         
         // Efeito de confete
