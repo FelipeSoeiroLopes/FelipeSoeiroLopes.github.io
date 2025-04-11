@@ -1,215 +1,215 @@
 /* Estilos gerais */
 * {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
+  margin: 0; /* Remove margens padrão */
+  padding: 0; /* Remove preenchimentos padrão */
+  box-sizing: border-box; /* Inclui bordas e preenchimentos no tamanho total */
 }
 
 body {
-  font-family: "Poppins", sans-serif;
-  background-color: #161513;
-  color: #c5c5c5;
+  font-family: "Poppins", sans-serif; /* Define a fonte principal */
+  background-color: #161513; /* Cor de fundo */
+  color: #c5c5c5; /* Cor do texto */
 }
 
 a {
-  text-decoration: none;
+  text-decoration: none; /* Remove sublinhado dos links */
 }
 
 /* Header */
 header {
-  background-color: #222;
-  padding: 10px 20px;
-  position: relative;
+  background-color: #222; /* Cor de fundo do cabeçalho */
+  padding: 10px 20px; /* Espaçamento interno */
+  position: relative; /* Define posição relativa para elementos filhos */
 }
 
 nav {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  max-width: 1100px;
-  margin: 0 auto;
+  display: flex; /* Layout flexível */
+  justify-content: space-between; /* Espaça os itens igualmente */
+  align-items: center; /* Alinha os itens verticalmente */
+  max-width: 1100px; /* Largura máxima do menu */
+  margin: 0 auto; /* Centraliza horizontalmente */
 }
 
 .logo img {
-  width: 80px;
+  width: 80px; /* Define o tamanho da logo */
 }
 
 .menu-icon {
-  font-size: 1.5rem;
-  color: #fff;
-  cursor: pointer;
-  display: none;
-  transition: transform 0.3s ease;
-  padding: 10px;
+  font-size: 1.5rem; /* Tamanho do ícone do menu */
+  color: #fff; /* Cor do ícone */
+  cursor: pointer; /* Mostra o cursor de clique */
+  display: none; /* Esconde o ícone por padrão */
+  transition: transform 0.3s ease; /* Animação suave ao interagir */
+  padding: 10px; /* Espaçamento interno */
 }
 
 .menu-icon:hover {
-  transform: scale(1.1);
+  transform: scale(1.1); /* Aumenta o ícone ao passar o mouse */
 }
 
 .navbar {
-  display: flex;
-  align-items: center;
+  display: flex; /* Layout flexível */
+  align-items: center; /* Alinha os itens verticalmente */
 }
 
 .navbar div {
-  padding: 10px 15px;
+  padding: 10px 15px; /* Espaçamento interno dos itens */
 }
 
 .navbar a {
-  color: #fff;
-  font-size: 1rem;
-  transition: color 0.3s ease, transform 0.3s ease;
-  display: inline-block;
-  padding: 5px 0;
+  color: #fff; /* Cor do texto dos links */
+  font-size: 1rem; /* Tamanho da fonte */
+  transition: color 0.3s ease, transform 0.3s ease; /* Animação suave */
+  display: inline-block; /* Exibe os links como blocos inline */
+  padding: 5px 0; /* Espaçamento interno */
 }
 
 .navbar a:hover {
-  color: #ff8660;
-  transform: translateY(-2px);
+  color: #ff8660; /* Cor ao passar o mouse */
+  transform: translateY(-2px); /* Move o link para cima */
 }
 
 /* Responsividade para Header */
 @media (max-width: 768px) {
   .menu-icon {
-    display: block;
+    display: block; /* Mostra o ícone do menu em telas menores */
   }
 
   .navbar {
-    display: none;
-    flex-direction: column;
-    width: 100%;
-    background-color: #333;
-    position: absolute;
-    top: 100%;
-    left: 0;
-    z-index: 1000;
-    border-radius: 0 0 10px 10px;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+    display: none; /* Esconde o menu por padrão */
+    flex-direction: column; /* Alinha os itens verticalmente */
+    width: 100%; /* Ocupa toda a largura */
+    background-color: #333; /* Cor de fundo do menu */
+    position: absolute; /* Posiciona o menu abaixo do cabeçalho */
+    top: 100%; /* Alinha o menu logo abaixo do cabeçalho */
+    left: 0; /* Alinha à esquerda */
+    z-index: 1000; /* Garante que o menu fique acima de outros elementos */
+    border-radius: 0 0 10px 10px; /* Bordas arredondadas na parte inferior */
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2); /* Sombra do menu */
   }
 
   .navbar.active {
-    display: flex;
+    display: flex; /* Mostra o menu quando ativo */
   }
 
   .navbar div {
-    padding: 20px 15px;
-    text-align: center;
-    width: 100%;
-    border-bottom: 1px solid #444;
-    transition: background-color 0.3s ease;
+    padding: 20px 15px; /* Aumenta o espaçamento interno */
+    text-align: center; /* Centraliza o texto */
+    width: 100%; /* Ocupa toda a largura */
+    border-bottom: 1px solid #444; /* Linha separadora entre os itens */
+    transition: background-color 0.3s ease; /* Animação suave */
   }
 
   .navbar div:last-child {
-    border-bottom: none;
+    border-bottom: none; /* Remove a linha do último item */
   }
 
   .navbar div:hover {
-    background-color: #444;
+    background-color: #444; /* Cor de fundo ao passar o mouse */
   }
 
   .navbar a {
-    font-size: 1.1rem;
-    padding: 10px 0;
-    width: 100%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+    font-size: 1.1rem; /* Aumenta o tamanho da fonte */
+    padding: 10px 0; /* Espaçamento interno */
+    width: 100%; /* Ocupa toda a largura */
+    display: flex; /* Layout flexível */
+    align-items: center; /* Centraliza verticalmente */
+    justify-content: center; /* Centraliza horizontalmente */
   }
 }
 
 /* Footer */
 .footer2 {
-  background-color: #333;
-  color: white;
-  padding: 20px 0;
-  text-align: center;
-  position: fixed; /* Fixa o footer na parte inferior */
+  background-color: #333; /* Cor de fundo do rodapé */
+  color: white; /* Cor do texto */
+  padding: 20px 0; /* Espaçamento interno */
+  text-align: center; /* Centraliza o texto */
+  position: fixed; /* Fixa o rodapé na parte inferior */
   bottom: 0; /* Alinha na parte inferior */
-  left: 0;
-  width: 100%; /* Garante que ocupe toda a largura */
+  left: 0; /* Alinha à esquerda */
+  width: 100%; /* Ocupa toda a largura */
   z-index: 1000; /* Garante que fique acima de outros elementos */
-  box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.3); /* Adiciona uma leve sombra */
+  box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.3); /* Sombra leve */
 }
 
 .footer2 .footer-container {
-  max-width: 1200px;
-  margin: 0 auto;
+  max-width: 1200px; /* Largura máxima */
+  margin: 0 auto; /* Centraliza horizontalmente */
 }
 
 .footer2 .github-img {
-  width: 40px;
+  width: 40px; /* Tamanho do ícone do GitHub */
   height: 40px;
-  cursor: pointer;
-  transition: transform 0.3s ease;
+  cursor: pointer; /* Mostra o cursor de clique */
+  transition: transform 0.3s ease; /* Animação suave */
 }
 
 .footer2 .github-img:hover {
-  transform: scale(1.1);
+  transform: scale(1.1); /* Aumenta o ícone ao passar o mouse */
 }
 
 /* Responsividade para Footer */
 @media (max-width: 768px) {
   .footer2 {
-    padding: 15px 0;
+    padding: 15px 0; /* Reduz o espaçamento interno */
   }
 
   .footer2 p {
-    font-size: 0.875rem;
+    font-size: 0.875rem; /* Reduz o tamanho da fonte */
   }
 
   .footer2 .github-img {
-    width: 32px;
+    width: 32px; /* Reduz o tamanho do ícone */
     height: 32px;
   }
 }
 
 /* Contatos */
 .email-container {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  margin-top: 20px;
-  gap: 10px;
-  text-align: center;
+  display: flex; /* Layout flexível */
+  flex-direction: column; /* Alinha os itens verticalmente */
+  align-items: center; /* Centraliza os itens */
+  margin-top: 20px; /* Espaçamento superior */
+  gap: 10px; /* Espaçamento entre os itens */
+  text-align: center; /* Centraliza o texto */
 }
 
 .email-container img {
-  width: 48px; /* Aumenta o tamanho do ícone */
+  width: 48px; /* Tamanho do ícone */
   height: 48px;
 }
 
 .email-container div {
-  font-size: 1rem;
+  font-size: 1rem; /* Tamanho da fonte */
   word-wrap: break-word; /* Quebra o texto longo */
   max-width: 90%; /* Limita a largura do texto */
 }
 
 .social-links {
-  display: flex;
-  justify-content: center;
-  margin-top: 20px;
-  gap: 15px;
+  display: flex; /* Layout flexível */
+  justify-content: center; /* Centraliza horizontalmente */
+  margin-top: 20px; /* Espaçamento superior */
+  gap: 15px; /* Espaçamento entre os itens */
 }
 
 .social-links a {
-  width: 70px; /* Aumenta o tamanho do contêiner da bolinha */
+  width: 70px; /* Tamanho do contêiner */
   height: 70px;
-  display: flex;
-  align-items: center; /* Centraliza verticalmente o ícone */
-  justify-content: center; /* Centraliza horizontalmente o ícone */
-  background-color: #444;
-  border-radius: 50%;
-  transition: transform 0.3s ease, background-color 0.3s ease;
+  display: flex; /* Layout flexível */
+  align-items: center; /* Centraliza verticalmente */
+  justify-content: center; /* Centraliza horizontalmente */
+  background-color: #444; /* Cor de fundo */
+  border-radius: 50%; /* Formato circular */
+  transition: transform 0.3s ease, background-color 0.3s ease; /* Animação suave */
 }
 
 .social-links a:hover {
-  transform: scale(1.1);
-  background-color: #ff8660;
+  transform: scale(1.1); /* Aumenta o tamanho ao passar o mouse */
+  background-color: #ff8660; /* Altera a cor de fundo */
 }
 
 .social-links img {
-  width: 48px; /* Aumenta o tamanho dos ícones sociais */
+  width: 48px; /* Tamanho do ícone */
   height: 48px;
 }
 
@@ -217,16 +217,16 @@ nav {
 @media (max-width: 480px) {
   .email-container div {
     font-size: 0.9rem; /* Reduz o tamanho da fonte */
-    text-align: center;
+    text-align: center; /* Centraliza o texto */
   }
 
   .social-links a {
-    width: 40px;
+    width: 40px; /* Reduz o tamanho do contêiner */
     height: 40px;
   }
 
   .social-links img {
-    width: 20px;
+    width: 20px; /* Reduz o tamanho do ícone */
     height: 20px;
   }
 }
@@ -262,21 +262,23 @@ nav {
   }
 }
 
+/* Animações */
 @keyframes slideDown {
   from {
-    opacity: 0;
-    transform: translateY(-10px);
+    opacity: 0; /* Começa invisível */
+    transform: translateY(-10px); /* Move para cima */
   }
   to {
-    opacity: 1;
-    transform: translateY(0);
+    opacity: 1; /* Fica visível */
+    transform: translateY(0); /* Move para a posição original */
   }
 }
 
+/* Container */
 .container {
-  max-width: 1100px;
-  margin: 0 auto;
-  padding: 40px 20px;
+  max-width: 1100px; /* Largura máxima */
+  margin: 0 auto; /* Centraliza horizontalmente */
+  padding: 40px 20px; /* Espaçamento interno */
 }
 
 .avatar img {
@@ -434,57 +436,57 @@ nav {
 }
 
 .projects {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
+  display: flex; /* Layout flexível */
+  flex-wrap: wrap; /* Permite quebra de linha */
+  justify-content: center; /* Centraliza os itens */
   gap: 20px; /* Espaçamento entre os projetos */
-  padding: 20px;
-  max-width: 1200px; /* Limita a largura máxima do contêiner */
-  margin: 0 auto 50px auto; /* Adiciona margem inferior para afastar do footer */
+  padding: 20px; /* Espaçamento interno */
+  max-width: 1200px; /* Largura máxima */
+  margin: 0 auto 50px auto; /* Margem inferior */
 }
 
 .project-item {
-  background: #2a2a2a;
-  border-radius: 10px;
-  overflow: hidden;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-  max-width: 300px; /* Limita a largura de cada projeto */
-  width: 100%;
+  background: #2a2a2a; /* Cor de fundo */
+  border-radius: 10px; /* Bordas arredondadas */
+  overflow: hidden; /* Esconde conteúdo excedente */
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3); /* Sombra */
+  transition: transform 0.3s ease, box-shadow 0.3s ease; /* Animação suave */
+  max-width: 300px; /* Largura máxima */
+  width: 100%; /* Ocupa toda a largura */
 }
 
 .project-item:hover {
-  transform: translateY(-10px); /* Elevação ao passar o mouse */
+  transform: translateY(-10px); /* Move para cima ao passar o mouse */
   box-shadow: 0 8px 20px rgba(0, 0, 0, 0.5); /* Sombra mais intensa */
 }
 
 .project-item img {
-  width: 100%;
-  height: 200px;
-  object-fit: cover; /* Garante que a imagem se ajuste ao espaço */
+  width: 100%; /* Ocupa toda a largura */
+  height: 200px; /* Altura fixa */
+  object-fit: cover; /* Ajusta a imagem ao espaço */
 }
 
 .project-title {
-  padding: 15px;
-  text-align: center;
+  padding: 15px; /* Espaçamento interno */
+  text-align: center; /* Centraliza o texto */
 }
 
 .project-title a {
-  display: inline-block;
-  margin-bottom: 10px;
-  color: #ff8660;
-  font-weight: bold;
-  text-decoration: none;
-  transition: color 0.3s ease;
+  display: inline-block; /* Exibe como bloco inline */
+  margin-bottom: 10px; /* Espaçamento inferior */
+  color: #ff8660; /* Cor do texto */
+  font-weight: bold; /* Negrito */
+  text-decoration: none; /* Remove sublinhado */
+  transition: color 0.3s ease; /* Animação suave */
 }
 
 .project-title a:hover {
-  color: #9a33ff; /* Cor diferente ao passar o mouse */
+  color: #9a33ff; /* Cor ao passar o mouse */
 }
 
 .project-title h3 {
-  color: #fff;
-  font-size: 1.2rem;
+  color: #fff; /* Cor do texto */
+  font-size: 1.2rem; /* Tamanho da fonte */
 }
 
 .heading-experience {
@@ -698,5 +700,40 @@ footer p {
     display: flex;
     align-items: center; /* Centraliza verticalmente o ícone */
     justify-content: center; /* Centraliza horizontalmente o ícone */
+  }
+}
+
+/* Stacks */
+.stacks {
+  display: flex; /* Layout flexível */
+  justify-content: center; /* Centraliza os itens */
+  gap: 10px; /* Espaçamento entre os ícones */
+  margin-top: 10px; /* Espaçamento superior */
+}
+
+.stacks img {
+  width: 32px; /* Tamanho do ícone */
+  height: 32px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease; /* Animação suave */
+  cursor: pointer; /* Mostra o cursor de clique */
+}
+
+.stacks img:hover {
+  transform: scale(1.2); /* Aumenta o tamanho ao passar o mouse */
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5); /* Sombra */
+}
+
+/* Responsividade para stacks */
+@media (max-width: 768px) {
+  .stacks img {
+    width: 28px; /* Reduz o tamanho para telas menores */
+    height: 28px;
+  }
+}
+
+@media (max-width: 480px) {
+  .stacks img {
+    width: 24px; /* Reduz o tamanho para telas muito pequenas */
+    height: 24px;
   }
 }
