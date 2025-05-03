@@ -1,27 +1,36 @@
-/* Estilos gerais */
+/* ============================
+   ESTILOS GERAIS
+============================ */
+/* Remove margens e preenchimentos padrão e define o box-sizing */
 * {
-  margin: 0; /* Remove margens padrão */
-  padding: 0; /* Remove preenchimentos padrão */
-  box-sizing: border-box; /* Inclui bordas e preenchimentos no tamanho total */
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
+/* Define estilos gerais para o corpo */
 body {
-  font-family: "Poppins", sans-serif; /* Define a fonte principal */
+  font-family: "Poppins", sans-serif; /* Fonte principal */
   background-color: #161513; /* Cor de fundo */
   color: #c5c5c5; /* Cor do texto */
 }
 
+/* Remove sublinhado dos links */
 a {
-  text-decoration: none; /* Remove sublinhado dos links */
+  text-decoration: none;
 }
 
-/* Header */
+/* ============================
+   HEADER
+============================ */
+/* Estiliza o cabeçalho */
 header {
   background-color: #222; /* Cor de fundo do cabeçalho */
   padding: 10px 20px; /* Espaçamento interno */
   position: relative; /* Define posição relativa para elementos filhos */
 }
 
+/* Estiliza o menu de navegação */
 nav {
   display: flex; /* Layout flexível */
   justify-content: space-between; /* Espaça os itens igualmente */
@@ -30,10 +39,12 @@ nav {
   margin: 0 auto; /* Centraliza horizontalmente */
 }
 
+/* Estiliza o logo */
 .logo img {
   width: 80px; /* Define o tamanho da logo */
 }
 
+/* Ícone do menu para dispositivos móveis */
 .menu-icon {
   font-size: 1.5rem; /* Tamanho do ícone do menu */
   color: #fff; /* Cor do ícone */
@@ -47,6 +58,7 @@ nav {
   transform: scale(1.1); /* Aumenta o ícone ao passar o mouse */
 }
 
+/* Estiliza os itens do menu */
 .navbar {
   display: flex; /* Layout flexível */
   align-items: center; /* Alinha os itens verticalmente */
@@ -69,7 +81,10 @@ nav {
   transform: translateY(-2px); /* Move o link para cima */
 }
 
-/* Responsividade para Header */
+/* ============================
+   RESPONSIVIDADE DO HEADER
+============================ */
+/* Ajustes para telas menores */
 @media (max-width: 768px) {
   .menu-icon {
     display: block; /* Mostra o ícone do menu em telas menores */
@@ -118,9 +133,12 @@ nav {
   }
 }
 
-/* Footer */
+/* ============================
+   FOOTER
+============================ */
+/* Estiliza o rodapé */
 .footer2 {
-  background-color: #333; /* Cor de fundo do rodapé */
+  background-color: #333333; /* Cor de fundo do rodapé */
   color: white; /* Cor do texto */
   padding: 20px 0; /* Espaçamento interno */
   text-align: center; /* Centraliza o texto */
@@ -148,7 +166,9 @@ nav {
   transform: scale(1.1); /* Aumenta o ícone ao passar o mouse */
 }
 
-/* Responsividade para Footer */
+/* ============================
+   RESPONSIVIDADE DO FOOTER
+============================ */
 @media (max-width: 768px) {
   .footer2 {
     padding: 15px 0; /* Reduz o espaçamento interno */
@@ -164,14 +184,19 @@ nav {
   }
 }
 
-/* Contatos */
+/* ============================
+   CONTATOS
+============================ */
+/* Estiliza a seção de contatos */
 .email-container {
   display: flex; /* Layout flexível */
   flex-direction: column; /* Alinha os itens verticalmente */
-  align-items: center; /* Centraliza os itens */
+  align-items: center; /* Centraliza os itens horizontalmente */
   margin-top: 20px; /* Espaçamento superior */
   gap: 10px; /* Espaçamento entre os itens */
   text-align: center; /* Centraliza o texto */
+  word-wrap: break-word; /* Quebra o texto longo, se necessário */
+  max-width: 100%; /* Garante que o e-mail não ultrapasse a largura */
 }
 
 .email-container img {
@@ -182,9 +207,11 @@ nav {
 .email-container div {
   font-size: 1rem; /* Tamanho da fonte */
   word-wrap: break-word; /* Quebra o texto longo */
+  overflow-wrap: break-word; /* Garante a quebra em navegadores modernos */
   max-width: 90%; /* Limita a largura do texto */
 }
 
+/* Estiliza os links sociais */
 .social-links {
   display: flex; /* Layout flexível */
   justify-content: center; /* Centraliza horizontalmente */
@@ -213,11 +240,14 @@ nav {
   height: 48px;
 }
 
-/* Responsividade para Contatos */
+/* ============================
+   RESPONSIVIDADE PARA CONTATOS
+============================ */
 @media (max-width: 480px) {
   .email-container div {
-    font-size: 0.9rem; /* Reduz o tamanho da fonte */
+    font-size: 0.85rem; /* Ajusta o tamanho da fonte para telas muito pequenas */
     text-align: center; /* Centraliza o texto */
+    max-width: 100%; /* Garante que o texto ocupe toda a largura disponível */
   }
 
   .social-links a {
@@ -233,6 +263,12 @@ nav {
 
 /* Responsividade para Contatos - Remover bolinhas em dispositivos menores */
 @media (max-width: 768px) {
+  .email-container div {
+    font-size: 0.9rem; /* Reduz o tamanho da fonte em telas menores */
+    text-align: center; /* Centraliza o texto */
+    max-width: 100%; /* Garante que o texto ocupe toda a largura disponível */
+  }
+
   .social-links a {
     width: auto; /* Remove o tamanho fixo do contêiner */
     height: auto;
@@ -276,9 +312,9 @@ nav {
 
 /* Container */
 .container {
-  max-width: 1100px; /* Largura máxima */
-  margin: 0 auto; /* Centraliza horizontalmente */
-  padding: 40px 20px; /* Espaçamento interno */
+  padding: 2rem;
+  max-width: 1200px;
+  margin: 0 auto;
 }
 
 .avatar img {
@@ -490,6 +526,68 @@ nav {
 }
 
 .heading-experience {
+  text-align: center;
+  font-size: 2.5rem;
+  color: #333;
+  margin-bottom: 2rem;
+}
+
+.experiences {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.experience-item {
+  background: #333333; /* Cor de fundo */ 
+  border-radius: 8px;
+  padding: 1.5rem;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.experience-item:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 6px 10px rgba(0, 0, 0, 0.15);
+}
+
+.experience-title-container {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-bottom: 1rem;
+}
+
+.experience-logo img {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.experience-details {
+  flex: 1;
+}
+
+.experience-title {
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: #222;
+}
+
+.date {
+  font-size: 0.9rem;
+  color: #666;
+}
+
+.experience-description {
+  font-size: 1rem; /* Tamanho da fonte */
+  line-height: 1.6; /* Altura da linha */
+  color: #444; /* Cor do texto */
+  padding: 15px; /* Espaçamento interno para evitar que o texto encoste nas bordas */
+}
+
+.heading-experience {
   background: var(
     --Blue-Gradient,
     linear-gradient(180deg, #5badff 0%, #1373d1 100%)
@@ -526,7 +624,7 @@ nav {
 
 .experience-description {
   font-size: 1rem;
-  color: #c5c5c5;
+  color: #ffffff;
   line-height: 1.6;
   max-width: 800px;
 }
@@ -643,6 +741,36 @@ footer p {
     align-items: center; /* Centraliza verticalmente o ícone */
     justify-content: center; /* Centraliza horizontalmente o ícone */
   }
+
+  .experience-item {
+    padding: 1rem; /* Reduz o padding para telas menores */
+  }
+
+  .experience-description {
+    padding: 0.5rem; /* Adiciona espaçamento interno ao texto */
+    background: rgba(255, 255, 255, 0.05); /* Fundo semitransparente */
+    border-radius: 8px; /* Bordas arredondadas */
+  }
+
+  .experience-item {
+    padding: 1rem; /* Espaçamento interno para evitar texto grudado */
+  }
+
+  .experience-title-container {
+    flex-direction: column; /* Alinha os itens verticalmente */
+    align-items: flex-start; /* Alinha à esquerda */
+  }
+
+  .experience-title-container .date {
+    margin-top: 0.5rem; /* Espaçamento entre o título e a data */
+    font-size: 1rem; /* Mantém a data legível */
+    color: #c5c5c5; /* Cor da data */
+    align-self: flex-start; /* Garante alinhamento à esquerda */
+  }
+
+  .experience-description {
+    padding: 0.5rem; /* Espaçamento interno adicional para o texto */
+  }
 }
 
 @media (max-width: 480px) {
@@ -701,6 +829,30 @@ footer p {
     align-items: center; /* Centraliza verticalmente o ícone */
     justify-content: center; /* Centraliza horizontalmente o ícone */
   }
+
+  .experience-item {
+    padding: 1rem; /* Garante espaçamento interno adequado */
+  }
+
+  .experience-description {
+    padding: 0.5rem; /* Espaçamento interno adicional */
+  }
+
+  .experience-item {
+    padding: 1rem; /* Espaçamento interno adequado */
+  }
+
+  .experience-title-container .date {
+    font-size: 0.9rem; /* Ajusta o tamanho da fonte para telas menores */
+    margin-top: 0.5rem; /* Espaçamento entre o título e a data */
+  }
+
+  .experience-description {
+    padding: 0.5rem; /* Espaçamento interno adicional */
+    font-size: 0.875rem; /* Ajusta o tamanho da fonte */
+    background: rgba(255, 255, 255, 0.05); /* Fundo semitransparente */
+    border-radius: 8px; /* Bordas arredondadas */
+  }
 }
 
 /* Stacks */
@@ -735,5 +887,64 @@ footer p {
   .stacks img {
     width: 24px; /* Reduz o tamanho para telas muito pequenas */
     height: 24px;
+  }
+}
+
+/* Estilização aprimorada para a caixinha de experiências no PC */
+@media (min-width: 1024px) {
+  .experience-item {
+    background: linear-gradient(145deg, #2e2e2e, #3a3a3a); /* Fundo com gradiente suave */
+    border-radius: 12px; /* Bordas arredondadas */
+    padding: 10px; /* Espaçamento interno */
+    max-width: 800px; /* Define uma largura máxima menor */
+    margin: 0 auto; /* Espaçamento externo */
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2); /* Sombra elegante */
+    transition: transform 0.3s ease, box-shadow 0.3s ease; /* Animação suave */
+  }
+
+  .experience-item:hover {
+    transform: translateY(-10px); /* Eleva a caixinha ao passar o mouse */
+    box-shadow: 0 12px 25px rgba(0, 0, 0, 0.3); /* Sombra mais intensa */
+  }
+
+  .experience-title-container {
+    display: flex; /* Alinha os itens horizontalmente */
+    align-items: center; /* Centraliza verticalmente */
+    gap: 20px; /* Espaçamento entre o logo e o texto */
+    margin-bottom: 15px; /* Espaçamento inferior */
+  }
+
+  .experience-logo img {
+    width: 80px; /* Aumenta o tamanho do logo */
+    height: 80px;
+    border-radius: 50%; /* Mantém o formato circular */
+    object-fit: cover; /* Ajusta a imagem ao contêiner */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Sombra no logo */
+  }
+
+  .experience-title {
+    font-size: 1.8rem; /* Aumenta o tamanho do título */
+    font-weight: bold; /* Deixa o título em negrito */
+    color: #fff; /* Cor do texto */
+  }
+
+  .date {
+    font-size: 1rem; /* Ajusta o tamanho da data */
+    color: #aaa; /* Cor mais suave */
+    margin-top: 5px; /* Espaçamento superior */
+  }
+
+  .experience-description {
+    font-size: 1rem; /* Tamanho da fonte */
+    line-height: 1.8; /* Altura da linha */
+    color: #ffffff; /* Cor do texto */
+    text-align: center; /* Centraliza horizontalmente */
+    display: flex; /* Ativa o flexbox */
+    justify-content: center; /* Centraliza horizontalmente */
+    align-items: center; /* Centraliza verticalmente */
+    padding: 5px; /* Espaçamento interno */
+    background: rgba(255, 255, 255, 0.05); /* Fundo semitransparente */
+    border-radius: 8px; /* Bordas arredondadas */
+    height: 100%; /* Garante que ocupe toda a altura da caixinha */
   }
 }

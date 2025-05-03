@@ -35,3 +35,11 @@ function alternarMenu() {
     }
   });
   
+  // Fecha o menu ao clicar fora
+  window.addEventListener("click", function (event) {
+    const navbar = document.getElementById("navbar");
+    const menuIcon = document.querySelector(".menu-icon");
+    if (!navbar.contains(event.target) && !menuIcon.contains(event.target)) {
+      navbar.classList.remove("active");
+    }
+  });
