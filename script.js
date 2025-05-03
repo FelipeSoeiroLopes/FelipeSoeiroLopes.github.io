@@ -34,7 +34,7 @@ function alternarMenu() {
       alert("Easter egg ativado! 🎉");
     }
   });
-  
+   
   // Fecha o menu ao clicar fora
   window.addEventListener("click", function (event) {
     const navbar = document.getElementById("navbar");

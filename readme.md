@@ -18,7 +18,7 @@ Este site foi criado com **HTML5**, **CSS3** e **JavaScript puro**, mantendo uma
 - Google Fonts (Poppins)
 
 ---
-
+ 
 ## 📁 Estrutura das Páginas
 
 | Página              | Descrição                                                                 |
