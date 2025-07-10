@@ -43,3 +43,4 @@ function alternarMenu() {
       navbar.classList.remove("active");
     }
   });
+  
