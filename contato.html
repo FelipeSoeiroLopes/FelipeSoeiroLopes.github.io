@@ -16,7 +16,11 @@
         <div class="logo" id="logoSecreta">
           <img src="images/felpsdevsemfundo.png" alt="Logo do Felipe" />
         </div>
-        <div class="menu-icon" onclick="alternarMenu()">&#9776;</div>
+        <button class="menu-icon" onclick="alternarMenu()" aria-label="Abrir menu">
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
         <div class="navbar" id="navbar">
           <div><a href="index.html">INÍCIO</a></div>
           <div><a href="projetos.html">PROJETOS</a></div>
@@ -27,34 +31,50 @@
     </header>
 
     <main class="container">
-      <section>
-        <h2>Vamos conversar?</h2>
-        <p>
-          Ficarei muito feliz em receber sua mensagem! Seja para propor uma parceria, tirar dúvidas, trocar ideias ou simplesmente bater um papo sobre tecnologia, estou sempre aberto a novas conexões.<br><br>
+      <section class="contact-hero">
+        <h1 class="contact-title">Vamos conversar?</h1>
+        <p class="contact-subtitle">
+          Ficarei muito feliz em receber sua mensagem! Seja para propor uma parceria, tirar dúvidas, trocar ideias ou simplesmente bater um papo sobre tecnologia, estou sempre aberto a novas conexões.
+        </p>
+        <p class="contact-subtitle">
           Escolha a forma de contato que preferir e me envie um "olá". Prometo responder o mais rápido possível!
         </p>
+      </section>
 
-        <div class="email-container">
-          <div>
+      <section class="contact-methods">
+        <div class="contact-card">
+          <div class="contact-icon">
             <img src="images/icons8-e-mail-48.png" alt="Ícone de e-mail" />
           </div>
-          <div><strong>E-mail:</strong> felipesoeiro.contato@outlook.com.br<br><span style="font-size:0.95em; color:#ffd166;">(Retorno rápido garantido!)</span></div>
+          <div class="contact-info">
+            <h3>E-mail</h3>
+            <p>felipesoeiro.contato@outlook.com.br</p>
+            <span class="contact-note">Retorno rápido garantido!</span>
+          </div>
         </div>
 
-        <div class="social-links">
-          <a href="https://www.linkedin.com/in/felipesoeirocontato/" target="_blank">
+        <div class="contact-card">
+          <div class="contact-icon">
             <img src="images/icons8-linkedin-48.png" alt="LinkedIn" />
-          </a>
-          <a href="https://wa.me/5511955558936" target="_blank">
-            <img src="images/icons8-whatsapp-48.png" alt="WhatsApp" />
-          </a>
+          </div>
+          <div class="contact-info">
+            <h3>LinkedIn</h3>
+            <p>Vamos nos conectar e expandir nossa rede profissional!</p>
+            <a href="https://linkedin.com/in/felipesoeirolopes/" target="_blank" class="contact-link">Conectar</a>
+          </div>
         </div>
-        <p style="text-align:center; margin-top:1.2em;">
-          <strong>LinkedIn:</strong> Vamos nos conectar e expandir nossa rede profissional!<br>
-          <strong>WhatsApp:</strong> Preferiu algo mais direto? Pode chamar, respondo rapidinho!
-        </p>
-        <br><br>
-      </section> 
+
+        <div class="contact-card">
+          <div class="contact-icon">
+            <img src="images/icons8-whatsapp-48.png" alt="WhatsApp" />
+          </div>
+          <div class="contact-info">
+            <h3>WhatsApp</h3>
+            <p>Preferiu algo mais direto? Pode chamar, respondo rapidinho!</p>
+            <a href="https://wa.me/5511955558936" target="_blank" class="contact-link">Conversar</a>
+          </div>
+        </div>
+      </section>
     </main>
 
     <footer class="footer2">
@@ -65,7 +85,6 @@
         </a>
       </div>
     </footer>
-    <br><br>
     <script src="script.js"></script>
   </body>
 </html>

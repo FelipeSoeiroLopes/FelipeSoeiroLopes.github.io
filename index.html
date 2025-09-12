@@ -16,7 +16,11 @@
         <div class="logo" id="logoSecreta">
           <img src="images/felpsdevsemfundo.png" alt="Logo do Felipe" />
         </div>
-        <div class="menu-icon" onclick="alternarMenu()">&#9776;</div>
+        <button class="menu-icon" onclick="alternarMenu()" aria-label="Abrir menu">
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
         <div class="navbar" id="navbar">
           <div><a href="index.html">INÍCIO</a></div>
           <div><a href="projetos.html">PROJETOS</a></div>
@@ -26,62 +30,128 @@
       </nav>
     </header> 
 
-    <section class="container about">
-      <div class="avatar">
-        <img src="images/felpsimagemlogo.png" alt="Logo Felipe Lopes" />
-      </div>
-      <div class="about-text">
-        <h1>
-          Do 'Hello World' à Revolução Digital:<br />
-          <span>Minha Jornada como <br> FullStack</span>
-        </h1>
-        <p>
-          Eu sou Felipe Soeiro Lopes, um apaixonado por tecnologia desde sempre e com um objetivo claro: ser um desenvolvedor FullStack que transforma desafios em soluções extraordinárias.
-        </p>
-        <div class="about-btn">
-          <a href="path/CV_FELIPESLOPES.pdf" download>
-            <button class="btn-primary">Baixar Currículo</button>
-          </a>
-          <a href="mailto:felipesoeiro.contato@outlook.com.br">
-            <button class="btn-secondary">Entre em contato</button>
-          </a>
+    <!-- Partículas flutuantes -->
+    <div class="particles">
+      <div class="particle"></div>
+      <div class="particle"></div>
+      <div class="particle"></div>
+      <div class="particle"></div>
+      <div class="particle"></div>
+      <div class="particle"></div>
+    </div>
+
+    <section class="container hero-section">
+      <div class="hero-content">
+        <div class="avatar">
+          <img src="images/felpsimagemlogo.png" alt="Logo Felipe Lopes" />
+        </div>
+        <div class="about-text">
+          <h1>
+            Do 'Hello World' à Revolução Digital:<br />
+            <span>Minha Jornada como FullStack</span>
+          </h1>
+          <p>
+            Eu sou Felipe Soeiro Lopes, um apaixonado por tecnologia desde sempre e com um objetivo claro: ser um desenvolvedor FullStack que transforma desafios em soluções extraordinárias. Com experiência em Service Desk e desenvolvimento, trago inovação e eficiência para cada projeto.
+          </p>
+          <div class="about-btn">
+            <a href="path/CV_FELIPESLOPES.pdf" download>
+              <button class="btn-primary">Baixar Currículo</button>
+            </a>
+            <a href="mailto:felipesoeiro.contato@outlook.com.br">
+              <button class="btn-secondary">Entre em contato</button>
+            </a>
+          </div>
         </div>
       </div>
     </section>
 
-    <section class="container experience-with">
-      <h2>EXPERIÊNCIA COM</h2>
-      <div class="experience-with-lang">
-        <div>
-          <img src="images/icons8-html-48.png" alt="Logo HTML" />
-          <span>HTML</span>
+    <!-- Seção de Estatísticas -->
+    <section class="stats-section">
+      <div class="stats-grid">
+        <div class="stat-item">
+          <div class="stat-number">1000</div>
+          <div class="stat-label">Chamados Mensais</div>
         </div>
-        <div>
-          <img src="images/icons8-css-48.png" alt="Logo CSS" />
-          <span>CSS</span>
+        <div class="stat-item">
+          <div class="stat-number">30%</div>
+          <div class="stat-label">Redução Tempo Resolução</div>
         </div>
-        <div>
-          <img src="images/icons8-javascript-48.png" alt="Logo JavaScript" />
-          <span>JavaScript</span>
+        <div class="stat-item">
+          <div class="stat-number">20%</div>
+          <div class="stat-label">Aumento Eficiência</div>
         </div>
-        <div>
-          <img src="images/icons8-logo-java-coffee-cup-48.png" alt="Logo Java" />
-          <span>Java</span>
-        </div>
-        <div>
-          <img src="images/icons8-python-48.png" alt="Logo Python" />
-          <span>Python</span>
-        </div>
-        <div>
-          <img src="images/icons8-mysql-48.png" alt="Logo MySQL" />
-          <span>MySQL</span>
-        </div>
-        <div>
-          <img src="images/icons8-azure-48.png" alt="Logo Azure" />
-          <span>Azure</span>
+        <div class="stat-item">
+          <div class="stat-number">100%</div>
+          <div class="stat-label">Automação Processos</div>
         </div>
       </div>
-      <br /><br />
+    </section>
+
+    <section class="skills-section">
+      <h2 class="primary-heading">TECNOLOGIAS QUE UTILIZO</h2>
+      <div class="tech-scroller">
+        <div class="scroller-inner">
+          <img src="images/icons8-html-48.png" alt="HTML" />
+          <img src="images/icons8-css-48.png" alt="CSS" />
+          <img src="images/icons8-javascript-48.png" alt="JavaScript" />
+          <img src="images/icons8-logo-java-coffee-cup-48.png" alt="Java" />
+          <img src="images/icons8-python-48.png" alt="Python" />
+          <img src="images/icons8-mysql-48.png" alt="MySQL" />
+          <img src="images/icons8-azure-48.png" alt="Azure" />
+          <img src="images/icons8-visual-studio-code-2019-48.png" alt="VS Code" />
+          <!-- Duplicated for infinite scroll effect -->
+          <img src="images/icons8-html-48.png" alt="HTML" />
+          <img src="images/icons8-css-48.png" alt="CSS" />
+          <img src="images/icons8-javascript-48.png" alt="JavaScript" />
+          <img src="images/icons8-logo-java-coffee-cup-48.png" alt="Java" />
+          <img src="images/icons8-python-48.png" alt="Python" />
+          <img src="images/icons8-mysql-48.png" alt="MySQL" />
+          <img src="images/icons8-azure-48.png" alt="Azure" />
+          <img src="images/icons8-visual-studio-code-2019-48.png" alt="VS Code" />
+        </div>
+      </div>
+    </section>
+
+    <!-- Seção de Depoimentos -->
+    <section class="testimonials-section">
+      <div class="container">
+        <h2 class="primary-heading">O QUE DIZEM SOBRE MIM</h2>
+        <div class="testimonials-grid">
+          <div class="testimonial-item">
+            <div class="testimonial-content">
+              <p>"Felipe demonstrou excelente capacidade técnica e proatividade durante seu período na empresa. Sua dedicação em resolver problemas complexos e melhorar a experiência do usuário foi excepcional."</p>
+            </div>
+            <div class="testimonial-author">
+              <div class="author-info">
+                <h4>Gestor de TI</h4>
+                <span>SIMPAR</span>
+              </div>
+            </div>
+          </div>
+          <div class="testimonial-item">
+            <div class="testimonial-content">
+              <p>"Profissional comprometido com resultados. Felipe sempre entrega soluções inovadoras e está sempre disposto a aprender novas tecnologias para agregar valor aos projetos."</p>
+            </div>
+            <div class="testimonial-author">
+              <div class="author-info">
+                <h4>Colega de Equipe</h4>
+                <span>Tecnocomp</span>
+              </div>
+            </div>
+          </div>
+          <div class="testimonial-item">
+            <div class="testimonial-content">
+              <p>"Felipe é um desenvolvedor talentoso com grande potencial. Sua paixão pela tecnologia e vontade de crescer profissionalmente são evidentes em cada projeto que desenvolve."</p>
+            </div>
+            <div class="testimonial-author">
+              <div class="author-info">
+                <h4>Mentor</h4>
+                <span>Comunidade Dev</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
     </section>
 
     <footer class="footer2">
@@ -92,6 +162,9 @@
         </a>
       </div>
     </footer>
+
+    <!-- Botão Voltar ao Topo -->
+    <a href="#" class="voltar-ao-topo">↑</a>
 
     <script src="script.js"></script>
   </body>

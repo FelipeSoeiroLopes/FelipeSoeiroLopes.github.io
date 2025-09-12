@@ -16,7 +16,11 @@
         <div class="logo" id="logoSecreta">
           <img src="images/felpsdevsemfundo.png" alt="Logo do Felipe" />
         </div>
-        <div class="menu-icon" onclick="alternarMenu()">&#9776;</div>
+        <button class="menu-icon" onclick="alternarMenu()" aria-label="Abrir menu">
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
         <div class="navbar" id="navbar">
           <div><a href="index.html">INÍCIO</a></div>
           <div><a href="projetos.html">PROJETOS</a></div>
@@ -31,11 +35,14 @@
       <div class="projects">
         <!-- Projeto 1 -->
         <div class="project-item">
-          <img src="images/projeto1.png" alt="Projeto Banco de Dados" />
+          <div class="project-image-container">
+            <img src="images/projeto1.png" alt="Projeto Banco de Dados" />
+            <div class="project-overlay">
+              <a href="https://github.com/FelipeSoeiroLopes/Projetos-banco-de-dados/tree/main" target="_blank">Ver Projeto</a>
+            </div>
+          </div>
           <div class="project-title">
-            <a href="https://github.com/FelipeSoeiroLopes/Projetos-banco-de-dados/tree/main" target="_blank">CLIQUE PARA VISITAR</a>
             <h3>Banco de Dados MySQL</h3>
-            <p class="stacks-text">Stacks usadas:</p>
             <div class="stacks">
               <img src="images/icons8-mysql-48.png" alt="MySQL" title="MySQL" />
             </div>
@@ -44,18 +51,18 @@
 
         <!-- Projeto 2 -->
         <div class="project-item">
-          <img src="images/projeto2.png" alt="Projeto Ficha do Colaborador" />
+          <div class="project-image-container">
+            <img src="images/projeto2.png" alt="Projeto Ficha do Colaborador" />
+            <div class="project-overlay">
+              <a href="https://github.com/FelipeSoeiroLopes/Projeto-Ficha-de-colaboradores" target="_blank">Ver Projeto</a>
+            </div>
+          </div>
           <div class="project-title">
-            <a href="https://github.com/FelipeSoeiroLopes/Projeto-Ficha-de-colaboradores" target="_blank">CLIQUE PARA VISITAR</a>
             <h3>Ficha do Colaborador</h3>
-            <p class="stacks-text">Stacks usadas:</p>
             <div class="stacks">
               <img src="images/icons8-html-48.png" alt="HTML" title="HTML" />
               <img src="images/icons8-css-48.png" alt="CSS" title="CSS" />
               <img src="images/icons8-javascript-48.png" alt="JavaScript" title="JavaScript" />
-            </div>
-            <p class="stacks-text">IDE usada:</p>
-            <div class="stacks">
               <img src="images/icons8-visual-studio-code-2019-48.png" alt="Visual Studio Code" title="Visual Studio Code" />
             </div>
           </div>
@@ -63,18 +70,18 @@
 
         <!-- Projeto 3 -->
         <div class="project-item">
-          <img src="images/projeto3.png" alt="Projeto Lista de Compras" />
+          <div class="project-image-container">
+            <img src="images/projeto3.png" alt="Projeto Lista de Compras" />
+            <div class="project-overlay">
+              <a href="https://github.com/FelipeSoeiroLopes/lista-de-compras" target="_blank">Ver Projeto</a>
+            </div>
+          </div>
           <div class="project-title">
-            <a href="https://github.com/FelipeSoeiroLopes/lista-de-compras" target="_blank">CLIQUE PARA VISITAR</a>
             <h3>Lista de Compras</h3>
-            <p class="stacks-text">Stacks usadas:</p>
             <div class="stacks">
               <img src="images/icons8-html-48.png" alt="HTML" title="HTML" />
               <img src="images/icons8-css-48.png" alt="CSS" title="CSS" />
               <img src="images/icons8-javascript-48.png" alt="JavaScript" title="JavaScript" />
-            </div>
-            <p class="stacks-text">IDE usada:</p>
-            <div class="stacks">
               <img src="images/icons8-visual-studio-code-2019-48.png" alt="Visual Studio Code" title="Visual Studio Code" />
             </div>
           </div>
@@ -82,18 +89,18 @@
 
         <!-- Projeto 4 -->
         <div class="project-item">
-          <img src="images/projeto4.png" alt="Projeto Portfólio" />
+          <div class="project-image-container">
+            <img src="images/projeto4.png" alt="Projeto Portfólio" />
+            <div class="project-overlay">
+              <a href="https://github.com/FelipeSoeiroLopes/FelipeSoeiroLopes.github.io" target="_blank">Ver Projeto</a>
+            </div>
+          </div>
           <div class="project-title">
-            <a href="https://github.com/FelipeSoeiroLopes/FelipeSoeiroLopes.github.io" target="_blank">CLIQUE PARA VISITAR</a>
             <h3>Este Portfólio</h3>
-            <p class="stacks-text">Stacks usadas:</p>
             <div class="stacks">
               <img src="images/icons8-html-48.png" alt="HTML" title="HTML" />
               <img src="images/icons8-css-48.png" alt="CSS" title="CSS" />
               <img src="images/icons8-javascript-48.png" alt="JavaScript" title="JavaScript" />
-            </div>
-            <p class="stacks-text">IDE usada:</p>
-            <div class="stacks">
               <img src="images/icons8-visual-studio-code-2019-48.png" alt="Visual Studio Code" title="Visual Studio Code" />
             </div>
           </div>
@@ -101,16 +108,16 @@
 
         <!-- Projeto 5 -->
         <div class="project-item">
-          <img src="images/projeto5.png" alt="Projeto Calculadora Java" />
+          <div class="project-image-container">
+            <img src="images/projeto5.png" alt="Projeto Calculadora Java" />
+            <div class="project-overlay">
+              <a href="https://github.com/FelipeSoeiroLopes/CalculadoraJava" target="_blank">Ver Projeto</a>
+            </div>
+          </div>
           <div class="project-title">
-            <a href="https://github.com/FelipeSoeiroLopes/CalculadoraJava" target="_blank">CLIQUE PARA VISITAR</a>
             <h3>Calculadora Java</h3>
-            <p class="stacks-text">Stacks usadas:</p>
             <div class="stacks">
               <img src="images/icons8-logo-java-coffee-cup-48.png" alt="Java" title="Java" />
-            </div>
-            <p class="stacks-text">IDE usada:</p>
-            <div class="stacks">
               <img src="images/icons8-visual-studio-code-2019-48.png" alt="Visual Studio Code" title="Visual Studio Code" />
             </div>
           </div>
@@ -118,18 +125,18 @@
 
         <!-- Projeto 6 -->
         <div class="project-item">
-          <img src="images/projeto6.png" alt="Projeto Previsão do Tempo" />
+          <div class="project-image-container">
+            <img src="images/projeto6.png" alt="Projeto Previsão do Tempo" />
+            <div class="project-overlay">
+              <a href="https://github.com/FelipeSoeiroLopes/TemperaturaAPI" target="_blank">Ver Projeto</a>
+            </div>
+          </div>
           <div class="project-title">
-            <a href="https://github.com/FelipeSoeiroLopes/TemperaturaAPI" target="_blank">CLIQUE PARA VISITAR</a>
             <h3>Previsão do Tempo com API</h3>
-            <p class="stacks-text">Stacks usadas:</p>
             <div class="stacks">
               <img src="images/icons8-html-48.png" alt="HTML" title="HTML" />
               <img src="images/icons8-css-48.png" alt="CSS" title="CSS" />
               <img src="images/icons8-javascript-48.png" alt="JavaScript" title="JavaScript" />
-            </div>
-            <p class="stacks-text">IDE usada:</p>
-            <div class="stacks">
               <img src="images/icons8-visual-studio-code-2019-48.png" alt="Visual Studio Code" title="Visual Studio Code" />
             </div>
           </div>
@@ -137,18 +144,18 @@
 
         <!-- Projeto 7 -->
         <div class="project-item">
-          <img src="images/projeto7.png" alt="Projeto Sistema de Cinema PSSI" />
+          <div class="project-image-container">
+            <img src="images/projeto7.png" alt="Projeto Sistema de Cinema PSSI" />
+            <div class="project-overlay">
+              <a href="https://github.com/FelipeSoeiroLopes/cinema-PSSI/tree/felpsteste" target="_blank">Ver Projeto</a>
+            </div>
+          </div>
           <div class="project-title">
-            <a href="https://github.com/FelipeSoeiroLopes/cinema-PSSI/tree/felpsteste" target="_blank">CLIQUE PARA VISITAR</a>
             <h3>Sistema de Cinema PSSI</h3>
-            <p class="stacks-text">Stacks usadas:</p>
             <div class="stacks">
               <img src="images/icons8-html-48.png" alt="HTML" title="HTML" />
               <img src="images/icons8-css-48.png" alt="CSS" title="CSS" />
               <img src="images/icons8-javascript-48.png" alt="JavaScript" title="JavaScript" />
-            </div>
-            <p class="stacks-text">IDE usada:</p>
-            <div class="stacks">
               <img src="images/icons8-visual-studio-code-2019-48.png" alt="Visual Studio Code" title="Visual Studio Code" />
             </div>
           </div>
@@ -156,25 +163,24 @@
 
         <!-- Projeto 8 -->
         <div class="project-item">
-          <img src="images/projeto8.png" alt="Projeto TecnoSoluti ERP" />
+          <div class="project-image-container">
+            <img src="images/projeto8.png" alt="Projeto TecnoSoluti ERP" />
+            <div class="project-overlay">
+              <a href="https://github.com/FelipeSoeiroLopes/tecnosoluti" target="_blank">Ver Projeto</a>
+            </div>
+          </div>
           <div class="project-title">
-            <a href="https://github.com/FelipeSoeiroLopes/tecnosoluti" target="_blank">CLIQUE PARA VISITAR</a>
             <h3>TecnoSoluti ERP</h3>
-            <p class="stacks-text">Stacks usadas:</p>
             <div class="stacks">
               <img src="images/icons8-html-48.png" alt="HTML" title="HTML" />
               <img src="images/icons8-css-48.png" alt="CSS" title="CSS" />
               <img src="images/icons8-javascript-48.png" alt="JavaScript" title="JavaScript" />
-            </div>
-            <p class="stacks-text">IDE usada:</p>
-            <div class="stacks">
               <img src="images/icons8-visual-studio-code-2019-48.png" alt="Visual Studio Code" title="Visual Studio Code" />
             </div>
           </div>
         </div>
       </div>
     </section>
-    <br><br>
 
     <footer class="footer2">
       <div class="footer-container">

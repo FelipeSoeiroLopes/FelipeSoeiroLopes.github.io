@@ -31,6 +31,15 @@
       overflow-x: hidden;
       position: relative;
     }
+    canvas#matrixRain {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100vw;
+        height: 100vh;
+        z-index: 1;
+        opacity: 0.15; /* Sutil no fundo */
+    }
     .konami-container {
       background: rgba(30,30,40,0.92);
       border-radius: 24px;
@@ -49,6 +58,22 @@
       from { opacity: 0; transform: scale(0.95); }
       to { opacity: 1; transform: scale(1); }
     }
+    
+    @keyframes glitch {
+      0%, 20%, 24%, 60%, 64%, 100% {
+        transform: none;
+        opacity: 1;
+      }
+      22% {
+        transform: skewX(15deg);
+        opacity: 0.8;
+      }
+      62% {
+        transform: skewX(-15deg);
+        opacity: 0.8;
+      }
+    }
+    
     .konami-title {
       font-family: 'Press Start 2P', cursive;
       color: var(--accent);
@@ -56,6 +81,7 @@
       margin-bottom: 1.2rem;
       text-shadow: 0 0 12px #ffd166, 0 0 2px #fff;
       letter-spacing: 1px;
+      animation: glitch 2.5s infinite;
     }
     .konami-desc {
       font-size: 1.05rem;
@@ -110,14 +136,16 @@
       border: none;
       font-weight: bold;
       cursor: pointer;
-      box-shadow: 0 4px 15px #6e48aa44;
-      transition: background 0.3s, transform 0.2s;
+      box-shadow: 0 0 10px var(--primary), 0 0 20px var(--primary);
+      transition: all 0.3s ease;
       outline: none;
+      text-shadow: 0 0 5px #fff;
     }
     .konami-btn:hover {
       background: linear-gradient(90deg, var(--accent), var(--primary));
       color: #232347;
       transform: scale(1.05);
+      box-shadow: 0 0 15px var(--accent), 0 0 30px var(--accent);
     }
     .konami-celebrate {
       position: fixed;
@@ -171,17 +199,9 @@
       0% { transform: rotate(0deg) scale(1); }
       100% { transform: rotate(360deg) scale(1.2); }
     }
-    #matrixRain {
-      position: fixed;
-      top: 0; left: 0;
-      width: 100vw; height: 100vh;
-      z-index: 900;
-      pointer-events: none;
-      opacity: 0.7;
-      display: none;
-    }
     .konami-celebrate #matrixRain {
       display: block;
+      opacity: 0.7; /* Mais intenso na celebração */
     }
     @media (max-width: 600px) {
       .konami-title { font-size: 1rem; }
@@ -192,6 +212,7 @@
   </style>
 </head>
 <body>
+  <canvas id="matrixRain"></canvas>
   <div class="konami-container">
     <div class="konami-title">✨ Área Secreta do FelpsDev ✨</div>
     <div class="konami-desc">
@@ -216,8 +237,11 @@
     <br>
     <a href="index.html" class="konami-btn" style="margin-top:1.5rem;background:linear-gradient(90deg,#ffd166,#6e48aa);color:#232347;">← Voltar à Página Inicial</a>
   </div>
-  <canvas id="matrixRain"></canvas>
   <script>
+    document.addEventListener('DOMContentLoaded', () => {
+        startMatrixRain(); // Inicia o efeito Matrix no carregamento
+    });
+
     // Konami code logic
     const konamiCode = ['ArrowUp','ArrowUp','ArrowDown','ArrowDown','ArrowLeft','ArrowRight','ArrowLeft','ArrowRight','b','a'];
     let konamiIndex = 0;
@@ -232,12 +256,20 @@
     function resetSequence() {
       sequenceEls.forEach(el => el.classList.remove('active'));
     }
+    
+    function playKeySound() {
+        const keyAudio = new Audio('https://cdn.pixabay.com/audio/2022/03/15/audio_731c436a9a.mp3');
+        keyAudio.volume = 0.4;
+        keyAudio.play();
+    }
+    
     document.addEventListener('keydown', (e) => {
       if (konamiActive) return;
       const key = e.key.toLowerCase();
       const expected = konamiCode[konamiIndex].toLowerCase();
       if (key === expected) {
         highlightSequence(konamiIndex);
+        playKeySound(); // Toca o som a cada tecla correta
         konamiIndex++;
         if (konamiIndex === konamiCode.length) {
           activateKonami();
@@ -264,7 +296,8 @@
       showCelebrate();
       playKonamiSound();
       createConfetti();
-      startMatrixRain();
+      // A animação da matrix já está rodando, apenas a tornamos mais opaca
+      document.getElementById('matrixRain').style.opacity = '0.7';
     }
     function showCelebrate() {
       const celebrate = document.createElement('div');
