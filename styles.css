@@ -715,7 +715,7 @@ nav {
 
 .projects {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
   gap: 3rem;
   padding: 2rem;
 }
@@ -756,7 +756,7 @@ nav {
 .project-item img {
   width: 100%;
   aspect-ratio: 16 / 10;
-  object-fit: cover;
+  object-fit: contain;
   transition: all 0.4s ease;
   filter: grayscale(50%) brightness(0.8);
 }
@@ -769,6 +769,7 @@ nav {
 .project-image-container {
   position: relative;
   overflow: hidden;
+  background-color: #000;
 }
 
 .project-overlay {
@@ -818,6 +819,14 @@ nav {
   margin-bottom: 1rem;
   color: #00ff00;
   font-weight: 700;
+  flex-grow: 1;
+}
+
+.project-description {
+  font-size: 0.95rem;
+  color: #d1d1e0;
+  margin-bottom: 1.5rem;
+  line-height: 1.6;
   flex-grow: 1;
 }
 
