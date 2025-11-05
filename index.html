@@ -8,7 +8,11 @@
       href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap"
       rel="stylesheet"
     />
+    <link rel="icon" type="image/png" href="images/felpsdevsemfundo.png" />
     <title>FELIPE LOPES | INÍCIO</title>
+    <!-- GSAP Library -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
   </head>
   <body>
     <header>
@@ -115,38 +119,50 @@
     <!-- Seção de Depoimentos -->
     <section class="testimonials-section">
       <div class="container">
-        <h2 class="primary-heading">O QUE DIZEM SOBRE MIM</h2>
+        <h2 class="primary-heading testimonials-heading">O QUE DIZEM SOBRE MIM</h2>
         <div class="testimonials-grid">
-          <div class="testimonial-item">
+          <div class="testimonial-item" data-animation="fade-up">
+            <div class="testimonial-icon">💼</div>
             <div class="testimonial-content">
-              <p>"Felipe demonstrou excelente capacidade técnica e proatividade durante seu período na empresa. Sua dedicação em resolver problemas complexos e melhorar a experiência do usuário foi excepcional."</p>
+              <p>Trabalhar com o Felipe Soeiro é sempre muito bom. Ele é uma pessoa confiável e dedicada, que faz a diferença no time. Tem grande habilidade em programação e domina o uso do Cursor, sempre trazendo soluções práticas e eficientes para os desafios. É alguém com quem você pode contar para entregar resultados e colaborar de forma positiva. Recomendo para qualquer projeto que ele queira assumir.</p>
             </div>
             <div class="testimonial-author">
+              <div class="author-avatar">
+                <div class="avatar-placeholder">GS</div>
+              </div>
               <div class="author-info">
                 <h4>Gestor de TI</h4>
                 <span>SIMPAR</span>
               </div>
             </div>
           </div>
-          <div class="testimonial-item">
+          <div class="testimonial-item" data-animation="fade-up">
+            <div class="testimonial-icon">🚀</div>
             <div class="testimonial-content">
-              <p>"Profissional comprometido com resultados. Felipe sempre entrega soluções inovadoras e está sempre disposto a aprender novas tecnologias para agregar valor aos projetos."</p>
+              <p>A disciplina e ambição do Felipe é incrível! Com certeza terá uma carreira brilhante pela frente, sempre curioso e interessado em fazer acontecer!</p>
             </div>
             <div class="testimonial-author">
-              <div class="author-info">
-                <h4>Colega de Equipe</h4>
-                <span>Tecnocomp</span>
+              <div class="author-avatar">
+                <div class="avatar-placeholder">MD</div>
               </div>
-            </div>
-          </div>
-          <div class="testimonial-item">
-            <div class="testimonial-content">
-              <p>"Felipe é um desenvolvedor talentoso com grande potencial. Sua paixão pela tecnologia e vontade de crescer profissionalmente são evidentes em cada projeto que desenvolve."</p>
-            </div>
-            <div class="testimonial-author">
               <div class="author-info">
                 <h4>Mentor</h4>
                 <span>Comunidade Dev</span>
+              </div>
+            </div>
+          </div>
+          <div class="testimonial-item" data-animation="fade-up">
+            <div class="testimonial-icon">🎓</div>
+            <div class="testimonial-content">
+              <p>Tenho o prazer de recomendar Felipe Soeiro, aluno que tive a oportunidade de acompanhar durante o primeiro semestre do curso de Análise e Desenvolvimento de Sistemas, na disciplina de Redes e Segurança. Desde o início, Felipe se destacou pela proatividade nas aulas, pela participação ativa e pelo interesse genuíno em buscar conhecimento além do conteúdo apresentado, explorando temas de forma autônoma. Sua curiosidade e dedicação foram evidentes não apenas nas discussões em sala, mas também na oportunidade que agarrou ainda no primeiro semestre, ao iniciar um estágio na área de tecnologia.</p>
+            </div>
+            <div class="testimonial-author">
+              <div class="author-avatar">
+                <div class="avatar-placeholder">PR</div>
+              </div>
+              <div class="author-info">
+                <h4>Professor</h4>
+                <span>Análise e Desenvolvimento de Sistemas</span>
               </div>
             </div>
           </div>
@@ -167,5 +183,160 @@
     <a href="#" class="voltar-ao-topo">↑</a>
 
     <script src="script.js"></script>
+    <script>
+      // GSAP Animations
+      gsap.registerPlugin(ScrollTrigger);
+
+      // Animate testimonials on scroll
+      gsap.utils.toArray('.testimonial-item').forEach((item, index) => {
+        gsap.from(item, {
+          scrollTrigger: {
+            trigger: item,
+            start: 'top 85%',
+            toggleActions: 'play none none reverse'
+          },
+          y: 60,
+          opacity: 0,
+          duration: 0.8,
+          delay: index * 0.2,
+          ease: 'power3.out'
+        });
+      });
+
+      // Animate heading
+      gsap.from('.testimonials-heading', {
+        scrollTrigger: {
+          trigger: '.testimonials-section',
+          start: 'top 80%'
+        },
+        y: 30,
+        opacity: 0,
+        duration: 1,
+        ease: 'power3.out'
+      });
+
+      // Hover animations for testimonials
+      document.querySelectorAll('.testimonial-item').forEach(item => {
+        item.addEventListener('mouseenter', () => {
+          gsap.to(item, {
+            scale: 1.03,
+            duration: 0.3,
+            ease: 'power2.out'
+          });
+        });
+        item.addEventListener('mouseleave', () => {
+          gsap.to(item, {
+            scale: 1,
+            duration: 0.3,
+            ease: 'power2.out'
+          });
+        });
+      });
+
+      // Animate stats section
+      gsap.utils.toArray('.stat-item').forEach((item, index) => {
+        gsap.from(item, {
+          scrollTrigger: {
+            trigger: item,
+            start: 'top 85%',
+            toggleActions: 'play none none reverse'
+          },
+          y: 40,
+          opacity: 0,
+          duration: 0.6,
+          delay: index * 0.1,
+          ease: 'power2.out'
+        });
+
+        // Animate numbers
+        const number = item.querySelector('.stat-number');
+        const targetValue = number.textContent;
+        const originalText = number.textContent;
+        
+        if (targetValue.includes('%')) {
+          const numValue = parseInt(targetValue);
+          const obj = { value: 0 };
+          gsap.to(obj, {
+            value: numValue,
+            duration: 1.5,
+            delay: index * 0.1 + 0.3,
+            scrollTrigger: {
+              trigger: item,
+              start: 'top 85%'
+            },
+            ease: 'power2.out',
+            onUpdate: () => {
+              number.textContent = Math.round(obj.value) + '%';
+            }
+          });
+        } else {
+          const numMatch = targetValue.match(/\d+/);
+          if (numMatch) {
+            const numValue = parseInt(numMatch[0]);
+            const suffix = targetValue.replace(numMatch[0], '');
+            const obj = { value: 0 };
+            gsap.to(obj, {
+              value: numValue,
+              duration: 1.5,
+              delay: index * 0.1 + 0.3,
+              scrollTrigger: {
+                trigger: item,
+                start: 'top 85%'
+              },
+              ease: 'power2.out',
+              onUpdate: () => {
+                number.textContent = Math.round(obj.value) + suffix;
+              }
+            });
+          }
+        }
+      });
+
+      // Animate hero section - não mexer nos filtros CSS
+      gsap.from('.avatar img', {
+        y: 50,
+        opacity: 0,
+        duration: 1,
+        ease: 'power3.out',
+        delay: 0.2,
+        clearProps: 'y' // Apenas limpar a propriedade y, manter os filtros CSS
+      });
+
+      gsap.from('.about-text h1', {
+        y: 30,
+        opacity: 0,
+        duration: 0.8,
+        ease: 'power3.out',
+        delay: 0.4
+      });
+
+      gsap.from('.about-text p', {
+        y: 30,
+        opacity: 0,
+        duration: 0.8,
+        ease: 'power3.out',
+        delay: 0.6
+      });
+
+      gsap.from('.about-btn', {
+        y: 30,
+        opacity: 0,
+        duration: 0.8,
+        ease: 'power3.out',
+        delay: 0.8
+      });
+
+      // Animate skills section heading
+      gsap.from('.skills-section .primary-heading', {
+        scrollTrigger: {
+          trigger: '.skills-section',
+          start: 'top 80%'
+        },
+        y: 30,
+        opacity: 0,
+        duration: 0.8,
+        ease: 'power3.out'
+      });
+    </script>
   </body>
 </html>

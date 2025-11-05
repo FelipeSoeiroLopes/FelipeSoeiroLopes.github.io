@@ -21,31 +21,38 @@ Este projeto é a minha vitrine profissional digital. Foi desenvolvido do zero c
 
 O portfólio conta com diversas funcionalidades modernas para garantir uma navegação agradável e interativa:
 
-- **🎨 Design Responsivo:** Layout 100% adaptável para uma visualização perfeita em celulares, tablets e desktops.
+- **🎨 Design Responsivo:** Layout 100% adaptável para uma visualização perfeita em celulares, tablets e desktops, com otimizações específicas para cada tamanho de tela.
 - **📱 Menu Mobile Moderno:** Um menu lateral deslizante, com ícone animado (hambúrguer para "X"), que proporciona uma experiência de navegação intuitiva e sofisticada em dispositivos móveis.
 - **🎠 Carrossel de Tecnologias:** Uma faixa com rolagem infinita e interativa para apresentar as tecnologias que domino de forma dinâmica.
-- **✨ Animações Suaves:** Efeitos de transição e entrada em toda a aplicação para tornar a experiência mais fluida e profissional.
+- **⚡ Animações GSAP:** Animações profissionais e fluidas implementadas com GSAP (GreenSock Animation Platform) e ScrollTrigger, criando uma experiência visual moderna e envolvente em todas as páginas.
+- **✨ Animações de Scroll:** Elementos aparecem suavemente conforme o usuário rola a página, criando uma experiência dinâmica e interativa.
+- **💫 Avatar Animado:** Avatar com animação de pulsação contínua, alternando entre estados forte e fraco, criando um efeito visual atrativo.
+- **🎭 Cards de Depoimentos Modernos:** Seção de depoimentos redesenhada com ícones, avatares e animações suaves ao scroll.
 - **👾 Easter Egg:** Um segredo escondido para os curiosos. Será que você consegue encontrar? (Dica: tente clicar na logo principal algumas vezes).
 - **🔼 Botão "Voltar ao Topo":** Facilita a navegação em páginas mais longas.
-- **📊 Estatísticas Animadas:** Números que ganham vida e destacam minhas conquistas de forma visual.
+- **📊 Estatísticas Animadas:** Números que ganham vida com animação de contagem e destacam minhas conquistas de forma visual.
+- **🎯 Hover Effects Interativos:** Efeitos de hover suaves em todos os elementos interativos, melhorando o feedback visual.
+- **🔥 Efeitos Visuais Avançados:** Filtros CSS para realçar imagens, sombras com glow, bordas animadas e gradientes modernos.
 
 ## 🛠️ Tecnologias Utilizadas
 
 O projeto foi construído utilizando as seguintes tecnologias:
 
 - **HTML5:** Para a estruturação semântica e acessível do conteúdo.
-- **CSS3:** Para toda a estilização, animações e a criação dos layouts responsivos, utilizando recursos modernos como Flexbox, Grid e a função `clamp()`.
+- **CSS3:** Para toda a estilização, animações e a criação dos layouts responsivos, utilizando recursos modernos como Flexbox, Grid, a função `clamp()`, animações keyframes e filtros avançados.
 - **JavaScript (ES6+):** Para adicionar interatividade, manipular o DOM e implementar funcionalidades dinâmicas como o menu mobile, animações de scroll e o Easter Egg.
+- **GSAP (GreenSock Animation Platform):** Biblioteca profissional de animações JavaScript para criar efeitos suaves e performáticos.
+- **ScrollTrigger:** Plugin do GSAP para animações baseadas em scroll, proporcionando uma experiência visual dinâmica.
 
 ## 🗺️ Estrutura do Site
 
-- **`index.html`**: A página inicial, com uma apresentação, o carrossel de tecnologias e depoimentos.
-- **`projetos.html`**: Uma galeria com os meus principais projetos, incluindo links para os repositórios.
-- **`experiencia.html`**: Detalhes sobre a minha trajetória profissional.
-- **`contato.html`**: Informações e links para contato.
+- **`index.html`**: A página inicial, com uma apresentação animada, estatísticas, carrossel de tecnologias e depoimentos com animações GSAP.
+- **`projetos.html`**: Uma galeria com os meus principais projetos, incluindo links para os repositórios, com animações de entrada e hover effects.
+- **`experiencia.html`**: Detalhes sobre a minha trajetória profissional, com cards animados e layout totalmente responsivo para mobile.
+- **`contato.html`**: Informações e links para contato, com cards interativos e animações suaves.
 - **`easteregg.html`**: A página secreta!
-- **`styles.css`**: A folha de estilos central que define todo o design do site.
-- **`script.js`**: Onde toda a mágica da interatividade acontece.
+- **`styles.css`**: A folha de estilos central que define todo o design do site, incluindo animações CSS, media queries responsivas e efeitos visuais modernos.
+- **`script.js`**: Onde toda a mágica da interatividade acontece, incluindo o menu mobile e funcionalidades JavaScript.
 
 ## 👨‍💻 Autor
 
