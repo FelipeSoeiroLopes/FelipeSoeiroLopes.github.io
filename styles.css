@@ -1117,12 +1117,15 @@ nav {
   padding: 3rem 2.5rem;
   border: 1.5px solid rgba(0, 255, 0, 0.2);
   backdrop-filter: blur(20px);
-  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
   position: relative;
   overflow: visible;
   box-shadow: 0 10px 40px rgba(0, 0, 0, 0.4), 
               0 0 0 0 rgba(0, 255, 0, 0.1);
   opacity: 0;
+  will-change: transform, opacity;
+  transform: translateZ(0); /* Aceleração por hardware */
+  backface-visibility: hidden; /* Melhora performance */
 }
 
 .testimonial-item::before {
@@ -1142,7 +1145,7 @@ nav {
 }
 
 .testimonial-item:hover {
-  transform: translateY(-10px);
+  transform: translateY(-10px) translateZ(0);
   box-shadow: 0 20px 60px rgba(0, 255, 0, 0.25), 
               0 0 40px rgba(0, 255, 0, 0.15);
   border-color: rgba(0, 255, 0, 0.4);
@@ -1154,6 +1157,8 @@ nav {
   margin-bottom: 1.5rem;
   filter: drop-shadow(0 0 10px rgba(0, 255, 0, 0.5));
   animation: float 3s ease-in-out infinite;
+  will-change: transform;
+  transform: translateZ(0);
 }
 
 .testimonial-content {
@@ -1195,7 +1200,7 @@ nav {
 }
 
 .testimonial-item:hover .author-avatar {
-  transform: scale(1.1) rotate(5deg);
+  transform: scale(1.1) rotate(5deg) translateZ(0);
   box-shadow: 0 8px 25px rgba(0, 255, 0, 0.5);
 }
 

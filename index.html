@@ -226,65 +226,65 @@
         ScrollTrigger.refresh();
       });
 
-      // Animate testimonials on scroll - otimizado para performance
-      gsap.utils.toArray('.testimonial-item').forEach((item, index) => {
-        gsap.set(item, { willChange: 'transform, opacity' });
-        gsap.from(item, {
-          scrollTrigger: {
-            trigger: item,
-            start: 'top 90%',
-            toggleActions: 'play none none none',
-            once: true,
-            markers: false
-          },
-          y: 40,
-          opacity: 0,
-          scale: 0.95,
-          duration: 0.5,
-          delay: index * 0.05,
-          ease: 'power2.out',
-          force3D: true,
-          onComplete: () => {
-            gsap.set(item, { willChange: 'auto' });
+      // Animate testimonials on scroll - ULTRA OTIMIZADO (SEM TRAVAMENTOS)
+      const testimonials = gsap.utils.toArray('.testimonial-item');
+      if (testimonials.length > 0) {
+        // Criar um único ScrollTrigger para toda a seção (mais eficiente)
+        const testimonialTrigger = ScrollTrigger.create({
+          trigger: '.testimonials-section',
+          start: 'top 85%',
+          once: true,
+          markers: false,
+          onEnter: () => {
+            // Animar todos os items de uma vez com stagger otimizado
+            gsap.fromTo(testimonials, 
+              {
+                y: 30,
+                opacity: 0
+              },
+              {
+                y: 0,
+                opacity: 1,
+                duration: 0.4,
+                stagger: 0.08,
+                ease: 'power1.out',
+                force3D: true,
+                onComplete: () => {
+                  // Limpar will-change após animação completa
+                  testimonials.forEach(item => {
+                    gsap.set(item, { 
+                      willChange: 'auto',
+                      clearProps: 'transform'
+                    });
+                  });
+                  // Destruir trigger após uso
+                  testimonialTrigger.kill();
+                }
+              }
+            );
           }
         });
-      });
+      }
 
-      // Animate heading - mais rápido
+      // Animate heading - otimizado
       gsap.from('.testimonials-heading', {
         scrollTrigger: {
           trigger: '.testimonials-section',
           start: 'top 90%',
-          once: true
+          once: true,
+          markers: false
         },
         y: 20,
         opacity: 0,
-        duration: 0.6,
-        ease: 'power2.out'
+        duration: 0.4,
+        ease: 'power1.out',
+        force3D: true,
+        clearProps: 'all'
       });
 
-      // Hover animations for testimonials - otimizado
-      document.querySelectorAll('.testimonial-item').forEach(item => {
-        let hoverTween = null;
-        item.addEventListener('mouseenter', () => {
-          if (hoverTween) hoverTween.kill();
-          hoverTween = gsap.to(item, {
-            scale: 1.03,
-            duration: 0.3,
-            ease: 'power2.out',
-            force3D: true
-          });
-        });
-        item.addEventListener('mouseleave', () => {
-          if (hoverTween) hoverTween.kill();
-          hoverTween = gsap.to(item, {
-            scale: 1,
-            duration: 0.3,
-            ease: 'power2.out',
-            force3D: true
-          });
-        });
-      });
+      // Hover animations for testimonials - ULTRA OTIMIZADO (CSS apenas)
+      // Removendo animações GSAP no hover para melhor performance
+      // O hover será feito apenas com CSS transitions
 
       // Animate stats section - otimizado para performance
       gsap.utils.toArray('.stat-item').forEach((item, index) => {
