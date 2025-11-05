@@ -103,58 +103,64 @@
     <script>
       // GSAP Animations
       gsap.registerPlugin(ScrollTrigger);
+      ScrollTrigger.refresh();
 
-      // Animate heading
+      // Animate heading - mais rápido
       gsap.from('.heading-experience', {
-        y: 30,
+        y: 20,
         opacity: 0,
-        duration: 1,
-        ease: 'power3.out'
+        duration: 0.6,
+        ease: 'power2.out'
       });
 
-      // Animate experience items on scroll
+      // Animate experience items on scroll - mais rápido e fluido
       gsap.utils.toArray('.experience-item').forEach((item, index) => {
         gsap.from(item, {
           scrollTrigger: {
             trigger: item,
-            start: 'top 85%',
-            toggleActions: 'play none none reverse'
+            start: 'top 90%',
+            toggleActions: 'play none none none',
+            once: true
           },
-          x: index % 2 === 0 ? -60 : 60,
+          x: index % 2 === 0 ? -40 : 40,
           opacity: 0,
-          duration: 0.8,
-          delay: index * 0.2,
-          ease: 'power3.out'
+          scale: 0.95,
+          duration: 0.5,
+          delay: index * 0.08,
+          ease: 'power2.out'
         });
 
-        // Animate logo
+        // Animate logo - mais rápido
         const logo = item.querySelector('.experience-logo img');
         if (logo) {
           gsap.from(logo, {
             scrollTrigger: {
               trigger: item,
-              start: 'top 85%'
+              start: 'top 90%',
+              once: true
             },
             scale: 0,
             rotation: -180,
-            duration: 0.6,
-            delay: index * 0.2 + 0.3,
-            ease: 'back.out(1.7)'
+            duration: 0.4,
+            delay: index * 0.08 + 0.15,
+            ease: 'back.out(1.5)'
           });
         }
 
-        // Hover animation
+        // Hover animation - mais responsivo
         item.addEventListener('mouseenter', () => {
           gsap.to(item, {
-            y: -8,
-            duration: 0.3,
+            y: -10,
+            scale: 1.02,
+            duration: 0.2,
             ease: 'power2.out'
           });
         });
         item.addEventListener('mouseleave', () => {
           gsap.to(item, {
             y: 0,
-            duration: 0.3,
+            scale: 1,
+            duration: 0.2,
             ease: 'power2.out'
           });
         });

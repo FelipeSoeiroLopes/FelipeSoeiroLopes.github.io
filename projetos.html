@@ -247,42 +247,48 @@
     <script>
       // GSAP Animations
       gsap.registerPlugin(ScrollTrigger);
+      ScrollTrigger.refresh();
 
-      // Animate heading
+      // Animate heading - mais rápido
       gsap.from('.heading-project', {
-        y: 30,
+        y: 20,
         opacity: 0,
-        duration: 1,
-        ease: 'power3.out'
+        duration: 0.6,
+        ease: 'power2.out'
       });
 
-      // Animate project items on scroll
+      // Animate project items on scroll - mais rápido e suave
       gsap.utils.toArray('.project-item').forEach((item, index) => {
         gsap.from(item, {
           scrollTrigger: {
             trigger: item,
-            start: 'top 85%',
-            toggleActions: 'play none none reverse'
+            start: 'top 90%',
+            toggleActions: 'play none none none',
+            once: true
           },
-          y: 60,
+          y: 40,
           opacity: 0,
-          duration: 0.8,
-          delay: index * 0.15,
-          ease: 'power3.out'
+          scale: 0.95,
+          rotation: index % 2 === 0 ? -2 : 2,
+          duration: 0.5,
+          delay: index * 0.05,
+          ease: 'power2.out'
         });
 
-        // Hover animation
+        // Hover animation - mais responsivo
         item.addEventListener('mouseenter', () => {
           gsap.to(item, {
-            scale: 1.02,
-            duration: 0.3,
+            scale: 1.03,
+            y: -5,
+            duration: 0.2,
             ease: 'power2.out'
           });
         });
         item.addEventListener('mouseleave', () => {
           gsap.to(item, {
             scale: 1,
-            duration: 0.3,
+            y: 0,
+            duration: 0.2,
             ease: 'power2.out'
           });
         });
