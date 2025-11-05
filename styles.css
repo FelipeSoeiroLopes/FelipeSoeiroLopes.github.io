@@ -1122,8 +1122,7 @@ nav {
   overflow: visible;
   box-shadow: 0 10px 40px rgba(0, 0, 0, 0.4), 
               0 0 0 0 rgba(0, 255, 0, 0.1);
-  opacity: 0;
-  will-change: transform, opacity;
+  opacity: 1; /* Sempre visível - sem animação */
   transform: translateZ(0); /* Aceleração por hardware */
   backface-visibility: hidden; /* Melhora performance */
 }

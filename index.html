@@ -226,65 +226,7 @@
         ScrollTrigger.refresh();
       });
 
-      // Animate testimonials on scroll - ULTRA OTIMIZADO (SEM TRAVAMENTOS)
-      const testimonials = gsap.utils.toArray('.testimonial-item');
-      if (testimonials.length > 0) {
-        // Criar um único ScrollTrigger para toda a seção (mais eficiente)
-        const testimonialTrigger = ScrollTrigger.create({
-          trigger: '.testimonials-section',
-          start: 'top 85%',
-          once: true,
-          markers: false,
-          onEnter: () => {
-            // Animar todos os items de uma vez com stagger otimizado
-            gsap.fromTo(testimonials, 
-              {
-                y: 30,
-                opacity: 0
-              },
-              {
-                y: 0,
-                opacity: 1,
-                duration: 0.4,
-                stagger: 0.08,
-                ease: 'power1.out',
-                force3D: true,
-                onComplete: () => {
-                  // Limpar will-change após animação completa
-                  testimonials.forEach(item => {
-                    gsap.set(item, { 
-                      willChange: 'auto',
-                      clearProps: 'transform'
-                    });
-                  });
-                  // Destruir trigger após uso
-                  testimonialTrigger.kill();
-                }
-              }
-            );
-          }
-        });
-      }
-
-      // Animate heading - otimizado
-      gsap.from('.testimonials-heading', {
-        scrollTrigger: {
-          trigger: '.testimonials-section',
-          start: 'top 90%',
-          once: true,
-          markers: false
-        },
-        y: 20,
-        opacity: 0,
-        duration: 0.4,
-        ease: 'power1.out',
-        force3D: true,
-        clearProps: 'all'
-      });
-
-      // Hover animations for testimonials - ULTRA OTIMIZADO (CSS apenas)
-      // Removendo animações GSAP no hover para melhor performance
-      // O hover será feito apenas com CSS transitions
+      // Animações de testimonials removidas - sem animação GSAP
 
       // Animate stats section - otimizado para performance
       gsap.utils.toArray('.stat-item').forEach((item, index) => {
