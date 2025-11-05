@@ -204,33 +204,49 @@
 
     <script src="script.js"></script>
     <script>
-      // GSAP Animations - Configuração Global
+      // GSAP Animations - Configuração Global Otimizada
       gsap.registerPlugin(ScrollTrigger);
       
       // Otimização global para melhor performance
       gsap.config({
         nullTargetWarn: false,
-        trialWarn: false
+        trialWarn: false,
+        force3D: true, // Força aceleração por hardware
+        autoSleep: 60 // Pausa animações inativas após 60s
       });
       
-      // Refresh ScrollTrigger após carregamento
-      ScrollTrigger.refresh();
+      // Configuração global do ScrollTrigger para performance
+      ScrollTrigger.config({
+        autoRefreshEvents: "visibilitychange,DOMContentLoaded,load",
+        ignoreMobileResize: true
+      });
+      
+      // Refresh ScrollTrigger após carregamento completo
+      window.addEventListener('load', () => {
+        ScrollTrigger.refresh();
+      });
 
-      // Animate testimonials on scroll - mais rápido e suave
+      // Animate testimonials on scroll - otimizado para performance
       gsap.utils.toArray('.testimonial-item').forEach((item, index) => {
+        gsap.set(item, { willChange: 'transform, opacity' });
         gsap.from(item, {
           scrollTrigger: {
             trigger: item,
             start: 'top 90%',
             toggleActions: 'play none none none',
-            once: true
+            once: true,
+            markers: false
           },
           y: 40,
           opacity: 0,
           scale: 0.95,
           duration: 0.5,
           delay: index * 0.05,
-          ease: 'power2.out'
+          ease: 'power2.out',
+          force3D: true,
+          onComplete: () => {
+            gsap.set(item, { willChange: 'auto' });
+          }
         });
       });
 
@@ -247,87 +263,104 @@
         ease: 'power2.out'
       });
 
-      // Hover animations for testimonials
+      // Hover animations for testimonials - otimizado
       document.querySelectorAll('.testimonial-item').forEach(item => {
+        let hoverTween = null;
         item.addEventListener('mouseenter', () => {
-          gsap.to(item, {
+          if (hoverTween) hoverTween.kill();
+          hoverTween = gsap.to(item, {
             scale: 1.03,
             duration: 0.3,
-            ease: 'power2.out'
+            ease: 'power2.out',
+            force3D: true
           });
         });
         item.addEventListener('mouseleave', () => {
-          gsap.to(item, {
+          if (hoverTween) hoverTween.kill();
+          hoverTween = gsap.to(item, {
             scale: 1,
             duration: 0.3,
-            ease: 'power2.out'
+            ease: 'power2.out',
+            force3D: true
           });
         });
       });
 
-      // Animate stats section - mais rápido e fluido
+      // Animate stats section - otimizado para performance
       gsap.utils.toArray('.stat-item').forEach((item, index) => {
+        gsap.set(item, { willChange: 'transform, opacity' });
         gsap.from(item, {
           scrollTrigger: {
             trigger: item,
             start: 'top 90%',
             toggleActions: 'play none none none',
-            once: true
+            once: true,
+            markers: false
           },
           y: 30,
           opacity: 0,
           scale: 0.9,
           duration: 0.4,
           delay: index * 0.05,
-          ease: 'back.out(1.2)'
+          ease: 'back.out(1.2)',
+          force3D: true,
+          onComplete: () => {
+            gsap.set(item, { willChange: 'auto' });
+          }
         });
 
-        // Animate numbers - mais rápido
+        // Animate numbers - mais rápido e otimizado
         const number = item.querySelector('.stat-number');
-        const targetValue = number.textContent;
+        if (!number) return;
         
-        if (targetValue.includes('%')) {
-          const numValue = parseInt(targetValue);
-          const obj = { value: 0 };
-          gsap.to(obj, {
-            value: numValue,
-            duration: 0.8,
-            delay: index * 0.05 + 0.2,
-            scrollTrigger: {
-              trigger: item,
-              start: 'top 90%',
-              once: true
-            },
-            ease: 'power1.out',
-            onUpdate: () => {
-              number.textContent = Math.round(obj.value) + '%';
-            }
-          });
-        } else {
-          const numMatch = targetValue.match(/\d+/);
-          if (numMatch) {
-            const numValue = parseInt(numMatch[0]);
-            const suffix = targetValue.replace(numMatch[0], '');
-            const obj = { value: 0 };
-            gsap.to(obj, {
-              value: numValue,
-              duration: 0.8,
-              delay: index * 0.05 + 0.2,
-              scrollTrigger: {
-                trigger: item,
-                start: 'top 90%',
-                once: true
-              },
-              ease: 'power1.out',
-              onUpdate: () => {
-                number.textContent = Math.round(obj.value) + suffix;
+        const targetValue = number.textContent;
+        const scrollTrigger = ScrollTrigger.create({
+          trigger: item,
+          start: 'top 90%',
+          once: true,
+          markers: false,
+          onEnter: () => {
+            if (targetValue.includes('%')) {
+              const numValue = parseInt(targetValue);
+              const obj = { value: 0 };
+              gsap.to(obj, {
+                value: numValue,
+                duration: 0.8,
+                delay: index * 0.05 + 0.2,
+                ease: 'power1.out',
+                onUpdate: () => {
+                  number.textContent = Math.round(obj.value) + '%';
+                },
+                onComplete: () => {
+                  scrollTrigger.kill();
+                }
+              });
+            } else {
+              const numMatch = targetValue.match(/\d+/);
+              if (numMatch) {
+                const numValue = parseInt(numMatch[0]);
+                const suffix = targetValue.replace(numMatch[0], '');
+                const obj = { value: 0 };
+                gsap.to(obj, {
+                  value: numValue,
+                  duration: 0.8,
+                  delay: index * 0.05 + 0.2,
+                  ease: 'power1.out',
+                  onUpdate: () => {
+                    number.textContent = Math.round(obj.value) + suffix;
+                  },
+                  onComplete: () => {
+                    scrollTrigger.kill();
+                  }
+                });
               }
-            });
+            }
           }
-        }
+        });
       });
 
-      // Animate hero section - mais rápido e fluido
+      // Animate hero section - otimizado para performance
+      gsap.set('.avatar img', { willChange: 'transform, opacity' });
       gsap.from('.avatar img', {
         y: 40,
         opacity: 0,
@@ -335,7 +368,11 @@
         duration: 0.6,
         ease: 'back.out(1.4)',
         delay: 0.1,
-        clearProps: 'y'
+        clearProps: 'y',
+        force3D: true,
+        onComplete: () => {
+          gsap.set('.avatar img', { willChange: 'auto' });
+        }
       });
 
       gsap.from('.about-text h1 .animated-title', {
@@ -343,7 +380,8 @@
         opacity: 0,
         duration: 0.5,
         ease: 'power2.out',
-        delay: 0.2
+        delay: 0.2,
+        force3D: true
       });
 
       gsap.from('.about-text p', {
@@ -351,7 +389,8 @@
         opacity: 0,
         duration: 0.5,
         ease: 'power2.out',
-        delay: 0.3
+        delay: 0.3,
+        force3D: true
       });
 
       gsap.from('.about-btn', {
@@ -360,7 +399,8 @@
         scale: 0.95,
         duration: 0.5,
         ease: 'power2.out',
-        delay: 0.4
+        delay: 0.4,
+        force3D: true
       });
 
       // Animate skills section heading - mais rápido
@@ -376,92 +416,119 @@
         ease: 'power2.out'
       });
 
-      // Animate objective section - mais bonito e rápido
-      gsap.from('.objective-badge', {
-        scrollTrigger: {
+      // Animate objective section - otimizado e garantindo visibilidade
+      const objectiveSection = document.querySelector('.objective-section');
+      if (objectiveSection) {
+        // Garantir que o link está visível antes de animar
+        gsap.set('.objective-link', { 
+          opacity: 1, 
+          visibility: 'visible',
+          display: 'inline-flex'
+        });
+        
+        const scrollTrigger = ScrollTrigger.create({
           trigger: '.objective-section',
           start: 'top 90%',
-          once: true
-        },
-        scale: 0,
-        opacity: 0,
-        duration: 0.5,
-        ease: 'back.out(1.5)'
-      });
+          once: true,
+          markers: false,
+          onEnter: () => {
+            gsap.set('.objective-badge', { willChange: 'transform, opacity' });
+            gsap.from('.objective-badge', {
+              scale: 0,
+              opacity: 0,
+              duration: 0.5,
+              ease: 'back.out(1.5)',
+              force3D: true,
+              onComplete: () => {
+                gsap.set('.objective-badge', { willChange: 'auto' });
+              }
+            });
 
-      gsap.from('.objective-title', {
-        scrollTrigger: {
-          trigger: '.objective-section',
-          start: 'top 90%',
-          once: true
-        },
-        y: 30,
-        opacity: 0,
-        scale: 0.95,
-        duration: 0.6,
-        delay: 0.1,
-        ease: 'back.out(1.3)'
-      });
+            gsap.set('.objective-title', { willChange: 'transform, opacity' });
+            gsap.from('.objective-title', {
+              y: 30,
+              opacity: 0,
+              scale: 0.95,
+              duration: 0.6,
+              delay: 0.1,
+              ease: 'back.out(1.3)',
+              force3D: true,
+              onComplete: () => {
+                gsap.set('.objective-title', { willChange: 'auto' });
+              }
+            });
 
-      gsap.from('.objective-info h3', {
-        scrollTrigger: {
-          trigger: '.objective-section',
-          start: 'top 90%',
-          once: true
-        },
-        y: 20,
-        opacity: 0,
-        duration: 0.5,
-        delay: 0.3,
-        ease: 'power2.out'
-      });
+            gsap.from('.objective-info h3', {
+              y: 20,
+              opacity: 0,
+              duration: 0.5,
+              delay: 0.3,
+              ease: 'power2.out',
+              force3D: true
+            });
 
-      gsap.from('.objective-link', {
-        scrollTrigger: {
-          trigger: '.objective-section',
-          start: 'top 90%',
-          once: true
-        },
-        y: 30,
-        opacity: 0,
-        scale: 0.9,
-        rotation: -5,
-        duration: 0.6,
-        delay: 0.5,
-        ease: 'back.out(1.4)'
-      });
+            gsap.set('.objective-link', { 
+              willChange: 'transform, opacity',
+              opacity: 1,
+              visibility: 'visible',
+              display: 'inline-flex'
+            });
+            gsap.from('.objective-link', {
+              y: 30,
+              opacity: 0,
+              scale: 0.9,
+              rotation: -5,
+              duration: 0.6,
+              delay: 0.5,
+              ease: 'back.out(1.4)',
+              force3D: true,
+              onComplete: () => {
+                gsap.set('.objective-link', { 
+                  willChange: 'auto',
+                  opacity: 1,
+                  visibility: 'visible'
+                });
+              }
+            });
 
-      gsap.from('.objective-description', {
-        scrollTrigger: {
-          trigger: '.objective-section',
-          start: 'top 90%',
-          once: true
-        },
-        y: 20,
-        opacity: 0,
-        duration: 0.5,
-        delay: 0.7,
-        ease: 'power2.out'
-      });
+            gsap.from('.objective-description', {
+              y: 20,
+              opacity: 0,
+              duration: 0.5,
+              delay: 0.7,
+              ease: 'power2.out',
+              force3D: true
+            });
+          }
+        });
+      }
 
-      // Hover animation para o link
+      // Hover animation para o link - otimizado
       document.querySelectorAll('.objective-link').forEach(link => {
-        link.addEventListener('mouseenter', () => {
-          gsap.to(link.querySelector('.objective-icon'), {
-            rotation: 15,
-            scale: 1.2,
-            duration: 0.3,
-            ease: 'power2.out'
+        let iconTween = null;
+        const icon = link.querySelector('.objective-icon');
+        if (icon) {
+          link.addEventListener('mouseenter', () => {
+            if (iconTween) iconTween.kill();
+            iconTween = gsap.to(icon, {
+              rotation: 15,
+              scale: 1.2,
+              duration: 0.3,
+              ease: 'power2.out',
+              force3D: true
+            });
           });
-        });
-        link.addEventListener('mouseleave', () => {
-          gsap.to(link.querySelector('.objective-icon'), {
-            rotation: 0,
-            scale: 1,
-            duration: 0.3,
-            ease: 'power2.out'
+          link.addEventListener('mouseleave', () => {
+            if (iconTween) iconTween.kill();
+            iconTween = gsap.to(icon, {
+              rotation: 0,
+              scale: 1,
+              duration: 0.3,
+              ease: 'power2.out',
+              force3D: true
+            });
           });
-        });
+        }
       });
     </script>
   </body>

@@ -91,9 +91,14 @@
     </footer>
     <script src="script.js"></script>
     <script>
-      // GSAP Animations
+      // GSAP Animations - Otimizado
       gsap.registerPlugin(ScrollTrigger);
-      ScrollTrigger.refresh();
+      gsap.config({ force3D: true, autoSleep: 60 });
+      ScrollTrigger.config({ ignoreMobileResize: true });
+      
+      window.addEventListener('load', () => {
+        ScrollTrigger.refresh();
+      });
 
       // Animate hero section - mais rápido
       gsap.from('.contact-title', {
@@ -114,68 +119,96 @@
         stagger: 0.1
       });
 
-      // Animate contact cards on scroll - mais rápido e fluido
+      // Animate contact cards on scroll - otimizado
       gsap.utils.toArray('.contact-card').forEach((card, index) => {
+        gsap.set(card, { willChange: 'transform, opacity' });
         gsap.from(card, {
           scrollTrigger: {
             trigger: card,
             start: 'top 90%',
             toggleActions: 'play none none none',
-            once: true
+            once: true,
+            markers: false
           },
           y: 40,
           opacity: 0,
           scale: 0.95,
           duration: 0.5,
           delay: index * 0.08,
-          ease: 'power2.out'
+          ease: 'power2.out',
+          force3D: true,
+          onComplete: () => {
+            gsap.set(card, { willChange: 'auto' });
+          }
         });
 
-        // Animate icon - mais rápido
+        // Animate icon - otimizado
         const icon = card.querySelector('.contact-icon img');
         if (icon) {
+          gsap.set(icon, { willChange: 'transform' });
           gsap.from(icon, {
             scrollTrigger: {
               trigger: card,
               start: 'top 90%',
-              once: true
+              once: true,
+              markers: false
             },
             scale: 0,
             rotation: 360,
             duration: 0.4,
             delay: index * 0.08 + 0.15,
-            ease: 'back.out(1.5)'
+            ease: 'back.out(1.5)',
+            force3D: true,
+            onComplete: () => {
+              gsap.set(icon, { willChange: 'auto' });
+            }
           });
         }
 
-        // Hover animation - mais responsivo
+        // Hover animation - otimizado
+        let cardTween = null;
+        let iconTween = null;
         card.addEventListener('mouseenter', () => {
-          gsap.to(card, {
+          if (cardTween) cardTween.kill();
+          if (iconTween) iconTween.kill();
+          cardTween = gsap.to(card, {
             y: -12,
             scale: 1.03,
             duration: 0.2,
-            ease: 'power2.out'
+            ease: 'power2.out',
+            force3D: true
           });
-          gsap.to(card.querySelector('.contact-icon img'), {
-            rotation: 15,
-            scale: 1.15,
-            duration: 0.2,
-            ease: 'power2.out'
-          });
+          const iconEl = card.querySelector('.contact-icon img');
+          if (iconEl) {
+            iconTween = gsap.to(iconEl, {
+              rotation: 15,
+              scale: 1.15,
+              duration: 0.2,
+              ease: 'power2.out',
+              force3D: true
+            });
+          }
         });
         card.addEventListener('mouseleave', () => {
-          gsap.to(card, {
+          if (cardTween) cardTween.kill();
+          if (iconTween) iconTween.kill();
+          cardTween = gsap.to(card, {
             y: 0,
             scale: 1,
             duration: 0.2,
-            ease: 'power2.out'
+            ease: 'power2.out',
+            force3D: true
           });
-          gsap.to(card.querySelector('.contact-icon img'), {
-            rotation: 0,
-            scale: 1,
-            duration: 0.2,
-            ease: 'power2.out'
-          });
+          const iconEl = card.querySelector('.contact-icon img');
+          if (iconEl) {
+            iconTween = gsap.to(iconEl, {
+              rotation: 0,
+              scale: 1,
+              duration: 0.2,
+              ease: 'power2.out',
+              force3D: true
+            });
+          }
         });
       });
     </script>

@@ -101,9 +101,14 @@
 
     <script src="script.js"></script>
     <script>
-      // GSAP Animations
+      // GSAP Animations - Otimizado
       gsap.registerPlugin(ScrollTrigger);
-      ScrollTrigger.refresh();
+      gsap.config({ force3D: true, autoSleep: 60 });
+      ScrollTrigger.config({ ignoreMobileResize: true });
+      
+      window.addEventListener('load', () => {
+        ScrollTrigger.refresh();
+      });
 
       // Animate heading - mais rápido
       gsap.from('.heading-experience', {
@@ -113,55 +118,72 @@
         ease: 'power2.out'
       });
 
-      // Animate experience items on scroll - mais rápido e fluido
+      // Animate experience items on scroll - otimizado
       gsap.utils.toArray('.experience-item').forEach((item, index) => {
+        gsap.set(item, { willChange: 'transform, opacity' });
         gsap.from(item, {
           scrollTrigger: {
             trigger: item,
             start: 'top 90%',
             toggleActions: 'play none none none',
-            once: true
+            once: true,
+            markers: false
           },
           x: index % 2 === 0 ? -40 : 40,
           opacity: 0,
           scale: 0.95,
           duration: 0.5,
           delay: index * 0.08,
-          ease: 'power2.out'
+          ease: 'power2.out',
+          force3D: true,
+          onComplete: () => {
+            gsap.set(item, { willChange: 'auto' });
+          }
         });
 
-        // Animate logo - mais rápido
+        // Animate logo - otimizado
         const logo = item.querySelector('.experience-logo img');
         if (logo) {
+          gsap.set(logo, { willChange: 'transform' });
           gsap.from(logo, {
             scrollTrigger: {
               trigger: item,
               start: 'top 90%',
-              once: true
+              once: true,
+              markers: false
             },
             scale: 0,
             rotation: -180,
             duration: 0.4,
             delay: index * 0.08 + 0.15,
-            ease: 'back.out(1.5)'
+            ease: 'back.out(1.5)',
+            force3D: true,
+            onComplete: () => {
+              gsap.set(logo, { willChange: 'auto' });
+            }
           });
         }
 
-        // Hover animation - mais responsivo
+        // Hover animation - otimizado
+        let hoverTween = null;
         item.addEventListener('mouseenter', () => {
-          gsap.to(item, {
+          if (hoverTween) hoverTween.kill();
+          hoverTween = gsap.to(item, {
             y: -10,
             scale: 1.02,
             duration: 0.2,
-            ease: 'power2.out'
+            ease: 'power2.out',
+            force3D: true
           });
         });
         item.addEventListener('mouseleave', () => {
-          gsap.to(item, {
+          if (hoverTween) hoverTween.kill();
+          hoverTween = gsap.to(item, {
             y: 0,
             scale: 1,
             duration: 0.2,
-            ease: 'power2.out'
+            ease: 'power2.out',
+            force3D: true
           });
         });
       });
