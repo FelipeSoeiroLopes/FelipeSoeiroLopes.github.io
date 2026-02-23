@@ -30,6 +30,7 @@
           <div><a href="projetos.html">PROJETOS</a></div>
           <div><a href="formacoes.html">FORMAÇÕES</a></div>
           <div><a href="experiencia.html">EXPERIÊNCIAS</a></div>
+          <div><a href="depoimentos.html">DEPOIMENTOS</a></div>
           <div><a href="contato.html">CONTATOS</a></div>
         </div>
       </nav>
@@ -117,61 +118,16 @@
       </div>
     </section>
 
-    <!-- Seção de Depoimentos -->
-    <section class="testimonials-section snap-section" id="depoimentos">
+    <!-- Chamada para página de Depoimentos -->
+    <section class="testimonials-cta" id="veja-depoimentos">
       <div class="container">
-        <h2 class="primary-heading testimonials-heading">O QUE DIZEM SOBRE MIM</h2>
-        <div class="testimonials-grid">
-          <div class="testimonial-item" data-animation="fade-up">
-            <div class="testimonial-icon">💼</div>
-            <div class="testimonial-content">
-              <p>Trabalhar com o Felipe Soeiro é sempre muito bom. Ele é uma pessoa confiável e dedicada, que faz a diferença no time. Tem grande habilidade em programação e domina o uso do Cursor, sempre trazendo soluções práticas e eficientes para os desafios. É alguém com quem você pode contar para entregar resultados e colaborar de forma positiva. Recomendo para qualquer projeto que ele queira assumir.</p>
-            </div>
-            <div class="testimonial-author">
-              <div class="author-avatar">
-                <div class="avatar-placeholder">GS</div>
-              </div>
-              <div class="author-info">
-                <h4>Gestor de TI</h4>
-                <span>SIMPAR</span>
-              </div>
-            </div>
-          </div>
-          <div class="testimonial-item" data-animation="fade-up">
-            <div class="testimonial-icon">🚀</div>
-            <div class="testimonial-content">
-              <p>A disciplina e ambição do Felipe é incrível! Com certeza terá uma carreira brilhante pela frente, sempre curioso e interessado em fazer acontecer!</p>
-            </div>
-            <div class="testimonial-author">
-              <div class="author-avatar">
-                <div class="avatar-placeholder">MD</div>
-              </div>
-              <div class="author-info">
-                <h4>Mentor</h4>
-                <span>Comunidade Dev</span>
-              </div>
-            </div>
-          </div>
-          <div class="testimonial-item" data-animation="fade-up">
-            <div class="testimonial-icon">🎓</div>
-            <div class="testimonial-content">
-              <p>Tenho o prazer de recomendar Felipe Soeiro, aluno que tive a oportunidade de acompanhar durante o primeiro semestre do curso de Análise e Desenvolvimento de Sistemas, na disciplina de Redes e Segurança. Desde o início, Felipe se destacou pela proatividade nas aulas, pela participação ativa e pelo interesse genuíno em buscar conhecimento além do conteúdo apresentado, explorando temas de forma autônoma. Sua curiosidade e dedicação foram evidentes não apenas nas discussões em sala, mas também na oportunidade que agarrou ainda no primeiro semestre, ao iniciar um estágio na área de tecnologia.</p>
-            </div>
-            <div class="testimonial-author">
-              <div class="author-avatar">
-                <div class="avatar-placeholder">PR</div>
-              </div>
-              <div class="author-info">
-                <h4>Professor</h4>
-                <span>Análise e Desenvolvimento de Sistemas</span>
-              </div>
-            </div>
-          </div>
-        </div>
+        <h2 class="primary-heading">O QUE DIZEM SOBRE MIM</h2>
+        <p class="testimonials-cta-text">Veja o que gestores, mentores e professores dizem sobre o meu trabalho.</p>
+        <a href="depoimentos.html" class="btn-primary">Ver todos os depoimentos</a>
       </div>
     </section>
 
-    <footer class="footer2 snap-section" id="rodape">
+    <footer class="footer2" id="rodape">
       <div class="footer-container">
         <p>Desenvolvido por Felipe Soeiro Lopes</p>
         <a href="https://github.com/FelipeSoeiroLopes" target="_blank">
@@ -340,12 +296,14 @@
       });
 
       // ============================
-      // 1 PÁGINA POR SCROLL (desktop)
+      // 1 PÁGINA POR SCROLL (desktop) — Hero, Estatísticas, Tecnologias; depois rolagem livre em Depoimentos
       // ============================
       (function() {
         if (!document.body.classList.contains('pagina-inicio')) return;
         var sections = document.querySelectorAll('.snap-section');
         if (sections.length === 0) return;
+        var vejaDepoimentos = document.getElementById('veja-depoimentos');
+        if (!vejaDepoimentos) return;
         var desktop = window.matchMedia('(min-width: 769px)');
         if (!desktop.matches) return;
 
@@ -383,17 +341,41 @@
 
         window.addEventListener('wheel', function(e) {
           if (!desktop.matches) return;
+          var scrollY = window.scrollY || window.pageYOffset;
+          var padding = getScrollPadding();
+          var ctaTop = vejaDepoimentos.getBoundingClientRect().top + scrollY - padding;
+
           var now = Date.now();
           if (now - lastWheelTime < cooldownMs) {
             e.preventDefault();
             return;
           }
-          lastWheelTime = now;
-          e.preventDefault();
-          var current = findCurrentIndex();
+
           if (e.deltaY > 0) {
-            goToSection(current + 1);
-          } else {
+            if (scrollY + 80 >= ctaTop) {
+              return;
+            }
+            lastWheelTime = now;
+            e.preventDefault();
+            var current = findCurrentIndex();
+            if (current === sections.length - 1) {
+              window.scrollTo({ top: ctaTop, behavior: 'smooth' });
+            } else {
+              goToSection(current + 1);
+            }
+            return;
+          }
+
+          if (e.deltaY < 0) {
+            if (scrollY + 80 >= ctaTop) {
+              lastWheelTime = now;
+              e.preventDefault();
+              goToSection(sections.length - 1);
+              return;
+            }
+            lastWheelTime = now;
+            e.preventDefault();
+            var current = findCurrentIndex();
             goToSection(current - 1);
           }
         }, { passive: false });

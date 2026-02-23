@@ -55,29 +55,7 @@ body.pagina-inicio .skills-section.snap-section {
   padding: 2rem;
 }
 
-body.pagina-inicio .testimonials-section.snap-section {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  margin: 0;
-  padding: 2rem;
-  box-sizing: border-box;
-}
-
-body.pagina-inicio .testimonials-section.snap-section .container {
-  width: 100%;
-  max-width: 1400px;
-}
-
-body.pagina-inicio .footer2.snap-section {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  margin: 0;
-  min-height: 100vh;
-  padding: 2rem;
-  box-sizing: border-box;
-}
+/* Depoimentos e rodapé sem snap: rolagem livre para ler tudo */
 
 /* Responsividade - página inicial (snap sections) */
 @media (max-width: 768px) {
@@ -114,35 +92,6 @@ body.pagina-inicio .footer2.snap-section {
 
   body.pagina-inicio .skills-section.snap-section .scroller-inner img {
     height: 48px;
-  }
-
-  body.pagina-inicio .testimonials-section.snap-section {
-    padding: 1.5rem 1rem;
-  }
-
-  body.pagina-inicio .testimonials-section.snap-section .container {
-    padding: 1rem;
-  }
-
-  body.pagina-inicio .testimonials-section.snap-section .primary-heading {
-    font-size: clamp(1.5rem, 5vw, 2rem);
-    margin-bottom: 2rem;
-  }
-
-  body.pagina-inicio .testimonials-section.snap-section .testimonials-grid {
-    gap: 1.5rem;
-  }
-
-  body.pagina-inicio .testimonials-section.snap-section .testimonial-item {
-    padding: 1.5rem 1.25rem;
-  }
-
-  body.pagina-inicio .footer2.snap-section {
-    padding: 1.5rem 1rem;
-  }
-
-body.pagina-inicio .footer2.snap-section .footer-container {
-  padding: 0 1rem;
   }
 }
 
@@ -206,10 +155,6 @@ body.pagina-inicio .footer2.snap-section .footer-container {
 
   body.pagina-inicio .skills-section.snap-section .scroller-inner img {
     height: 40px;
-  }
-
-  body.pagina-inicio .testimonials-section.snap-section .testimonial-content p {
-    font-size: 0.95rem;
   }
 }
 
@@ -1151,6 +1096,42 @@ nav {
   box-shadow: 0 12px 32px rgba(0, 0, 0, 0.4);
 }
 
+/* Logos na página de formações (FIAP, UMC) – exibição melhorada */
+.experience-logo-formacao {
+  position: relative;
+  width: clamp(88px, 16vw, 110px);
+  height: clamp(88px, 16vw, 110px);
+  min-width: 88px;
+  min-height: 88px;
+  border-radius: 50%;
+  overflow: hidden;
+  background: rgba(255, 255, 255, 0.06);
+  border: 2px solid rgba(255, 255, 255, 0.2);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.4), inset 0 1px 0 rgba(255, 255, 255, 0.08);
+  transition: all 0.35s ease;
+}
+
+.experience-logo-formacao img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  border: none;
+  box-shadow: none;
+  display: block;
+}
+
+.experience-item:hover .experience-logo-formacao {
+  border-color: rgba(255, 255, 255, 0.28);
+  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.4), inset 0 1px 0 rgba(255, 255, 255, 0.08);
+}
+
+.experience-item:hover .experience-logo-formacao img {
+  transform: none;
+}
+
 /* Logo de formação (iniciais quando não há imagem) */
 .formation-logo {
   width: clamp(80px, 15vw, 100px);
@@ -1260,7 +1241,7 @@ nav {
 
 .experience-description li {
   margin-bottom: 0.8rem;
-  padding-left: 1rem;
+  padding-left: 1.25rem;
   position: relative;
   transition: all 0.3s ease;
 }
@@ -1271,11 +1252,18 @@ nav {
 }
 
 .experience-description li::before {
-  content: '›';
+  content: '';
   position: absolute;
-  left: -1rem;
-  color: rgba(255, 255, 255, 0.6);
-  font-weight: bold;
+  left: 0;
+  top: 0.5em;
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.7);
+}
+
+.experience-description li:hover::before {
+  background: #fff;
 }
 
 /* ============================
@@ -1290,6 +1278,33 @@ nav {
   border: 1px solid rgba(255, 255, 255, 0.08);
   position: relative;
   overflow: hidden;
+}
+
+/* Na página inicial: separar bem "Tecnologias" de "O que dizem sobre mim" */
+body.pagina-inicio .testimonials-section {
+  margin-top: 6rem;
+  padding-top: 5rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+/* Seção de chamada para página de Depoimentos (início) */
+.testimonials-cta {
+  text-align: center;
+  padding: clamp(4rem, 10vh, 6rem) 2rem;
+  margin: 4rem 0;
+}
+
+.testimonials-cta-text {
+  color: #a0a0a0;
+  font-size: clamp(1rem, 1.5vw, 1.2rem);
+  max-width: 560px;
+  margin: 1rem auto 2rem;
+  line-height: 1.6;
+}
+
+.testimonials-cta .btn-primary {
+  display: inline-block;
+  text-decoration: none;
 }
 
 .testimonials-section::before {
@@ -2276,6 +2291,13 @@ nav {
     height: 80px;
   }
 
+  .experience-logo-formacao {
+    width: 80px;
+    height: 80px;
+    min-width: 80px;
+    min-height: 80px;
+  }
+
   .experience-item {
     padding: 1.5rem;
     margin: 0 0.5rem;
@@ -2442,6 +2464,13 @@ nav {
   .experience-logo img {
     width: 70px;
     height: 70px;
+  }
+
+  .experience-logo-formacao {
+    width: 70px;
+    height: 70px;
+    min-width: 70px;
+    min-height: 70px;
   }
 
   .experience-description {
