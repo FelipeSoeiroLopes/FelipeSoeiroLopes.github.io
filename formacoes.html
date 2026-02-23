@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="styles.css" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="icon" type="image/png" href="images/felpsdevsemfundo.png" />
+    <title>FELIPE LOPES | FORMAÇÕES</title>
+    <!-- GSAP Library -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+  </head>
+  <body>
+    <header>
+      <nav>
+        <div class="logo" id="logoSecreta">
+          <img src="images/felpsdevsemfundo.png" alt="Logo do Felipe" />
+        </div>
+        <button class="menu-icon" onclick="alternarMenu()" aria-label="Abrir menu">
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+        <div class="navbar" id="navbar">
+          <div><a href="index.html">INÍCIO</a></div>
+          <div><a href="projetos.html">PROJETOS</a></div>
+          <div><a href="formacoes.html">FORMAÇÕES</a></div>
+          <div><a href="experiencia.html">EXPERIÊNCIAS</a></div>
+          <div><a href="contato.html">CONTATOS</a></div>
+        </div>
+      </nav>
+    </header>
+
+    <section class="container">
+      <h2 class="primary-heading heading-experience">FORMAÇÕES</h2>
+      <div class="experiences">
+        <!-- Formação 1 - FIAP -->
+        <div class="experience-item">
+          <div class="experience-title-container">
+            <div class="experience-logo formation-logo">
+              <span>FIAP</span>
+            </div>
+            <div class="experience-details">
+              <h3 class="experience-title">Pós-graduação Lato Sensu - Especialização em Inteligência Artificial para Desenvolvedores | FIAP</h3>
+              <span class="date">Março de 2026 - Janeiro de 2027</span>
+            </div>
+          </div>
+          <div class="experience-description">
+            <p class="formation-intro">Curso focado no desenvolvimento de soluções inteligentes com Inteligência Artificial, Machine Learning e modelos generativos aplicados a sistemas, automações e produtos digitais.</p>
+            <h4>Áreas de estudo</h4>
+            <ul>
+              <li>Fundamentos de IA e Machine Learning</li>
+              <li>Python aplicado à IA</li>
+              <li>Machine Learning avançado</li>
+              <li>Processamento de Linguagem Natural (NLP)</li>
+              <li>Computer Vision (OCR e detecção de objetos)</li>
+              <li>Inteligência Artificial Generativa (GenAI)</li>
+              <li>Large Language Models (LLMs)</li>
+              <li>IA em Cloud (AWS, Azure e GCP)</li>
+              <li>Engenharia de Prompts, RAG e Fine-tuning</li>
+              <li>Análise de dados (texto, áudio e vídeo)</li>
+              <li>Privacidade, segurança da informação e LGPD</li>
+            </ul>
+            <h4>Capacidades desenvolvidas</h4>
+            <ul>
+              <li>Desenvolvimento de aplicações inteligentes orientadas a dados</li>
+              <li>Criação e validação de modelos de Machine Learning</li>
+              <li>Desenvolvimento de soluções com LLMs e chatbots</li>
+              <li>Integração de IA em sistemas, APIs e automações</li>
+              <li>Análise de grandes volumes de dados</li>
+              <li>Aplicação de IA generativa em cenários reais</li>
+            </ul>
+            <p class="formation-tag">◆ Inteligência artificial e Python</p>
+          </div>
+        </div>
+
+        <!-- Formação 2 - UMC -->
+        <div class="experience-item">
+          <div class="experience-title-container">
+            <div class="experience-logo formation-logo formation-logo-umc">
+              <span>UMC</span>
+            </div>
+            <div class="experience-details">
+              <h3 class="experience-title">Tecnólogo, Análise e Desenvolvimento de Sistemas | Universidade de Mogi das Cruzes</h3>
+              <span class="date">Fevereiro de 2024 - Dezembro de 2025</span>
+            </div>
+          </div>
+          <div class="experience-description">
+            <p class="formation-intro">Curso focado no desenvolvimento, manutenção e gestão de sistemas de software. Graduação em Análise e Desenvolvimento de Sistemas (ADS).</p>
+            <h4>Áreas de estudo</h4>
+            <ul>
+              <li>Programação</li>
+              <li>Banco de Dados</li>
+              <li>Engenharia de Software</li>
+              <li>Redes de Computadores</li>
+              <li>Administração de Sistemas</li>
+              <li>Programação Orientada a Objetos (POO)</li>
+              <li>GIT e GITHUB</li>
+            </ul>
+            <h4>Capacidades desenvolvidas</h4>
+            <ul>
+              <li>Desenvolvimento de soluções tecnológicas</li>
+              <li>Trabalho com diversas linguagens de programação</li>
+              <li>Gestão de projetos de tecnologia</li>
+              <li>Administração e configuração de sistemas</li>
+              <li>Versionamento de código com GIT/GITHUB</li>
+            </ul>
+            <h4>Tecnologias</h4>
+            <ul>
+              <li>Python</li>
+              <li>HTML</li>
+              <li>CSS</li>
+              <li>JavaScript</li>
+              <li>SQL</li>
+              <li>Introdução ao PHP</li>
+              <li>Java</li>
+              <li>GIT/GITHUB</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <footer class="footer2">
+      <div class="footer-container">
+        <p>Desenvolvido por Felipe Soeiro Lopes</p>
+        <a href="https://github.com/FelipeSoeiroLopes" target="_blank">
+          <img class="github-img" src="images/github-mark-white.png" alt="GitHub" />
+        </a>
+      </div>
+    </footer>
+
+    <script src="script.js"></script>
+    <script>
+      gsap.registerPlugin(ScrollTrigger);
+      gsap.config({ force3D: true, autoSleep: 60 });
+      ScrollTrigger.config({ ignoreMobileResize: true });
+
+      window.addEventListener('load', () => {
+        ScrollTrigger.refresh();
+      });
+
+      gsap.from('.heading-experience', {
+        y: 20,
+        opacity: 0,
+        duration: 0.6,
+        ease: 'power2.out'
+      });
+
+      gsap.utils.toArray('.experience-item').forEach((item, index) => {
+        gsap.set(item, { willChange: 'transform, opacity' });
+        gsap.from(item, {
+          scrollTrigger: {
+            trigger: item,
+            start: 'top 90%',
+            toggleActions: 'play none none none',
+            once: true,
+            markers: false
+          },
+          x: index % 2 === 0 ? -40 : 40,
+          opacity: 0,
+          scale: 0.95,
+          duration: 0.5,
+          delay: index * 0.08,
+          ease: 'power2.out',
+          force3D: true,
+          onComplete: () => {
+            gsap.set(item, { willChange: 'auto' });
+          }
+        });
+
+        const logo = item.querySelector('.formation-logo span');
+        if (logo) {
+          gsap.set(logo, { willChange: 'transform' });
+          gsap.from(logo, {
+            scrollTrigger: {
+              trigger: item,
+              start: 'top 90%',
+              once: true,
+              markers: false
+            },
+            scale: 0,
+            rotation: -180,
+            duration: 0.4,
+            delay: index * 0.08 + 0.15,
+            ease: 'back.out(1.5)',
+            force3D: true,
+            onComplete: () => {
+              gsap.set(logo, { willChange: 'auto' });
+            }
+          });
+        }
+
+        let hoverTween = null;
+        item.addEventListener('mouseenter', () => {
+          if (hoverTween) hoverTween.kill();
+          hoverTween = gsap.to(item, {
+            y: -10,
+            scale: 1.02,
+            duration: 0.2,
+            ease: 'power2.out',
+            force3D: true
+          });
+        });
+        item.addEventListener('mouseleave', () => {
+          if (hoverTween) hoverTween.kill();
+          hoverTween = gsap.to(item, {
+            y: 0,
+            scale: 1,
+            duration: 0.2,
+            ease: 'power2.out',
+            force3D: true
+          });
+        });
+      });
+    </script>
+  </body>
+</html>

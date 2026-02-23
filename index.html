@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="pt-BR">
+<html lang="pt-BR" class="pagina-inicio">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -14,7 +14,7 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
   </head>
-  <body>
+  <body class="pagina-inicio">
     <header>
       <nav>
         <div class="logo" id="logoSecreta">
@@ -28,6 +28,7 @@
         <div class="navbar" id="navbar">
           <div><a href="index.html">INÍCIO</a></div>
           <div><a href="projetos.html">PROJETOS</a></div>
+          <div><a href="formacoes.html">FORMAÇÕES</a></div>
           <div><a href="experiencia.html">EXPERIÊNCIAS</a></div>
           <div><a href="contato.html">CONTATOS</a></div>
         </div>
@@ -44,18 +45,18 @@
       <div class="particle"></div>
     </div>
 
-    <section class="container hero-section">
+    <section class="container hero-section snap-section" id="hero">
       <div class="hero-content">
         <div class="avatar">
-          <img src="images/felpsimagemlogo.png" alt="Logo Felipe Lopes" />
+          <img src="images/felpsdevsemfundo.png" alt="Felipe Lopes" />
         </div>
         <div class="about-text">
           <h1>
-            <span class="no-animation">Do 'Hello World' à Revolução Digital:</span><br />
-            <span class="animated-title">Minha Jornada como FullStack</span>
+            <span class="no-animation">Da Automação à Inteligência Artificial:</span><br />
+            <span class="animated-title">Rumo à Engenharia de IA</span>
           </h1>
           <p>
-            Eu sou Felipe Soeiro Lopes, um apaixonado por tecnologia desde sempre e com um objetivo claro: ser um desenvolvedor FullStack que transforma desafios em soluções extraordinárias. Com experiência em Service Desk e desenvolvimento, trago inovação e eficiência para cada projeto.
+            Eu sou Felipe Soeiro Lopes, desenvolvedor RPA com foco em automatizar processos e eliminar tarefas repetitivas. Meu objetivo é evoluir como engenheiro de IA: unir automação, dados e modelos inteligentes para criar soluções que realmente transformam a forma de trabalhar.
           </p>
           <div class="about-btn">
             <a href="path/CV_FELIPESLOPES.pdf" download>
@@ -70,7 +71,7 @@
     </section>
 
     <!-- Seção de Estatísticas -->
-    <section class="stats-section">
+    <section class="stats-section snap-section" id="stats">
       <div class="stats-grid">
         <div class="stat-item">
           <div class="stat-number">1000</div>
@@ -91,7 +92,7 @@
       </div>
     </section>
 
-    <section class="skills-section">
+    <section class="skills-section snap-section" id="techs">
       <h2 class="primary-heading">TECNOLOGIAS QUE UTILIZO</h2>
       <div class="tech-scroller">
         <div class="scroller-inner">
@@ -117,7 +118,7 @@
     </section>
 
     <!-- Seção de Depoimentos -->
-    <section class="testimonials-section">
+    <section class="testimonials-section snap-section" id="depoimentos">
       <div class="container">
         <h2 class="primary-heading testimonials-heading">O QUE DIZEM SOBRE MIM</h2>
         <div class="testimonials-grid">
@@ -170,27 +171,7 @@
       </div>
     </section>
 
-    <!-- Seção de Objetivo 2026 -->
-    <section class="objective-section">
-      <div class="container">
-        <div class="objective-content">
-          <div class="objective-badge">🎯 2026</div>
-          <h2 class="objective-title">OBJETIVO PROFISSIONAL</h2>
-          <div class="objective-info">
-            <div class="objective-main">
-              <h3>Pós TECH FIAP</h3>
-              <a href="https://postech.fiap.com.br/curso/ia-para-devs/" target="_blank" class="objective-link">
-                <span class="objective-course">IA PARA DEVS</span>
-                <span class="objective-icon">🚀</span>
-              </a>
-            </div>
-            <p class="objective-description">Desenvolva soluções com as técnicas mais avançadas de Inteligência Artificial e Machine Learning</p>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <footer class="footer2">
+    <footer class="footer2 snap-section" id="rodape">
       <div class="footer-container">
         <p>Desenvolvido por Felipe Soeiro Lopes</p>
         <a href="https://github.com/FelipeSoeiroLopes" target="_blank">
@@ -358,120 +339,65 @@
         ease: 'power2.out'
       });
 
-      // Animate objective section - otimizado e garantindo visibilidade
-      const objectiveSection = document.querySelector('.objective-section');
-      if (objectiveSection) {
-        // Garantir que o link está visível antes de animar
-        gsap.set('.objective-link', { 
-          opacity: 1, 
-          visibility: 'visible',
-          display: 'inline-flex'
-        });
-        
-        const scrollTrigger = ScrollTrigger.create({
-          trigger: '.objective-section',
-          start: 'top 90%',
-          once: true,
-          markers: false,
-          onEnter: () => {
-            gsap.set('.objective-badge', { willChange: 'transform, opacity' });
-            gsap.from('.objective-badge', {
-              scale: 0,
-              opacity: 0,
-              duration: 0.5,
-              ease: 'back.out(1.5)',
-              force3D: true,
-              onComplete: () => {
-                gsap.set('.objective-badge', { willChange: 'auto' });
-              }
-            });
+      // ============================
+      // 1 PÁGINA POR SCROLL (desktop)
+      // ============================
+      (function() {
+        if (!document.body.classList.contains('pagina-inicio')) return;
+        var sections = document.querySelectorAll('.snap-section');
+        if (sections.length === 0) return;
+        var desktop = window.matchMedia('(min-width: 769px)');
+        if (!desktop.matches) return;
 
-            gsap.set('.objective-title', { willChange: 'transform, opacity' });
-            gsap.from('.objective-title', {
-              y: 30,
-              opacity: 0,
-              scale: 0.95,
-              duration: 0.6,
-              delay: 0.1,
-              ease: 'back.out(1.3)',
-              force3D: true,
-              onComplete: () => {
-                gsap.set('.objective-title', { willChange: 'auto' });
-              }
-            });
+        var lastWheelTime = 0;
+        var cooldownMs = 500;
 
-            gsap.from('.objective-info h3', {
-              y: 20,
-              opacity: 0,
-              duration: 0.5,
-              delay: 0.3,
-              ease: 'power2.out',
-              force3D: true
-            });
-
-            gsap.set('.objective-link', { 
-              willChange: 'transform, opacity',
-              opacity: 1,
-              visibility: 'visible',
-              display: 'inline-flex'
-            });
-            gsap.from('.objective-link', {
-              y: 30,
-              opacity: 0,
-              scale: 0.9,
-              rotation: -5,
-              duration: 0.6,
-              delay: 0.5,
-              ease: 'back.out(1.4)',
-              force3D: true,
-              onComplete: () => {
-                gsap.set('.objective-link', { 
-                  willChange: 'auto',
-                  opacity: 1,
-                  visibility: 'visible'
-                });
-              }
-            });
-
-            gsap.from('.objective-description', {
-              y: 20,
-              opacity: 0,
-              duration: 0.5,
-              delay: 0.7,
-              ease: 'power2.out',
-              force3D: true
-            });
-          }
-        });
-      }
-
-      // Hover animation para o link - otimizado
-      document.querySelectorAll('.objective-link').forEach(link => {
-        let iconTween = null;
-        const icon = link.querySelector('.objective-icon');
-        if (icon) {
-          link.addEventListener('mouseenter', () => {
-            if (iconTween) iconTween.kill();
-            iconTween = gsap.to(icon, {
-              rotation: 15,
-              scale: 1.2,
-              duration: 0.3,
-              ease: 'power2.out',
-              force3D: true
-            });
-          });
-          link.addEventListener('mouseleave', () => {
-            if (iconTween) iconTween.kill();
-            iconTween = gsap.to(icon, {
-              rotation: 0,
-              scale: 1,
-              duration: 0.3,
-              ease: 'power2.out',
-              force3D: true
-            });
-          });
+        function getScrollPadding() {
+          var padding = parseInt(getComputedStyle(document.documentElement).scrollPaddingTop || '0', 10);
+          return isNaN(padding) ? 80 : padding;
         }
-      });
+
+        function findCurrentIndex() {
+          var scrollY = window.scrollY || window.pageYOffset;
+          var padding = getScrollPadding();
+          var best = 0;
+          var bestDist = Infinity;
+          for (var i = 0; i < sections.length; i++) {
+            var top = sections[i].getBoundingClientRect().top + scrollY - padding;
+            var dist = Math.abs(scrollY - top);
+            if (dist < bestDist) {
+              bestDist = dist;
+              best = i;
+            }
+          }
+          return best;
+        }
+
+        function goToSection(index) {
+          index = Math.max(0, Math.min(index, sections.length - 1));
+          var el = sections[index];
+          if (!el) return;
+          var top = el.getBoundingClientRect().top + (window.scrollY || window.pageYOffset) - getScrollPadding();
+          window.scrollTo({ top: top, behavior: 'smooth' });
+        }
+
+        window.addEventListener('wheel', function(e) {
+          if (!desktop.matches) return;
+          var now = Date.now();
+          if (now - lastWheelTime < cooldownMs) {
+            e.preventDefault();
+            return;
+          }
+          lastWheelTime = now;
+          e.preventDefault();
+          var current = findCurrentIndex();
+          if (e.deltaY > 0) {
+            goToSection(current + 1);
+          } else {
+            goToSection(current - 1);
+          }
+        }, { passive: false });
+      })();
     </script>
   </body>
 </html>
