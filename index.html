@@ -53,18 +53,33 @@
         </div>
         <div class="about-text">
           <h1>
-            <span class="no-animation">Da Automação à Inteligência Artificial:</span><br />
-            <span class="animated-title">Rumo à Engenharia de IA</span>
+            <span class="hero-greeting">Olá, eu sou</span>
+            <span class="hero-name">Felipe Soeiro Lopes</span>
           </h1>
-          <p>
-            Eu sou Felipe Soeiro Lopes, desenvolvedor RPA com foco em automatizar processos e eliminar tarefas repetitivas. Meu objetivo é evoluir como engenheiro de IA: unir automação, dados e modelos inteligentes para criar soluções que realmente transformam a forma de trabalhar.
+          <p class="hero-role-line">
+            <span class="hero-role-prefix">&gt;</span>
+            <span id="typed-role" class="typed-role"></span><span class="type-caret">_</span>
           </p>
+          <p class="hero-pitch">
+            Automatizo processos e construo soluções full stack — unindo <strong>RPA</strong>, <strong>dados</strong> e <strong>IA</strong> para transformar a forma de trabalhar.
+          </p>
+          <div class="hero-highlights">
+            <span class="hero-chip">Samsung SDS</span>
+            <span class="hero-chip">Pós em IA · FIAP</span>
+            <span class="hero-chip">RPA · Full Stack</span>
+          </div>
           <div class="about-btn">
             <a href="path/CV_FELIPESLOPES.pdf" download>
-              <button class="btn-primary">Baixar Currículo</button>
+              <button class="btn-primary">
+                <svg class="btn-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+                Baixar Currículo
+              </button>
             </a>
             <a href="mailto:felipesoeiro.contato@outlook.com.br">
-              <button class="btn-secondary">Entre em contato</button>
+              <button class="btn-secondary">
+                <svg class="btn-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="14" rx="2"/><polyline points="3 7 12 13 21 7"/></svg>
+                Entre em contato
+              </button>
             </a>
           </div>
         </div>
@@ -75,25 +90,34 @@
     <section class="stats-section snap-section" id="stats">
       <div class="stats-grid">
         <div class="stat-item">
-          <div class="stat-number">1000</div>
-          <div class="stat-label">Chamados Mensais</div>
+          <div class="stat-number">99%</div>
+          <div class="stat-label">Redução de Tempo em Processos</div>
         </div>
         <div class="stat-item">
-          <div class="stat-number">30%</div>
-          <div class="stat-label">Redução Tempo Resolução</div>
-        </div>
-        <div class="stat-item">
-          <div class="stat-number">20%</div>
-          <div class="stat-label">Aumento Eficiência</div>
+          <div class="stat-number">7 min</div>
+          <div class="stat-label">Para concluir o que antes levava 2 semanas</div>
         </div>
         <div class="stat-item">
           <div class="stat-number">100%</div>
-          <div class="stat-label">Automação Processos</div>
+          <div class="stat-label">Foco em IA &amp; Automação</div>
+        </div>
+        <div class="stat-item">
+          <div class="stat-number">20%</div>
+          <div class="stat-label">Aumento de Eficiência Operacional</div>
+        </div>
+        <div class="stat-item">
+          <div class="stat-number">10+</div>
+          <div class="stat-label">Projetos Desenvolvidos</div>
+        </div>
+        <div class="stat-item">
+          <div class="stat-number">8+</div>
+          <div class="stat-label">Tecnologias &amp; Ferramentas</div>
         </div>
       </div>
     </section>
 
     <section class="skills-section snap-section" id="techs">
+      <span class="section-kicker">// Stack</span>
       <h2 class="primary-heading">TECNOLOGIAS QUE UTILIZO</h2>
       <div class="tech-scroller">
         <div class="scroller-inner">
@@ -121,6 +145,7 @@
     <!-- Chamada para página de Depoimentos -->
     <section class="testimonials-cta" id="veja-depoimentos">
       <div class="container">
+        <span class="section-kicker">// Depoimentos</span>
         <h2 class="primary-heading">O QUE DIZEM SOBRE MIM</h2>
         <p class="testimonials-cta-text">Veja o que gestores, mentores e professores dizem sobre o meu trabalho.</p>
         <a href="depoimentos.html" class="btn-primary">Ver todos os depoimentos</a>
@@ -188,54 +213,7 @@
           }
         });
 
-        // Animate numbers - mais rápido e otimizado
-        const number = item.querySelector('.stat-number');
-        if (!number) return;
-        
-        const targetValue = number.textContent;
-        const scrollTrigger = ScrollTrigger.create({
-          trigger: item,
-          start: 'top 90%',
-          once: true,
-          markers: false,
-          onEnter: () => {
-            if (targetValue.includes('%')) {
-              const numValue = parseInt(targetValue);
-              const obj = { value: 0 };
-              gsap.to(obj, {
-                value: numValue,
-                duration: 0.8,
-                delay: index * 0.05 + 0.2,
-                ease: 'power1.out',
-                onUpdate: () => {
-                  number.textContent = Math.round(obj.value) + '%';
-                },
-                onComplete: () => {
-                  scrollTrigger.kill();
-                }
-              });
-            } else {
-              const numMatch = targetValue.match(/\d+/);
-              if (numMatch) {
-                const numValue = parseInt(numMatch[0]);
-                const suffix = targetValue.replace(numMatch[0], '');
-                const obj = { value: 0 };
-                gsap.to(obj, {
-                  value: numValue,
-                  duration: 0.8,
-                  delay: index * 0.05 + 0.2,
-                  ease: 'power1.out',
-                  onUpdate: () => {
-                    number.textContent = Math.round(obj.value) + suffix;
-                  },
-                  onComplete: () => {
-                    scrollTrigger.kill();
-                  }
-                });
-              }
-            }
-          }
-        });
+        // A contagem animada dos números é feita por animarContadores() em script.js
       });
 
       // Animate hero section - otimizado para performance
@@ -254,21 +232,49 @@
         }
       });
 
-      gsap.from('.about-text h1 .animated-title', {
+      gsap.from('.hero-greeting', {
         y: 20,
         opacity: 0,
         duration: 0.5,
         ease: 'power2.out',
-        delay: 0.2,
+        delay: 0.18,
         force3D: true
       });
 
-      gsap.from('.about-text p', {
+      gsap.from('.hero-name', {
+        y: 24,
+        opacity: 0,
+        duration: 0.6,
+        ease: 'power3.out',
+        delay: 0.26,
+        force3D: true
+      });
+
+      gsap.from('.hero-role-line', {
         y: 20,
         opacity: 0,
         duration: 0.5,
         ease: 'power2.out',
-        delay: 0.3,
+        delay: 0.36,
+        force3D: true
+      });
+
+      gsap.from('.hero-pitch', {
+        y: 20,
+        opacity: 0,
+        duration: 0.5,
+        ease: 'power2.out',
+        delay: 0.44,
+        force3D: true
+      });
+
+      gsap.from('.hero-highlights .hero-chip', {
+        y: 16,
+        opacity: 0,
+        duration: 0.45,
+        ease: 'back.out(1.4)',
+        delay: 0.52,
+        stagger: 0.08,
         force3D: true
       });
 
@@ -278,9 +284,41 @@
         scale: 0.95,
         duration: 0.5,
         ease: 'power2.out',
-        delay: 0.4,
+        delay: 0.62,
         force3D: true
       });
+
+      // ============================
+      // EFEITO DE DIGITAÇÃO ROTATIVO (cargo)
+      // ============================
+      (function () {
+        var el = document.getElementById('typed-role');
+        if (!el) return;
+        var roles = ['Desenvolvedor RPA', 'Desenvolvedor Full Stack', 'Futuro Engenheiro de IA'];
+        if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+          el.textContent = roles[0];
+          return;
+        }
+        var r = 0, c = 0, deleting = false;
+        function tick() {
+          var word = roles[r];
+          if (!deleting) {
+            el.textContent = word.slice(0, ++c);
+            if (c === word.length) {
+              deleting = true;
+              return setTimeout(tick, 1700);
+            }
+          } else {
+            el.textContent = word.slice(0, --c);
+            if (c === 0) {
+              deleting = false;
+              r = (r + 1) % roles.length;
+            }
+          }
+          setTimeout(tick, deleting ? 45 : 95);
+        }
+        tick();
+      })();
 
       // Animate skills section heading - mais rápido
       gsap.from('.skills-section .primary-heading', {

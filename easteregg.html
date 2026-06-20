@@ -8,13 +8,9 @@
   <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=Ubuntu+Mono:wght@400;700&display=swap" rel="stylesheet" />
   <style>
     :root {
-      --primary: #6e48aa;
-      --secondary: #9d50bb;
-      --dark: #181825;
-      --light: #f1f1f1;
-      --accent: #ffd166;
       --konami: #00ff99;
     }
+    * { box-sizing: border-box; }
     html, body {
       height: 100%;
       margin: 0;
@@ -22,8 +18,8 @@
     }
     body {
       min-height: 100vh;
-      background: linear-gradient(135deg, var(--dark) 60%, #232347 100%);
-      color: var(--light);
+      background: radial-gradient(ellipse 80% 60% at 50% 0%, #141414 0%, #0a0a0a 60%);
+      color: #f1f1f1;
       font-family: 'Ubuntu Mono', monospace;
       display: flex;
       flex-direction: column;
@@ -31,159 +27,177 @@
       justify-content: center;
       overflow-x: hidden;
       position: relative;
+      padding: 1.5rem;
     }
     canvas#matrixRain {
-        position: fixed;
-        top: 0;
-        left: 0;
-        width: 100vw;
-        height: 100vh;
-        z-index: 1;
-        opacity: 0.15; /* Sutil no fundo */
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+      z-index: 1;
+      opacity: 0.18;
     }
     .konami-container {
-      background: rgba(30,30,40,0.92);
+      background: rgba(255, 255, 255, 0.04);
+      backdrop-filter: blur(20px);
       border-radius: 24px;
-      box-shadow: 0 8px 32px #000a;
-      padding: 2.5rem 2rem 2rem 2rem;
-      max-width: 420px;
-      width: 95vw;
+      box-shadow: 0 24px 70px rgba(0, 0, 0, 0.6);
+      padding: 2.75rem 2rem;
+      max-width: 480px;
+      width: 100%;
       text-align: center;
       position: relative;
       z-index: 2;
       margin-bottom: 2rem;
-      border: 2px solid var(--primary);
-      animation: fadeIn 1s cubic-bezier(.4,0,.2,1);
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      animation: fadeIn 1s cubic-bezier(.4, 0, .2, 1);
+    }
+    .konami-container::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      height: 3px;
+      background: linear-gradient(90deg, transparent, var(--konami), transparent);
+      border-radius: 24px 24px 0 0;
+      opacity: 0.7;
     }
     @keyframes fadeIn {
-      from { opacity: 0; transform: scale(0.95); }
-      to { opacity: 1; transform: scale(1); }
+      from { opacity: 0; transform: scale(0.95) translateY(20px); }
+      to { opacity: 1; transform: scale(1) translateY(0); }
     }
-    
     @keyframes glitch {
-      0%, 20%, 24%, 60%, 64%, 100% {
-        transform: none;
-        opacity: 1;
-      }
-      22% {
-        transform: skewX(15deg);
-        opacity: 0.8;
-      }
-      62% {
-        transform: skewX(-15deg);
-        opacity: 0.8;
-      }
+      0%, 20%, 24%, 60%, 64%, 100% { transform: none; opacity: 1; }
+      22% { transform: skewX(12deg); opacity: 0.85; }
+      62% { transform: skewX(-12deg); opacity: 0.85; }
     }
-    
     .konami-title {
       font-family: 'Press Start 2P', cursive;
-      color: var(--accent);
-      font-size: 1.3rem;
-      margin-bottom: 1.2rem;
-      text-shadow: 0 0 12px #ffd166, 0 0 2px #fff;
+      color: #fff;
+      font-size: 1.2rem;
+      line-height: 1.6;
+      margin-bottom: 1.4rem;
+      text-shadow: 0 0 18px rgba(255, 255, 255, 0.45);
       letter-spacing: 1px;
-      animation: glitch 2.5s infinite;
+      animation: glitch 2.8s infinite;
     }
     .konami-desc {
-      font-size: 1.05rem;
-      margin-bottom: 1.5rem;
-      color: #e0e0e0;
+      font-size: 1.02rem;
+      margin-bottom: 1.6rem;
+      color: #c8c8c8;
+      line-height: 1.7;
+    }
+    .konami-desc b { color: #fff; }
+    .konami-seq-highlight {
+      color: var(--konami);
+      font-weight: bold;
+      letter-spacing: 2px;
+      text-shadow: 0 0 10px rgba(0, 255, 153, 0.5);
     }
     .konami-sequence {
       display: flex;
       justify-content: center;
       gap: 0.5rem;
-      margin-bottom: 1.5rem;
+      margin-bottom: 1.6rem;
       flex-wrap: wrap;
     }
     .konami-key {
-      background: linear-gradient(90deg, var(--primary), var(--secondary));
-      color: #fff;
+      background: rgba(255, 255, 255, 0.06);
+      color: #d0d0d0;
       font-family: 'Press Start 2P', cursive;
-      font-size: 1rem;
+      font-size: 0.95rem;
       border-radius: 8px;
-      padding: 0.5rem 0.7rem;
-      box-shadow: 0 2px 8px #6e48aa44;
-      border: 2px solid #fff2;
-      transition: background 0.2s, color 0.2s;
-      opacity: 0.7;
+      padding: 0.55rem 0.7rem;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      transition: all 0.2s ease;
+      opacity: 0.85;
       user-select: none;
     }
     .konami-key.active {
-      background: linear-gradient(90deg, var(--accent), var(--konami));
-      color: #232347;
+      background: var(--konami);
+      color: #0a0a0a;
       opacity: 1;
-      border-color: var(--accent);
-      box-shadow: 0 0 16px #ffd16699;
+      border-color: var(--konami);
+      box-shadow: 0 0 20px rgba(0, 255, 153, 0.6);
+      transform: translateY(-3px);
     }
     .konami-feedback {
       min-height: 32px;
-      margin-bottom: 1.2rem;
-      font-size: 1.1rem;
-      color: var(--accent);
-      font-family: 'Ubuntu Mono', monospace;
+      margin-bottom: 1.4rem;
+      font-size: 1.05rem;
+      color: var(--konami);
       letter-spacing: 1px;
       transition: color 0.2s;
     }
+    .konami-actions {
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+      align-items: center;
+    }
     .konami-btn {
-      display: inline-block;
-      margin-top: 1.2rem;
-      padding: 1rem 2.2rem;
-      background: linear-gradient(90deg, var(--primary), var(--secondary));
-      color: #fff;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 100%;
+      max-width: 320px;
+      padding: 0.95rem 2rem;
+      background: #fff;
+      color: #0a0a0a;
       font-family: 'Press Start 2P', cursive;
-      font-size: 1rem;
+      font-size: 0.78rem;
+      line-height: 1.4;
       border-radius: 50px;
-      border: none;
+      border: 1px solid #fff;
       font-weight: bold;
       cursor: pointer;
-      box-shadow: 0 0 10px var(--primary), 0 0 20px var(--primary);
+      box-shadow: 0 8px 24px rgba(255, 255, 255, 0.15);
       transition: all 0.3s ease;
       outline: none;
-      text-shadow: 0 0 5px #fff;
+      text-decoration: none;
     }
     .konami-btn:hover {
-      background: linear-gradient(90deg, var(--accent), var(--primary));
-      color: #232347;
-      transform: scale(1.05);
-      box-shadow: 0 0 15px var(--accent), 0 0 30px var(--accent);
+      transform: translateY(-3px) scale(1.02);
+      box-shadow: 0 14px 36px rgba(255, 255, 255, 0.25);
+    }
+    .konami-btn.ghost {
+      background: transparent;
+      color: #fff;
+      border: 1px solid rgba(255, 255, 255, 0.3);
+      box-shadow: none;
+    }
+    .konami-btn.ghost:hover {
+      background: rgba(255, 255, 255, 0.08);
+      border-color: rgba(255, 255, 255, 0.5);
     }
     .konami-celebrate {
       position: fixed;
       top: 0; left: 0; width: 100vw; height: 100vh;
-      background: rgba(0,0,0,0.92);
+      background: rgba(0, 0, 0, 0.92);
       z-index: 1000;
       display: flex;
       flex-direction: column;
       align-items: center;
       justify-content: center;
+      gap: 1rem;
+      padding: 1.5rem;
       animation: fadeIn 0.7s;
     }
     .konami-celebrate h2 {
       font-family: 'Press Start 2P', cursive;
       color: var(--konami);
-      font-size: 2.1rem;
+      font-size: clamp(1.2rem, 5vw, 2rem);
+      line-height: 1.5;
       margin-bottom: 1.5rem;
-      text-shadow: 0 0 18px #00ff99, 0 0 4px #fff;
+      text-align: center;
+      text-shadow: 0 0 22px rgba(0, 255, 153, 0.7);
       letter-spacing: 2px;
-      animation: popIn 0.7s cubic-bezier(.4,0,.2,1);
+      animation: popIn 0.7s cubic-bezier(.4, 0, .2, 1);
     }
     @keyframes popIn {
       0% { opacity: 0; transform: scale(0.7); }
       100% { opacity: 1; transform: scale(1); }
-    }
-    .konami-celebrate .konami-btn {
-      margin-top: 2rem;
-      background: linear-gradient(90deg, var(--accent), var(--konami));
-      color: #232347;
-      font-size: 1.1rem;
-      font-family: 'Press Start 2P', cursive;
-      border: 2px solid var(--accent);
-      box-shadow: 0 0 16px #ffd16699;
-    }
-    .konami-celebrate .konami-btn:hover {
-      background: linear-gradient(90deg, var(--primary), var(--secondary));
-      color: #fff;
     }
     .confetti {
       position: fixed;
@@ -194,32 +208,24 @@
       opacity: 0.85;
       z-index: 1100;
       pointer-events: none;
-      animation: confetti-spin 1.5s linear infinite;
     }
-    @keyframes confetti-spin {
-      0% { transform: rotate(0deg) scale(1); }
-      100% { transform: rotate(360deg) scale(1.2); }
-    }
-    .konami-celebrate #matrixRain {
-      display: block;
-      opacity: 0.7; /* Mais intenso na celebração */
-    }
+    .konami-celebrate #matrixRain { display: block; opacity: 0.7; }
     @media (max-width: 600px) {
-      .konami-title { font-size: 1rem; }
-      .konami-container { padding: 1.2rem 0.5rem; }
-      .konami-celebrate h2 { font-size: 1.2rem; }
-      .konami-btn { font-size: 0.85rem; padding: 0.7rem 1.2rem; }
+      .konami-title { font-size: 0.95rem; }
+      .konami-container { padding: 1.8rem 1.2rem; }
+      .konami-key { font-size: 0.8rem; padding: 0.45rem 0.55rem; }
+      .konami-btn { font-size: 0.7rem; padding: 0.85rem 1.2rem; }
     }
   </style>
 </head>
 <body>
   <canvas id="matrixRain"></canvas>
   <div class="konami-container">
-    <div class="konami-title">✨ Área Secreta do FelpsDev ✨</div>
+    <div class="konami-title">&#10022; ÁREA SECRETA &#10022;</div>
     <div class="konami-desc">
       O famoso <b>Código Konami</b> desbloqueia segredos incríveis!<br>
       Tente a sequência abaixo no seu teclado:<br>
-      <span style="color:var(--konami);font-weight:bold;">↑ ↑ ↓ ↓ ← → ← → B A</span>
+      <span class="konami-seq-highlight">↑ ↑ ↓ ↓ ← → ← → B A</span>
     </div>
     <div class="konami-sequence" id="konami-sequence">
       <span class="konami-key">↑</span>
@@ -234,13 +240,14 @@
       <span class="konami-key">A</span>
     </div>
     <div class="konami-feedback" id="konami-feedback">Digite a sequência ou toque no botão abaixo!</div>
-    <button class="konami-btn" onclick="simulateKonamiCode()">Ativar Código Konami</button>
-    <br>
-    <a href="index.html" class="konami-btn" style="margin-top:1.5rem;background:linear-gradient(90deg,#ffd166,#6e48aa);color:#232347;">← Voltar à Página Inicial</a>
+    <div class="konami-actions">
+      <button class="konami-btn" onclick="simulateKonamiCode()">Ativar Código Konami</button>
+      <a href="index.html" class="konami-btn ghost">← Voltar à Página Inicial</a>
+    </div>
   </div>
   <script>
     document.addEventListener('DOMContentLoaded', () => {
-        startMatrixRain(); // Inicia o efeito Matrix no carregamento
+        startMatrixRain();
     });
 
     // Konami code logic
@@ -257,20 +264,20 @@
     function resetSequence() {
       sequenceEls.forEach(el => el.classList.remove('active'));
     }
-    
+
     function playKeySound() {
         const keyAudio = new Audio('https://cdn.pixabay.com/audio/2022/03/15/audio_731c436a9a.mp3');
         keyAudio.volume = 0.4;
-        keyAudio.play();
+        keyAudio.play().catch(() => {});
     }
-    
+
     document.addEventListener('keydown', (e) => {
       if (konamiActive) return;
       const key = e.key.toLowerCase();
       const expected = konamiCode[konamiIndex].toLowerCase();
       if (key === expected) {
         highlightSequence(konamiIndex);
-        playKeySound(); // Toca o som a cada tecla correta
+        playKeySound();
         konamiIndex++;
         if (konamiIndex === konamiCode.length) {
           activateKonami();
@@ -297,7 +304,6 @@
       showCelebrate();
       playKonamiSound();
       createConfetti();
-      // A animação da matrix já está rodando, apenas a tornamos mais opaca
       document.getElementById('matrixRain').style.opacity = '0.7';
     }
     function showCelebrate() {
@@ -306,7 +312,7 @@
       celebrate.innerHTML = `
         <h2 id="konami-type"></h2>
         <button class="konami-btn" onclick="window.location.reload()">Jogar Novamente</button>
-        <a href="index.html" class="konami-btn">← Voltar à Página Inicial</a>
+        <a href="index.html" class="konami-btn ghost">← Voltar à Página Inicial</a>
       `;
       document.body.appendChild(celebrate);
       typeWriter(document.getElementById('konami-type'), '🎮 Código Konami Ativado! 🎮', 45);
@@ -327,10 +333,10 @@
       const audio = document.createElement('audio');
       audio.src = 'https://cdn.pixabay.com/audio/2022/07/26/audio_124bfae1e2.mp3';
       audio.volume = 0.5;
-      audio.play();
+      audio.play().catch(() => {});
     }
     function createConfetti() {
-      const colors = ['#6e48aa', '#9d50bb', '#ffd166', '#06d6a0', '#ef476f'];
+      const colors = ['#ffffff', '#cfcfcf', '#888888', '#00ff99', '#e0e0e0'];
       for (let i = 0; i < 100; i++) {
         const confetti = document.createElement('div');
         confetti.className = 'confetti';

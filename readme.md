@@ -27,12 +27,15 @@ O portfólio conta com diversas funcionalidades modernas para garantir uma naveg
 - **⚡ Animações GSAP:** Animações profissionais e fluidas implementadas com GSAP (GreenSock Animation Platform) e ScrollTrigger, criando uma experiência visual moderna e envolvente em todas as páginas.
 - **✨ Animações de Scroll:** Elementos aparecem suavemente conforme o usuário rola a página, criando uma experiência dinâmica e interativa.
 - **💫 Avatar Animado:** Avatar com animação de pulsação contínua, alternando entre estados forte e fraco, criando um efeito visual atrativo.
-- **🎭 Cards de Depoimentos Modernos:** Seção de depoimentos redesenhada com ícones, avatares e animações suaves ao scroll.
+- **🎭 Seção de Depoimentos Redesenhada:** Layout limpo e monocromático com avaliação em estrelas, avatares com iniciais em gradiente, nome e cargo do autor e brilho sutil no hover. O primeiro depoimento aparece em destaque (linha inteira) no desktop, e os demais ficam em cards compactos cuja altura se ajusta ao tamanho de cada mensagem. Inclui recomendações reais de líderes, mentores e professores.
+- **💼 Galeria de Projetos Repaginada:** Cards com imagem em destaque, etiqueta de categoria, número do projeto, botão "Ver Projeto" com seta animada e ícones de stack apresentados em tiles elegantes.
 - **👾 Easter Egg:** Um segredo escondido para os curiosos. Será que você consegue encontrar? (Dica: tente clicar na logo principal algumas vezes).
 - **🔼 Botão "Voltar ao Topo":** Facilita a navegação em páginas mais longas.
 - **📊 Estatísticas Animadas:** Números que ganham vida com animação de contagem e destacam minhas conquistas de forma visual.
 - **🎯 Hover Effects Interativos:** Efeitos de hover suaves em todos os elementos interativos, melhorando o feedback visual.
 - **🔥 Efeitos Visuais Avançados:** Filtros CSS para realçar imagens, sombras com glow, bordas animadas e gradientes modernos.
+- **🧭 Home com Respiro entre as Telas:** As estatísticas viram um card centralizado e a faixa de tecnologias ganha moldura própria, criando separação clara entre as seções. No celular o "scroll snap" rígido foi desativado, permitindo rolagem natural com seções de altura adaptável e espaçamento real entre elas.
+- **📐 Responsividade Refinada:** Botões do hero centralizados e com largura uniforme no mobile, e-mail de contato que quebra linha em vez de cortar em telas pequenas, e ajustes finos de espaçamento e tipografia em todos os breakpoints.
 
 ## 🛠️ Tecnologias Utilizadas
 
@@ -46,9 +49,11 @@ O projeto foi construído utilizando as seguintes tecnologias:
 
 ## 🗺️ Estrutura do Site
 
-- **`index.html`**: A página inicial, com uma apresentação animada, estatísticas, carrossel de tecnologias e depoimentos com animações GSAP.
-- **`projetos.html`**: Uma galeria com os meus principais projetos, incluindo links para os repositórios, com animações de entrada e hover effects.
+- **`index.html`**: A página inicial, com apresentação animada, estatísticas, carrossel de tecnologias e chamada para os depoimentos, com seções espaçadas e animações GSAP.
+- **`projetos.html`**: Uma galeria repaginada com os meus principais projetos, incluindo links para os repositórios, animações de entrada e hover effects.
+- **`formacoes.html`**: Minhas formações acadêmicas e certificações, com os logos das instituições.
 - **`experiencia.html`**: Detalhes sobre a minha trajetória profissional, com cards animados e layout totalmente responsivo para mobile.
+- **`depoimentos.html`**: Recomendações de líderes, mentores e professores, em cards com avaliação por estrelas e um depoimento em destaque.
 - **`contato.html`**: Informações e links para contato, com cards interativos e animações suaves.
 - **`easteregg.html`**: A página secreta!
 - **`styles.css`**: A folha de estilos central que define todo o design do site, incluindo animações CSS, media queries responsivas e efeitos visuais modernos.

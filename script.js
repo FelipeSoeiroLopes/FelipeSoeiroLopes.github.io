@@ -115,14 +115,84 @@ function efeitoTypewriter(elemento, texto, velocidade = 100) {
 // ============================
 function adicionarEfeitoGlow() {
   const elementos = document.querySelectorAll('.btn-primary, .btn-secondary, .stat-item, .project-item');
-  
+
   elementos.forEach(elemento => {
     elemento.addEventListener('mouseenter', function() {
-      this.style.boxShadow = '0 0 30px rgba(0, 255, 0, 0.6)';
+      this.style.boxShadow = '0 12px 40px rgba(255, 255, 255, 0.12)';
     });
-    
+
     elemento.addEventListener('mouseleave', function() {
       this.style.boxShadow = '';
+    });
+  });
+}
+
+// ============================
+// BRILHO QUE SEGUE O CURSOR (SPOTLIGHT)
+// ============================
+function spotlightCursor() {
+  const finePointer = window.matchMedia('(pointer: fine)').matches;
+  const reduzMovimento = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  if (!finePointer || reduzMovimento) return;
+
+  const glow = document.createElement('div');
+  glow.className = 'cursor-glow';
+  document.body.appendChild(glow);
+
+  let alvoX = window.innerWidth / 2;
+  let alvoY = window.innerHeight / 2;
+  let atualX = alvoX;
+  let atualY = alvoY;
+  let ativo = false;
+  let rafId = null;
+
+  function animar() {
+    // interpolação suave (lerp) para um movimento fluido
+    atualX += (alvoX - atualX) * 0.12;
+    atualY += (alvoY - atualY) * 0.12;
+    glow.style.setProperty('--mx', atualX + 'px');
+    glow.style.setProperty('--my', atualY + 'px');
+    rafId = requestAnimationFrame(animar);
+  }
+
+  window.addEventListener('mousemove', (e) => {
+    alvoX = e.clientX;
+    alvoY = e.clientY;
+    if (!ativo) {
+      ativo = true;
+      glow.classList.add('is-active');
+      animar();
+    }
+  });
+
+  window.addEventListener('mouseleave', () => {
+    glow.classList.remove('is-active');
+  });
+  window.addEventListener('mouseenter', () => {
+    if (ativo) glow.classList.add('is-active');
+  });
+}
+
+// ============================
+// EFEITO MAGNÉTICO NOS BOTÕES E CARDS DE CONTATO
+// ============================
+function efeitoMagnetico() {
+  const reduzMovimento = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  const finePointer = window.matchMedia('(pointer: fine)').matches;
+  if (reduzMovimento || !finePointer) return;
+
+  const elementos = document.querySelectorAll('.btn-primary, .btn-secondary, .contact-link, .voltar-ao-topo');
+
+  elementos.forEach(el => {
+    const forca = 0.25;
+    el.addEventListener('mousemove', (e) => {
+      const rect = el.getBoundingClientRect();
+      const x = e.clientX - rect.left - rect.width / 2;
+      const y = e.clientY - rect.top - rect.height / 2;
+      el.style.transform = `translate(${x * forca}px, ${y * forca}px)`;
+    });
+    el.addEventListener('mouseleave', () => {
+      el.style.transform = '';
     });
   });
 }
@@ -137,23 +207,29 @@ function animarContadores() {
     entries.forEach(entry => {
       if (entry.isIntersecting) {
         const contador = entry.target;
-        const textoOriginal = contador.textContent;
-        const valorFinal = parseInt(textoOriginal);
-        const temPorcentagem = textoOriginal.includes('%');
+        const textoOriginal = contador.textContent.trim();
+        const match = textoOriginal.match(/\d+/);
+        if (!match) {
+          observer.unobserve(contador);
+          return;
+        }
+        const valorFinal = parseInt(match[0]);
+        const prefixo = textoOriginal.slice(0, match.index);
+        const sufixo = textoOriginal.slice(match.index + match[0].length);
         const duracao = 2000;
         const incremento = valorFinal / (duracao / 16);
         let valorAtual = 0;
-        
+
         const timer = setInterval(() => {
           valorAtual += incremento;
           if (valorAtual >= valorFinal) {
-            contador.textContent = valorFinal + (temPorcentagem ? '%' : '');
+            contador.textContent = prefixo + valorFinal + sufixo;
             clearInterval(timer);
           } else {
-            contador.textContent = Math.floor(valorAtual) + (temPorcentagem ? '%' : '');
+            contador.textContent = prefixo + Math.floor(valorAtual) + sufixo;
           }
         }, 16);
-        
+
         observer.unobserve(contador);
       }
     });
@@ -228,7 +304,13 @@ document.addEventListener('DOMContentLoaded', function() {
   
   // Adicionar efeitos de glow
   adicionarEfeitoGlow();
-  
+
+  // Brilho que segue o cursor
+  spotlightCursor();
+
+  // Efeito magnético nos botões
+  efeitoMagnetico();
+
   // Animar contadores
   animarContadores();
   
@@ -248,6 +330,9 @@ document.addEventListener('DOMContentLoaded', function() {
 
   // Gerenciar botão de voltar ao topo
   gerenciarBotaoVoltarAoTopo();
+
+  // Barra de progresso de leitura
+  barraProgresso();
 
   // Efeito de loading
   setTimeout(() => {
@@ -337,6 +422,32 @@ async function buscarRepositoriosGitHub() {
   } catch (error) {
     reposContainer.innerHTML = `<p class="error-message">${error.message}</p>`;
   }
+}
+
+// ============================
+// BARRA DE PROGRESSO DE LEITURA
+// ============================
+function barraProgresso() {
+  const barra = document.createElement('div');
+  barra.className = 'scroll-progress';
+  document.body.appendChild(barra);
+
+  let ticking = false;
+  function atualizar() {
+    const altura = document.documentElement.scrollHeight - window.innerHeight;
+    const progresso = altura > 0 ? (window.scrollY / altura) * 100 : 0;
+    barra.style.width = progresso + '%';
+    ticking = false;
+  }
+
+  window.addEventListener('scroll', () => {
+    if (!ticking) {
+      window.requestAnimationFrame(atualizar);
+      ticking = true;
+    }
+  }, { passive: true });
+
+  atualizar();
 }
 
 // ============================

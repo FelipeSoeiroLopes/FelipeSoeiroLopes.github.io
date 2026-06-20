@@ -1900,6 +1900,9 @@ body.pagina-inicio .testimonials-section {
   line-height: 1.6;
   margin-bottom: 1rem;
   text-align: center;
+  overflow-wrap: anywhere;
+  word-break: break-word;
+  hyphens: auto;
 }
 
 .contact-note {
@@ -2836,4 +2839,1805 @@ img {
 @keyframes spin {
   0% { transform: rotate(0deg); }
   100% { transform: rotate(360deg); }
+}
+
+/* ============================================================
+   ENHANCEMENTS TECH 2026 — fundo em grade, spotlight, timeline,
+   chips de tecnologia e micro-animações (preto e branco)
+============================================================ */
+
+/* ---- Grade tecnológica sutil no fundo ---- */
+body::after {
+  content: '';
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: -1;
+  background-image:
+    linear-gradient(rgba(255, 255, 255, 0.025) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.025) 1px, transparent 1px);
+  background-size: 64px 64px;
+  -webkit-mask-image: radial-gradient(ellipse 85% 65% at 50% 0%, #000 25%, transparent 78%);
+  mask-image: radial-gradient(ellipse 85% 65% at 50% 0%, #000 25%, transparent 78%);
+  animation: gridDrift 24s linear infinite;
+}
+
+@keyframes gridDrift {
+  from { background-position: 0 0, 0 0; }
+  to { background-position: 64px 64px, 64px 64px; }
+}
+
+/* ---- Brilho que segue o cursor (spotlight) ---- */
+.cursor-glow {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 520px;
+  height: 520px;
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 0;
+  transform: translate3d(calc(var(--mx, 50vw) - 260px), calc(var(--my, 50vh) - 260px), 0);
+  background: radial-gradient(circle, rgba(255, 255, 255, 0.07), rgba(255, 255, 255, 0.02) 40%, transparent 65%);
+  opacity: 0;
+  transition: opacity 0.4s ease;
+  will-change: transform;
+}
+
+.cursor-glow.is-active { opacity: 1; }
+
+/* ---- Brilho nos títulos + sublinhado pulsante ---- */
+.primary-heading,
+.heading-experience,
+.contact-title,
+.objective-title {
+  text-shadow: 0 0 32px rgba(255, 255, 255, 0.08);
+}
+
+.primary-heading::after,
+.heading-experience::after,
+.contact-title::after {
+  animation: underlineGlow 3.5s ease-in-out infinite;
+}
+
+@keyframes underlineGlow {
+  0%, 100% { opacity: 0.6; width: 60px; box-shadow: 0 0 8px rgba(255, 255, 255, 0.25); }
+  50% { opacity: 1; width: 92px; box-shadow: 0 0 18px rgba(255, 255, 255, 0.45); }
+}
+
+/* ---- Subtítulo da página de experiências ---- */
+.experience-subtitle {
+  text-align: center;
+  color: #a0a0a0;
+  font-size: clamp(1rem, 2vw, 1.2rem);
+  max-width: 680px;
+  margin: -2rem auto 3.5rem;
+  line-height: 1.7;
+}
+
+/* ---- Badge "Atualmente" com ponto pulsante ---- */
+.current-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+  font-size: 0.72rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+  color: #0a0a0a;
+  background: #fff;
+  padding: 0.4rem 1rem;
+  border-radius: 50px;
+  margin-bottom: 1.5rem;
+  box-shadow: 0 4px 18px rgba(255, 255, 255, 0.18);
+}
+
+.current-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: #0a0a0a;
+  position: relative;
+  flex-shrink: 0;
+}
+
+.current-dot::after {
+  content: '';
+  position: absolute;
+  inset: -4px;
+  border-radius: 50%;
+  border: 2px solid #0a0a0a;
+  animation: dotPulse 1.8s ease-out infinite;
+}
+
+@keyframes dotPulse {
+  0% { transform: scale(0.5); opacity: 0.7; }
+  100% { transform: scale(1.9); opacity: 0; }
+}
+
+/* ---- Chips de tecnologia ---- */
+.tech-badges {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.55rem;
+  margin-bottom: 1.75rem;
+}
+
+.tech-badge {
+  font-size: 0.8rem;
+  font-weight: 600;
+  letter-spacing: 0.3px;
+  padding: 0.42rem 0.9rem;
+  border-radius: 8px;
+  color: #cfcfcf;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  transition: transform 0.25s ease, background 0.25s ease, border-color 0.25s ease, box-shadow 0.25s ease, color 0.25s ease;
+  white-space: nowrap;
+}
+
+.tech-badge:hover {
+  color: #fff;
+  background: rgba(255, 255, 255, 0.12);
+  border-color: rgba(255, 255, 255, 0.4);
+  transform: translateY(-3px);
+  box-shadow: 0 6px 18px rgba(255, 255, 255, 0.08);
+}
+
+/* ---- Card de experiência atual em destaque ---- */
+.experience-item.is-current {
+  background: rgba(255, 255, 255, 0.07);
+  border-color: rgba(255, 255, 255, 0.3);
+  box-shadow: 0 24px 56px rgba(0, 0, 0, 0.4),
+              0 0 0 1px rgba(255, 255, 255, 0.08),
+              0 0 48px rgba(255, 255, 255, 0.04);
+}
+
+/* ---- Timeline vertical (desktop) ---- */
+@media (min-width: 769px) {
+  .experiences-timeline {
+    position: relative;
+    padding-left: 2.75rem;
+  }
+
+  .experiences-timeline::before {
+    content: '';
+    position: absolute;
+    left: 10px;
+    top: 14px;
+    bottom: 14px;
+    width: 2px;
+    background: linear-gradient(180deg,
+      rgba(255, 255, 255, 0.5),
+      rgba(255, 255, 255, 0.15) 60%,
+      rgba(255, 255, 255, 0.05));
+  }
+
+  .experiences-timeline .experience-item {
+    overflow: visible;
+  }
+
+  /* Remove o brilho deslizante (que vazaria com overflow visível) */
+  .experiences-timeline .experience-item::before {
+    display: none;
+  }
+
+  /* Nó da timeline na altura do título */
+  .experiences-timeline .experience-item::after {
+    content: '';
+    position: absolute;
+    left: -2.5rem;
+    top: 2.75rem;
+    width: 14px;
+    height: 14px;
+    border-radius: 50%;
+    background: #0a0a0a;
+    border: 2px solid rgba(255, 255, 255, 0.6);
+    box-shadow: 0 0 0 5px #0a0a0a, 0 0 14px rgba(255, 255, 255, 0.25);
+    transition: all 0.3s ease;
+    z-index: 2;
+  }
+
+  .experiences-timeline .experience-item:hover::after {
+    border-color: #fff;
+    box-shadow: 0 0 0 5px #0a0a0a, 0 0 20px rgba(255, 255, 255, 0.5);
+  }
+
+  .experiences-timeline .experience-item.is-current::after {
+    background: #fff;
+    border-color: #fff;
+    box-shadow: 0 0 0 5px #0a0a0a, 0 0 22px rgba(255, 255, 255, 0.7);
+    animation: nodePulse 2s ease-in-out infinite;
+  }
+
+  @keyframes nodePulse {
+    0%, 100% { box-shadow: 0 0 0 5px #0a0a0a, 0 0 16px rgba(255, 255, 255, 0.5); }
+    50% { box-shadow: 0 0 0 5px #0a0a0a, 0 0 28px rgba(255, 255, 255, 0.9); }
+  }
+}
+
+/* ---- Realce nos chips de tecnologia (icones) já existentes ---- */
+.project-item .stacks img,
+.tech-badge {
+  backface-visibility: hidden;
+}
+
+/* ---- Barra de progresso de leitura ---- */
+.scroll-progress {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 3px;
+  width: 0;
+  z-index: 1100;
+  background: linear-gradient(90deg, rgba(255, 255, 255, 0.35), #ffffff);
+  box-shadow: 0 0 12px rgba(255, 255, 255, 0.55);
+  transition: width 0.1s linear;
+  pointer-events: none;
+}
+
+/* ---- Badge de status no hero ---- */
+.hero-status {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  padding: 0.45rem 1.1rem;
+  border-radius: 50px;
+  margin-bottom: 1.75rem;
+  font-size: 0.8rem;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+  color: #d0d0d0;
+  backdrop-filter: blur(10px);
+  animation: fadeInUp 1s ease 0.1s both;
+}
+
+.hero-status .status-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: #fff;
+  position: relative;
+  flex-shrink: 0;
+}
+
+.hero-status .status-dot::after {
+  content: '';
+  position: absolute;
+  inset: -4px;
+  border-radius: 50%;
+  border: 2px solid #fff;
+  animation: dotPulse 1.8s ease-out infinite;
+}
+
+/* ---- Subtítulo genérico de seção ---- */
+.section-subtitle {
+  text-align: center;
+  color: #a0a0a0;
+  font-size: clamp(1rem, 2vw, 1.2rem);
+  max-width: 680px;
+  margin: -2rem auto 3.5rem;
+  line-height: 1.7;
+}
+
+/* ---- Tag e número nos cards de projeto ---- */
+.project-tag {
+  position: absolute;
+  top: 1rem;
+  left: 1rem;
+  z-index: 3;
+  background: rgba(10, 10, 10, 0.7);
+  backdrop-filter: blur(8px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  color: #fff;
+  font-size: 0.7rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  padding: 0.3rem 0.7rem;
+  border-radius: 6px;
+  transition: all 0.3s ease;
+}
+
+.project-item:hover .project-tag {
+  background: #fff;
+  color: #000;
+  border-color: #fff;
+}
+
+.project-number {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  z-index: 3;
+  font-size: 0.85rem;
+  font-weight: 800;
+  color: rgba(255, 255, 255, 0.55);
+  font-variant-numeric: tabular-nums;
+  letter-spacing: 1px;
+}
+
+/* ---- Aspas decorativas nos depoimentos ---- */
+.testimonial-content::before {
+  content: '\201C';
+  position: absolute;
+  top: -2.8rem;
+  left: -0.6rem;
+  font-size: 5rem;
+  line-height: 1;
+  color: rgba(255, 255, 255, 0.09);
+  font-family: Georgia, 'Times New Roman', serif;
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* ============================================================
+   REDESIGN 2026 — novos layouts, botões e responsividade
+============================================================ */
+
+/* ---- Botões do hero: mesmo tamanho + ícones ---- */
+.btn-icon {
+  width: 18px;
+  height: 18px;
+  flex-shrink: 0;
+}
+
+.about-btn {
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.about-btn a {
+  flex: 1 1 200px;
+  max-width: 260px;
+  display: flex;
+}
+
+.about-btn .btn-primary,
+.about-btn .btn-secondary {
+  width: 100%;
+  min-width: 0;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.6rem;
+  padding: 1.05rem 1.75rem;
+  font-size: 1rem;
+  letter-spacing: 0.5px;
+}
+
+.about-btn a:hover .btn-icon {
+  transform: translateY(-1px);
+}
+
+/* ---- Hero em duas colunas no desktop ---- */
+@media (min-width: 900px) {
+  body.pagina-inicio .hero-section.snap-section .hero-content {
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    gap: clamp(2.5rem, 5vw, 5rem);
+    text-align: left;
+  }
+
+  body.pagina-inicio .hero-section.snap-section .avatar {
+    margin-bottom: 0;
+    flex-shrink: 0;
+  }
+
+  body.pagina-inicio .hero-section.snap-section .avatar img {
+    width: clamp(200px, 22vw, 300px);
+    height: clamp(200px, 22vw, 300px);
+  }
+
+  body.pagina-inicio .hero-section.snap-section .about-text {
+    text-align: left;
+    max-width: 620px;
+  }
+
+  body.pagina-inicio .hero-section.snap-section .about-text h1 {
+    text-align: left;
+    font-size: clamp(2rem, 3.2vw, 3.2rem);
+  }
+
+  body.pagina-inicio .hero-section.snap-section .about-text p {
+    margin-left: 0;
+    margin-right: 0;
+  }
+
+  body.pagina-inicio .hero-section.snap-section .about-btn {
+    justify-content: flex-start;
+  }
+}
+
+/* ---- Estatísticas: números com gradiente ---- */
+.stat-item {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.stat-number {
+  background: linear-gradient(180deg, #ffffff 0%, #b0b0b0 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+/* ---- Cards de contato: ícone circular + botões alinhados ---- */
+.contact-card {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  align-items: center;
+}
+
+.contact-icon {
+  width: 84px;
+  height: 84px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 1.5rem;
+  transition: transform 0.35s ease, background 0.35s ease, border-color 0.35s ease;
+}
+
+.contact-card:hover .contact-icon {
+  background: rgba(255, 255, 255, 0.1);
+  border-color: rgba(255, 255, 255, 0.3);
+  transform: translateY(-4px);
+}
+
+.contact-icon img {
+  width: 40px;
+  height: 40px;
+  margin: 0;
+}
+
+.contact-info {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  width: 100%;
+}
+
+.contact-info p {
+  flex-grow: 1;
+}
+
+.contact-link {
+  margin-top: auto;
+}
+
+/* ---- CTA de depoimentos no início: refinado ---- */
+.testimonials-cta {
+  background: rgba(255, 255, 255, 0.02);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 24px;
+  backdrop-filter: blur(20px);
+  max-width: 1000px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* ---- Cards de projeto: cantos e imagem mais refinados ---- */
+.project-item {
+  display: flex;
+  flex-direction: column;
+}
+
+/* ============================================================
+   HERO DE IMPACTO — nome, cargo digitado e chips
+============================================================ */
+.hero-greeting {
+  display: block;
+  font-size: clamp(0.85rem, 2vw, 1.05rem);
+  font-weight: 600;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: #888;
+  margin-bottom: 0.6rem;
+}
+
+.hero-name {
+  display: block;
+  font-size: clamp(2.6rem, 6.5vw, 5rem);
+  font-weight: 800;
+  line-height: 1.04;
+  letter-spacing: -0.02em;
+  background: linear-gradient(120deg, #ffffff 0%, #ffffff 45%, #9a9a9a 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.hero-role-line {
+  font-family: 'Courier New', 'Ubuntu Mono', monospace;
+  font-size: clamp(1.05rem, 2.5vw, 1.6rem) !important;
+  color: #d0d0d0 !important;
+  max-width: none !important;
+  margin: 0.85rem 0 1.1rem !important;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  justify-content: center;
+  min-height: 1.6em;
+}
+
+.hero-role-prefix {
+  color: #fff;
+  font-weight: 700;
+}
+
+.typed-role {
+  color: #fff;
+  font-weight: 600;
+  text-shadow: 0 0 18px rgba(255, 255, 255, 0.25);
+}
+
+.type-caret {
+  display: inline-block;
+  color: #fff;
+  font-weight: 400;
+  animation: caretBlink 1.05s steps(1) infinite;
+}
+
+@keyframes caretBlink {
+  0%, 50% { opacity: 1; }
+  51%, 100% { opacity: 0; }
+}
+
+.hero-pitch {
+  margin-top: 0 !important;
+}
+
+.about-text p strong {
+  color: #fff;
+  font-weight: 700;
+}
+
+.hero-highlights {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.6rem;
+  justify-content: center;
+  margin-bottom: 1.9rem;
+}
+
+.hero-chip {
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: #cfcfcf;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  padding: 0.42rem 0.9rem;
+  border-radius: 8px;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  transition: transform 0.25s ease, background 0.25s ease, border-color 0.25s ease;
+}
+
+.hero-chip::before {
+  content: '';
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background: #fff;
+  opacity: 0.7;
+}
+
+.hero-chip:hover {
+  transform: translateY(-3px);
+  background: rgba(255, 255, 255, 0.1);
+  border-color: rgba(255, 255, 255, 0.3);
+}
+
+@media (min-width: 900px) {
+  body.pagina-inicio .hero-role-line,
+  body.pagina-inicio .hero-highlights {
+    justify-content: flex-start;
+  }
+}
+
+@media (max-width: 480px) {
+  .hero-greeting {
+    letter-spacing: 2px;
+  }
+  .hero-chip {
+    font-size: 0.72rem;
+    padding: 0.35rem 0.7rem;
+  }
+}
+
+/* ============================================================
+   RESPONSIVIDADE EXTRA — afinando o redesign
+============================================================ */
+@media (max-width: 768px) {
+  .about-btn {
+    width: 100%;
+    max-width: 320px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .about-btn a {
+    flex: 1 1 100%;
+    max-width: 100%;
+  }
+
+  .section-subtitle,
+  .experience-subtitle {
+    margin: -1rem auto 2.5rem;
+    padding: 0 1rem;
+  }
+
+  .tech-badges {
+    justify-content: center;
+  }
+
+  .experience-item.is-current .current-badge,
+  .current-badge {
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .contact-icon {
+    width: 72px;
+    height: 72px;
+  }
+}
+
+@media (max-width: 480px) {
+  .project-tag {
+    font-size: 0.62rem;
+    padding: 0.25rem 0.55rem;
+  }
+
+  .project-number {
+    font-size: 0.75rem;
+  }
+
+  .hero-status {
+    font-size: 0.72rem;
+    padding: 0.4rem 0.9rem;
+    text-align: center;
+  }
+
+  .tech-badge {
+    font-size: 0.72rem;
+    padding: 0.35rem 0.7rem;
+  }
+}
+
+/* ============================================================
+   POLISH GLOBAL — seleção, kicker de seção, rodapé, depoimentos
+============================================================ */
+
+/* Cor de seleção de texto */
+::selection { background: rgba(255, 255, 255, 0.85); color: #0a0a0a; }
+::-moz-selection { background: rgba(255, 255, 255, 0.85); color: #0a0a0a; }
+
+/* Rótulo "kicker" acima dos títulos */
+.section-kicker {
+  display: block;
+  text-align: center;
+  font-family: 'Courier New', 'Ubuntu Mono', monospace;
+  font-size: 0.85rem;
+  font-weight: 700;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: #7a7a7a;
+  margin-bottom: 1rem;
+  animation: fadeInUp 0.8s ease both;
+}
+
+/* Rodapé mais elegante */
+.footer2 {
+  background: #070707;
+  padding: 3.5rem 0 2.5rem;
+}
+
+.footer2::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 120px;
+  height: 3px;
+  border-radius: 0 0 3px 3px;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.5), transparent);
+}
+
+.footer2 .footer-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.25rem;
+}
+
+.footer2 p {
+  margin-bottom: 0;
+}
+
+.footer2 .github-img {
+  border-radius: 50%;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  padding: 0.5rem;
+  width: 48px;
+  height: 48px;
+  background: rgba(255, 255, 255, 0.04);
+}
+
+.footer2 .github-img:hover {
+  background: rgba(255, 255, 255, 0.1);
+  border-color: rgba(255, 255, 255, 0.3);
+}
+
+/* Leve destaque no primeiro depoimento (sem mudar o layout) */
+.testimonials-grid .testimonial-item:first-child {
+  border-color: rgba(255, 255, 255, 0.16);
+  background: rgba(255, 255, 255, 0.05);
+}
+
+/* ============================================================
+   RESPONSIVIDADE REFINADA — toques finais
+============================================================ */
+
+/* Navegação não estoura em tablets antes do menu hambúrguer */
+@media (max-width: 900px) {
+  .navbar a {
+    min-width: auto;
+    padding: 0.6rem 0.85rem;
+  }
+}
+
+/* Kicker e títulos em telas menores */
+@media (max-width: 768px) {
+  .section-kicker {
+    font-size: 0.75rem;
+    letter-spacing: 2px;
+    margin-bottom: 0.75rem;
+  }
+
+  .footer2 {
+    padding: 2.5rem 0 2rem;
+  }
+
+  .testimonials-grid .testimonial-item:first-child {
+    grid-column: auto;
+  }
+}
+
+/* Garante toque confortável em links/botões no mobile */
+@media (max-width: 768px) and (pointer: coarse) {
+  .tech-badge,
+  .hero-chip {
+    padding: 0.5rem 0.9rem;
+  }
+
+  .contact-link,
+  .btn-primary,
+  .btn-secondary {
+    min-height: 48px;
+  }
+}
+
+@media (max-width: 380px) {
+  .about-text .hero-name {
+    font-size: clamp(2.1rem, 9vw, 2.6rem);
+  }
+
+  .hero-role-line {
+    font-size: 1rem !important;
+  }
+
+  .stat-number {
+    font-size: 1.8rem;
+  }
+}
+
+/* ============================================================
+   DEPOIMENTOS REDESENHADOS — monocromático e limpo
+============================================================ */
+.testimonials-grid {
+  gap: 2rem;
+}
+
+/* Remove emoji colorido (quebrava o preto e branco) */
+.testimonial-icon {
+  display: none;
+}
+
+.testimonial-item {
+  padding: 3.25rem 2.5rem 2.5rem;
+  border-radius: 22px;
+  display: flex;
+  flex-direction: column;
+}
+
+.testimonial-content {
+  padding: 0;
+  margin-bottom: 1.75rem;
+  flex: 1 1 auto;
+}
+
+.testimonial-author {
+  margin-top: auto;
+}
+
+.testimonial-content::before {
+  content: '\201C';
+  position: absolute;
+  top: -1.6rem;
+  left: -0.25rem;
+  font-size: 4.5rem;
+  line-height: 1;
+  color: rgba(255, 255, 255, 0.14);
+  font-family: Georgia, 'Times New Roman', serif;
+  z-index: 0;
+  pointer-events: none;
+}
+
+.testimonial-content p {
+  position: relative;
+  z-index: 1;
+  color: #cfcfcf;
+}
+
+.author-avatar {
+  width: 52px;
+  height: 52px;
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.2), rgba(255, 255, 255, 0.05));
+  border: 1px solid rgba(255, 255, 255, 0.25);
+}
+
+.avatar-placeholder {
+  color: #fff;
+}
+
+/* ============================================================
+   PROJETOS REDESENHADOS — imagens uniformes e hover refinado
+============================================================ */
+.project-item {
+  border-radius: 20px;
+}
+
+.project-image-container {
+  aspect-ratio: 16 / 10;
+  background: linear-gradient(135deg, #121212 0%, #060606 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1rem;
+}
+
+.project-item img {
+  width: 100%;
+  height: 100%;
+  aspect-ratio: auto;
+  object-fit: contain;
+  object-position: center;
+  filter: brightness(1);
+}
+
+.project-item:hover img {
+  filter: brightness(1.08);
+  transform: scale(1.04);
+}
+
+.project-overlay {
+  z-index: 2;
+}
+
+.project-title {
+  padding: 1.5rem 1.5rem 1.75rem;
+}
+
+.project-title h3 {
+  margin-bottom: 0.75rem;
+}
+
+/* ============================================================
+   BOTÕES — consistência e responsividade total
+============================================================ */
+.btn-primary,
+.btn-secondary,
+.contact-link {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.55rem;
+}
+
+/* Remove o sublinhado herdado do link que envolve o botão */
+.about-btn a,
+.about-btn a:hover,
+.btn-primary,
+.btn-secondary {
+  text-decoration: none;
+}
+
+@media (max-width: 768px) {
+  .about-btn {
+    flex-direction: column;
+    align-items: stretch;
+    width: 100%;
+    max-width: 340px;
+  }
+
+  .about-btn a {
+    flex: 1 1 auto;
+    max-width: 100%;
+    width: 100%;
+  }
+
+  .about-btn .btn-primary,
+  .about-btn .btn-secondary {
+    width: 100%;
+    padding: 1rem 1.5rem;
+  }
+}
+
+/* ============================================================
+   SEÇÕES DA HOME — ritmo e respiro consistentes
+============================================================ */
+body.pagina-inicio .stats-section.snap-section .stats-grid {
+  width: 100%;
+}
+
+body.pagina-inicio .skills-section.snap-section .tech-scroller {
+  width: 100%;
+}
+
+.testimonials-cta .primary-heading {
+  margin-bottom: 1rem;
+}
+
+/* ============================================================
+   ACESSIBILIDADE — respeita "reduzir movimento"
+============================================================ */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+    scroll-behavior: auto !important;
+  }
+
+  body::after { animation: none; }
+  .cursor-glow { display: none; }
+}
+
+/* ============================================================
+   REDESIGN 2026 v2 — PROJETOS, DEPOIMENTOS E HERO MOBILE
+   (bloco final: prevalece sobre as regras anteriores)
+============================================================ */
+
+/* ---------- PROJETOS: cards mais sofisticados ---------- */
+.projects {
+  gap: 2.5rem;
+}
+
+.project-item {
+  display: flex;
+  flex-direction: column;
+  border-radius: 22px;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.055), rgba(255, 255, 255, 0.015));
+  box-shadow: 0 18px 40px rgba(0, 0, 0, 0.35);
+  transition: transform 0.45s cubic-bezier(0.2, 0.7, 0.2, 1),
+              box-shadow 0.45s ease, border-color 0.45s ease;
+  overflow: hidden;
+}
+
+.project-item:hover {
+  transform: translateY(-10px);
+  border-color: rgba(255, 255, 255, 0.22);
+  box-shadow: 0 32px 64px rgba(0, 0, 0, 0.55);
+}
+
+/* Linha de destaque no topo do card */
+.project-item::before {
+  height: 2px;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.9), transparent);
+  opacity: 1;
+  transform: scaleX(0);
+  transform-origin: left;
+}
+
+.project-item:hover::before {
+  transform: scaleX(1);
+}
+
+/* Imagem */
+.project-image-container {
+  aspect-ratio: 16 / 10;
+  background: radial-gradient(circle at 50% 0%, #1a1a1a 0%, #0a0a0a 70%, #050505 100%);
+  padding: 1.25rem;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+.project-item img {
+  filter: brightness(0.96);
+  transition: transform 0.45s ease, filter 0.45s ease;
+}
+
+.project-item:hover img {
+  transform: scale(1.05);
+  filter: brightness(1.1);
+}
+
+/* Tag (categoria) — pílula de vidro */
+.project-tag {
+  top: 1rem;
+  left: 1rem;
+  background: rgba(8, 8, 8, 0.6);
+  border: 1px solid rgba(255, 255, 255, 0.22);
+  border-radius: 50px;
+  padding: 0.35rem 0.85rem;
+  font-size: 0.68rem;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.35);
+}
+
+/* Número do projeto — destaque elegante */
+.project-number {
+  top: 0.85rem;
+  right: 1.1rem;
+  font-size: 1.6rem;
+  font-weight: 800;
+  color: rgba(255, 255, 255, 0.18);
+  text-shadow: 0 2px 10px rgba(0, 0, 0, 0.4);
+}
+
+.project-item:hover .project-number {
+  color: rgba(255, 255, 255, 0.4);
+}
+
+/* Overlay — botão "Ver Projeto" com seta */
+.project-overlay {
+  background: linear-gradient(180deg, rgba(5, 5, 5, 0.35) 0%, rgba(5, 5, 5, 0.82) 100%);
+  backdrop-filter: blur(3px);
+}
+
+.project-overlay a {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.55rem;
+  padding: 0.9rem 1.7rem;
+  border-radius: 50px;
+  font-size: 1rem;
+  font-weight: 700;
+  letter-spacing: 0.4px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.45);
+}
+
+.project-overlay a::after {
+  content: '→';
+  font-weight: 700;
+  transition: transform 0.3s ease;
+}
+
+.project-item:hover .project-overlay a::after {
+  transform: translateX(5px);
+}
+
+/* Conteúdo */
+.project-title {
+  padding: 1.6rem 1.6rem 1.8rem;
+}
+
+.project-title h3 {
+  font-size: clamp(1.2rem, 2vw, 1.5rem);
+  margin-bottom: 0.7rem;
+  line-height: 1.25;
+}
+
+.project-description {
+  color: #9a9a9a;
+  line-height: 1.65;
+}
+
+/* ---------- PROJETOS: ícones de stack em tiles ---------- */
+.project-title .stacks {
+  gap: 0.55rem;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+  padding-top: 1.1rem;
+  margin-top: auto;
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.project-title .stacks img {
+  width: 42px;
+  height: 42px;
+  padding: 7px;
+  box-sizing: border-box;
+  border-radius: 12px;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.25);
+  transition: transform 0.3s ease, background 0.3s ease, border-color 0.3s ease;
+}
+
+.project-title .stacks img:hover {
+  transform: translateY(-4px) scale(1.05);
+  background: rgba(255, 255, 255, 0.12);
+  border-color: rgba(255, 255, 255, 0.32);
+}
+
+@media (max-width: 480px) {
+  .project-title .stacks img {
+    width: 38px;
+    height: 38px;
+    padding: 6px;
+  }
+  .project-number {
+    font-size: 1.3rem;
+  }
+}
+
+/* ---------- DEPOIMENTOS: ainda mais refinados ---------- */
+.testimonial-item {
+  border-radius: 24px;
+  padding: 3rem 2.5rem 2.25rem;
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.045), rgba(255, 255, 255, 0.015));
+  border: 1px solid rgba(255, 255, 255, 0.09);
+  box-shadow: 0 16px 44px rgba(0, 0, 0, 0.35);
+  transition: transform 0.4s cubic-bezier(0.2, 0.7, 0.2, 1),
+              box-shadow 0.4s ease, border-color 0.4s ease;
+}
+
+.testimonial-item:hover {
+  transform: translateY(-8px);
+  border-color: rgba(255, 255, 255, 0.2);
+  box-shadow: 0 28px 60px rgba(0, 0, 0, 0.5);
+}
+
+/* Estrelas de avaliação */
+.testimonial-rating {
+  display: flex;
+  gap: 0.18rem;
+  font-size: 1.05rem;
+  letter-spacing: 2px;
+  color: #fff;
+  margin-bottom: 1.1rem;
+  text-shadow: 0 0 16px rgba(255, 255, 255, 0.25);
+  position: relative;
+  z-index: 1;
+}
+
+/* Aspas decorativas mais marcantes */
+.testimonial-content::before {
+  content: '\201C';
+  top: -1.2rem;
+  left: -0.3rem;
+  font-size: 5rem;
+  color: rgba(255, 255, 255, 0.12);
+}
+
+.testimonial-content p {
+  font-size: 1.06rem;
+  line-height: 1.78;
+  color: #d2d2d2;
+}
+
+/* Avatar com anel em gradiente */
+.author-avatar {
+  width: 54px;
+  height: 54px;
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.28), rgba(255, 255, 255, 0.04));
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.25), 0 8px 22px rgba(0, 0, 0, 0.4);
+}
+
+.author-info h4 {
+  font-size: 1.05rem;
+}
+
+/* Card em destaque (primeiro depoimento) ocupa a linha toda no desktop */
+@media (min-width: 769px) {
+  .testimonials-grid .testimonial-item:first-child {
+    grid-column: 1 / -1;
+    background: linear-gradient(180deg, rgba(255, 255, 255, 0.07), rgba(255, 255, 255, 0.025));
+    border-color: rgba(255, 255, 255, 0.18);
+  }
+  .testimonials-grid .testimonial-item:first-child .testimonial-content p {
+    font-size: 1.15rem;
+  }
+}
+
+/* ---------- HERO MOBILE: botões "Baixar Currículo" e "Entre em contato" ---------- */
+@media (max-width: 768px) {
+  .hero-section .about-text {
+    width: 100%;
+  }
+
+  /* Container dos botões: empilhado e centralizado no meio da tela */
+  .about-btn {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.85rem;
+    width: 100%;
+    max-width: 340px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  /* O <a> ocupa toda a largura do container (sem max-width que desalinhava) */
+  .about-btn a {
+    display: flex;
+    width: 100%;
+    max-width: 100%;
+    margin: 0;
+  }
+
+  /* O botão preenche o <a> inteiro — anula o max-width:260px antigo que deixava torto */
+  .about-btn .btn-primary,
+  .about-btn .btn-secondary {
+    width: 100%;
+    max-width: 100%;
+    min-width: 0;
+    padding: 1rem 1.4rem;
+    font-size: 1rem;
+    letter-spacing: 0.5px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.55rem;
+  }
+}
+
+@media (max-width: 380px) {
+  .about-btn {
+    max-width: 300px;
+  }
+
+  .about-btn .btn-primary,
+  .about-btn .btn-secondary {
+    padding: 0.95rem 1.1rem;
+    font-size: 0.92rem;
+  }
+}
+
+/* ============================================================
+   DEPOIMENTOS PREMIUM — acabamento de especialista UI/UX
+============================================================ */
+.testimonials-grid {
+  gap: 1.85rem;
+}
+
+.testimonial-item {
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+  padding: 2.75rem 2.5rem 2.25rem;
+}
+
+/* Brilho radial sutil que acende no hover */
+.testimonial-item::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(130% 90% at 50% -10%, rgba(255, 255, 255, 0.09), transparent 55%);
+  opacity: 0;
+  transition: opacity 0.45s ease;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.testimonial-item:hover::after {
+  opacity: 1;
+}
+
+/* Mantém o conteúdo acima do brilho */
+.testimonial-rating,
+.testimonial-content,
+.testimonial-author {
+  position: relative;
+  z-index: 1;
+}
+
+/* Estrelas com leve respiro */
+.testimonial-rating {
+  gap: 0.22rem;
+  font-size: 1rem;
+  letter-spacing: 1px;
+  color: #f2f2f2;
+}
+
+/* Texto do depoimento com hierarquia mais elegante */
+.testimonial-content p {
+  font-size: 1.05rem;
+  line-height: 1.8;
+  color: #d6d6d6;
+}
+
+.testimonial-content p + p {
+  margin-top: 1rem;
+}
+
+/* Divisória sutil acima do autor */
+.testimonial-author {
+  gap: 1rem;
+  padding-top: 1.4rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.author-avatar {
+  width: 52px;
+  height: 52px;
+}
+
+.author-info h4 {
+  letter-spacing: 0.4px;
+  margin-bottom: 0.15rem;
+}
+
+.author-info span {
+  color: #8f8f8f;
+  font-size: 0.9rem;
+}
+
+/* ---- Primeiro depoimento como DESTAQUE central no desktop ---- */
+@media (min-width: 769px) {
+  .testimonials-grid .testimonial-item:first-child {
+    text-align: center;
+    padding: 3.5rem 3rem 3rem;
+    background: linear-gradient(180deg, rgba(255, 255, 255, 0.08), rgba(255, 255, 255, 0.025));
+    border-color: rgba(255, 255, 255, 0.2);
+  }
+
+  .testimonials-grid .testimonial-item:first-child .testimonial-rating {
+    justify-content: center;
+    font-size: 1.15rem;
+  }
+
+  .testimonials-grid .testimonial-item:first-child .testimonial-content {
+    max-width: 820px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .testimonials-grid .testimonial-item:first-child .testimonial-content p {
+    text-align: center;
+    font-size: 1.25rem;
+    line-height: 1.85;
+    color: #e8e8e8;
+  }
+
+  .testimonials-grid .testimonial-item:first-child .testimonial-content::before {
+    left: 50%;
+    transform: translateX(-50%);
+    top: -2.4rem;
+    font-size: 6rem;
+  }
+
+  .testimonials-grid .testimonial-item:first-child .testimonial-author {
+    justify-content: center;
+    border-top: none;
+    padding-top: 1.75rem;
+  }
+
+  .testimonials-grid .testimonial-item:first-child .author-info {
+    text-align: left;
+  }
+}
+
+/* ---- Ajustes finos no mobile dos depoimentos ---- */
+@media (max-width: 768px) {
+  .testimonial-item {
+    padding: 2.5rem 1.75rem 2rem;
+  }
+
+  .testimonial-rating {
+    justify-content: center;
+  }
+
+  .testimonial-content p {
+    text-align: center;
+    font-size: 1rem;
+  }
+
+  .testimonial-author {
+    flex-direction: column;
+    text-align: center;
+    gap: 0.85rem;
+  }
+
+  .author-info {
+    text-align: center;
+  }
+
+  .testimonial-content::before {
+    left: 50%;
+    transform: translateX(-50%);
+  }
+}
+
+/* ============================================================
+   DEPOIMENTOS — LAYOUT NOVO (definitivo, substitui o anterior)
+   Remove a aspa solta e reconstrói o card do zero.
+============================================================ */
+
+/* 1) Mata todos os elementos decorativos antigos que poluíam */
+.testimonial-content::before,
+.testimonial-content::after,
+.testimonial-item::before {
+  content: none !important;
+  display: none !important;
+}
+
+.testimonial-icon {
+  display: none !important;
+}
+
+/* 2) Grid mais arejado */
+.testimonials-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(340px, 100%), 1fr));
+  gap: 1.75rem;
+  max-width: 1300px;
+  margin: 0 auto;
+  width: 100%;
+}
+
+/* 3) Card */
+.testimonial-item {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  padding: 2.5rem 2.25rem;
+  border-radius: 20px;
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.055), rgba(255, 255, 255, 0.02));
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  box-shadow: 0 14px 40px rgba(0, 0, 0, 0.35);
+  overflow: hidden;
+  isolation: isolate;
+  transition: transform 0.4s cubic-bezier(0.2, 0.7, 0.2, 1),
+              box-shadow 0.4s ease, border-color 0.4s ease;
+}
+
+/* brilho suave no hover */
+.testimonial-item::after {
+  content: '' !important;
+  display: block !important;
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(120% 80% at 50% -10%, rgba(255, 255, 255, 0.08), transparent 55%);
+  opacity: 0;
+  transition: opacity 0.4s ease;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.testimonial-item:hover {
+  transform: translateY(-7px);
+  border-color: rgba(255, 255, 255, 0.22);
+  box-shadow: 0 26px 56px rgba(0, 0, 0, 0.5);
+}
+
+.testimonial-item:hover::after {
+  opacity: 1;
+}
+
+/* 4) Estrelas no topo do card (em fluxo) */
+.testimonial-rating {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  gap: 0.18rem;
+  font-size: 1.05rem;
+  letter-spacing: 1.5px;
+  color: #fff;
+  text-shadow: 0 0 14px rgba(255, 255, 255, 0.3);
+  margin: 0 0 1.4rem;
+}
+
+/* 6) Texto do depoimento */
+.testimonial-content {
+  position: relative;
+  z-index: 1;
+  padding: 0;
+  margin: 0 0 1.75rem;
+  flex: 1 1 auto;
+}
+
+.testimonial-content p {
+  position: relative;
+  font-size: 1.04rem;
+  line-height: 1.8;
+  color: #d4d4d4;
+  text-align: left;
+  margin: 0;
+}
+
+.testimonial-content p + p {
+  margin-top: 0.9rem;
+}
+
+/* 7) Autor */
+.testimonial-author {
+  position: relative;
+  z-index: 1;
+  margin-top: auto;
+  display: flex;
+  align-items: center;
+  gap: 0.9rem;
+  padding-top: 1.5rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.author-avatar {
+  width: 52px;
+  height: 52px;
+  border-radius: 50%;
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.3), rgba(255, 255, 255, 0.05));
+  border: 1px solid rgba(255, 255, 255, 0.28);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.25), 0 8px 20px rgba(0, 0, 0, 0.4);
+}
+
+.avatar-placeholder {
+  font-size: 1.1rem;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+  color: #fff;
+}
+
+.author-info {
+  text-align: left;
+}
+
+.author-info h4 {
+  font-size: 1.02rem;
+  font-weight: 700;
+  color: #fff;
+  margin: 0 0 0.15rem;
+  letter-spacing: 0.3px;
+  text-transform: none;
+}
+
+.author-info span {
+  display: block;
+  font-size: 0.88rem;
+  font-weight: 500;
+  color: #8f8f8f;
+}
+
+/* 8) Primeiro depoimento = DESTAQUE (linha inteira) no desktop */
+@media (min-width: 769px) {
+  /* 2 colunas para os cards de baixo + altura conforme o tamanho da mensagem */
+  .testimonials-grid {
+    grid-template-columns: repeat(2, 1fr);
+    align-items: start;
+  }
+
+  .testimonials-grid .testimonial-item:first-child {
+    grid-column: 1 / -1;
+    align-items: center;
+    text-align: center;
+    padding: 3.25rem 3rem;
+    background: linear-gradient(180deg, rgba(255, 255, 255, 0.08), rgba(255, 255, 255, 0.025));
+    border-color: rgba(255, 255, 255, 0.2);
+  }
+
+  /* Cards abaixo do destaque: menores e mais compactos */
+  .testimonials-grid .testimonial-item:not(:first-child) {
+    padding: 1.9rem 1.9rem;
+  }
+
+  .testimonials-grid .testimonial-item:not(:first-child) .testimonial-rating {
+    font-size: 0.9rem;
+    margin-bottom: 0.95rem;
+  }
+
+  .testimonials-grid .testimonial-item:not(:first-child) .testimonial-content {
+    margin-bottom: 1.25rem;
+  }
+
+  .testimonials-grid .testimonial-item:not(:first-child) .testimonial-content p {
+    font-size: 0.92rem;
+    line-height: 1.65;
+  }
+
+  .testimonials-grid .testimonial-item:not(:first-child) .testimonial-author {
+    padding-top: 1.2rem;
+  }
+
+  .testimonials-grid .testimonial-item:not(:first-child) .author-avatar {
+    width: 46px;
+    height: 46px;
+  }
+
+  .testimonials-grid .testimonial-item:first-child .testimonial-rating {
+    justify-content: center;
+    font-size: 1.15rem;
+    margin-bottom: 1.5rem;
+  }
+
+  .testimonials-grid .testimonial-item:first-child .testimonial-content {
+    max-width: 840px;
+  }
+
+  .testimonials-grid .testimonial-item:first-child .testimonial-content p {
+    text-align: center;
+    font-size: 1.22rem;
+    line-height: 1.85;
+    color: #ececec;
+  }
+
+  .testimonials-grid .testimonial-item:first-child .testimonial-author {
+    justify-content: center;
+    border-top: none;
+  }
+}
+
+/* 9) Mobile */
+@media (max-width: 768px) {
+  .testimonials-grid {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+
+  .testimonial-item {
+    padding: 2.25rem 1.6rem;
+    align-items: center;
+    text-align: center;
+  }
+
+  .testimonial-rating {
+    position: static;
+    justify-content: center;
+    margin-bottom: 1.25rem;
+  }
+
+  .testimonial-content p {
+    text-align: center;
+    font-size: 1rem;
+  }
+
+  .testimonial-author {
+    flex-direction: column;
+    gap: 0.75rem;
+    text-align: center;
+  }
+
+  .author-info {
+    text-align: center;
+  }
+}
+
+/* 10) Polimento extra — autor mais elegante */
+.author-avatar {
+  transition: transform 0.4s ease, border-color 0.4s ease, box-shadow 0.4s ease;
+}
+
+.testimonial-item:hover .author-avatar {
+  transform: scale(1.06);
+  border-color: rgba(255, 255, 255, 0.45);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.3), 0 10px 26px rgba(0, 0, 0, 0.5);
+}
+
+.author-info h4 {
+  font-size: 1.05rem;
+  background: linear-gradient(120deg, #ffffff 0%, #cfcfcf 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+/* Cargo com um pequeno acento antes */
+.author-info span {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  color: #9a9a9a;
+}
+
+.author-info span::before {
+  content: '';
+  width: 14px;
+  height: 1px;
+  background: rgba(255, 255, 255, 0.4);
+  flex-shrink: 0;
+}
+
+@media (max-width: 768px) {
+  .author-info span {
+    justify-content: center;
+  }
+}
+
+/* ============================================================
+   HOME — ESPAÇO ENTRE AS TELAS + RESPONSIVIDADE
+   As estatísticas viram um card centralizado, criando respiro
+   natural entre as seções (em vez de painéis colados).
+============================================================ */
+
+/* Estatísticas: seção transparente + card interno centralizado */
+body.pagina-inicio .stats-section.snap-section {
+  background: transparent;
+  border: none;
+  backdrop-filter: none;
+  border-radius: 0;
+}
+
+body.pagina-inicio .stats-section.snap-section .stats-grid {
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 28px;
+  backdrop-filter: blur(20px);
+  padding: clamp(2.25rem, 4vw, 3.5rem) clamp(1.5rem, 4vw, 3rem);
+  gap: clamp(1.25rem, 2.5vw, 2.25rem);
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.3);
+}
+
+/* ---- DESKTOP: respiro extra dentro de cada tela ---- */
+@media (min-width: 769px) {
+  body.pagina-inicio .stats-section.snap-section,
+  body.pagina-inicio .skills-section.snap-section {
+    padding-top: clamp(4rem, 8vh, 6rem);
+    padding-bottom: clamp(4rem, 8vh, 6rem);
+  }
+
+  /* Card de tecnologias também ganha moldura sutil, para separar bem as telas */
+  body.pagina-inicio .skills-section.snap-section .tech-scroller {
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 24px;
+    padding: 1.5rem 0;
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.25);
+  }
+}
+
+/* ---- MOBILE/TABLET: sem snap forçado + espaço real entre as telas ---- */
+@media (max-width: 768px) {
+  /* Rolagem natural no celular (o snap rígido deixava tudo "grudado") */
+  html.pagina-inicio {
+    scroll-snap-type: none;
+    -webkit-scroll-snap-type: none;
+  }
+
+  body.pagina-inicio .snap-section {
+    scroll-snap-align: none;
+    scroll-snap-stop: normal;
+  }
+
+  /* Hero ocupa a 1ª tela; demais seções têm altura conforme o conteúdo */
+  body.pagina-inicio .hero-section.snap-section {
+    min-height: 100vh;
+    padding-bottom: clamp(2.5rem, 7vh, 4rem);
+  }
+
+  body.pagina-inicio .stats-section.snap-section {
+    min-height: auto;
+    margin: clamp(2.5rem, 7vh, 4rem) 0;
+    padding: 0 1rem;
+  }
+
+  body.pagina-inicio .skills-section.snap-section {
+    min-height: auto;
+    margin: clamp(2.5rem, 7vh, 4rem) 0;
+    padding: 0 1rem;
+  }
+
+  /* Respiro também antes da chamada de depoimentos */
+  .testimonials-cta {
+    margin-top: clamp(2.5rem, 7vh, 4rem);
+  }
 }
