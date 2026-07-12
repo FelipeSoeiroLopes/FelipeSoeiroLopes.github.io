@@ -3,8 +3,10 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="robots" content="noindex" />
+  <meta name="theme-color" content="#0a0a0a" />
   <link rel="icon" type="image/png" href="images/felpsdevsemfundo.png" />
-  <title>Konami Easter Egg | FelpsDev</title>
+  <title>FelpsDev Arcade | Área Secreta</title>
   <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=Ubuntu+Mono:wght@400;700&display=swap" rel="stylesheet" />
   <style>
     :root {
@@ -38,6 +40,37 @@
       z-index: 1;
       opacity: 0.18;
     }
+
+    /* ---- Efeito CRT de fliperama (scanlines + vinheta) ---- */
+    .crt {
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      z-index: 2000;
+      background: repeating-linear-gradient(
+        0deg,
+        rgba(0, 0, 0, 0.16) 0px,
+        rgba(0, 0, 0, 0.16) 1px,
+        transparent 1px,
+        transparent 3px
+      );
+      opacity: 0.5;
+      animation: crtFlicker 4s infinite;
+    }
+    .crt::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(ellipse 120% 100% at 50% 50%, transparent 60%, rgba(0, 0, 0, 0.45) 100%);
+    }
+    @keyframes crtFlicker {
+      0%, 100% { opacity: 0.5; }
+      92% { opacity: 0.5; }
+      93% { opacity: 0.38; }
+      94% { opacity: 0.5; }
+      97% { opacity: 0.44; }
+    }
+
     .konami-container {
       background: rgba(255, 255, 255, 0.04);
       backdrop-filter: blur(20px);
@@ -61,6 +94,11 @@
       background: linear-gradient(90deg, transparent, var(--konami), transparent);
       border-radius: 24px 24px 0 0;
       opacity: 0.7;
+      animation: barGlow 2.6s ease-in-out infinite;
+    }
+    @keyframes barGlow {
+      0%, 100% { opacity: 0.5; filter: blur(0); }
+      50% { opacity: 1; filter: blur(1px); }
     }
     @keyframes fadeIn {
       from { opacity: 0; transform: scale(0.95) translateY(20px); }
@@ -71,6 +109,23 @@
       22% { transform: skewX(12deg); opacity: 0.85; }
       62% { transform: skewX(-12deg); opacity: 0.85; }
     }
+
+    .achievement {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      font-size: 0.68rem;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      color: var(--konami);
+      border: 1px solid rgba(0, 255, 153, 0.4);
+      background: rgba(0, 255, 153, 0.07);
+      border-radius: 50px;
+      padding: 0.4rem 0.9rem;
+      margin-bottom: 1.3rem;
+      text-shadow: 0 0 10px rgba(0, 255, 153, 0.5);
+    }
+
     .konami-title {
       font-family: 'Press Start 2P', cursive;
       color: #fff;
@@ -171,6 +226,15 @@
       background: rgba(255, 255, 255, 0.08);
       border-color: rgba(255, 255, 255, 0.5);
     }
+    .konami-btn.neon {
+      background: var(--konami);
+      border-color: var(--konami);
+      color: #06130d;
+      box-shadow: 0 8px 28px rgba(0, 255, 153, 0.35);
+    }
+    .konami-btn.neon:hover {
+      box-shadow: 0 14px 40px rgba(0, 255, 153, 0.5);
+    }
     .konami-celebrate {
       position: fixed;
       top: 0; left: 0; width: 100vw; height: 100vh;
@@ -209,22 +273,118 @@
       z-index: 1100;
       pointer-events: none;
     }
+
+    /* ================= SNAKE ARCADE ================= */
+    .game-card {
+      max-width: 460px;
+    }
+    .game-head {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 0.75rem;
+      margin-bottom: 1.1rem;
+      flex-wrap: wrap;
+    }
+    .game-title {
+      font-family: 'Press Start 2P', cursive;
+      font-size: 0.85rem;
+      color: var(--konami);
+      text-shadow: 0 0 14px rgba(0, 255, 153, 0.6);
+      letter-spacing: 1px;
+    }
+    .game-scores {
+      display: flex;
+      gap: 0.6rem;
+    }
+    .score-chip {
+      font-family: 'Press Start 2P', cursive;
+      font-size: 0.58rem;
+      color: #d0d0d0;
+      background: rgba(255, 255, 255, 0.06);
+      border: 1px solid rgba(255, 255, 255, 0.14);
+      border-radius: 8px;
+      padding: 0.45rem 0.6rem;
+      letter-spacing: 1px;
+    }
+    .score-chip b { color: #fff; }
+    .score-chip.record b { color: var(--konami); }
+    #snakeCanvas {
+      display: block;
+      width: 100%;
+      max-width: 340px;
+      margin: 0 auto;
+      border-radius: 14px;
+      border: 1px solid rgba(0, 255, 153, 0.3);
+      box-shadow: 0 0 0 4px rgba(0, 0, 0, 0.5), 0 0 34px rgba(0, 255, 153, 0.18), inset 0 0 22px rgba(0, 0, 0, 0.7);
+      background: #050505;
+      touch-action: none;
+      image-rendering: pixelated;
+    }
+    .game-hint {
+      margin: 1rem 0 1.1rem;
+      font-size: 0.9rem;
+      color: #9a9a9a;
+      letter-spacing: 0.5px;
+    }
+    .game-hint b { color: #e8e8e8; }
+
+    /* D-pad para toque */
+    .dpad {
+      display: none;
+      grid-template-columns: repeat(3, 62px);
+      grid-template-rows: repeat(2, 54px);
+      gap: 0.45rem;
+      justify-content: center;
+      margin-bottom: 1.2rem;
+      user-select: none;
+    }
+    body.com-toque .dpad { display: grid; }
+    .dpad button {
+      font-family: 'Press Start 2P', cursive;
+      font-size: 0.9rem;
+      color: #eaeaea;
+      background: rgba(255, 255, 255, 0.07);
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      border-radius: 12px;
+      cursor: pointer;
+      touch-action: manipulation;
+      transition: all 0.15s ease;
+    }
+    .dpad button:active {
+      background: var(--konami);
+      color: #0a0a0a;
+      border-color: var(--konami);
+      box-shadow: 0 0 18px rgba(0, 255, 153, 0.55);
+    }
+    .dpad .d-up { grid-column: 2; grid-row: 1; }
+    .dpad .d-left { grid-column: 1; grid-row: 2; }
+    .dpad .d-down { grid-column: 2; grid-row: 2; }
+    .dpad .d-right { grid-column: 3; grid-row: 2; }
+
     .konami-celebrate #matrixRain { display: block; opacity: 0.7; }
     @media (max-width: 600px) {
       .konami-title { font-size: 0.95rem; }
       .konami-container { padding: 1.8rem 1.2rem; }
       .konami-key { font-size: 0.8rem; padding: 0.45rem 0.55rem; }
       .konami-btn { font-size: 0.7rem; padding: 0.85rem 1.2rem; }
+      .game-title { font-size: 0.72rem; }
+      .score-chip { font-size: 0.52rem; }
     }
   </style>
 </head>
 <body>
   <canvas id="matrixRain"></canvas>
-  <div class="konami-container">
+  <div class="crt" aria-hidden="true"></div>
+
+  <!-- Cartão do Código Konami -->
+  <div class="konami-container" id="cardKonami">
+    <div class="achievement">🏆 Conquista: curioso nível máximo</div>
     <div class="konami-title">&#10022; ÁREA SECRETA &#10022;</div>
     <div class="konami-desc">
-      O famoso <b>Código Konami</b> desbloqueia segredos incríveis!<br>
-      Tente a sequência abaixo no seu teclado:<br>
+      Você encontrou o <b>FelpsDev Arcade</b>!<br>
+      O famoso <b>Código Konami</b> desbloqueia um jogo secreto.<br>
+      Tente a sequência no teclado:<br>
       <span class="konami-seq-highlight">↑ ↑ ↓ ↓ ← → ← → B A</span>
     </div>
     <div class="konami-sequence" id="konami-sequence">
@@ -242,53 +402,112 @@
     <div class="konami-feedback" id="konami-feedback">Digite a sequência ou toque no botão abaixo!</div>
     <div class="konami-actions">
       <button class="konami-btn" onclick="simulateKonamiCode()">Ativar Código Konami</button>
+      <button class="konami-btn neon" id="btnJogarDireto" style="display:none" onclick="mostrarJogo()">🐍 Jogar Snake</button>
       <a href="index.html" class="konami-btn ghost">← Voltar à Página Inicial</a>
     </div>
   </div>
+
+  <!-- Cartão do jogo Snake -->
+  <div class="konami-container game-card" id="cardGame" style="display:none">
+    <div class="game-head">
+      <div class="game-title">SNAKE.EXE</div>
+      <div class="game-scores">
+        <span class="score-chip">PONTOS <b id="placar">0</b></span>
+        <span class="score-chip record">RECORDE <b id="recorde">0</b></span>
+      </div>
+    </div>
+    <canvas id="snakeCanvas" width="340" height="340" aria-label="Jogo da cobrinha"></canvas>
+    <p class="game-hint"><b>Setas</b> ou <b>WASD</b> para mover · <b>Espaço</b> pausa · no celular, use o direcional ou deslize o dedo</p>
+    <div class="dpad" aria-hidden="true">
+      <button class="d-up" data-dir="cima">▲</button>
+      <button class="d-left" data-dir="esquerda">◀</button>
+      <button class="d-down" data-dir="baixo">▼</button>
+      <button class="d-right" data-dir="direita">▶</button>
+    </div>
+    <div class="konami-actions">
+      <button class="konami-btn neon" id="btnIniciar" onclick="iniciarJogo()">▶ INICIAR</button>
+      <button class="konami-btn ghost" onclick="mostrarKonami()">← Voltar ao código</button>
+      <a href="index.html" class="konami-btn ghost">Página inicial</a>
+    </div>
+  </div>
+
   <script>
+    // Mensagem secreta para quem abre o console 😄
+    console.log('%c🐍 FELPSDEV ARCADE', 'color:#00ff99;font-size:22px;font-weight:bold;text-shadow:0 0 8px #00ff99');
+    console.log('%cCurioso até no console? É esse tipo de gente que eu respeito. Bora conversar: felipesoeiro.contato@outlook.com.br', 'color:#fff;font-size:12px');
+
     document.addEventListener('DOMContentLoaded', () => {
-        startMatrixRain();
+      startMatrixRain();
+      // Detecta toque para exibir o direcional
+      if ('ontouchstart' in window || navigator.maxTouchPoints > 0) {
+        document.body.classList.add('com-toque');
+      }
+      // Snake já desbloqueado em visita anterior? Mostra atalho.
+      if (localStorage.getItem('felpsKonamiDesbloqueado') === 'sim') {
+        document.getElementById('btnJogarDireto').style.display = 'inline-flex';
+      }
+      document.getElementById('recorde').textContent = recordeSalvo();
     });
 
-    // Konami code logic
+    // ============================
+    // SONS RETRÔ (WebAudio — sem depender de internet)
+    // ============================
+    let audioCtx = null;
+    function bip(freq, dur, tipo, vol) {
+      try {
+        audioCtx = audioCtx || new (window.AudioContext || window.webkitAudioContext)();
+        const osc = audioCtx.createOscillator();
+        const gain = audioCtx.createGain();
+        osc.type = tipo || 'square';
+        osc.frequency.value = freq;
+        gain.gain.setValueAtTime(vol || 0.15, audioCtx.currentTime);
+        gain.gain.exponentialRampToValueAtTime(0.0001, audioCtx.currentTime + (dur || 0.07));
+        osc.connect(gain);
+        gain.connect(audioCtx.destination);
+        osc.start();
+        osc.stop(audioCtx.currentTime + (dur || 0.07));
+      } catch (e) {}
+    }
+
+    // ============================
+    // CÓDIGO KONAMI
+    // ============================
     const konamiCode = ['ArrowUp','ArrowUp','ArrowDown','ArrowDown','ArrowLeft','ArrowRight','ArrowLeft','ArrowRight','b','a'];
     let konamiIndex = 0;
     let konamiActive = false;
     const sequenceEls = document.querySelectorAll('.konami-key');
     const feedbackEl = document.getElementById('konami-feedback');
+
+    // As teclas acertadas ficam acesas (feedback de progresso)
     function highlightSequence(idx) {
       sequenceEls.forEach((el, i) => {
-        el.classList.toggle('active', i === idx);
+        el.classList.toggle('active', i <= idx);
       });
     }
     function resetSequence() {
       sequenceEls.forEach(el => el.classList.remove('active'));
     }
 
-    function playKeySound() {
-        const keyAudio = new Audio('https://cdn.pixabay.com/audio/2022/03/15/audio_731c436a9a.mp3');
-        keyAudio.volume = 0.4;
-        keyAudio.play().catch(() => {});
-    }
-
     document.addEventListener('keydown', (e) => {
+      // Durante o jogo, o teclado é do Snake
+      if (jogoVisivel()) return;
       if (konamiActive) return;
       const key = e.key.toLowerCase();
       const expected = konamiCode[konamiIndex].toLowerCase();
       if (key === expected) {
         highlightSequence(konamiIndex);
-        playKeySound();
+        bip(420 + konamiIndex * 60, 0.06, 'square', 0.12);
         konamiIndex++;
         if (konamiIndex === konamiCode.length) {
           activateKonami();
           konamiIndex = 0;
-          resetSequence();
         }
       } else {
         konamiIndex = 0;
         resetSequence();
       }
     });
+
     function simulateKonamiCode() {
       if (konamiActive) return;
       konamiCode.forEach((key, idx) => {
@@ -298,25 +517,35 @@
         }, idx * 180);
       });
     }
+
     function activateKonami() {
       konamiActive = true;
+      localStorage.setItem('felpsKonamiDesbloqueado', 'sim');
       feedbackEl.textContent = '🎉 Código Konami ativado! 🎉';
       showCelebrate();
       playKonamiSound();
       createConfetti();
       document.getElementById('matrixRain').style.opacity = '0.7';
     }
+
     function showCelebrate() {
       const celebrate = document.createElement('div');
       celebrate.className = 'konami-celebrate';
       celebrate.innerHTML = `
         <h2 id="konami-type"></h2>
-        <button class="konami-btn" onclick="window.location.reload()">Jogar Novamente</button>
+        <button class="konami-btn neon" id="btnAbrirSnake">🐍 JOGAR SNAKE</button>
         <a href="index.html" class="konami-btn ghost">← Voltar à Página Inicial</a>
       `;
       document.body.appendChild(celebrate);
-      typeWriter(document.getElementById('konami-type'), '🎮 Código Konami Ativado! 🎮', 45);
+      typeWriter(document.getElementById('konami-type'), '🎮 JOGO SECRETO DESBLOQUEADO! 🎮', 45);
+      document.getElementById('btnAbrirSnake').addEventListener('click', () => {
+        celebrate.remove();
+        konamiActive = false;
+        resetSequence();
+        mostrarJogo();
+      });
     }
+
     function typeWriter(element, text, speed = 60) {
       let i = 0;
       element.innerHTML = '';
@@ -329,12 +558,14 @@
       }
       type();
     }
+
     function playKonamiSound() {
       const audio = document.createElement('audio');
       audio.src = 'https://cdn.pixabay.com/audio/2022/07/26/audio_124bfae1e2.mp3';
       audio.volume = 0.5;
       audio.play().catch(() => {});
     }
+
     function createConfetti() {
       const colors = ['#ffffff', '#cfcfcf', '#888888', '#00ff99', '#e0e0e0'];
       for (let i = 0; i < 100; i++) {
@@ -358,6 +589,292 @@
         setTimeout(() => { confetti.remove(); }, animationDuration * 1000);
       }
     }
+
+    // ============================
+    // NAVEGAÇÃO ENTRE OS CARTÕES
+    // ============================
+    function jogoVisivel() {
+      return document.getElementById('cardGame').style.display !== 'none';
+    }
+    function mostrarJogo() {
+      document.getElementById('cardKonami').style.display = 'none';
+      document.getElementById('cardGame').style.display = 'block';
+      document.getElementById('recorde').textContent = recordeSalvo();
+      desenharTelaInicial();
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+    function mostrarKonami() {
+      pararJogo();
+      document.getElementById('cardGame').style.display = 'none';
+      document.getElementById('cardKonami').style.display = 'block';
+    }
+
+    // ============================
+    // SNAKE ARCADE 🐍
+    // ============================
+    const CELULAS = 17;               // grade 17x17
+    const TAM = 340 / CELULAS;        // tamanho de cada célula
+    const cnv = document.getElementById('snakeCanvas');
+    const ctx2 = cnv.getContext('2d');
+    let cobra, direcao, filaDirecoes, comida, pontos, velocidade, rodando, pausado, timerJogo;
+
+    function recordeSalvo() {
+      return parseInt(localStorage.getItem('felpsSnakeRecorde') || '0', 10);
+    }
+
+    function novaComida() {
+      let c;
+      do {
+        c = { x: Math.floor(Math.random() * CELULAS), y: Math.floor(Math.random() * CELULAS) };
+      } while (cobra.some(s => s.x === c.x && s.y === c.y));
+      return c;
+    }
+
+    function iniciarJogo() {
+      pararJogo();
+      cobra = [ { x: 8, y: 8 }, { x: 7, y: 8 }, { x: 6, y: 8 } ];
+      direcao = { x: 1, y: 0 };
+      filaDirecoes = [];
+      pontos = 0;
+      velocidade = 140;
+      rodando = true;
+      pausado = false;
+      comida = novaComida();
+      document.getElementById('placar').textContent = '0';
+      document.getElementById('btnIniciar').style.display = 'none';
+      bip(660, 0.08, 'square', 0.15);
+      loopJogo();
+    }
+
+    function pararJogo() {
+      rodando = false;
+      clearTimeout(timerJogo);
+    }
+
+    function loopJogo() {
+      if (!rodando) return;
+      if (!pausado) passo();
+      timerJogo = setTimeout(loopJogo, velocidade);
+    }
+
+    function passo() {
+      // Aplica a próxima direção da fila (evita meia-volta instantânea)
+      if (filaDirecoes.length) {
+        const nd = filaDirecoes.shift();
+        if (!(nd.x === -direcao.x && nd.y === -direcao.y)) direcao = nd;
+      }
+      const cabeca = { x: cobra[0].x + direcao.x, y: cobra[0].y + direcao.y };
+
+      // Colisão com parede ou com o próprio corpo = fim
+      if (
+        cabeca.x < 0 || cabeca.y < 0 || cabeca.x >= CELULAS || cabeca.y >= CELULAS ||
+        cobra.some(s => s.x === cabeca.x && s.y === cabeca.y)
+      ) {
+        return fimDeJogo();
+      }
+
+      cobra.unshift(cabeca);
+      if (cabeca.x === comida.x && cabeca.y === comida.y) {
+        pontos += 10;
+        document.getElementById('placar').textContent = pontos;
+        comida = novaComida();
+        velocidade = Math.max(70, velocidade - 3); // acelera aos poucos
+        bip(880, 0.06, 'square', 0.14);
+      } else {
+        cobra.pop();
+      }
+      desenharJogo();
+    }
+
+    function fimDeJogo() {
+      pararJogo();
+      bip(150, 0.35, 'sawtooth', 0.2);
+      const recorde = recordeSalvo();
+      const novoRecorde = pontos > recorde;
+      if (novoRecorde) {
+        localStorage.setItem('felpsSnakeRecorde', String(pontos));
+        document.getElementById('recorde').textContent = pontos;
+        setTimeout(() => bip(1040, 0.2, 'square', 0.16), 380);
+        createConfetti();
+      }
+      desenharJogo();
+      // Overlay de fim de jogo
+      ctx2.fillStyle = 'rgba(0, 0, 0, 0.72)';
+      ctx2.fillRect(0, 0, cnv.width, cnv.height);
+      ctx2.textAlign = 'center';
+      ctx2.fillStyle = '#00ff99';
+      ctx2.font = '18px "Press Start 2P", monospace';
+      ctx2.shadowColor = '#00ff99';
+      ctx2.shadowBlur = 14;
+      ctx2.fillText('FIM DE JOGO', cnv.width / 2, cnv.height / 2 - 26);
+      ctx2.shadowBlur = 0;
+      ctx2.fillStyle = '#fff';
+      ctx2.font = '11px "Press Start 2P", monospace';
+      ctx2.fillText(novoRecorde ? 'NOVO RECORDE: ' + pontos + '!' : 'PONTOS: ' + pontos, cnv.width / 2, cnv.height / 2 + 10);
+      ctx2.fillStyle = '#9a9a9a';
+      ctx2.font = '9px "Press Start 2P", monospace';
+      ctx2.fillText('APERTE INICIAR', cnv.width / 2, cnv.height / 2 + 42);
+      const btn = document.getElementById('btnIniciar');
+      btn.style.display = 'inline-flex';
+      btn.textContent = '↻ JOGAR DE NOVO';
+    }
+
+    function desenharFundo() {
+      ctx2.fillStyle = '#050505';
+      ctx2.fillRect(0, 0, cnv.width, cnv.height);
+      ctx2.strokeStyle = 'rgba(0, 255, 153, 0.05)';
+      ctx2.lineWidth = 1;
+      for (let i = 1; i < CELULAS; i++) {
+        ctx2.beginPath();
+        ctx2.moveTo(i * TAM, 0);
+        ctx2.lineTo(i * TAM, cnv.height);
+        ctx2.stroke();
+        ctx2.beginPath();
+        ctx2.moveTo(0, i * TAM);
+        ctx2.lineTo(cnv.width, i * TAM);
+        ctx2.stroke();
+      }
+    }
+
+    function desenharJogo() {
+      desenharFundo();
+      // Comida (maçã branca pulsante)
+      const pulso = 0.30 + Math.sin(Date.now() / 200) * 0.05;
+      ctx2.save();
+      ctx2.shadowColor = '#ffffff';
+      ctx2.shadowBlur = 12;
+      ctx2.fillStyle = '#ffffff';
+      ctx2.beginPath();
+      ctx2.arc(comida.x * TAM + TAM / 2, comida.y * TAM + TAM / 2, TAM * pulso, 0, Math.PI * 2);
+      ctx2.fill();
+      ctx2.restore();
+      // Cobra em verde neon (cabeça mais brilhante)
+      cobra.forEach((s, i) => {
+        const intensidade = Math.max(0.35, 1 - i * 0.045);
+        ctx2.save();
+        if (i === 0) {
+          ctx2.shadowColor = '#00ff99';
+          ctx2.shadowBlur = 16;
+        }
+        ctx2.fillStyle = i === 0 ? '#8dffcf' : 'rgba(0, 255, 153, ' + intensidade.toFixed(2) + ')';
+        const m = 1.5;
+        roundRect(s.x * TAM + m, s.y * TAM + m, TAM - m * 2, TAM - m * 2, 5);
+        ctx2.restore();
+      });
+      if (pausado && rodando) {
+        ctx2.fillStyle = 'rgba(0, 0, 0, 0.6)';
+        ctx2.fillRect(0, 0, cnv.width, cnv.height);
+        ctx2.textAlign = 'center';
+        ctx2.fillStyle = '#fff';
+        ctx2.font = '16px "Press Start 2P", monospace';
+        ctx2.fillText('PAUSADO', cnv.width / 2, cnv.height / 2);
+      }
+    }
+
+    function roundRect(x, y, w, h, r) {
+      ctx2.beginPath();
+      ctx2.moveTo(x + r, y);
+      ctx2.arcTo(x + w, y, x + w, y + h, r);
+      ctx2.arcTo(x + w, y + h, x, y + h, r);
+      ctx2.arcTo(x, y + h, x, y, r);
+      ctx2.arcTo(x, y, x + w, y, r);
+      ctx2.closePath();
+      ctx2.fill();
+    }
+
+    function desenharTelaInicial() {
+      desenharFundo();
+      ctx2.textAlign = 'center';
+      ctx2.fillStyle = '#00ff99';
+      ctx2.font = '20px "Press Start 2P", monospace';
+      ctx2.shadowColor = '#00ff99';
+      ctx2.shadowBlur = 16;
+      ctx2.fillText('SNAKE', cnv.width / 2, cnv.height / 2 - 20);
+      ctx2.shadowBlur = 0;
+      ctx2.fillStyle = '#9a9a9a';
+      ctx2.font = '9px "Press Start 2P", monospace';
+      ctx2.fillText('APERTE INICIAR', cnv.width / 2, cnv.height / 2 + 18);
+      const btn = document.getElementById('btnIniciar');
+      btn.style.display = 'inline-flex';
+      btn.textContent = '▶ INICIAR';
+    }
+
+    function mudarDirecao(nome) {
+      const mapa = {
+        cima: { x: 0, y: -1 },
+        baixo: { x: 0, y: 1 },
+        esquerda: { x: -1, y: 0 },
+        direita: { x: 1, y: 0 }
+      };
+      const nd = mapa[nome];
+      if (!nd) return;
+      if (!rodando) return;
+      if (filaDirecoes.length < 2) filaDirecoes.push(nd);
+    }
+
+    // Teclado do jogo (setas, WASD e espaço)
+    document.addEventListener('keydown', (e) => {
+      if (!jogoVisivel()) return;
+      const mapaTeclas = {
+        arrowup: 'cima', w: 'cima',
+        arrowdown: 'baixo', s: 'baixo',
+        arrowleft: 'esquerda', a: 'esquerda',
+        arrowright: 'direita', d: 'direita'
+      };
+      const k = e.key.toLowerCase();
+      if (k === ' ') {
+        e.preventDefault();
+        if (rodando) {
+          pausado = !pausado;
+          if (!pausado) desenharJogo();
+          else desenharJogo();
+        }
+        return;
+      }
+      if (mapaTeclas[k]) {
+        e.preventDefault();
+        if (!rodando && document.getElementById('btnIniciar').style.display !== 'none') {
+          iniciarJogo();
+        }
+        mudarDirecao(mapaTeclas[k]);
+      }
+    });
+
+    // D-pad (toque)
+    document.querySelectorAll('.dpad button').forEach(btn => {
+      btn.addEventListener('pointerdown', (e) => {
+        e.preventDefault();
+        if (!rodando) iniciarJogo();
+        mudarDirecao(btn.getAttribute('data-dir'));
+      });
+    });
+
+    // Deslizar o dedo sobre o canvas também controla
+    let toqueX = null, toqueY = null;
+    cnv.addEventListener('touchstart', (e) => {
+      const t = e.touches[0];
+      toqueX = t.clientX;
+      toqueY = t.clientY;
+    }, { passive: true });
+    cnv.addEventListener('touchend', (e) => {
+      if (toqueX === null) return;
+      const t = e.changedTouches[0];
+      const dx = t.clientX - toqueX;
+      const dy = t.clientY - toqueY;
+      if (Math.abs(dx) < 18 && Math.abs(dy) < 18) {
+        if (!rodando) iniciarJogo();
+        toqueX = toqueY = null;
+        return;
+      }
+      if (!rodando) iniciarJogo();
+      if (Math.abs(dx) > Math.abs(dy)) mudarDirecao(dx > 0 ? 'direita' : 'esquerda');
+      else mudarDirecao(dy > 0 ? 'baixo' : 'cima');
+      toqueX = toqueY = null;
+    }, { passive: true });
+
+    // ============================
+    // MATRIX RAIN
+    // ============================
     function startMatrixRain() {
       const canvas = document.getElementById('matrixRain');
       const ctx = canvas.getContext('2d');

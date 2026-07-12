@@ -21,6 +21,13 @@ Este projeto é a minha vitrine profissional digital. Foi desenvolvido do zero c
 
 O portfólio conta com diversas funcionalidades modernas para garantir uma navegação agradável e interativa:
 
+- **🧩 Seção "O que eu faço":** Três cards na home (Automação & RPA, Full Stack e IA & Dados) com ícones, descrição e tags — o recrutador entende as frentes de atuação em segundos.
+- **💠 Marquee de Tecnologias em Chips:** Duas linhas com rolagem infinita em direções opostas, com chips nomeados (ícone + nome) em vez de ícones soltos — sempre em movimento, inclusive com "reduzir movimento" ativo no sistema.
+- **🔗 Badge Oficial do LinkedIn:** A página de contato exibe o cartão de perfil oficial do LinkedIn em tema escuro, junto de chips de disponibilidade.
+- **🦶 Rodapé Completo:** Rodapé em três colunas com marca, navegação, redes sociais (GitHub, LinkedIn, e-mail e WhatsApp) e status "aberto a novas conexões" em todas as páginas.
+- **🧲 CTA Final na Home:** Banner "Vamos construir algo juntos?" com chamadas diretas para projetos e contato.
+- **⭐ Depoimento em Destaque na Home:** Citação real com avaliação em estrelas antes da chamada para a página de depoimentos, que também ganhou selo de recomendações e CTA para o LinkedIn.
+- **🔍 SEO e Compartilhamento:** Meta descrições e tags Open Graph em todas as páginas — os links ficam bonitos quando compartilhados no LinkedIn e WhatsApp.
 - **🎨 Design Responsivo:** Layout 100% adaptável para uma visualização perfeita em celulares, tablets e desktops, com otimizações específicas para cada tamanho de tela.
 - **📱 Menu Mobile Moderno:** Um menu lateral deslizante, com ícone animado (hambúrguer para "X"), que proporciona uma experiência de navegação intuitiva e sofisticada em dispositivos móveis.
 - **🎠 Carrossel de Tecnologias:** Uma faixa com rolagem infinita e interativa para apresentar as tecnologias que domino de forma dinâmica.

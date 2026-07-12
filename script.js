@@ -331,6 +331,9 @@ document.addEventListener('DOMContentLoaded', function() {
   // Gerenciar botão de voltar ao topo
   gerenciarBotaoVoltarAoTopo();
 
+  // Tagline do rodapé sempre mudando (máquina de escrever)
+  taglineRotativaRodape();
+
   // Barra de progresso de leitura
   barraProgresso();
 
@@ -448,6 +451,45 @@ function barraProgresso() {
   }, { passive: true });
 
   atualizar();
+}
+
+// ============================
+// TAGLINE ROTATIVA DO RODAPÉ (efeito máquina de escrever)
+// ============================
+function taglineRotativaRodape() {
+  var el = document.querySelector('.footer-tagline');
+  if (!el) return;
+
+  var frases = [
+    'Desenvolvedor RPA · Full Stack',
+    'Automação, dados e IA transformando a forma de trabalhar',
+    'Pós-graduando em Inteligência Artificial pela FIAP',
+    'Futuro Engenheiro de IA'
+  ];
+
+  el.innerHTML = '<span class="tagline-texto"></span><span class="type-caret">_</span>';
+  var alvo = el.querySelector('.tagline-texto');
+  var f = 0, c = 0, apagando = false;
+
+  function tick() {
+    var frase = frases[f];
+    if (!apagando) {
+      alvo.textContent = frase.slice(0, ++c);
+      if (c === frase.length) {
+        apagando = true;
+        return setTimeout(tick, 2200); // pausa com a frase completa
+      }
+    } else {
+      alvo.textContent = frase.slice(0, --c);
+      if (c === 0) {
+        apagando = false;
+        f = (f + 1) % frases.length;
+      }
+    }
+    setTimeout(tick, apagando ? 28 : 55);
+  }
+
+  tick();
 }
 
 // ============================
