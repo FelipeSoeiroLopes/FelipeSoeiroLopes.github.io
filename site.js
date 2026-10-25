@@ -122,50 +122,26 @@
   }
 
   // ============================
-  // FOTO REAL ⇄ CARICATURA
+  // RETRATO (inclinação sutil)
   // ============================
   function iniciarRetrato() {
     const retrato = document.getElementById('heroPortrait');
     if (!retrato) return;
     const card = retrato.querySelector('.portrait-card');
-    const thumb = retrato.querySelector('.switch-thumb');
-    const botoes = retrato.querySelectorAll('.portrait-switch button');
-    let modoDev = false;
-    let tilt = { x: 0, y: 0 };
-
-    function aplicar(dev) {
-      modoDev = dev;
-      retrato.classList.toggle('is-dev', dev);
-      card.setAttribute('aria-pressed', String(dev));
-      botoes.forEach(b => b.setAttribute('aria-pressed', String((b.dataset.view === 'dev') === dev)));
-      if (motionAtivo) {
-        M.animate(card, { rotateY: (dev ? 180 : 0) + tilt.y, rotateX: tilt.x }, { type: 'spring', stiffness: 90, damping: 14, mass: 1 });
-        M.animate(thumb, { x: dev ? '100%' : '0%' }, { type: 'spring', stiffness: 380, damping: 32 });
-      } else {
-        card.style.transform = `rotateY(${dev ? 180 : 0}deg)`;
-        thumb.style.transform = `translateX(${dev ? '100%' : '0%'})`;
-      }
-    }
-
-    card.addEventListener('click', () => aplicar(!modoDev));
-    botoes.forEach(b => b.addEventListener('click', () => aplicar(b.dataset.view === 'dev')));
 
     if (motionAtivo && finePointer) {
       retrato.addEventListener('pointermove', event => {
         const rect = card.getBoundingClientRect();
         const px = (event.clientX - rect.left) / rect.width - 0.5;
         const py = (event.clientY - rect.top) / rect.height - 0.5;
-        tilt = { x: py * -10, y: px * 12 };
         retrato.style.setProperty('--gx', `${(px + 0.5) * 100}%`);
         retrato.style.setProperty('--gy', `${(py + 0.5) * 100}%`);
-        M.animate(card, { rotateY: (modoDev ? 180 : 0) + tilt.y, rotateX: tilt.x }, mola);
+        M.animate(card, { rotateY: px * 6, rotateX: py * -5 }, mola);
       });
       retrato.addEventListener('pointerleave', () => {
-        tilt = { x: 0, y: 0 };
-        M.animate(card, { rotateY: modoDev ? 180 : 0, rotateX: 0 }, mola);
+        M.animate(card, { rotateY: 0, rotateX: 0 }, mola);
       });
     }
-    aplicar(false);
   }
 
   // ============================
@@ -174,7 +150,7 @@
   function iniciarDigitacao() {
     const el = document.getElementById('typed-role');
     if (!el || reduzMovimento) return;
-    const cargos = ['Desenvolvedor RPA', 'Desenvolvedor Full Stack', 'Futuro Engenheiro de IA'];
+    const cargos = ['Engenharia de IA aplicada', 'Agentes de IA · LLMs · RAG', 'Automação RPA · Full Stack'];
     let r = 0, c = 0, apagando = false;
     function tick() {
       const palavra = cargos[r];
@@ -434,7 +410,7 @@
     const retrato = document.querySelector('.portrait');
     if (retrato) {
       M.animate(retrato, { opacity: [0, 1], scale: [0.88, 1], y: [40, 0] }, { ...mola, delay: 0.25 });
-      const flutuantes = retrato.querySelectorAll('.float-card, .portrait-peek');
+      const flutuantes = retrato.querySelectorAll('.float-card');
       M.animate(flutuantes, { opacity: [0, 1], scale: [0.6, 1] },
         { type: 'spring', stiffness: 260, damping: 18, delay: M.stagger(0.12, { startDelay: 0.8 }) });
       retrato.querySelectorAll('.float-card').forEach((cartao, i) => {
