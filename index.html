@@ -1,283 +1,370 @@
 <!DOCTYPE html>
-<html lang="pt-BR" class="pagina-inicio">
+<html lang="pt-BR">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="description" content="Portfólio de Felipe Soeiro Lopes — Desenvolvedor RPA e Full Stack na Samsung SDS. Automação, Java Spring Boot, Python, dados e IA. Conheça meus projetos, experiências e depoimentos." />
+    <title>Felipe Soeiro Lopes · Desenvolvedor RPA, Full Stack e IA</title>
+    <meta name="description" content="Portfólio de Felipe Soeiro Lopes — Desenvolvedor RPA e Full Stack na Samsung SDS, a caminho da engenharia de IA. Automação, Java Spring Boot, Python, dados e agentes de IA." />
     <meta name="author" content="Felipe Soeiro Lopes" />
-    <meta name="theme-color" content="#0a0a0a" />
+    <meta name="theme-color" content="#04060c" />
     <meta property="og:type" content="website" />
-    <meta property="og:title" content="Felipe Soeiro Lopes | Desenvolvedor RPA · Full Stack" />
-    <meta property="og:description" content="Automatizo processos e construo soluções full stack — unindo RPA, dados e IA para transformar a forma de trabalhar." />
-    <meta property="og:image" content="https://felipesoeirolopes.github.io/images/felpsdevsemfundo.png" />
+    <meta property="og:title" content="Felipe Soeiro Lopes | Desenvolvedor RPA · Full Stack · IA" />
+    <meta property="og:description" content="Portfólio de Felipe Soeiro Lopes — Desenvolvedor RPA e Full Stack na Samsung SDS, a caminho da engenharia de IA. Automação, Java Spring Boot, Python, dados e agentes de IA." />
+    <meta property="og:image" content="https://felipesoeirolopes.github.io/images/felipe-foto.jpg" />
     <meta property="og:url" content="https://felipesoeirolopes.github.io/" />
     <meta property="og:locale" content="pt_BR" />
     <meta name="twitter:card" content="summary" />
-    <link rel="stylesheet" href="styles.css" />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap"
-      rel="stylesheet"
-    />
     <link rel="icon" type="image/png" href="images/felpsdevsemfundo.png" />
-    <title>FELIPE LOPES | INÍCIO</title>
-    <!-- GSAP Library -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,600;9..40,700&family=JetBrains+Mono:wght@400;500&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="site.css" />
   </head>
-  <body class="pagina-inicio">
-    <header>
-      <nav>
-        <div class="logo" id="logoSecreta">
-          <img src="images/felpsdevsemfundo.png" alt="Logo do Felipe" />
-        </div>
-        <button class="menu-icon" onclick="alternarMenu()" aria-label="Abrir menu">
-          <span></span>
-          <span></span>
-          <span></span>
-        </button>
-        <div class="navbar" id="navbar">
-          <div><a href="index.html">INÍCIO</a></div>
-          <div><a href="projetos.html">PROJETOS</a></div>
-          <div><a href="formacoes.html">FORMAÇÕES</a></div>
-          <div><a href="experiencia.html">EXPERIÊNCIAS</a></div>
-          <div><a href="depoimentos.html">DEPOIMENTOS</a></div>
-          <div><a href="contato.html">CONTATOS</a></div>
-        </div>
-      </nav>
-    </header> 
+  <body>
+    <a class="skip-link" href="#conteudo">Pular para o conteúdo</a>
+    <div class="backdrop" aria-hidden="true"><span class="aurora aurora-1"></span><span class="aurora aurora-2"></span><span class="aurora aurora-3"></span></div>
 
-    <!-- Partículas flutuantes -->
-    <div class="particles">
-      <div class="particle"></div>
-      <div class="particle"></div>
-      <div class="particle"></div>
-      <div class="particle"></div>
-      <div class="particle"></div>
-      <div class="particle"></div>
+    <header class="site-header">
+      <nav class="nav" aria-label="Navegação principal">
+        <div class="brand">
+          <button class="brand-logo" id="logoSecreta" type="button" aria-label="Abrir FelpsDev Arcade (easter egg)" title="FelpsDev Arcade">
+            <img src="images/felpsdevsemfundo.png" alt="" width="40" height="40" />
+          </button>
+          <a class="brand-text" href="index.html">
+            <strong>Felipe Lopes<span aria-hidden="true">.</span></strong>
+            <small>RPA · FULL STACK · IA</small>
+          </a>
+        </div>
+        <ul class="nav-links">
+            <li class="nav-indicator" role="presentation" aria-hidden="true"></li>
+            <li><a href="index.html" aria-current="page">Início</a></li>
+            <li><a href="projetos.html">Projetos</a></li>
+            <li><a href="formacoes.html">Formações</a></li>
+            <li><a href="experiencia.html">Experiências</a></li>
+            <li><a href="depoimentos.html">Depoimentos</a></li>
+        </ul>
+        <a class="btn btn-primary nav-cta" href="contato.html">Vamos conversar <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17 17 7M8 7h9v9"/></svg></a>
+        <button class="menu-btn" type="button" aria-expanded="false" aria-controls="mobile-panel"><span class="menu-text">Menu</span><span class="menu-lines" aria-hidden="true"></span></button>
+      </nav>
+    </header>
+
+    <div class="mobile-panel" id="mobile-panel">
+      <ol>
+          <li><a href="index.html" aria-current="page">Início</a></li>
+          <li><a href="projetos.html">Projetos</a></li>
+          <li><a href="formacoes.html">Formações</a></li>
+          <li><a href="experiencia.html">Experiências</a></li>
+          <li><a href="depoimentos.html">Depoimentos</a></li>
+          <li><a href="contato.html">Contato</a></li>
+      </ol>
+      <div class="mobile-foot">
+        <div class="cv-menu cv-up">
+              <button class="btn btn-ghost btn-down cv-toggle" type="button" aria-expanded="false" aria-haspopup="true">Baixar currículo <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 5v14M6 13l6 6 6-6"/></svg></button>
+              <div class="cv-options" role="menu" hidden>
+                <a role="menuitem" href="path/CV_FELIPESLOPES.pdf" download><span class="cv-flag">PT</span><span><strong>Português</strong><small>PT-BR · PDF</small></span></a>
+                <a role="menuitem" href="path/CV_FELIPESLOPES_EN.pdf" download><span class="cv-flag">EN</span><span><strong>English</strong><small>Resume · PDF</small></span></a>
+              </div>
+            </div>
+        <div class="socials">
+            <a class="social" href="https://github.com/FelipeSoeiroLopes" target="_blank" rel="noopener" aria-label="GitHub"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg></a>
+            <a class="social" href="https://linkedin.com/in/felipesoeirolopes/" target="_blank" rel="noopener" aria-label="LinkedIn"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.225 0z"/></svg></a>
+            <a class="social" href="mailto:felipesoeiro.contato@outlook.com.br" aria-label="E-mail"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2"/><polyline points="3 7 12 13 21 7"/></svg></a>
+            <a class="social" href="https://wa.me/5511955558936" target="_blank" rel="noopener" aria-label="WhatsApp"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg></a>
+          </div>
+      </div>
     </div>
 
-    <section class="container hero-section snap-section" id="hero">
-      <div class="hero-content">
-        <div class="avatar">
-          <img src="images/felpsdevsemfundo.png" alt="Felipe Lopes" />
-        </div>
-        <div class="about-text">
-          <h1>
-            <span class="hero-greeting">Olá, eu sou</span>
-            <span class="hero-name">Felipe Soeiro Lopes</span>
-          </h1>
-          <p class="hero-role-line">
-            <span class="hero-role-prefix">&gt;</span>
-            <span id="typed-role" class="typed-role"></span><span class="type-caret">_</span>
-          </p>
-          <p class="hero-pitch">
-            Automatizo processos e construo soluções full stack — unindo <strong>RPA</strong>, <strong>dados</strong> e <strong>IA</strong> para transformar a forma de trabalhar.
-          </p>
-          <div class="hero-highlights">
-            <span class="hero-chip">Samsung SDS</span>
-            <span class="hero-chip">Pós em IA · FIAP</span>
-            <span class="hero-chip">RPA · Full Stack</span>
+    <main id="conteudo">
+      <section class="hero" id="hero">
+        <div class="container hero-grid">
+          <div class="hero-text">
+            <span class="status-pill" data-intro><span class="dot-live"></span>Disponível para novos desafios</span>
+            <h1 class="hero-title"><span class="line">Felipe</span> <span class="line soft">Soeiro Lopes<em>.</em></span></h1>
+            <p class="hero-role" data-intro><span class="prompt">~/felipe $</span> <span id="typed-role">Desenvolvedor RPA · Full Stack</span><span class="caret" aria-hidden="true"></span></p>
+            <p class="hero-pitch" data-intro>Automatizo processos, construo soluções full stack e desenvolvo agentes de IA personalizados — unindo <strong>RPA</strong>, <strong>dados</strong> e <strong>IA generativa</strong> para transformar a forma de trabalhar.</p>
+            <div class="hero-chips" data-intro>
+              <span class="chip">Samsung SDS</span>
+              <span class="chip">Pós em IA · FIAP</span>
+              <span class="chip chip-ai">Futuro Engenheiro de IA</span>
+            </div>
+            <div class="btn-row" data-intro>
+              <a href="#projetos" class="btn btn-primary">Explorar projetos <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17 17 7M8 7h9v9"/></svg></a>
+              <div class="cv-menu">
+              <button class="btn btn-ghost btn-down cv-toggle" type="button" aria-expanded="false" aria-haspopup="true">Baixar currículo <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 5v14M6 13l6 6 6-6"/></svg></button>
+              <div class="cv-options" role="menu" hidden>
+                <a role="menuitem" href="path/CV_FELIPESLOPES.pdf" download><span class="cv-flag">PT</span><span><strong>Português</strong><small>PT-BR · PDF</small></span></a>
+                <a role="menuitem" href="path/CV_FELIPESLOPES_EN.pdf" download><span class="cv-flag">EN</span><span><strong>English</strong><small>Resume · PDF</small></span></a>
+              </div>
+            </div>
+            </div>
+            <div data-intro><div class="socials">
+            <a class="social" href="https://github.com/FelipeSoeiroLopes" target="_blank" rel="noopener" aria-label="GitHub"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg></a>
+            <a class="social" href="https://linkedin.com/in/felipesoeirolopes/" target="_blank" rel="noopener" aria-label="LinkedIn"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.225 0z"/></svg></a>
+            <a class="social" href="mailto:felipesoeiro.contato@outlook.com.br" aria-label="E-mail"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2"/><polyline points="3 7 12 13 21 7"/></svg></a>
+            <a class="social" href="https://wa.me/5511955558936" target="_blank" rel="noopener" aria-label="WhatsApp"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg></a>
+          </div></div>
           </div>
-          <div class="about-btn">
-            <a href="path/CV_FELIPESLOPES.pdf" download>
-              <button class="btn-primary">
-                <svg class="btn-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
-                Baixar Currículo
-              </button>
+
+          <div class="portrait" id="heroPortrait">
+            <span class="portrait-glow" aria-hidden="true"></span>
+            <span class="portrait-frame" aria-hidden="true"></span>
+            <span class="portrait-dots" aria-hidden="true"></span>
+            <span class="portrait-peek" aria-hidden="true">
+              <img class="peek-dev" src="images/felpsimagemlogo.png" alt="" />
+              <img class="peek-real" src="images/felipe-foto.jpg" alt="" />
+            </span>
+            <button class="portrait-card" type="button" aria-pressed="false" aria-label="Virar o card entre foto real e caricatura">
+              <span class="portrait-border" aria-hidden="true"></span>
+              <span class="portrait-face portrait-front">
+                <img src="images/felipe-foto.jpg" alt="Foto de Felipe Soeiro Lopes sorrindo em seu setup de desenvolvimento" width="400" height="400" fetchpriority="high" />
+                <span class="portrait-glare" aria-hidden="true"></span>
+                <span class="portrait-caption">
+                  <span><strong>Felipe Soeiro Lopes</strong><small>São Paulo · Brasil</small></span>
+                  <span class="chip"><span class="dot-live"></span>Online</span>
+                </span>
+              </span>
+              <span class="portrait-face portrait-back">
+                <span class="glyph g1" aria-hidden="true">&lt;/&gt;</span>
+                <span class="glyph g2" aria-hidden="true">{ IA }</span>
+                <span class="glyph g3" aria-hidden="true">RAG</span>
+                <span class="glyph g4" aria-hidden="true"><span class="win-dots"><b></b><b></b><b></b></span>ideia → código → impacto</span>
+                <img src="images/felpsimagemlogo.png" alt="Caricatura de Felipe programando em um notebook" width="500" height="500" />
+                <span class="portrait-glare" aria-hidden="true"></span>
+                <span class="portrait-caption">
+                  <span><strong>Felps<em>.dev</em></strong><small>modo desenvolvedor</small></span>
+                  <span class="chip"><code>v2026</code></span>
+                </span>
+              </span>
+            </button>
+            <div class="float-card float-status"><i aria-hidden="true"></i>RPA · Full Stack · IA</div>
+            <div class="portrait-switch" role="group" aria-label="Escolher versão do retrato">
+              <span class="switch-thumb" aria-hidden="true"></span>
+              <button type="button" data-view="real" aria-pressed="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 8h3l2-3h6l2 3h3v11H4z"/><circle cx="12" cy="13" r="3.5"/></svg>Felipe real</button>
+              <button type="button" data-view="dev" aria-pressed="false"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg>Felps.dev</button>
+            </div>
+            <p class="portrait-hint">Clique no card para virar</p>
+          </div>
+        </div>
+        <a class="scroll-cue" href="#sobre" aria-label="Rolar para a próxima seção"><span></span>Scroll</a>
+      </section>
+
+      <section class="marquee-wrap" aria-label="Tecnologias que utilizo">
+        <div class="marquee">
+          <div class="marquee-track"><span class="tech"><img src="images/icons8-html-48.png" alt="" width="24" height="24" />HTML5</span><span class="tech"><img src="images/icons8-css-48.png" alt="" width="24" height="24" />CSS3</span><span class="tech"><img src="images/icons8-javascript-48.png" alt="" width="24" height="24" />JavaScript</span><span class="tech"><img src="images/icons8-logo-java-coffee-cup-48.png" alt="" width="24" height="24" />Java</span><span class="tech"><img src="images/icons8-python-48.png" alt="" width="24" height="24" />Python</span><span class="tech"><img src="images/icons8-mysql-48.png" alt="" width="24" height="24" />MySQL</span><span class="tech"><img src="images/icons8-azure-48.png" alt="" width="24" height="24" />Azure</span><span class="tech"><img src="images/icons8-visual-studio-code-2019-48.png" alt="" width="24" height="24" />VS Code</span><span class="tech"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@v2.16.0/icons/docker/docker-original.svg" alt="" width="24" height="24" />Docker</span><span class="tech"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@v2.16.0/icons/flutter/flutter-original.svg" alt="" width="24" height="24" />Flutter</span><span class="tech"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@v2.16.0/icons/linux/linux-original.svg" alt="" width="24" height="24" />Linux</span><span class="tech"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@v2.16.0/icons/amazonwebservices/amazonwebservices-plain-wordmark.svg" alt="" width="24" height="24" class="invert" />AWS</span><span class="tech"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@v2.16.0/icons/googlecloud/googlecloud-original.svg" alt="" width="24" height="24" />Google Cloud</span><span class="tech dup" aria-hidden="true"><img src="images/icons8-html-48.png" alt="" width="24" height="24" />HTML5</span><span class="tech dup" aria-hidden="true"><img src="images/icons8-css-48.png" alt="" width="24" height="24" />CSS3</span><span class="tech dup" aria-hidden="true"><img src="images/icons8-javascript-48.png" alt="" width="24" height="24" />JavaScript</span><span class="tech dup" aria-hidden="true"><img src="images/icons8-logo-java-coffee-cup-48.png" alt="" width="24" height="24" />Java</span><span class="tech dup" aria-hidden="true"><img src="images/icons8-python-48.png" alt="" width="24" height="24" />Python</span><span class="tech dup" aria-hidden="true"><img src="images/icons8-mysql-48.png" alt="" width="24" height="24" />MySQL</span><span class="tech dup" aria-hidden="true"><img src="images/icons8-azure-48.png" alt="" width="24" height="24" />Azure</span><span class="tech dup" aria-hidden="true"><img src="images/icons8-visual-studio-code-2019-48.png" alt="" width="24" height="24" />VS Code</span><span class="tech dup" aria-hidden="true"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@v2.16.0/icons/docker/docker-original.svg" alt="" width="24" height="24" />Docker</span><span class="tech dup" aria-hidden="true"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@v2.16.0/icons/flutter/flutter-original.svg" alt="" width="24" height="24" />Flutter</span><span class="tech dup" aria-hidden="true"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@v2.16.0/icons/linux/linux-original.svg" alt="" width="24" height="24" />Linux</span><span class="tech dup" aria-hidden="true"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@v2.16.0/icons/amazonwebservices/amazonwebservices-plain-wordmark.svg" alt="" width="24" height="24" class="invert" />AWS</span><span class="tech dup" aria-hidden="true"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@v2.16.0/icons/googlecloud/googlecloud-original.svg" alt="" width="24" height="24" />Google Cloud</span></div>
+          <div class="marquee-track reverse"><span class="tech text">Spring Boot</span><span class="tech text">Brity RPA</span><span class="tech text">APIs REST</span><span class="tech text">Power BI</span><span class="tech text">Agentes de IA</span><span class="tech text">RAG</span><span class="tech text">LLMs</span><span class="tech text">AWS Bedrock</span><span class="tech text">Machine Learning</span><span class="tech text">Git · GitHub</span><span class="tech text">Azure DevOps</span><span class="tech text">Scrum · Kanban</span><span class="tech text dup" aria-hidden="true">Spring Boot</span><span class="tech text dup" aria-hidden="true">Brity RPA</span><span class="tech text dup" aria-hidden="true">APIs REST</span><span class="tech text dup" aria-hidden="true">Power BI</span><span class="tech text dup" aria-hidden="true">Agentes de IA</span><span class="tech text dup" aria-hidden="true">RAG</span><span class="tech text dup" aria-hidden="true">LLMs</span><span class="tech text dup" aria-hidden="true">AWS Bedrock</span><span class="tech text dup" aria-hidden="true">Machine Learning</span><span class="tech text dup" aria-hidden="true">Git · GitHub</span><span class="tech text dup" aria-hidden="true">Azure DevOps</span><span class="tech text dup" aria-hidden="true">Scrum · Kanban</span></div>
+        </div>
+        <button class="marquee-toggle" type="button" aria-pressed="false">Pausar movimento</button>
+      </section>
+
+      <section class="section" id="sobre">
+        <div class="container">
+          <div class="section-head">
+            <div>
+              <span class="eyebrow">01 · Agora</span>
+              <h2 class="h-section" data-split>Código com contexto. <em>Carreira em evolução.</em></h2>
+            </div>
+            <a class="link-arrow" href="experiencia.html">Ver trajetória completa <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17 17 7M8 7h9v9"/></svg></a>
+          </div>
+
+          <div class="bento">
+            <article class="card tile t-now" data-reveal>
+              <span class="tile-label">Atuação atual</span>
+              <div class="company">
+                <img src="images/samsungsds_logo.jpg" alt="Logo da Samsung SDS" width="54" height="54" loading="lazy" />
+                <div><strong>Samsung SDS</strong><span>Desenvolvedor Jr · RPA e Full Stack</span></div>
+              </div>
+              <p>Automações em produção, APIs com Java Spring Boot e apps em Flutter — e agentes de IA personalizados para o negócio, com LLMs, RAG, Google Cloud e AWS Bedrock.</p>
+              <div class="tile-foot"><div class="tags"><span class="tag">Brity RPA</span><span class="tag">Spring Boot</span><span class="tag">Flutter</span><span class="tag">Agentes de IA</span><span class="tag">AWS Bedrock</span></div></div>
+            </article>
+
+            <article class="card tile t-ai" data-reveal>
+              <div class="service-top"><span class="tile-label">Engenharia de IA na prática</span><span class="icon-box"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3l1.9 5.8a2 2 0 0 0 1.3 1.3L21 12l-5.8 1.9a2 2 0 0 0-1.3 1.3L12 21l-1.9-5.8a2 2 0 0 0-1.3-1.3L3 12l5.8-1.9a2 2 0 0 0 1.3-1.3L12 3z"/></svg></span></div>
+              <h3>Agentes de IA generativa resolvendo problemas reais.</h3>
+              <p>Na Samsung SDS, construo agentes totalmente personalizados para o negócio: LLMs e RAG sobre bases de conhecimento, modelos administrados em Google Cloud e AWS Bedrock e integrações com APIs e fluxos de automação.</p>
+              <div class="ai-flow" aria-label="Fluxo de um agente">
+                <span>prompt</span><i aria-hidden="true">→</i><span>RAG</span><i aria-hidden="true">→</i><span>LLM</span><i aria-hidden="true">→</i><span>APIs</span><i aria-hidden="true">→</i><span>automação</span>
+              </div>
+              <div class="tile-foot" style="display:flex;flex-wrap:wrap;gap:.5rem;align-items:center"><div class="tags"><span class="tag">Google Cloud</span><span class="tag">AWS Bedrock</span><span class="tag">RAG</span><span class="tag">LLMs</span></div><span class="chip chip-ai">Rumo a Engenheiro de IA</span></div>
+            </article>
+
+            <article class="card tile t-stat" data-reveal>
+              <span class="stat-num" data-count="99" data-suffix="%">99%</span>
+              <span class="stat-label">de redução de tempo em processos automatizados</span>
+            </article>
+            <article class="card tile t-stat" data-reveal>
+              <span class="stat-num">7 min</span>
+              <span class="stat-label">para concluir o que antes levava 2 semanas</span>
+            </article>
+            <article class="card tile t-stat" data-reveal>
+              <span class="stat-num" data-count="20" data-suffix="%">20%</span>
+              <span class="stat-label">de ganho em eficiência operacional</span>
+            </article>
+            <article class="card tile t-stat" data-reveal>
+              <span class="stat-num" data-count="10" data-suffix="+">10+</span>
+              <span class="stat-label">projetos desenvolvidos e publicados</span>
+            </article>
+
+            <a class="card tile t-edu" href="formacoes.html" data-reveal>
+              <div class="service-top"><span class="tile-label">Próximo capítulo</span><span class="icon-box"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 10 12 5 2 10l10 5 10-5z"/><path d="M6 12v5c3 2 9 2 12 0v-5"/></svg></span></div>
+              <h3>Pós-graduação em Inteligência Artificial · FIAP</h3>
+              <p>LLMs, RAG, NLP, Computer Vision e IA em cloud — teoria que já vira prática no trabalho.</p>
+              <span class="link-arrow tile-foot">Ver formação <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17 17 7M8 7h9v9"/></svg></span>
             </a>
-            <a href="mailto:felipesoeiro.contato@outlook.com.br">
-              <button class="btn-secondary">
-                <svg class="btn-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="14" rx="2"/><polyline points="3 7 12 13 21 7"/></svg>
-                Entre em contato
-              </button>
-            </a>
-          </div>
-          <div class="hero-social">
-            <a class="social-icon-link" href="https://github.com/FelipeSoeiroLopes" target="_blank" rel="noopener" aria-label="GitHub" title="GitHub">
-              <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg>
-            </a>
-            <a class="social-icon-link" href="https://linkedin.com/in/felipesoeirolopes/" target="_blank" rel="noopener" aria-label="LinkedIn" title="LinkedIn">
-              <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.225 0z"/></svg>
-            </a>
-            <a class="social-icon-link" href="https://wa.me/5511955558936" target="_blank" rel="noopener" aria-label="WhatsApp" title="WhatsApp">
-              <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+
+            <a class="card tile t-loc" href="contato.html" data-reveal>
+              <img src="images/felipe-foto.jpg" alt="" width="72" height="72" loading="lazy" />
+              <div>
+                <span class="tile-label">Vamos nos conectar</span>
+                <h3 style="margin-top:.5rem">Uma boa conversa começa com um “olá”.</h3>
+                <span class="link-arrow" style="margin-top:.6rem">Falar comigo <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17 17 7M8 7h9v9"/></svg></span>
+              </div>
             </a>
           </div>
         </div>
-      </div>
-    </section>
+      </section>
 
-    <!-- Seção de Estatísticas -->
-    <section class="stats-section snap-section" id="stats">
-      <span class="section-kicker">// Resultados</span>
-      <h2 class="primary-heading stats-heading">NÚMEROS QUE FALAM POR MIM</h2>
-      <div class="stats-grid">
-        <div class="stat-item">
-          <div class="stat-number">99%</div>
-          <div class="stat-label">Redução de Tempo em Processos</div>
+      <section class="section" id="servicos" style="padding-top:0">
+        <div class="container">
+          <div class="section-head">
+            <div>
+              <span class="eyebrow">02 · O que eu faço</span>
+              <h2 class="h-section" data-split>Três frentes, <em>um resultado.</em></h2>
+              <p class="lead">Frentes que se complementam para transformar processos em resultado.</p>
+            </div>
+          </div>
+          <div class="services">
+            <article class="card service" data-reveal>
+              <div class="service-top"><span class="icon-box"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="11" width="18" height="10" rx="2"/><circle cx="12" cy="5" r="2"/><path d="M12 7v4M8 15.5v1M16 15.5v1"/></svg></span><span class="service-num">01</span></div>
+              <h3>Automação &amp; RPA</h3>
+              <p>Robôs que eliminam tarefas repetitivas e devolvem tempo ao time. Processos que levavam semanas passam a rodar em minutos — com monitoramento e sustentação em produção.</p>
+              <div class="tags"><span class="tag">Brity RPA</span><span class="tag">Python</span><span class="tag">Integrações</span></div>
+            </article>
+            <article class="card service" data-reveal>
+              <div class="service-top"><span class="icon-box"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg></span><span class="service-num">02</span></div>
+              <h3>Desenvolvimento Full Stack</h3>
+              <p>APIs REST com Java Spring Boot, interfaces com Flutter e JavaScript e integrações entre sistemas — do banco de dados à tela, com testes, versionamento e documentação.</p>
+              <div class="tags"><span class="tag">Java · Spring Boot</span><span class="tag">Flutter</span><span class="tag">MySQL</span></div>
+            </article>
+            <article class="card service" data-reveal>
+              <div class="service-top"><span class="icon-box"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3l1.9 5.8a2 2 0 0 0 1.3 1.3L21 12l-5.8 1.9a2 2 0 0 0-1.3 1.3L12 21l-1.9-5.8a2 2 0 0 0-1.3-1.3L3 12l5.8-1.9a2 2 0 0 0 1.3-1.3L12 3z"/></svg></span><span class="service-num">03</span></div>
+              <h3>Engenharia de IA &amp; Dados</h3>
+              <p>Agentes de IA totalmente personalizados para o negócio — LLMs, RAG e modelos administrados em Google Cloud e AWS Bedrock — e dashboards que transformam dados em decisão.</p>
+              <div class="tags"><span class="tag">Agentes de IA</span><span class="tag">RAG · LLMs</span><span class="tag">Google Cloud</span><span class="tag">AWS Bedrock</span></div>
+            </article>
+          </div>
         </div>
-        <div class="stat-item">
-          <div class="stat-number">7 min</div>
-          <div class="stat-label">Para concluir o que antes levava 2 semanas</div>
-        </div>
-        <div class="stat-item">
-          <div class="stat-number">100%</div>
-          <div class="stat-label">Foco em IA &amp; Automação</div>
-        </div>
-        <div class="stat-item">
-          <div class="stat-number">20%</div>
-          <div class="stat-label">Aumento de Eficiência Operacional</div>
-        </div>
-        <div class="stat-item">
-          <div class="stat-number">10+</div>
-          <div class="stat-label">Projetos Desenvolvidos</div>
-        </div>
-        <div class="stat-item">
-          <div class="stat-number">8+</div>
-          <div class="stat-label">Tecnologias &amp; Ferramentas</div>
-        </div>
-      </div>
-    </section>
+      </section>
 
-    <section class="skills-section snap-section" id="techs">
-      <span class="section-kicker">// Stack</span>
-      <h2 class="primary-heading">TECNOLOGIAS QUE UTILIZO</h2>
-      <div class="tech-marquee">
-        <div class="tech-scroller">
-          <div class="scroller-inner">
-            <span class="tech-chip"><img src="images/icons8-html-48.png" alt="" />HTML5</span>
-            <span class="tech-chip"><img src="images/icons8-css-48.png" alt="" />CSS3</span>
-            <span class="tech-chip"><img src="images/icons8-javascript-48.png" alt="" />JavaScript</span>
-            <span class="tech-chip"><img src="images/icons8-logo-java-coffee-cup-48.png" alt="" />Java</span>
-            <span class="tech-chip"><img src="images/icons8-python-48.png" alt="" />Python</span>
-            <span class="tech-chip"><img src="images/icons8-mysql-48.png" alt="" />MySQL</span>
-            <span class="tech-chip"><img src="images/icons8-azure-48.png" alt="" />Azure</span>
-            <span class="tech-chip"><img src="images/icons8-visual-studio-code-2019-48.png" alt="" />VS Code</span>
-            <!-- Duplicado para o efeito de rolagem infinita -->
-            <span class="tech-chip"><img src="images/icons8-html-48.png" alt="" />HTML5</span>
-            <span class="tech-chip"><img src="images/icons8-css-48.png" alt="" />CSS3</span>
-            <span class="tech-chip"><img src="images/icons8-javascript-48.png" alt="" />JavaScript</span>
-            <span class="tech-chip"><img src="images/icons8-logo-java-coffee-cup-48.png" alt="" />Java</span>
-            <span class="tech-chip"><img src="images/icons8-python-48.png" alt="" />Python</span>
-            <span class="tech-chip"><img src="images/icons8-mysql-48.png" alt="" />MySQL</span>
-            <span class="tech-chip"><img src="images/icons8-azure-48.png" alt="" />Azure</span>
-            <span class="tech-chip"><img src="images/icons8-visual-studio-code-2019-48.png" alt="" />VS Code</span>
+      <section class="section" id="projetos" style="padding-top:0">
+        <div class="container">
+          <div class="section-head">
+            <div>
+              <span class="eyebrow">03 · Projetos selecionados</span>
+              <h2 class="h-section" data-split>Da ideia <em>à aplicação.</em></h2>
+              <p class="lead">Uma seleção para conhecer meu código, as tecnologias que utilizo e os problemas que exploro.</p>
+            </div>
+            <a class="link-arrow" href="projetos.html">Ver todos os projetos <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17 17 7M8 7h9v9"/></svg></a>
+          </div>
+          <div class="projects-grid featured">
+            <article class="card project" data-category="java web" data-reveal>
+              <a class="project-media" href="https://github.com/FelipeSoeiroLopes/Sistema-de-Gestao-de-Produtos" target="_blank" rel="noopener" aria-label="Ver código de Sistema de Gestão de Produtos no GitHub">
+                <img src="images/covers/projeto-10.svg" alt="Capa do projeto Sistema de Gestão de Produtos" width="1200" height="750" loading="lazy" />
+                <span class="project-badge">Java</span>
+                <span class="project-go" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17 17 7M8 7h9v9"/></svg></span>
+              </a>
+              <div class="project-body">
+                <span class="project-num">10 /</span>
+                <h3>Sistema de Gestão de Produtos</h3>
+                <p>Gestão de produtos em Java 24 com interface web e CRUD completo.</p>
+                <div class="project-foot">
+                  <div class="tags"><span class="tag">Java 24</span><span class="tag">MySQL</span><span class="tag">CRUD</span></div>
+                  <a class="link-arrow" href="https://github.com/FelipeSoeiroLopes/Sistema-de-Gestao-de-Produtos" target="_blank" rel="noopener">Código <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17 17 7M8 7h9v9"/></svg><span class="sr-only"> de Sistema de Gestão de Produtos</span></a>
+                </div>
+              </div>
+            </article>
+            <article class="card project" data-category="java web" data-reveal>
+              <a class="project-media" href="https://github.com/FelipeSoeiroLopes/Spotify-Clone-Sistema-de-Cadastro" target="_blank" rel="noopener" aria-label="Ver código de Spotify Clone no GitHub">
+                <img src="images/covers/projeto-09.svg" alt="Capa do projeto Spotify Clone" width="1200" height="750" loading="lazy" />
+                <span class="project-badge">Java Web</span>
+                <span class="project-go" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17 17 7M8 7h9v9"/></svg></span>
+              </a>
+              <div class="project-body">
+                <span class="project-num">09 /</span>
+                <h3>Spotify Clone</h3>
+                <p>Sistema de cadastro inspirado no Spotify com Java Web, JSP, MySQL e interface moderna.</p>
+                <div class="project-foot">
+                  <div class="tags"><span class="tag">Java</span><span class="tag">JSP</span><span class="tag">MySQL</span></div>
+                  <a class="link-arrow" href="https://github.com/FelipeSoeiroLopes/Spotify-Clone-Sistema-de-Cadastro" target="_blank" rel="noopener">Código <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17 17 7M8 7h9v9"/></svg><span class="sr-only"> de Spotify Clone</span></a>
+                </div>
+              </div>
+            </article>
+            <article class="card project" data-category="api web" data-reveal>
+              <a class="project-media" href="https://github.com/FelipeSoeiroLopes/TemperaturaAPI" target="_blank" rel="noopener" aria-label="Ver código de Previsão do Tempo com API no GitHub">
+                <img src="images/covers/projeto-06.svg" alt="Capa do projeto Previsão do Tempo com API" width="1200" height="750" loading="lazy" />
+                <span class="project-badge">API</span>
+                <span class="project-go" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17 17 7M8 7h9v9"/></svg></span>
+              </a>
+              <div class="project-body">
+                <span class="project-num">06 /</span>
+                <h3>Previsão do Tempo com API</h3>
+                <p>Aplicação que consome uma API para exibir a previsão do tempo.</p>
+                <div class="project-foot">
+                  <div class="tags"><span class="tag">JavaScript</span><span class="tag">API</span><span class="tag">CSS</span></div>
+                  <a class="link-arrow" href="https://github.com/FelipeSoeiroLopes/TemperaturaAPI" target="_blank" rel="noopener">Código <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17 17 7M8 7h9v9"/></svg><span class="sr-only"> de Previsão do Tempo com API</span></a>
+                </div>
+              </div>
+            </article>
           </div>
         </div>
-        <div class="tech-scroller scroller-reverse">
-          <div class="scroller-inner">
-            <span class="tech-chip text-chip">Spring Boot</span>
-            <span class="tech-chip text-chip">Flutter</span>
-            <span class="tech-chip text-chip">Brity RPA</span>
-            <span class="tech-chip text-chip">APIs REST</span>
-            <span class="tech-chip text-chip">Power BI</span>
-            <span class="tech-chip text-chip">Agentes de IA</span>
-            <span class="tech-chip text-chip">Git · GitHub</span>
-            <span class="tech-chip text-chip">Azure DevOps</span>
-            <span class="tech-chip text-chip">Scrum · Kanban</span>
-            <!-- Duplicado para o efeito de rolagem infinita -->
-            <span class="tech-chip text-chip">Spring Boot</span>
-            <span class="tech-chip text-chip">Flutter</span>
-            <span class="tech-chip text-chip">Brity RPA</span>
-            <span class="tech-chip text-chip">APIs REST</span>
-            <span class="tech-chip text-chip">Power BI</span>
-            <span class="tech-chip text-chip">Agentes de IA</span>
-            <span class="tech-chip text-chip">Git · GitHub</span>
-            <span class="tech-chip text-chip">Azure DevOps</span>
-            <span class="tech-chip text-chip">Scrum · Kanban</span>
+      </section>
+
+      <section class="section" style="padding-top:0">
+        <div class="container">
+          <figure class="home-quote" data-reveal="fade">
+            <span class="stars" aria-label="5 de 5 estrelas">★★★★★</span>
+            <blockquote>“A disciplina e ambição do Felipe é incrível! Com certeza terá uma carreira brilhante pela frente, sempre curioso e interessado em fazer acontecer!”</blockquote>
+            <figcaption><span class="initials" aria-hidden="true">AC</span><span><strong style="color:var(--text);display:block;font-family:var(--font-display)">Antoine Curti</strong>Mentor · CEO da Nowle</span></figcaption>
+            <div><a href="depoimentos.html" class="btn btn-ghost">Ver todos os depoimentos <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17 17 7M8 7h9v9"/></svg></a></div>
+          </figure>
+        </div>
+      </section>
+
+      <section class="section" style="padding-top:0">
+        <div class="container">
+          <div class="card cta-band" data-reveal>
+            <div class="cta-avatar"><img src="images/felipe-foto.jpg" alt="Foto de Felipe Soeiro Lopes" width="84" height="84" loading="lazy" /><span class="dot-live"></span></div>
+            <span class="eyebrow">Próximo passo</span>
+            <h2 class="h-section" data-split>Vamos construir algo <em>juntos?</em></h2>
+            <p class="lead">Procurando alguém que una automação, desenvolvimento full stack e IA — com fome de aprender e entregar? Estou a uma mensagem de distância.</p>
+            <div class="btn-row">
+              <a href="contato.html" class="btn btn-primary">Falar comigo <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17 17 7M8 7h9v9"/></svg></a>
+              <a href="projetos.html" class="btn btn-ghost">Ver meus projetos</a>
+            </div>
           </div>
         </div>
-      </div>
-    </section>
+      </section>
+    </main>
 
-    <!-- O que eu faço -->
-    <section class="services-section free-scroll-start" id="o-que-eu-faco">
-      <span class="section-kicker">// O que eu faço</span>
-      <h2 class="primary-heading">SOLUÇÕES QUE ENTREGO</h2>
-      <p class="section-subtitle">Três frentes que se complementam para transformar processos em resultado.</p>
-      <div class="services-grid">
-        <article class="service-card">
-          <span class="service-num">01</span>
-          <div class="service-icon">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="11" width="18" height="10" rx="2"/><circle cx="12" cy="5" r="2"/><path d="M12 7v4"/><line x1="8" y1="15.5" x2="8" y2="16.5"/><line x1="16" y1="15.5" x2="16" y2="16.5"/></svg>
-          </div>
-          <h3>Automação &amp; RPA</h3>
-          <p>Robôs que eliminam tarefas repetitivas e devolvem tempo ao time. Processos que levavam semanas passam a rodar em minutos — com monitoramento e sustentação em produção.</p>
-          <div class="service-tags">
-            <span class="tech-badge">Brity RPA</span>
-            <span class="tech-badge">Python</span>
-            <span class="tech-badge">Integrações</span>
-          </div>
-        </article>
-        <article class="service-card">
-          <span class="service-num">02</span>
-          <div class="service-icon">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg>
-          </div>
-          <h3>Desenvolvimento Full Stack</h3>
-          <p>APIs REST com Java Spring Boot, interfaces com Flutter e JavaScript e integrações entre sistemas — do banco de dados à tela, com testes, versionamento e documentação.</p>
-          <div class="service-tags">
-            <span class="tech-badge">Java · Spring Boot</span>
-            <span class="tech-badge">Flutter</span>
-            <span class="tech-badge">MySQL</span>
-          </div>
-        </article>
-        <article class="service-card">
-          <span class="service-num">03</span>
-          <div class="service-icon">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3l1.9 5.8a2 2 0 0 0 1.3 1.3L21 12l-5.8 1.9a2 2 0 0 0-1.3 1.3L12 21l-1.9-5.8a2 2 0 0 0-1.3-1.3L3 12l5.8-1.9a2 2 0 0 0 1.3-1.3L12 3z"/></svg>
-          </div>
-          <h3>IA &amp; Dados</h3>
-          <p>Agentes de IA aplicados a processos reais e dashboards que transformam dados em decisão — em evolução constante com a pós-graduação em IA na FIAP.</p>
-          <div class="service-tags">
-            <span class="tech-badge">Agentes de IA</span>
-            <span class="tech-badge">LLMs · GenAI</span>
-            <span class="tech-badge">Power BI</span>
-          </div>
-        </article>
-      </div>
-    </section>
-
-    <!-- Chamada para página de Depoimentos -->
-    <section class="testimonials-cta" id="veja-depoimentos">
-      <div class="cta-inner">
-        <span class="section-kicker">// Depoimentos</span>
-        <h2 class="primary-heading">O QUE DIZEM SOBRE MIM</h2>
-        <div class="cta-stars" aria-label="5 de 5 estrelas">★★★★★</div>
-        <blockquote class="cta-quote">
-          “A disciplina e ambição do Felipe é incrível! Com certeza terá uma carreira brilhante pela frente, sempre curioso e interessado em fazer acontecer!”
-          <footer class="cta-quote-author">— Antoine Curti · Mentor e CEO da Nowle</footer>
-        </blockquote>
-        <a href="depoimentos.html" class="btn-primary">Ver todos os depoimentos</a>
-      </div>
-    </section>
-
-    <!-- Chamada final -->
-    <section class="final-cta" id="vamos-conversar">
-      <span class="section-kicker">// Próximo passo</span>
-      <h2>Vamos construir algo juntos?</h2>
-      <p>Procurando alguém que una automação, desenvolvimento full stack e IA — com fome de aprender e entregar? Estou a uma mensagem de distância.</p>
-      <div class="about-btn">
-        <a href="projetos.html">
-          <button class="btn-primary">Ver meus projetos</button>
-        </a>
-        <a href="contato.html">
-          <button class="btn-secondary">Falar comigo</button>
-        </a>
-      </div>
-    </section>
-
-    <footer class="footer2" id="rodape">
-      <div class="footer-container">
+    <footer class="site-footer">
+      <div class="container">
+        <div class="footer-big">
+          <h2>Bora criar algo <em>incrível</em>?</h2>
+          <a class="btn btn-primary" href="contato.html">Falar comigo <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17 17 7M8 7h9v9"/></svg></a>
+        </div>
         <div class="footer-grid">
-          <div class="footer-brand">
-            <img class="footer-logo" src="images/felpsdevsemfundo.png" alt="Logo FelpsDev" />
-            <p class="footer-name">Felipe Soeiro Lopes</p>
-            <p class="footer-tagline">Desenvolvedor RPA · Full Stack. Automação, dados e IA transformando a forma de trabalhar.</p>
+          <div>
+            <h4>Felipe Soeiro Lopes</h4>
+            <p>Desenvolvedor RPA · Full Stack, a caminho da engenharia de IA. Automação, dados e IA transformando a forma de trabalhar.</p>
+            <div class="socials" style="margin-top:1.4rem">
+            <a class="social" href="https://github.com/FelipeSoeiroLopes" target="_blank" rel="noopener" aria-label="GitHub"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg></a>
+            <a class="social" href="https://linkedin.com/in/felipesoeirolopes/" target="_blank" rel="noopener" aria-label="LinkedIn"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.225 0z"/></svg></a>
+            <a class="social" href="mailto:felipesoeiro.contato@outlook.com.br" aria-label="E-mail"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2"/><polyline points="3 7 12 13 21 7"/></svg></a>
+            <a class="social" href="https://wa.me/5511955558936" target="_blank" rel="noopener" aria-label="WhatsApp"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg></a>
           </div>
-          <div class="footer-col">
+          </div>
+          <div>
             <h4>Navegação</h4>
-            <nav class="footer-nav" aria-label="Rodapé">
+            <nav class="footer-links" aria-label="Rodapé">
               <a href="index.html">Início</a>
               <a href="projetos.html">Projetos</a>
               <a href="formacoes.html">Formações</a>
@@ -286,258 +373,27 @@
               <a href="contato.html">Contato</a>
             </nav>
           </div>
-          <div class="footer-col">
-            <h4>Vamos conectar</h4>
-            <div class="footer-social-row">
-              <a class="social-icon-link" href="https://github.com/FelipeSoeiroLopes" target="_blank" rel="noopener" aria-label="GitHub" title="GitHub">
-                <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg>
-              </a>
-              <a class="social-icon-link" href="https://linkedin.com/in/felipesoeirolopes/" target="_blank" rel="noopener" aria-label="LinkedIn" title="LinkedIn">
-                <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.225 0z"/></svg>
-              </a>
-              <a class="social-icon-link" href="mailto:felipesoeiro.contato@outlook.com.br" aria-label="E-mail" title="E-mail">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2"/><polyline points="3 7 12 13 21 7"/></svg>
-              </a>
-              <a class="social-icon-link" href="https://wa.me/5511955558936" target="_blank" rel="noopener" aria-label="WhatsApp" title="WhatsApp">
-                <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
-              </a>
+          <div>
+            <h4>Contato</h4>
+            <div class="footer-links">
+              <a href="mailto:felipesoeiro.contato@outlook.com.br">E-mail</a>
+              <a href="https://linkedin.com/in/felipesoeirolopes/" target="_blank" rel="noopener">LinkedIn</a>
+              <a href="https://wa.me/5511955558936" target="_blank" rel="noopener">WhatsApp</a>
+              <a href="path/CV_FELIPESLOPES.pdf" download>Currículo PT-BR (PDF)</a>
+              <a href="path/CV_FELIPESLOPES_EN.pdf" download>Resume English (PDF)</a>
             </div>
-            <p class="footer-availability"><span class="pulse-dot"></span> Aberto a novas conexões</p>
           </div>
         </div>
         <div class="footer-bottom">
           <p>© 2026 Felipe Soeiro Lopes — todos os direitos reservados.</p>
-          <p>Feito à mão com HTML, CSS e JavaScript.</p>
+          <p>Feito à mão com HTML, CSS, JavaScript e Motion.</p>
         </div>
       </div>
     </footer>
 
-    <!-- Botão Voltar ao Topo -->
-    <a href="#" class="voltar-ao-topo">↑</a>
+    <a href="#conteudo" class="to-top" aria-label="Voltar ao topo"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 19V5M6 11l6-6 6 6"/></svg></a>
 
-    <script src="script.js"></script>
-    <script>
-      // GSAP Animations - Configuração Global Otimizada
-      gsap.registerPlugin(ScrollTrigger);
-      
-      // Otimização global para melhor performance
-      gsap.config({
-        nullTargetWarn: false,
-        trialWarn: false,
-        force3D: true, // Força aceleração por hardware
-        autoSleep: 60 // Pausa animações inativas após 60s
-      });
-      
-      // Configuração global do ScrollTrigger para performance
-      ScrollTrigger.config({
-        autoRefreshEvents: "visibilitychange,DOMContentLoaded,load",
-        ignoreMobileResize: true
-      });
-      
-      // Refresh ScrollTrigger após carregamento completo
-      window.addEventListener('load', () => {
-        ScrollTrigger.refresh();
-      });
-
-      // Animações de testimonials removidas - sem animação GSAP
-
-      // Animate stats section - otimizado para performance
-      gsap.utils.toArray('.stat-item').forEach((item, index) => {
-        gsap.set(item, { willChange: 'transform, opacity' });
-        gsap.from(item, {
-          scrollTrigger: {
-            trigger: item,
-            start: 'top 90%',
-            toggleActions: 'play none none none',
-            once: true,
-            markers: false
-          },
-          y: 30,
-          opacity: 0,
-          scale: 0.9,
-          duration: 0.4,
-          delay: index * 0.05,
-          ease: 'back.out(1.2)',
-          force3D: true,
-          onComplete: () => {
-            gsap.set(item, { willChange: 'auto' });
-          }
-        });
-
-        // A contagem animada dos números é feita por animarContadores() em script.js
-      });
-
-      // Animate hero section - otimizado para performance
-      gsap.set('.avatar img', { willChange: 'transform, opacity' });
-      gsap.from('.avatar img', {
-        y: 40,
-        opacity: 0,
-        scale: 0.9,
-        duration: 0.6,
-        ease: 'back.out(1.4)',
-        delay: 0.1,
-        clearProps: 'y',
-        force3D: true,
-        onComplete: () => {
-          gsap.set('.avatar img', { willChange: 'auto' });
-        }
-      });
-
-      gsap.from('.hero-greeting', {
-        y: 20,
-        opacity: 0,
-        duration: 0.5,
-        ease: 'power2.out',
-        delay: 0.18,
-        force3D: true
-      });
-
-      gsap.from('.hero-name', {
-        y: 24,
-        opacity: 0,
-        duration: 0.6,
-        ease: 'power3.out',
-        delay: 0.26,
-        force3D: true
-      });
-
-      gsap.from('.hero-role-line', {
-        y: 20,
-        opacity: 0,
-        duration: 0.5,
-        ease: 'power2.out',
-        delay: 0.36,
-        force3D: true
-      });
-
-      gsap.from('.hero-pitch', {
-        y: 20,
-        opacity: 0,
-        duration: 0.5,
-        ease: 'power2.out',
-        delay: 0.44,
-        force3D: true
-      });
-
-      gsap.from('.hero-highlights .hero-chip', {
-        y: 16,
-        opacity: 0,
-        duration: 0.45,
-        ease: 'back.out(1.4)',
-        delay: 0.52,
-        stagger: 0.08,
-        force3D: true
-      });
-
-      gsap.from('.about-btn', {
-        y: 20,
-        opacity: 0,
-        scale: 0.95,
-        duration: 0.5,
-        ease: 'power2.out',
-        delay: 0.62,
-        force3D: true
-      });
-
-      // ============================
-      // EFEITO DE DIGITAÇÃO ROTATIVO (cargo)
-      // ============================
-      (function () {
-        var el = document.getElementById('typed-role');
-        if (!el) return;
-        var roles = ['Desenvolvedor RPA', 'Desenvolvedor Full Stack', 'Futuro Engenheiro de IA'];
-        var r = 0, c = 0, deleting = false;
-        function tick() {
-          var word = roles[r];
-          if (!deleting) {
-            el.textContent = word.slice(0, ++c);
-            if (c === word.length) {
-              deleting = true;
-              return setTimeout(tick, 1700);
-            }
-          } else {
-            el.textContent = word.slice(0, --c);
-            if (c === 0) {
-              deleting = false;
-              r = (r + 1) % roles.length;
-            }
-          }
-          setTimeout(tick, deleting ? 45 : 95);
-        }
-        tick();
-      })();
-
-      // Animate skills section heading - mais rápido
-      gsap.from('.skills-section .primary-heading', {
-        scrollTrigger: {
-          trigger: '.skills-section',
-          start: 'top 90%',
-          once: true
-        },
-        y: 20,
-        opacity: 0,
-        duration: 0.5,
-        ease: 'power2.out'
-      });
-
-      // Redes sociais do hero
-      gsap.from('.hero-social .social-icon-link', {
-        y: 16,
-        opacity: 0,
-        duration: 0.45,
-        ease: 'back.out(1.4)',
-        delay: 0.72,
-        stagger: 0.07,
-        force3D: true
-      });
-
-      // Cards "O que eu faço"
-      gsap.utils.toArray('.service-card').forEach((card, index) => {
-        gsap.from(card, {
-          scrollTrigger: {
-            trigger: card,
-            start: 'top 88%',
-            once: true
-          },
-          y: 40,
-          opacity: 0,
-          scale: 0.96,
-          duration: 0.55,
-          delay: index * 0.08,
-          ease: 'power2.out',
-          force3D: true
-        });
-      });
-
-      // Citação de depoimento + CTA final
-      gsap.from('.testimonials-cta .cta-inner > *', {
-        scrollTrigger: {
-          trigger: '.testimonials-cta',
-          start: 'top 82%',
-          once: true
-        },
-        y: 26,
-        opacity: 0,
-        duration: 0.55,
-        stagger: 0.09,
-        ease: 'power2.out'
-      });
-
-      gsap.from('.final-cta > *', {
-        scrollTrigger: {
-          trigger: '.final-cta',
-          start: 'top 85%',
-          once: true
-        },
-        y: 26,
-        opacity: 0,
-        duration: 0.55,
-        stagger: 0.09,
-        ease: 'power2.out'
-      });
-
-      // Rolagem livre no desktop: o modo "1 página por scroll" foi removido
-      // a pedido — a roda do mouse funciona normalmente em toda a home.
-    </script>
+    <script src="vendor/motion.js"></script>
+    <script src="site.js"></script>
   </body>
 </html>

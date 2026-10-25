@@ -1,0 +1,438 @@
+/* ============================================================
+   FELPS.DEV — CAMADA MOTION 2026
+   Tipografia, foto real + caricatura e animações com Motion.
+   Carregada por último em todas as páginas.
+============================================================ */
+
+:root {
+  --font-display: 'Space Grotesk', 'Segoe UI', system-ui, sans-serif;
+  --font-body: 'DM Sans', 'Segoe UI', system-ui, sans-serif;
+  --font-mono: 'JetBrains Mono', 'Courier New', monospace;
+  --accent-deep: #2563eb;
+  --glow-blue: rgba(37, 99, 235, 0.42);
+}
+
+/* Tipografia */
+body,
+button,
+input,
+textarea,
+select {
+  font-family: var(--font-body);
+}
+
+h1, h2, h3, h4,
+.primary-heading,
+.hero-name,
+.stat-number,
+.nav-brand strong,
+.section-kicker {
+  font-family: var(--font-display);
+}
+
+code,
+pre,
+.hero-code-card code,
+.hero-role-line {
+  font-family: var(--font-mono);
+}
+
+body > header .navbar a,
+.menu-label {
+  font-family: var(--font-body) !important;
+}
+
+h2,
+.primary-heading {
+  text-wrap: balance;
+}
+
+p {
+  text-wrap: pretty;
+}
+
+/* Barra de progresso da rolagem */
+.scroll-progress {
+  position: fixed;
+  inset: 0 0 auto;
+  z-index: 10000;
+  height: 3px;
+  transform: scaleX(0);
+  transform-origin: 0 50%;
+  background: linear-gradient(90deg, var(--accent-deep), var(--accent), var(--cyan));
+  box-shadow: 0 0 18px var(--glow-blue);
+  pointer-events: none;
+}
+
+/* Títulos com palavras reveladas uma a uma */
+.split-word {
+  display: inline-block;
+  overflow: hidden;
+  padding-bottom: 0.08em;
+  margin-bottom: -0.08em;
+  vertical-align: top;
+}
+
+.split-word > span {
+  display: inline-block;
+  will-change: transform;
+}
+
+/* Com Motion ativo, o reveal em CSS antigo dá lugar ao JavaScript */
+html.motion-on .premium-reveal {
+  opacity: 1;
+  transform: none;
+  transition: border-color 0.35s ease, box-shadow 0.45s ease, background 0.35s ease;
+  transition-delay: 0s;
+}
+
+/* ============================================================
+   HERO — FOTO REAL ⇄ CARICATURA
+============================================================ */
+.hero-portrait {
+  position: relative;
+  grid-column: 2;
+  grid-row: 1;
+  justify-self: center;
+  width: min(100%, 420px);
+  perspective: 1400px;
+}
+
+.portrait-glow {
+  position: absolute;
+  inset: 8% -6% -4%;
+  z-index: -1;
+  border-radius: 40px;
+  background:
+    radial-gradient(60% 55% at 70% 20%, rgba(var(--accent-rgb), 0.45), transparent 70%),
+    radial-gradient(50% 50% at 20% 80%, rgba(84, 230, 255, 0.28), transparent 70%);
+  filter: blur(48px);
+  opacity: 0.75;
+  pointer-events: none;
+}
+
+.portrait-card {
+  position: relative;
+  display: block;
+  width: 100%;
+  aspect-ratio: 4 / 5;
+  padding: 0;
+  border: 0;
+  background: none;
+  cursor: pointer;
+  transform-style: preserve-3d;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.portrait-face {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+  border-radius: 32px;
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+  border: 1px solid rgba(var(--accent-rgb), 0.32);
+  box-shadow:
+    0 40px 110px rgba(0, 0, 0, 0.55),
+    0 0 0 1px rgba(255, 255, 255, 0.04) inset,
+    0 0 70px rgba(var(--accent-rgb), 0.14);
+}
+
+.portrait-face img {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
+.portrait-front img {
+  object-fit: cover;
+  object-position: 50% 30%;
+}
+
+/* Gradiente inferior + brilho de vidro na foto real */
+.portrait-front::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(180deg, transparent 52%, rgba(3, 8, 20, 0.88) 100%),
+    linear-gradient(115deg, rgba(255, 255, 255, 0.12) 0%, transparent 32%);
+  pointer-events: none;
+}
+
+.portrait-back {
+  transform: rotateY(180deg);
+  background:
+    linear-gradient(rgba(255, 255, 255, 0.035) 1px, transparent 1px) 0 0 / 28px 28px,
+    linear-gradient(90deg, rgba(255, 255, 255, 0.035) 1px, transparent 1px) 0 0 / 28px 28px,
+    radial-gradient(circle at 72% 18%, rgba(var(--accent-rgb), 0.38), transparent 46%),
+    radial-gradient(circle at 18% 86%, rgba(84, 230, 255, 0.22), transparent 44%),
+    linear-gradient(155deg, #0c1a33, #050a14);
+}
+
+.portrait-back img {
+  position: absolute;
+  inset: auto 4% 0;
+  width: 92%;
+  height: 92%;
+  object-fit: contain;
+  object-position: center bottom;
+  filter: drop-shadow(0 24px 34px rgba(0, 0, 0, 0.5));
+}
+
+.portrait-caption {
+  position: absolute;
+  left: 1.4rem;
+  right: 1.4rem;
+  bottom: 1.25rem;
+  z-index: 2;
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 1rem;
+  color: #f5f8fa;
+  text-align: left;
+  pointer-events: none;
+}
+
+.portrait-caption strong {
+  display: block;
+  font: 600 1.15rem/1.2 var(--font-display);
+  letter-spacing: -0.02em;
+}
+
+.portrait-caption small {
+  display: block;
+  margin-top: 0.2rem;
+  color: #b9c8d6;
+  font-size: 0.78rem;
+}
+
+.portrait-badge {
+  flex-shrink: 0;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  padding: 0.4rem 0.7rem;
+  border-radius: 99px;
+  border: 1px solid rgba(255, 255, 255, 0.16);
+  background: rgba(5, 10, 20, 0.6);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  font-size: 0.7rem;
+  font-weight: 600;
+  white-space: nowrap;
+}
+
+.portrait-badge::before {
+  content: '';
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: #4ade80;
+  box-shadow: 0 0 10px #4ade80;
+}
+
+/* Miniatura da “outra versão” no canto do card */
+.portrait-peek {
+  position: absolute;
+  top: -14px;
+  left: -14px;
+  z-index: 6;
+  width: 74px;
+  height: 74px;
+  overflow: hidden;
+  border-radius: 50%;
+  border: 3px solid #0a1424;
+  background: linear-gradient(155deg, #12305f, #071021);
+  box-shadow: 0 14px 30px rgba(0, 0, 0, 0.45), 0 0 0 1px rgba(var(--accent-rgb), 0.5);
+  pointer-events: none;
+}
+
+.portrait-peek img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: opacity 0.35s ease;
+}
+
+.portrait-peek .peek-dev {
+  object-fit: contain;
+  object-position: center bottom;
+  transform: scale(1.35) translateY(10%);
+}
+
+.hero-portrait .peek-real { opacity: 0; }
+.hero-portrait.is-dev .peek-real { opacity: 1; }
+.hero-portrait.is-dev .peek-dev { opacity: 0; }
+
+/* Cartões flutuantes reaproveitados do hero antigo */
+.hero-portrait .hero-status-card,
+.hero-portrait .hero-code-card {
+  z-index: 7;
+  animation: none;
+}
+
+.hero-portrait .hero-status-card {
+  top: 1.6rem;
+  right: -1.6rem;
+  left: auto;
+  bottom: auto;
+}
+
+.hero-portrait .hero-code-card {
+  top: 46%;
+  bottom: auto;
+  left: -2.2rem;
+  right: auto;
+}
+
+/* Seletor Real | Dev */
+.portrait-switch {
+  position: relative;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  width: max-content;
+  margin: 1.6rem auto 0;
+  padding: 4px;
+  border-radius: 99px;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  background: rgba(8, 14, 24, 0.78);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+}
+
+.portrait-switch-thumb {
+  position: absolute;
+  top: 4px;
+  bottom: 4px;
+  left: 4px;
+  width: calc(50% - 4px);
+  border-radius: 99px;
+  background: linear-gradient(135deg, var(--accent), var(--accent-deep));
+  box-shadow: 0 8px 24px var(--glow-blue);
+}
+
+.portrait-switch button {
+  position: relative;
+  z-index: 1;
+  min-width: 112px;
+  min-height: 44px;
+  padding: 0 1.1rem;
+  border: 0;
+  border-radius: 99px;
+  background: none;
+  color: #9fb0c0;
+  font: 600 0.82rem/1 var(--font-body);
+  letter-spacing: 0.01em;
+  cursor: pointer;
+  transition: color 0.25s ease;
+}
+
+.portrait-switch button[aria-pressed='true'] {
+  color: #03122b;
+}
+
+.portrait-switch button:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 3px;
+}
+
+/* Oculta o avatar legado caso ainda exista em cache */
+.hero-content .avatar { display: none; }
+
+@media (max-width: 1100px) {
+  .hero-portrait .hero-status-card { right: -0.6rem; }
+  .hero-portrait .hero-code-card { left: -0.8rem; }
+}
+
+@media (max-width: 768px) {
+  .hero-portrait {
+    grid-column: 1;
+    grid-row: 2;
+    width: min(88%, 380px);
+    margin-top: 0.5rem;
+  }
+
+  .hero-portrait .hero-status-card { top: 1rem; right: -0.6rem; }
+  .hero-portrait .hero-code-card { top: auto; bottom: 5.6rem; left: -0.6rem; }
+  .portrait-peek { width: 60px; height: 60px; top: -10px; left: -10px; }
+  .portrait-caption { left: 1.1rem; right: 1.1rem; bottom: 1rem; }
+}
+
+@media (max-width: 380px) {
+  .hero-portrait .hero-code-card { display: none; }
+  .portrait-badge { display: none; }
+}
+
+/* ============================================================
+   CTA FINAL COM FOTO
+============================================================ */
+.cta-avatar {
+  position: relative;
+  display: inline-grid;
+  place-items: center;
+  width: 92px;
+  height: 92px;
+  margin: 0 auto 1.2rem;
+}
+
+.cta-avatar img {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  object-fit: cover;
+  object-position: 50% 30%;
+  border: 3px solid #0a1424;
+  box-shadow: 0 0 0 2px rgba(var(--accent-rgb), 0.6), 0 18px 40px rgba(0, 0, 0, 0.45);
+}
+
+.cta-avatar::after {
+  content: '';
+  position: absolute;
+  right: 4px;
+  bottom: 6px;
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  border: 3px solid #0a1424;
+  background: #4ade80;
+}
+
+.final-cta .about-btn a {
+  text-decoration: none;
+}
+
+/* ============================================================
+   MOVIMENTO REDUZIDO
+============================================================ */
+@media (prefers-reduced-motion: reduce) {
+  .scroll-progress { display: none; }
+  .split-word > span { will-change: auto; }
+  .portrait-peek img,
+  .portrait-switch button { transition: none; }
+}
+
+.final-cta .about-btn > a {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 48px;
+  padding: 15px 26px;
+}
+
+/* Chip de destaque: Futuro Engenheiro de IA */
+.hero-chip.hero-chip-ai {
+  color: #e4eeff;
+  border-color: rgba(var(--accent-rgb), 0.55);
+  background: linear-gradient(135deg, rgba(var(--accent-rgb), 0.22), rgba(84, 230, 255, 0.1));
+  box-shadow: 0 0 22px rgba(var(--accent-rgb), 0.22);
+}
+
+.hero-chip.hero-chip-ai::before {
+  content: '✦';
+  margin-right: 0.4em;
+  color: var(--cyan);
+}

@@ -3,119 +3,158 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="description" content="Entre em contato com Felipe Soeiro Lopes — e-mail, LinkedIn e WhatsApp. Vamos conversar sobre tecnologia, automação e IA." />
+    <title>Contato · Felipe Soeiro Lopes</title>
+    <meta name="description" content="Fale com Felipe Soeiro Lopes por e-mail, LinkedIn ou WhatsApp." />
     <meta name="author" content="Felipe Soeiro Lopes" />
-    <meta name="theme-color" content="#0a0a0a" />
+    <meta name="theme-color" content="#04060c" />
     <meta property="og:type" content="website" />
     <meta property="og:title" content="Contato | Felipe Soeiro Lopes" />
-    <meta property="og:description" content="E-mail, LinkedIn e WhatsApp — escolha o canal e me envie um olá. Respondo rápido!" />
-    <meta property="og:image" content="https://felipesoeirolopes.github.io/images/felpsdevsemfundo.png" />
+    <meta property="og:description" content="Fale com Felipe Soeiro Lopes por e-mail, LinkedIn ou WhatsApp." />
+    <meta property="og:image" content="https://felipesoeirolopes.github.io/images/felipe-foto.jpg" />
     <meta property="og:url" content="https://felipesoeirolopes.github.io/contato.html" />
     <meta property="og:locale" content="pt_BR" />
     <meta name="twitter:card" content="summary" />
-    <link rel="stylesheet" href="styles.css" />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap"
-      rel="stylesheet"
-    />
     <link rel="icon" type="image/png" href="images/felpsdevsemfundo.png" />
-    <title>FELIPE LOPES | CONTATO</title>
-    <!-- GSAP Library -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
-    <!-- Badge oficial do LinkedIn -->
-    <script src="https://platform.linkedin.com/badges/js/profile.js" async defer type="text/javascript"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,600;9..40,700&family=JetBrains+Mono:wght@400;500&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="site.css" />
   </head>
   <body>
-    <header>
-      <nav>
-        <div class="logo" id="logoSecreta">
-          <img src="images/felpsdevsemfundo.png" alt="Logo do Felipe" />
+    <a class="skip-link" href="#conteudo">Pular para o conteúdo</a>
+    <div class="backdrop" aria-hidden="true"><span class="aurora aurora-1"></span><span class="aurora aurora-2"></span><span class="aurora aurora-3"></span></div>
+
+    <header class="site-header">
+      <nav class="nav" aria-label="Navegação principal">
+        <div class="brand">
+          <button class="brand-logo" id="logoSecreta" type="button" aria-label="Abrir FelpsDev Arcade (easter egg)" title="FelpsDev Arcade">
+            <img src="images/felpsdevsemfundo.png" alt="" width="40" height="40" />
+          </button>
+          <a class="brand-text" href="index.html">
+            <strong>Felipe Lopes<span aria-hidden="true">.</span></strong>
+            <small>RPA · FULL STACK · IA</small>
+          </a>
         </div>
-        <button class="menu-icon" onclick="alternarMenu()" aria-label="Abrir menu">
-          <span></span>
-          <span></span>
-          <span></span>
-        </button>
-        <div class="navbar" id="navbar">
-          <div><a href="index.html">INÍCIO</a></div>
-          <div><a href="projetos.html">PROJETOS</a></div>
-          <div><a href="formacoes.html">FORMAÇÕES</a></div>
-          <div><a href="experiencia.html">EXPERIÊNCIAS</a></div>
-          <div><a href="depoimentos.html">DEPOIMENTOS</a></div>
-          <div><a href="contato.html">CONTATOS</a></div>
-        </div>
+        <ul class="nav-links">
+            <li class="nav-indicator" role="presentation" aria-hidden="true"></li>
+            <li><a href="index.html">Início</a></li>
+            <li><a href="projetos.html">Projetos</a></li>
+            <li><a href="formacoes.html">Formações</a></li>
+            <li><a href="experiencia.html">Experiências</a></li>
+            <li><a href="depoimentos.html">Depoimentos</a></li>
+        </ul>
+        <a class="btn btn-primary nav-cta" href="contato.html" aria-current="page">Vamos conversar <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17 17 7M8 7h9v9"/></svg></a>
+        <button class="menu-btn" type="button" aria-expanded="false" aria-controls="mobile-panel"><span class="menu-text">Menu</span><span class="menu-lines" aria-hidden="true"></span></button>
       </nav>
     </header>
 
-    <main class="container">
-      <section class="contact-hero">
-        <span class="section-kicker">// Contato</span>
-        <h1 class="contact-title">Vamos conversar?</h1>
-        <p class="contact-subtitle">
-          Ficarei muito feliz em receber sua mensagem! Seja para propor uma parceria, tirar dúvidas, trocar ideias ou simplesmente bater um papo sobre tecnologia, estou sempre aberto a novas conexões.
-        </p>
-        <p class="contact-subtitle">
-          Escolha a forma de contato que preferir e me envie um "olá". Prometo responder o mais rápido possível!
-        </p>
-        <div class="contact-chips">
-          <span class="hero-chip">Resposta em até 24h</span>
-          <span class="hero-chip">Aberto a novas conexões</span>
-          <span class="hero-chip">Português · Brasil</span>
+    <div class="mobile-panel" id="mobile-panel">
+      <ol>
+          <li><a href="index.html">Início</a></li>
+          <li><a href="projetos.html">Projetos</a></li>
+          <li><a href="formacoes.html">Formações</a></li>
+          <li><a href="experiencia.html">Experiências</a></li>
+          <li><a href="depoimentos.html">Depoimentos</a></li>
+          <li><a href="contato.html" aria-current="page">Contato</a></li>
+      </ol>
+      <div class="mobile-foot">
+        <div class="cv-menu cv-up">
+              <button class="btn btn-ghost btn-down cv-toggle" type="button" aria-expanded="false" aria-haspopup="true">Baixar currículo <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 5v14M6 13l6 6 6-6"/></svg></button>
+              <div class="cv-options" role="menu" hidden>
+                <a role="menuitem" href="path/CV_FELIPESLOPES.pdf" download><span class="cv-flag">PT</span><span><strong>Português</strong><small>PT-BR · PDF</small></span></a>
+                <a role="menuitem" href="path/CV_FELIPESLOPES_EN.pdf" download><span class="cv-flag">EN</span><span><strong>English</strong><small>Resume · PDF</small></span></a>
+              </div>
+            </div>
+        <div class="socials">
+            <a class="social" href="https://github.com/FelipeSoeiroLopes" target="_blank" rel="noopener" aria-label="GitHub"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg></a>
+            <a class="social" href="https://linkedin.com/in/felipesoeirolopes/" target="_blank" rel="noopener" aria-label="LinkedIn"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.225 0z"/></svg></a>
+            <a class="social" href="mailto:felipesoeiro.contato@outlook.com.br" aria-label="E-mail"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2"/><polyline points="3 7 12 13 21 7"/></svg></a>
+            <a class="social" href="https://wa.me/5511955558936" target="_blank" rel="noopener" aria-label="WhatsApp"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg></a>
+          </div>
+      </div>
+    </div>
+
+    <main id="conteudo">
+      <section class="page-hero">
+        <div class="container contact-hero">
+          <div>
+            <span class="eyebrow" data-intro>Contato</span>
+            <h1 class="h-page">Vamos <em>conversar?</em></h1>
+            <p class="lead" data-intro>Parceria, oportunidade, dúvida ou só um papo sobre tecnologia — escolha o canal que preferir e me mande um “olá”. Prometo responder o mais rápido possível.</p>
+          </div>
+          <div class="contact-photo" data-intro>
+            <img src="images/felipe-foto.jpg" alt="Foto de Felipe Soeiro Lopes" width="200" height="200" />
+            <span class="chip"><span class="dot-live"></span>Disponível</span>
+          </div>
         </div>
       </section>
 
-      <section class="contact-methods">
-        <div class="contact-card">
-          <div class="contact-icon">
-            <img src="images/icons8-e-mail-48.png" alt="Ícone de e-mail" />
-          </div>
-          <div class="contact-info">
-            <h3>E-mail</h3>
-            <p>felipesoeiro.contato@outlook.com.br</p>
-            <span class="contact-note">Retorno rápido garantido!</span>
-            <a href="mailto:felipesoeiro.contato@outlook.com.br" class="contact-link">Enviar e-mail</a>
-          </div>
-        </div>
+      <section class="section" style="padding-top:0">
+        <div class="container">
+          <div class="contact-grid">
+            <article class="card contact-card is-primary" data-reveal>
+              <span class="icon-box"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2"/><polyline points="3 7 12 13 21 7"/></svg></span>
+              <div>
+                <h3>E-mail</h3>
+                <p class="contact-value">felipesoeiro.contato@outlook.com.br</p>
+              </div>
+              <div class="contact-actions">
+                <a href="mailto:felipesoeiro.contato@outlook.com.br" class="btn btn-primary">Enviar e-mail <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17 17 7M8 7h9v9"/></svg></a>
+                <button class="btn btn-ghost copy-btn" type="button" data-copy="felipesoeiro.contato@outlook.com.br"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="9" y="9" width="12" height="12" rx="2"/><path d="M5 15V5a2 2 0 0 1 2-2h10"/></svg><span>Copiar</span></button>
+              </div>
+            </article>
 
-        <div class="contact-card contact-card-linkedin">
-          <div class="contact-icon">
-            <img src="images/icons8-linkedin-48.png" alt="LinkedIn" />
-          </div>
-          <div class="contact-info">
-            <h3>LinkedIn</h3>
-            <p>Vamos nos conectar e expandir nossa rede profissional!</p>
-            <div class="linkedin-badge-wrap">
-              <div class="badge-base LI-profile-badge" data-locale="pt_BR" data-size="medium" data-theme="dark" data-type="HORIZONTAL" data-vanity="felipesoeirolopes" data-version="v1"><a class="badge-base__link LI-simple-link" href="https://br.linkedin.com/in/felipesoeirolopes?trk=profile-badge">Felipe Soeiro Lopes</a></div>
-            </div>
-            <a href="https://linkedin.com/in/felipesoeirolopes/" target="_blank" class="contact-link">Conectar</a>
-          </div>
-        </div>
+            <article class="card contact-card" data-reveal>
+              <span class="icon-box"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.225 0z"/></svg></span>
+              <h3>LinkedIn</h3>
+              <p>Vamos nos conectar e expandir nossa rede profissional.</p>
+              <div class="contact-actions"><a href="https://linkedin.com/in/felipesoeirolopes/" target="_blank" rel="noopener" class="btn btn-ghost">Conectar no LinkedIn <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17 17 7M8 7h9v9"/></svg></a></div>
+            </article>
 
-        <div class="contact-card">
-          <div class="contact-icon">
-            <img src="images/icons8-whatsapp-48.png" alt="WhatsApp" />
+            <article class="card contact-card" data-reveal>
+              <span class="icon-box"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg></span>
+              <h3>WhatsApp</h3>
+              <p>Prefere algo mais direto? Pode chamar, respondo rapidinho.</p>
+              <div class="contact-actions"><a href="https://wa.me/5511955558936" target="_blank" rel="noopener" class="btn btn-ghost">Conversar <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17 17 7M8 7h9v9"/></svg></a></div>
+            </article>
+
+            <article class="card contact-card" data-reveal>
+              <span class="icon-box"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg></span>
+              <h3>GitHub</h3>
+              <p>Veja o código dos meus projetos, estudos e experimentos.</p>
+              <div class="contact-actions"><a href="https://github.com/FelipeSoeiroLopes" target="_blank" rel="noopener" class="btn btn-ghost">Ver repositórios <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17 17 7M8 7h9v9"/></svg></a></div>
+            </article>
           </div>
+
           <div class="contact-info">
-            <h3>WhatsApp</h3>
-            <p>Preferiu algo mais direto? Pode chamar, respondo rapidinho!</p>
-            <a href="https://wa.me/5511955558936" target="_blank" class="contact-link">Conversar</a>
+            <div class="card info-item" data-reveal="fade"><span class="icon-box"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg></span><div><strong>Resposta em até 24h</strong><span>Em dias úteis</span></div></div>
+            <div class="card info-item" data-reveal="fade"><span class="icon-box"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 22s7-6.2 7-12a7 7 0 0 0-14 0c0 5.8 7 12 7 12z"/><circle cx="12" cy="10" r="2.5"/></svg></span><div><strong>São Paulo · Brasil</strong><span>Remoto, híbrido ou presencial</span></div></div>
+            <div class="card info-item" data-reveal="fade"><span class="icon-box"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3a14 14 0 0 1 0 18M12 3a14 14 0 0 0 0 18"/></svg></span><div><strong>Português</strong><span>Aberto a novas conexões</span></div></div>
           </div>
         </div>
       </section>
     </main>
 
-    <footer class="footer2">
-      <div class="footer-container">
+    <footer class="site-footer">
+      <div class="container">
+        <div class="footer-big">
+          <h2>Bora criar algo <em>incrível</em>?</h2>
+          <a class="btn btn-primary" href="contato.html">Falar comigo <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17 17 7M8 7h9v9"/></svg></a>
+        </div>
         <div class="footer-grid">
-          <div class="footer-brand">
-            <img class="footer-logo" src="images/felpsdevsemfundo.png" alt="Logo FelpsDev" />
-            <p class="footer-name">Felipe Soeiro Lopes</p>
-            <p class="footer-tagline">Desenvolvedor RPA · Full Stack. Automação, dados e IA transformando a forma de trabalhar.</p>
+          <div>
+            <h4>Felipe Soeiro Lopes</h4>
+            <p>Desenvolvedor RPA · Full Stack, a caminho da engenharia de IA. Automação, dados e IA transformando a forma de trabalhar.</p>
+            <div class="socials" style="margin-top:1.4rem">
+            <a class="social" href="https://github.com/FelipeSoeiroLopes" target="_blank" rel="noopener" aria-label="GitHub"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg></a>
+            <a class="social" href="https://linkedin.com/in/felipesoeirolopes/" target="_blank" rel="noopener" aria-label="LinkedIn"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.225 0z"/></svg></a>
+            <a class="social" href="mailto:felipesoeiro.contato@outlook.com.br" aria-label="E-mail"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2"/><polyline points="3 7 12 13 21 7"/></svg></a>
+            <a class="social" href="https://wa.me/5511955558936" target="_blank" rel="noopener" aria-label="WhatsApp"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg></a>
           </div>
-          <div class="footer-col">
+          </div>
+          <div>
             <h4>Navegação</h4>
-            <nav class="footer-nav" aria-label="Rodapé">
+            <nav class="footer-links" aria-label="Rodapé">
               <a href="index.html">Início</a>
               <a href="projetos.html">Projetos</a>
               <a href="formacoes.html">Formações</a>
@@ -124,155 +163,27 @@
               <a href="contato.html">Contato</a>
             </nav>
           </div>
-          <div class="footer-col">
-            <h4>Vamos conectar</h4>
-            <div class="footer-social-row">
-              <a class="social-icon-link" href="https://github.com/FelipeSoeiroLopes" target="_blank" rel="noopener" aria-label="GitHub" title="GitHub">
-                <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg>
-              </a>
-              <a class="social-icon-link" href="https://linkedin.com/in/felipesoeirolopes/" target="_blank" rel="noopener" aria-label="LinkedIn" title="LinkedIn">
-                <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.225 0z"/></svg>
-              </a>
-              <a class="social-icon-link" href="mailto:felipesoeiro.contato@outlook.com.br" aria-label="E-mail" title="E-mail">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2"/><polyline points="3 7 12 13 21 7"/></svg>
-              </a>
-              <a class="social-icon-link" href="https://wa.me/5511955558936" target="_blank" rel="noopener" aria-label="WhatsApp" title="WhatsApp">
-                <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
-              </a>
+          <div>
+            <h4>Contato</h4>
+            <div class="footer-links">
+              <a href="mailto:felipesoeiro.contato@outlook.com.br">E-mail</a>
+              <a href="https://linkedin.com/in/felipesoeirolopes/" target="_blank" rel="noopener">LinkedIn</a>
+              <a href="https://wa.me/5511955558936" target="_blank" rel="noopener">WhatsApp</a>
+              <a href="path/CV_FELIPESLOPES.pdf" download>Currículo PT-BR (PDF)</a>
+              <a href="path/CV_FELIPESLOPES_EN.pdf" download>Resume English (PDF)</a>
             </div>
-            <p class="footer-availability"><span class="pulse-dot"></span> Aberto a novas conexões</p>
           </div>
         </div>
         <div class="footer-bottom">
           <p>© 2026 Felipe Soeiro Lopes — todos os direitos reservados.</p>
-          <p>Feito à mão com HTML, CSS e JavaScript.</p>
+          <p>Feito à mão com HTML, CSS, JavaScript e Motion.</p>
         </div>
       </div>
     </footer>
-    <a href="#" class="voltar-ao-topo">↑</a>
 
-    <script src="script.js"></script>
-    <script>
-      // GSAP Animations - Otimizado
-      gsap.registerPlugin(ScrollTrigger);
-      gsap.config({ force3D: true, autoSleep: 60 });
-      ScrollTrigger.config({ ignoreMobileResize: true });
-      
-      window.addEventListener('load', () => {
-        ScrollTrigger.refresh();
-      });
+    <a href="#conteudo" class="to-top" aria-label="Voltar ao topo"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 19V5M6 11l6-6 6 6"/></svg></a>
 
-      // Animate hero section - mais rápido
-      gsap.from('.contact-title', {
-        y: 30,
-        opacity: 0,
-        scale: 0.95,
-        duration: 0.6,
-        ease: 'back.out(1.3)',
-        delay: 0.1
-      });
-
-      gsap.from('.contact-subtitle', {
-        y: 20,
-        opacity: 0,
-        duration: 0.5,
-        ease: 'power2.out',
-        delay: 0.2,
-        stagger: 0.1
-      });
-
-      // Animate contact cards on scroll - otimizado
-      gsap.utils.toArray('.contact-card').forEach((card, index) => {
-        gsap.set(card, { willChange: 'transform, opacity' });
-        gsap.from(card, {
-          scrollTrigger: {
-            trigger: card,
-            start: 'top 90%',
-            toggleActions: 'play none none none',
-            once: true,
-            markers: false
-          },
-          y: 40,
-          opacity: 0,
-          scale: 0.95,
-          duration: 0.5,
-          delay: index * 0.08,
-          ease: 'power2.out',
-          force3D: true,
-          onComplete: () => {
-            gsap.set(card, { willChange: 'auto' });
-          }
-        });
-
-        // Animate icon - otimizado
-        const icon = card.querySelector('.contact-icon img');
-        if (icon) {
-          gsap.set(icon, { willChange: 'transform' });
-          gsap.from(icon, {
-            scrollTrigger: {
-              trigger: card,
-              start: 'top 90%',
-              once: true,
-              markers: false
-            },
-            scale: 0,
-            rotation: 360,
-            duration: 0.4,
-            delay: index * 0.08 + 0.15,
-            ease: 'back.out(1.5)',
-            force3D: true,
-            onComplete: () => {
-              gsap.set(icon, { willChange: 'auto' });
-            }
-          });
-        }
-
-        // Hover animation - otimizado
-        let cardTween = null;
-        let iconTween = null;
-        card.addEventListener('mouseenter', () => {
-          if (cardTween) cardTween.kill();
-          if (iconTween) iconTween.kill();
-          cardTween = gsap.to(card, {
-            y: -12,
-            scale: 1.03,
-            duration: 0.2,
-            ease: 'power2.out',
-            force3D: true
-          });
-          const iconEl = card.querySelector('.contact-icon img');
-          if (iconEl) {
-            iconTween = gsap.to(iconEl, {
-              rotation: 15,
-              scale: 1.15,
-              duration: 0.2,
-              ease: 'power2.out',
-              force3D: true
-            });
-          }
-        });
-        card.addEventListener('mouseleave', () => {
-          if (cardTween) cardTween.kill();
-          if (iconTween) iconTween.kill();
-          cardTween = gsap.to(card, {
-            y: 0,
-            scale: 1,
-            duration: 0.2,
-            ease: 'power2.out',
-            force3D: true
-          });
-          const iconEl = card.querySelector('.contact-icon img');
-          if (iconEl) {
-            iconTween = gsap.to(iconEl, {
-              rotation: 0,
-              scale: 1,
-              duration: 0.2,
-              ease: 'power2.out',
-              force3D: true
-            });
-          }
-        });
-      });
-    </script>
+    <script src="vendor/motion.js"></script>
+    <script src="site.js"></script>
   </body>
 </html>

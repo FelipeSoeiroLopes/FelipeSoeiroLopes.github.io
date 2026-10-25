@@ -3,174 +3,202 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="description" content="Formação acadêmica de Felipe Soeiro Lopes: Pós-graduação em Inteligência Artificial para Desenvolvedores (FIAP) e Análise e Desenvolvimento de Sistemas (UMC)." />
+    <title>Formações · Felipe Soeiro Lopes</title>
+    <meta name="description" content="Formação de Felipe Soeiro Lopes: Pós-graduação em Inteligência Artificial na FIAP e Análise e Desenvolvimento de Sistemas na UMC." />
     <meta name="author" content="Felipe Soeiro Lopes" />
-    <meta name="theme-color" content="#0a0a0a" />
+    <meta name="theme-color" content="#04060c" />
     <meta property="og:type" content="website" />
     <meta property="og:title" content="Formações | Felipe Soeiro Lopes" />
-    <meta property="og:description" content="Pós-graduação em Inteligência Artificial para Desenvolvedores (FIAP) e Análise e Desenvolvimento de Sistemas (UMC)." />
-    <meta property="og:image" content="https://felipesoeirolopes.github.io/images/felpsdevsemfundo.png" />
+    <meta property="og:description" content="Formação de Felipe Soeiro Lopes: Pós-graduação em Inteligência Artificial na FIAP e Análise e Desenvolvimento de Sistemas na UMC." />
+    <meta property="og:image" content="https://felipesoeirolopes.github.io/images/felipe-foto.jpg" />
     <meta property="og:url" content="https://felipesoeirolopes.github.io/formacoes.html" />
     <meta property="og:locale" content="pt_BR" />
     <meta name="twitter:card" content="summary" />
-    <link rel="stylesheet" href="styles.css" />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap"
-      rel="stylesheet"
-    />
     <link rel="icon" type="image/png" href="images/felpsdevsemfundo.png" />
-    <title>FELIPE LOPES | FORMAÇÕES</title>
-    <!-- GSAP Library -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,600;9..40,700&family=JetBrains+Mono:wght@400;500&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="site.css" />
   </head>
-  <body class="pagina-formacoes">
-    <header>
-      <nav>
-        <div class="logo" id="logoSecreta">
-          <img src="images/felpsdevsemfundo.png" alt="Logo do Felipe" />
+  <body>
+    <a class="skip-link" href="#conteudo">Pular para o conteúdo</a>
+    <div class="backdrop" aria-hidden="true"><span class="aurora aurora-1"></span><span class="aurora aurora-2"></span><span class="aurora aurora-3"></span></div>
+
+    <header class="site-header">
+      <nav class="nav" aria-label="Navegação principal">
+        <div class="brand">
+          <button class="brand-logo" id="logoSecreta" type="button" aria-label="Abrir FelpsDev Arcade (easter egg)" title="FelpsDev Arcade">
+            <img src="images/felpsdevsemfundo.png" alt="" width="40" height="40" />
+          </button>
+          <a class="brand-text" href="index.html">
+            <strong>Felipe Lopes<span aria-hidden="true">.</span></strong>
+            <small>RPA · FULL STACK · IA</small>
+          </a>
         </div>
-        <button class="menu-icon" onclick="alternarMenu()" aria-label="Abrir menu">
-          <span></span>
-          <span></span>
-          <span></span>
-        </button>
-        <div class="navbar" id="navbar">
-          <div><a href="index.html">INÍCIO</a></div>
-          <div><a href="projetos.html">PROJETOS</a></div>
-          <div><a href="formacoes.html">FORMAÇÕES</a></div>
-          <div><a href="experiencia.html">EXPERIÊNCIAS</a></div>
-          <div><a href="depoimentos.html">DEPOIMENTOS</a></div>
-          <div><a href="contato.html">CONTATOS</a></div>
-        </div>
+        <ul class="nav-links">
+            <li class="nav-indicator" role="presentation" aria-hidden="true"></li>
+            <li><a href="index.html">Início</a></li>
+            <li><a href="projetos.html">Projetos</a></li>
+            <li><a href="formacoes.html" aria-current="page">Formações</a></li>
+            <li><a href="experiencia.html">Experiências</a></li>
+            <li><a href="depoimentos.html">Depoimentos</a></li>
+        </ul>
+        <a class="btn btn-primary nav-cta" href="contato.html">Vamos conversar <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17 17 7M8 7h9v9"/></svg></a>
+        <button class="menu-btn" type="button" aria-expanded="false" aria-controls="mobile-panel"><span class="menu-text">Menu</span><span class="menu-lines" aria-hidden="true"></span></button>
       </nav>
     </header>
 
-    <section class="container">
-      <span class="section-kicker">// Educação</span>
-      <h2 class="primary-heading heading-experience">FORMAÇÕES</h2>
-      <p class="experience-subtitle">Base acadêmica que sustenta minha evolução em desenvolvimento e inteligência artificial.</p>
-      <div class="experiences experiences-timeline">
-        <!-- Formação 1 - FIAP -->
-        <div class="experience-item is-current">
-          <span class="current-badge"><span class="current-dot"></span> Em andamento</span>
-          <div class="experience-title-container">
-            <div class="experience-logo experience-logo-formacao">
-              <img src="images/fiap.png" alt="FIAP" />
+    <div class="mobile-panel" id="mobile-panel">
+      <ol>
+          <li><a href="index.html">Início</a></li>
+          <li><a href="projetos.html">Projetos</a></li>
+          <li><a href="formacoes.html" aria-current="page">Formações</a></li>
+          <li><a href="experiencia.html">Experiências</a></li>
+          <li><a href="depoimentos.html">Depoimentos</a></li>
+          <li><a href="contato.html">Contato</a></li>
+      </ol>
+      <div class="mobile-foot">
+        <div class="cv-menu cv-up">
+              <button class="btn btn-ghost btn-down cv-toggle" type="button" aria-expanded="false" aria-haspopup="true">Baixar currículo <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 5v14M6 13l6 6 6-6"/></svg></button>
+              <div class="cv-options" role="menu" hidden>
+                <a role="menuitem" href="path/CV_FELIPESLOPES.pdf" download><span class="cv-flag">PT</span><span><strong>Português</strong><small>PT-BR · PDF</small></span></a>
+                <a role="menuitem" href="path/CV_FELIPESLOPES_EN.pdf" download><span class="cv-flag">EN</span><span><strong>English</strong><small>Resume · PDF</small></span></a>
+              </div>
             </div>
-            <div class="experience-details">
-              <span class="edu-badge">Pós-graduação</span>
-              <h3 class="experience-title">Pós-graduação Lato Sensu - Especialização em Inteligência Artificial para Desenvolvedores | FIAP</h3>
-              <span class="date">Março de 2026 - Janeiro de 2027</span>
-            </div>
+        <div class="socials">
+            <a class="social" href="https://github.com/FelipeSoeiroLopes" target="_blank" rel="noopener" aria-label="GitHub"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg></a>
+            <a class="social" href="https://linkedin.com/in/felipesoeirolopes/" target="_blank" rel="noopener" aria-label="LinkedIn"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.225 0z"/></svg></a>
+            <a class="social" href="mailto:felipesoeiro.contato@outlook.com.br" aria-label="E-mail"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2"/><polyline points="3 7 12 13 21 7"/></svg></a>
+            <a class="social" href="https://wa.me/5511955558936" target="_blank" rel="noopener" aria-label="WhatsApp"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg></a>
           </div>
-          <div class="tech-badges">
-            <span class="tech-badge">Python</span>
-            <span class="tech-badge">Machine Learning</span>
-            <span class="tech-badge">NLP</span>
-            <span class="tech-badge">Computer Vision</span>
-            <span class="tech-badge">LLMs</span>
-            <span class="tech-badge">GenAI</span>
-            <span class="tech-badge">RAG</span>
-            <span class="tech-badge">Cloud (AWS · Azure · GCP)</span>
-          </div>
-          <div class="experience-description">
-            <p class="formation-intro">Curso focado no desenvolvimento de soluções inteligentes com Inteligência Artificial, Machine Learning e modelos generativos aplicados a sistemas, automações e produtos digitais.</p>
-            <h4>Áreas de estudo</h4>
-            <ul>
-              <li>Fundamentos de IA e Machine Learning</li>
-              <li>Python aplicado à IA</li>
-              <li>Machine Learning avançado</li>
-              <li>Processamento de Linguagem Natural (NLP)</li>
-              <li>Computer Vision (OCR e detecção de objetos)</li>
-              <li>Inteligência Artificial Generativa (GenAI)</li>
-              <li>Large Language Models (LLMs)</li>
-              <li>IA em Cloud (AWS, Azure e GCP)</li>
-              <li>Engenharia de Prompts, RAG e Fine-tuning</li>
-              <li>Análise de dados (texto, áudio e vídeo)</li>
-              <li>Privacidade, segurança da informação e LGPD</li>
-            </ul>
-            <h4>Capacidades desenvolvidas</h4>
-            <ul>
-              <li>Desenvolvimento de aplicações inteligentes orientadas a dados</li>
-              <li>Criação e validação de modelos de Machine Learning</li>
-              <li>Desenvolvimento de soluções com LLMs e chatbots</li>
-              <li>Integração de IA em sistemas, APIs e automações</li>
-              <li>Análise de grandes volumes de dados</li>
-              <li>Aplicação de IA generativa em cenários reais</li>
-            </ul>
-            <p class="formation-tag">◆ Inteligência artificial e Python</p>
-          </div>
-        </div>
-
-        <!-- Formação 2 - UMC -->
-        <div class="experience-item">
-          <div class="experience-title-container">
-            <div class="experience-logo experience-logo-formacao">
-              <img src="images/umc.png" alt="Universidade de Mogi das Cruzes" />
-            </div>
-            <div class="experience-details">
-              <span class="edu-badge">Graduação · Concluída</span>
-              <h3 class="experience-title">Tecnólogo, Análise e Desenvolvimento de Sistemas | Universidade de Mogi das Cruzes</h3>
-              <span class="date">Fevereiro de 2024 - Dezembro de 2025</span>
-            </div>
-          </div>
-          <div class="tech-badges">
-            <span class="tech-badge">Java</span>
-            <span class="tech-badge">Python</span>
-            <span class="tech-badge">SQL</span>
-            <span class="tech-badge">JavaScript</span>
-            <span class="tech-badge">HTML · CSS</span>
-            <span class="tech-badge">POO</span>
-            <span class="tech-badge">Git · GitHub</span>
-          </div>
-          <div class="experience-description">
-            <p class="formation-intro">Curso focado no desenvolvimento, manutenção e gestão de sistemas de software. Graduação em Análise e Desenvolvimento de Sistemas (ADS).</p>
-            <h4>Áreas de estudo</h4>
-            <ul>
-              <li>Programação</li>
-              <li>Banco de Dados</li>
-              <li>Engenharia de Software</li>
-              <li>Redes de Computadores</li>
-              <li>Administração de Sistemas</li>
-              <li>Programação Orientada a Objetos (POO)</li>
-              <li>GIT e GITHUB</li>
-            </ul>
-            <h4>Capacidades desenvolvidas</h4>
-            <ul>
-              <li>Desenvolvimento de soluções tecnológicas</li>
-              <li>Trabalho com diversas linguagens de programação</li>
-              <li>Gestão de projetos de tecnologia</li>
-              <li>Administração e configuração de sistemas</li>
-              <li>Versionamento de código com GIT/GITHUB</li>
-            </ul>
-            <h4>Tecnologias</h4>
-            <ul>
-              <li>Python</li>
-              <li>HTML</li>
-              <li>CSS</li>
-              <li>JavaScript</li>
-              <li>SQL</li>
-              <li>Introdução ao PHP</li>
-              <li>Java</li>
-              <li>GIT/GITHUB</li>
-            </ul>
-          </div>
-        </div>
       </div>
-    </section>
+    </div>
 
-    <footer class="footer2">
-      <div class="footer-container">
-        <div class="footer-grid">
-          <div class="footer-brand">
-            <img class="footer-logo" src="images/felpsdevsemfundo.png" alt="Logo FelpsDev" />
-            <p class="footer-name">Felipe Soeiro Lopes</p>
-            <p class="footer-tagline">Desenvolvedor RPA · Full Stack. Automação, dados e IA transformando a forma de trabalhar.</p>
+    <main id="conteudo">
+      <section class="page-hero">
+        <div class="container">
+          <span class="eyebrow" data-intro>Educação</span>
+          <h1 class="h-page">Base sólida, <em>olhar no futuro.</em></h1>
+          <p class="lead" data-intro>A base acadêmica que sustenta minha evolução em desenvolvimento de software e inteligência artificial.</p>
+          <div class="page-meta" data-intro><span class="chip">Graduação concluída · ADS</span><span class="chip chip-ai">Pós em IA em andamento</span></div>
+        </div>
+      </section>
+
+      <section class="section" style="padding-top:0">
+        <div class="container">
+          <div class="timeline">
+            <span class="timeline-progress" aria-hidden="true"></span>
+          <article class="card t-item is-current" data-reveal="left">
+            <div class="t-head">
+              <img class="t-logo" src="images/fiap.png" alt="Logo da FIAP" width="58" height="58" loading="lazy" />
+              <div class="t-title">
+                <span class="eyebrow" style="margin-bottom:.6rem">Pós-graduação · Em andamento</span>
+                <h3>Especialização em Inteligência Artificial para Desenvolvedores <span class="t-org">· FIAP</span></h3>
+                <div class="t-date"><span class="badge-now"><span class="dot-live"></span>Em andamento</span><span>Março de 2026 — Janeiro de 2027</span></div>
+              </div>
+            </div>
+            <p class="t-intro">Pós-graduação Lato Sensu focada no desenvolvimento de soluções inteligentes com IA, Machine Learning e modelos generativos aplicados a sistemas, automações e produtos digitais.</p>
+            <div class="tags"><span class="tag">Python</span><span class="tag">Machine Learning</span><span class="tag">NLP</span><span class="tag">Computer Vision</span><span class="tag">LLMs</span><span class="tag">GenAI</span><span class="tag">RAG</span><span class="tag">Cloud (AWS · Azure · GCP)</span></div>
+            <details class="t-details" open>
+              <summary>Conteúdo do curso</summary>
+              <div>
+                <h4>Áreas de estudo</h4>
+                <ul class="t-list cols">
+                  <li>Fundamentos de IA e Machine Learning</li>
+                  <li>Python aplicado à IA</li>
+                  <li>Machine Learning avançado</li>
+                  <li>Processamento de Linguagem Natural (NLP)</li>
+                  <li>Computer Vision (OCR e detecção de objetos)</li>
+                  <li>Inteligência Artificial Generativa (GenAI)</li>
+                  <li>Large Language Models (LLMs)</li>
+                  <li>IA em Cloud (AWS, Azure e GCP)</li>
+                  <li>Engenharia de Prompts, RAG e Fine-tuning</li>
+                  <li>Análise de dados (texto, áudio e vídeo)</li>
+                  <li>Privacidade, segurança da informação e LGPD</li>
+                </ul>
+                <h4>Capacidades desenvolvidas</h4>
+                <ul class="t-list cols">
+                  <li>Desenvolvimento de aplicações inteligentes orientadas a dados</li>
+                  <li>Criação e validação de modelos de Machine Learning</li>
+                  <li>Desenvolvimento de soluções com LLMs e chatbots</li>
+                  <li>Integração de IA em sistemas, APIs e automações</li>
+                  <li>Análise de grandes volumes de dados</li>
+                  <li>Aplicação de IA generativa em cenários reais</li>
+                </ul>
+              </div>
+            </details>
+          </article>
+          <article class="card t-item" data-reveal="left">
+            <div class="t-head">
+              <img class="t-logo" src="images/umc.png" alt="Logo da Universidade de Mogi das Cruzes" width="58" height="58" loading="lazy" />
+              <div class="t-title">
+                <span class="eyebrow" style="margin-bottom:.6rem">Graduação · Concluída</span>
+                <h3>Tecnólogo em Análise e Desenvolvimento de Sistemas <span class="t-org">· Universidade de Mogi das Cruzes</span></h3>
+                <div class="t-date"><span>Fevereiro de 2024 — Dezembro de 2025</span></div>
+              </div>
+            </div>
+            <p class="t-intro">Curso focado no desenvolvimento, manutenção e gestão de sistemas de software.</p>
+            <div class="tags"><span class="tag">Java</span><span class="tag">Python</span><span class="tag">SQL</span><span class="tag">JavaScript</span><span class="tag">HTML · CSS</span><span class="tag">POO</span><span class="tag">Git · GitHub</span></div>
+            <details class="t-details">
+              <summary>Conteúdo do curso</summary>
+              <div>
+                <h4>Áreas de estudo</h4>
+                <ul class="t-list cols">
+                  <li>Programação</li>
+                  <li>Banco de Dados</li>
+                  <li>Engenharia de Software</li>
+                  <li>Redes de Computadores</li>
+                  <li>Administração de Sistemas</li>
+                  <li>Programação Orientada a Objetos (POO)</li>
+                  <li>Git e GitHub</li>
+                </ul>
+                <h4>Capacidades desenvolvidas</h4>
+                <ul class="t-list cols">
+                  <li>Desenvolvimento de soluções tecnológicas</li>
+                  <li>Trabalho com diversas linguagens de programação</li>
+                  <li>Gestão de projetos de tecnologia</li>
+                  <li>Administração e configuração de sistemas</li>
+                  <li>Versionamento de código com Git/GitHub</li>
+                </ul>
+                <h4>Tecnologias</h4>
+                <ul class="t-list cols">
+                  <li>Python</li>
+                  <li>HTML</li>
+                  <li>CSS</li>
+                  <li>JavaScript</li>
+                  <li>SQL</li>
+                  <li>Introdução ao PHP</li>
+                  <li>Java</li>
+                  <li>Git/GitHub</li>
+                </ul>
+              </div>
+            </details>
+          </article>
           </div>
-          <div class="footer-col">
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <div class="container">
+        <div class="footer-big">
+          <h2>Bora criar algo <em>incrível</em>?</h2>
+          <a class="btn btn-primary" href="contato.html">Falar comigo <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17 17 7M8 7h9v9"/></svg></a>
+        </div>
+        <div class="footer-grid">
+          <div>
+            <h4>Felipe Soeiro Lopes</h4>
+            <p>Desenvolvedor RPA · Full Stack, a caminho da engenharia de IA. Automação, dados e IA transformando a forma de trabalhar.</p>
+            <div class="socials" style="margin-top:1.4rem">
+            <a class="social" href="https://github.com/FelipeSoeiroLopes" target="_blank" rel="noopener" aria-label="GitHub"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg></a>
+            <a class="social" href="https://linkedin.com/in/felipesoeirolopes/" target="_blank" rel="noopener" aria-label="LinkedIn"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.225 0z"/></svg></a>
+            <a class="social" href="mailto:felipesoeiro.contato@outlook.com.br" aria-label="E-mail"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2"/><polyline points="3 7 12 13 21 7"/></svg></a>
+            <a class="social" href="https://wa.me/5511955558936" target="_blank" rel="noopener" aria-label="WhatsApp"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg></a>
+          </div>
+          </div>
+          <div>
             <h4>Navegação</h4>
-            <nav class="footer-nav" aria-label="Rodapé">
+            <nav class="footer-links" aria-label="Rodapé">
               <a href="index.html">Início</a>
               <a href="projetos.html">Projetos</a>
               <a href="formacoes.html">Formações</a>
@@ -179,117 +207,27 @@
               <a href="contato.html">Contato</a>
             </nav>
           </div>
-          <div class="footer-col">
-            <h4>Vamos conectar</h4>
-            <div class="footer-social-row">
-              <a class="social-icon-link" href="https://github.com/FelipeSoeiroLopes" target="_blank" rel="noopener" aria-label="GitHub" title="GitHub">
-                <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg>
-              </a>
-              <a class="social-icon-link" href="https://linkedin.com/in/felipesoeirolopes/" target="_blank" rel="noopener" aria-label="LinkedIn" title="LinkedIn">
-                <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.225 0z"/></svg>
-              </a>
-              <a class="social-icon-link" href="mailto:felipesoeiro.contato@outlook.com.br" aria-label="E-mail" title="E-mail">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2"/><polyline points="3 7 12 13 21 7"/></svg>
-              </a>
-              <a class="social-icon-link" href="https://wa.me/5511955558936" target="_blank" rel="noopener" aria-label="WhatsApp" title="WhatsApp">
-                <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
-              </a>
+          <div>
+            <h4>Contato</h4>
+            <div class="footer-links">
+              <a href="mailto:felipesoeiro.contato@outlook.com.br">E-mail</a>
+              <a href="https://linkedin.com/in/felipesoeirolopes/" target="_blank" rel="noopener">LinkedIn</a>
+              <a href="https://wa.me/5511955558936" target="_blank" rel="noopener">WhatsApp</a>
+              <a href="path/CV_FELIPESLOPES.pdf" download>Currículo PT-BR (PDF)</a>
+              <a href="path/CV_FELIPESLOPES_EN.pdf" download>Resume English (PDF)</a>
             </div>
-            <p class="footer-availability"><span class="pulse-dot"></span> Aberto a novas conexões</p>
           </div>
         </div>
         <div class="footer-bottom">
           <p>© 2026 Felipe Soeiro Lopes — todos os direitos reservados.</p>
-          <p>Feito à mão com HTML, CSS e JavaScript.</p>
+          <p>Feito à mão com HTML, CSS, JavaScript e Motion.</p>
         </div>
       </div>
     </footer>
 
-    <a href="#" class="voltar-ao-topo">↑</a>
+    <a href="#conteudo" class="to-top" aria-label="Voltar ao topo"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 19V5M6 11l6-6 6 6"/></svg></a>
 
-    <script src="script.js"></script>
-    <script>
-      gsap.registerPlugin(ScrollTrigger);
-      gsap.config({ force3D: true, autoSleep: 60 });
-      ScrollTrigger.config({ ignoreMobileResize: true });
-
-      window.addEventListener('load', () => {
-        ScrollTrigger.refresh();
-      });
-
-      gsap.from('.heading-experience', {
-        y: 20,
-        opacity: 0,
-        duration: 0.6,
-        ease: 'power2.out'
-      });
-
-      gsap.utils.toArray('.experience-item').forEach((item, index) => {
-        gsap.set(item, { willChange: 'transform, opacity' });
-        gsap.from(item, {
-          scrollTrigger: {
-            trigger: item,
-            start: 'top 90%',
-            toggleActions: 'play none none none',
-            once: true,
-            markers: false
-          },
-          x: index % 2 === 0 ? -40 : 40,
-          opacity: 0,
-          scale: 0.95,
-          duration: 0.5,
-          delay: index * 0.08,
-          ease: 'power2.out',
-          force3D: true,
-          onComplete: () => {
-            gsap.set(item, { willChange: 'auto' });
-          }
-        });
-
-        const logo = item.querySelector('.formation-logo span');
-        if (logo) {
-          gsap.set(logo, { willChange: 'transform' });
-          gsap.from(logo, {
-            scrollTrigger: {
-              trigger: item,
-              start: 'top 90%',
-              once: true,
-              markers: false
-            },
-            scale: 0,
-            rotation: -180,
-            duration: 0.4,
-            delay: index * 0.08 + 0.15,
-            ease: 'back.out(1.5)',
-            force3D: true,
-            onComplete: () => {
-              gsap.set(logo, { willChange: 'auto' });
-            }
-          });
-        }
-
-        let hoverTween = null;
-        item.addEventListener('mouseenter', () => {
-          if (hoverTween) hoverTween.kill();
-          hoverTween = gsap.to(item, {
-            y: -10,
-            scale: 1.02,
-            duration: 0.2,
-            ease: 'power2.out',
-            force3D: true
-          });
-        });
-        item.addEventListener('mouseleave', () => {
-          if (hoverTween) hoverTween.kill();
-          hoverTween = gsap.to(item, {
-            y: 0,
-            scale: 1,
-            duration: 0.2,
-            ease: 'power2.out',
-            force3D: true
-          });
-        });
-      });
-    </script>
+    <script src="vendor/motion.js"></script>
+    <script src="site.js"></script>
   </body>
 </html>

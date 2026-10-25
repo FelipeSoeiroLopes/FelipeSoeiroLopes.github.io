@@ -2,20 +2,62 @@
 // FUNCIONALIDADES PRINCIPAIS
 // ============================
 
-function alternarMenu() {
+document.documentElement.classList.add('js');
+
+function definirMenu(aberto) {
   const navbar = document.getElementById("navbar");
   const menuIcon = document.querySelector(".menu-icon");
-  navbar.classList.toggle("active");
-  menuIcon.classList.toggle("active");
+  if (!navbar || !menuIcon) return;
+  navbar.classList.toggle('active', aberto);
+  menuIcon.classList.toggle('active', aberto);
+  document.body.classList.toggle('nav-open', aberto);
+  navbar.inert = window.matchMedia('(max-width: 1050px)').matches && !aberto;
+  menuIcon.setAttribute('aria-expanded', String(aberto));
+  menuIcon.setAttribute('aria-label', aberto ? 'Fechar menu' : 'Abrir menu');
+  const label = menuIcon.querySelector('.menu-label');
+  if (label) label.textContent = aberto ? 'Fechar' : 'Menu';
+}
+
+function alternarMenu() {
+  definirMenu(!document.getElementById('navbar')?.classList.contains('active'));
 }
 
 // ============================
 // EASTER EGG - CONTADOR DE CLIQUES
 // ============================
 let contadorCliques = 0;
-const limiteCliques = 5;
+const limiteCliques = 1;
 const tempoReset = 2000;
 let temporizadorClique;
+
+function ativarTransicaoEasterEgg(logo) {
+  if (document.querySelector('.easter-portal')) return;
+
+  const portal = document.createElement('div');
+  portal.className = 'easter-portal';
+  portal.setAttribute('role', 'status');
+  portal.setAttribute('aria-live', 'polite');
+  portal.innerHTML = `
+    <div class="portal-grid" aria-hidden="true"></div>
+    <div class="portal-ring portal-ring-one" aria-hidden="true"></div>
+    <div class="portal-ring portal-ring-two" aria-hidden="true"></div>
+    <div class="portal-content">
+      <span class="portal-eyebrow">ACESSO SECRETO AUTORIZADO</span>
+      <img src="images/felpsdevsemfundo.png" alt="" aria-hidden="true" />
+      <strong>FELPSDEV ARCADE</strong>
+      <span class="portal-loading">Inicializando easter egg<span>...</span></span>
+      <span class="portal-progress" aria-hidden="true"><i></i></span>
+    </div>
+  `;
+
+  document.body.appendChild(portal);
+  document.body.classList.add('easter-leaving');
+  logo.classList.add('logo-portal-active');
+
+  window.setTimeout(() => {
+    window.location.assign('easteregg.html');
+  }, 1350);
+}
 
 document.getElementById("logoSecreta").addEventListener("click", function () {
   clearTimeout(temporizadorClique);
@@ -35,9 +77,8 @@ document.getElementById("logoSecreta").addEventListener("click", function () {
   }, 300);
   
   if (contadorCliques >= limiteCliques) {
-    window.location.href = "easteregg.html";
     contadorCliques = 0;
-    alert("Easter egg ativado! 🎉");
+    ativarTransicaoEasterEgg(this);
   }
 });
 
@@ -47,8 +88,8 @@ document.getElementById("logoSecreta").addEventListener("click", function () {
 window.addEventListener("click", function (event) {
   const navbar = document.getElementById("navbar");
   const menuIcon = document.querySelector(".menu-icon");
-  if (!navbar.contains(event.target) && !menuIcon.contains(event.target)) {
-    navbar.classList.remove("active");
+  if (navbar && menuIcon && !navbar.contains(event.target) && !menuIcon.contains(event.target)) {
+    definirMenu(false);
   }
 });
 
@@ -78,6 +119,7 @@ function observarElementos() {
 // EFEITO DE PARTÍCULAS INTERATIVAS
 // ============================
 function criarParticulas() {
+  if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
   const particlesContainer = document.querySelector('.particles');
   if (!particlesContainer) return;
 
@@ -115,16 +157,7 @@ function efeitoTypewriter(elemento, texto, velocidade = 100) {
 // ============================
 function adicionarEfeitoGlow() {
   const elementos = document.querySelectorAll('.btn-primary, .btn-secondary, .stat-item, .project-item');
-
-  elementos.forEach(elemento => {
-    elemento.addEventListener('mouseenter', function() {
-      this.style.boxShadow = '0 12px 40px rgba(255, 255, 255, 0.12)';
-    });
-
-    elemento.addEventListener('mouseleave', function() {
-      this.style.boxShadow = '';
-    });
-  });
+  elementos.forEach(elemento => elemento.classList.add('interactive-surface'));
 }
 
 // ============================
@@ -201,6 +234,7 @@ function efeitoMagnetico() {
 // CONTADOR ANIMADO DAS ESTATÍSTICAS
 // ============================
 function animarContadores() {
+  if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
   const contadores = document.querySelectorAll('.stat-number');
   
   const observer = new IntersectionObserver((entries) => {
@@ -263,6 +297,7 @@ function destacarPaginaAtiva() {
   // Remove todas as classes active primeiro
   navLinks.forEach(link => {
     link.classList.remove('active');
+    link.removeAttribute('aria-current');
   });
   
   // Adiciona active na página correta
@@ -270,6 +305,7 @@ function destacarPaginaAtiva() {
     const href = link.getAttribute('href');
     if (href === currentPage || (currentPage === '' && href === 'index.html')) {
       link.classList.add('active');
+      link.setAttribute('aria-current', 'page');
     }
   });
 }
@@ -284,18 +320,166 @@ function corrigirLayoutBotoes() {
     // Força o redimensionamento correto
     link.style.display = 'inline-block';
     link.style.verticalAlign = 'middle';
-    
-    // Remove qualquer transform que possa estar causando problemas
-    if (!link.classList.contains('active') && !link.matches(':hover')) {
-      link.style.transform = 'none';
-    }
   });
 }
 
 // ============================
 // INICIALIZAÇÃO
 // ============================
+// Experiência visual premium compartilhada entre todas as páginas.
+function inicializarPortfolioPremium() {
+  const reduzMovimento = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  const finePointer = window.matchMedia('(pointer: fine)').matches;
+
+  const ambient = document.createElement('div');
+  ambient.className = 'premium-ambient';
+  ambient.setAttribute('aria-hidden', 'true');
+  ambient.innerHTML = '<span class="ambient-orb"></span><span class="ambient-orb"></span><span class="ambient-orb"></span>';
+  document.body.prepend(ambient);
+
+  const header = document.querySelector('header');
+  const atualizarHeader = () => {
+    if (header) header.classList.toggle('is-scrolled', window.scrollY > 24);
+  };
+  atualizarHeader();
+  window.addEventListener('scroll', atualizarHeader, { passive: true });
+
+  const hero = document.querySelector('.hero-section');
+  if (hero && !hero.querySelector('.hero-scroll-cue')) {
+    const scrollCue = document.createElement('span');
+    scrollCue.className = 'hero-scroll-cue';
+    scrollCue.textContent = 'Explore';
+    scrollCue.setAttribute('aria-hidden', 'true');
+    hero.appendChild(scrollCue);
+  }
+
+  const seletores = [
+    '.stat-item', '.service-card', '.project-item', '.experience-item',
+    '.testimonial-item', '.contact-card', '.github-cta',
+    '.testimonials-linkedin-cta', '.final-cta'
+  ];
+  const elementos = document.querySelectorAll(seletores.join(','));
+
+  elementos.forEach((elemento, index) => {
+    elemento.classList.add('premium-reveal');
+    elemento.style.setProperty('--reveal-index', String(index % 4));
+  });
+
+  if (!reduzMovimento && 'IntersectionObserver' in window) {
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (!entry.isIntersecting) return;
+        entry.target.classList.add('is-visible');
+        observer.unobserve(entry.target);
+      });
+    }, { threshold: 0.08, rootMargin: '0px 0px -45px 0px' });
+
+    elementos.forEach(elemento => observer.observe(elemento));
+  } else {
+    elementos.forEach(elemento => elemento.classList.add('is-visible'));
+  }
+
+  if (finePointer && !reduzMovimento) {
+    const cards = document.querySelectorAll(
+      '.stat-item, .service-card, .project-item, .experience-item, .testimonial-item, .contact-card'
+    );
+
+    cards.forEach(card => {
+      card.addEventListener('pointermove', event => {
+        const rect = card.getBoundingClientRect();
+        const x = ((event.clientX - rect.left) / rect.width) * 100;
+        const y = ((event.clientY - rect.top) / rect.height) * 100;
+        card.style.setProperty('--pointer-x', `${x}%`);
+        card.style.setProperty('--pointer-y', `${y}%`);
+      });
+
+      card.addEventListener('pointerleave', () => {
+        card.style.setProperty('--pointer-x', '50%');
+        card.style.setProperty('--pointer-y', '50%');
+      });
+    });
+  }
+
+  const menuIcon = document.querySelector('.menu-icon');
+  if (menuIcon && !menuIcon.hasAttribute('aria-expanded')) {
+    menuIcon.setAttribute('aria-expanded', 'false');
+  }
+  if (menuIcon) {
+    menuIcon.setAttribute('aria-controls', 'navbar');
+    const label = document.createElement('b');
+    label.className = 'menu-label';
+    label.textContent = 'Menu';
+    menuIcon.prepend(label);
+    menuIcon.querySelectorAll('span').forEach(span => span.setAttribute('aria-hidden', 'true'));
+    const navbar = document.getElementById('navbar');
+    const nav = menuIcon.closest('nav');
+    nav.setAttribute('aria-label', 'Navegação principal');
+    const brand = document.createElement('a');
+    brand.className = 'nav-brand';
+    brand.href = 'index.html';
+    brand.innerHTML = '<strong>Felipe Lopes<span aria-hidden="true">.</span></strong><small>DESENVOLVEDOR RPA · FULL STACK</small>';
+    nav.querySelector('.logo').after(brand);
+    const extra = document.createElement('div');
+    extra.className = 'nav-extra';
+    extra.innerHTML = '<span>Conheça meu trabalho.<br>Vamos criar algo juntos.</span><a href="path/CV_FELIPESLOPES.pdf" download>Baixar currículo <span aria-hidden="true">↓</span></a>';
+    navbar.appendChild(extra);
+    const backdrop = document.createElement('div');
+    backdrop.className = 'nav-backdrop';
+    backdrop.setAttribute('aria-hidden', 'true');
+    document.body.appendChild(backdrop);
+    navbar.querySelectorAll('a').forEach(link => link.addEventListener('click', () => definirMenu(false)));
+    document.addEventListener('focusin', event => {
+      if (!nav.contains(event.target)) definirMenu(false);
+    });
+    window.matchMedia('(max-width: 1050px)').addEventListener('change', () => definirMenu(false));
+    definirMenu(false);
+    document.addEventListener('keydown', event => {
+      const navbar = document.getElementById('navbar');
+      if (event.key === 'Escape' && navbar?.classList.contains('active')) {
+        alternarMenu();
+        menuIcon.focus();
+      }
+    });
+  }
+
+  const logoSecreto = document.getElementById('logoSecreta');
+  if (logoSecreto) {
+    logoSecreto.setAttribute('role', 'button');
+    logoSecreto.setAttribute('tabindex', '0');
+    logoSecreto.setAttribute('aria-label', 'Abrir FelpsDev Arcade');
+    logoSecreto.setAttribute('title', 'FelpsDev Arcade');
+    logoSecreto.addEventListener('keydown', event => {
+      if (event.key !== 'Enter' && event.key !== ' ') return;
+      event.preventDefault();
+      logoSecreto.click();
+    });
+  }
+
+  // Reposiciona âncoras após os componentes dinâmicos entrarem no layout.
+  if (window.location.hash) {
+    window.setTimeout(() => {
+      const destino = document.querySelector(window.location.hash);
+      if (destino) destino.scrollIntoView({ block: 'start' });
+    }, 120);
+  }
+
+  requestAnimationFrame(() => document.body.classList.add('page-ready'));
+}
+
 document.addEventListener('DOMContentLoaded', function() {
+  inicializarPortfolioPremium();
+
+  const marqueeToggle = document.querySelector('.marquee-toggle');
+  const marquee = document.getElementById('tech-marquee');
+  if (marqueeToggle && marquee) {
+    marqueeToggle.hidden = false;
+    marqueeToggle.addEventListener('click', () => {
+      const paused = marquee.classList.toggle('is-paused');
+      marqueeToggle.setAttribute('aria-pressed', String(paused));
+      marqueeToggle.textContent = paused ? 'Retomar movimento ▶' : 'Pausar movimento Ⅱ';
+    });
+  }
+
   // Criar partículas
   criarParticulas();
   
@@ -457,6 +641,7 @@ function barraProgresso() {
 // TAGLINE ROTATIVA DO RODAPÉ (efeito máquina de escrever)
 // ============================
 function taglineRotativaRodape() {
+  if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
   var el = document.querySelector('.footer-tagline');
   if (!el) return;
 
@@ -518,4 +703,3 @@ function gerenciarBotaoVoltarAoTopo() {
 
 // Inicializar cursor personalizado
 // cursorPersonalizado();
-  

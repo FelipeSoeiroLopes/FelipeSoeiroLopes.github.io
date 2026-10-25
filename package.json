@@ -1,0 +1,8 @@
+{
+  "scripts": {
+    "vendor": "node -e \"require('fs').copyFileSync('node_modules/motion/dist/motion.js','vendor/motion.js')\""
+  },
+  "dependencies": {
+    "motion": "^14.6.0"
+  }
+}
