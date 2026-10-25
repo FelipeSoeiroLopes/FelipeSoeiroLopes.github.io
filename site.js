@@ -276,43 +276,62 @@
   // SELETOR DE CURRÍCULO (PT-BR / EN)
   // ============================
   function iniciarMenuCurriculo() {
-    const menus = document.querySelectorAll(".cv-menu");
-    if (!menus.length) return;
+    const botoes = document.querySelectorAll(".cv-toggle");
+    if (!botoes.length) return;
 
-    function fechar(menu) {
-      const botao = menu.querySelector(".cv-toggle");
-      menu.querySelector(".cv-options").hidden = true;
-      botao.setAttribute("aria-expanded", "false");
+    const iconeDown = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 5v14M6 13l6 6 6-6"/></svg>';
+    const modal = document.createElement("dialog");
+    modal.className = "cv-modal";
+    modal.setAttribute("aria-labelledby", "cv-modal-titulo");
+    modal.innerHTML = `
+      <div class="cv-modal-box">
+        <div class="cv-modal-head">
+          <div>
+            <h2 id="cv-modal-titulo">Baixar currículo</h2>
+            <p>Escolha o idioma do PDF</p>
+          </div>
+          <button class="cv-modal-close" type="button" aria-label="Fechar"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M18 6 6 18M6 6l12 12"/></svg></button>
+        </div>
+        <div class="cv-options">
+          <a href="path/CV_FELIPESLOPES.pdf" download><span class="cv-flag">PT</span><span class="cv-label"><strong>Português</strong><small>PT-BR · PDF</small></span>${iconeDown}</a>
+          <a href="path/CV_FELIPESLOPES_EN.pdf" download><span class="cv-flag">EN</span><span class="cv-label"><strong>English</strong><small>Resume · PDF</small></span>${iconeDown}</a>
+        </div>
+      </div>`;
+    document.body.appendChild(modal);
+
+    const caixa = modal.querySelector(".cv-modal-box");
+    let origem = null;
+
+    function fechar() {
+      if (!modal.open) return;
+      modal.close();
     }
 
-    menus.forEach(menu => {
-      const botao = menu.querySelector(".cv-toggle");
-      const opcoes = menu.querySelector(".cv-options");
-      botao.addEventListener("click", event => {
-        event.stopPropagation();
-        const abrir = opcoes.hidden;
-        menus.forEach(fechar);
-        if (!abrir) return;
-        opcoes.hidden = false;
+    modal.addEventListener("close", () => {
+      botoes.forEach(botao => botao.setAttribute("aria-expanded", "false"));
+      document.documentElement.classList.remove("cv-modal-aberto");
+      if (origem) origem.focus();
+    });
+
+    botoes.forEach(botao => {
+      botao.addEventListener("click", () => {
+        origem = botao;
         botao.setAttribute("aria-expanded", "true");
+        document.documentElement.classList.add("cv-modal-aberto");
+        modal.showModal();
         if (motionAtivo) {
-          const paraCima = menu.classList.contains("cv-up");
-          M.animate(opcoes, { opacity: [0, 1], y: [paraCima ? 8 : -8, 0], scale: [0.96, 1] }, { type: "spring", stiffness: 420, damping: 30 });
-        }
-        opcoes.querySelector("a").focus();
-      });
-      opcoes.querySelectorAll("a").forEach(link => link.addEventListener("click", () => fechar(menu)));
-      menu.addEventListener("keydown", event => {
-        if (event.key === "Escape" && !opcoes.hidden) {
-          event.stopPropagation();
-          fechar(menu);
-          botao.focus();
+          const celular = window.matchMedia("(max-width: 640px)").matches;
+          M.animate(caixa, celular ? { y: [60, 0], opacity: [0, 1] } : { opacity: [0, 1], y: [16, 0], scale: [0.96, 1] }, { type: "spring", stiffness: 380, damping: 32 });
         }
       });
     });
-    document.addEventListener("click", event => {
-      menus.forEach(menu => { if (!menu.contains(event.target)) fechar(menu); });
-    });
+
+    modal.querySelector(".cv-modal-close").addEventListener("click", fechar);
+    modal.querySelectorAll(".cv-options a").forEach(link => link.addEventListener("click", () => setTimeout(fechar, 150)));
+    // Clique fora da caixa (no backdrop) fecha
+    modal.addEventListener("click", event => { if (event.target === modal) fechar(); });
+    // Evita que o Esc também feche o menu mobile por trás
+    modal.addEventListener("keydown", event => { if (event.key === "Escape") event.stopPropagation(); });
   }
 
   // ============================

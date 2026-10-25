@@ -2767,85 +2767,168 @@ body.easter-leaving > :not(.easter-portal) {
   background: rgba(var(--accent-rgb), 0.1);
 }
 
-.cv-toggle[aria-expanded='true'] svg {
-  transform: rotate(180deg);
+.cv-modal-aberto {
+  overflow: hidden;
+}
+
+.cv-modal {
+  width: min(440px, calc(100% - 32px));
+  max-width: none;
+  max-height: none;
+  margin: auto;
+  padding: 0;
+  border: 0;
+  background: transparent;
+  color: var(--text);
+  overflow: visible;
+}
+
+.cv-modal::backdrop {
+  background: rgba(2, 4, 10, 0.72);
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+}
+
+.cv-modal-box {
+  padding: 1.4rem;
+  border: 1px solid var(--line-hi);
+  border-radius: 24px;
+  background: rgba(8, 13, 26, 0.97);
+  box-shadow: 0 30px 80px -20px rgba(0, 0, 0, 0.9), 0 0 0 1px rgba(var(--accent-rgb), 0.08);
+}
+
+.cv-modal-head {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 1rem;
+  margin-bottom: 1.1rem;
+}
+
+.cv-modal-head h2 {
+  margin: 0;
+  font: 600 1.3rem/1.2 var(--font-display);
+  color: var(--text);
+}
+
+.cv-modal-head p {
+  margin: 0.3rem 0 0;
+  color: var(--muted);
+  font-size: 0.9rem;
+}
+
+.cv-modal-close {
+  display: grid;
+  place-items: center;
+  width: 40px;
+  height: 40px;
+  flex-shrink: 0;
+  border: 1px solid var(--line-hi);
+  border-radius: 12px;
+  background: transparent;
+  color: var(--text-2);
+  cursor: pointer;
+  transition: background 0.2s, color 0.2s;
+}
+
+.cv-modal-close:hover,
+.cv-modal-close:focus-visible {
+  background: rgba(var(--accent-rgb), 0.12);
+  color: var(--text);
+}
+
+.cv-modal-close svg {
+  width: 18px;
+  height: 18px;
 }
 
 .cv-options {
-  position: absolute;
-  top: calc(100% + 10px);
-  left: 0;
-  z-index: 50;
   display: grid;
-  gap: 4px;
-  min-width: 240px;
-  padding: 6px;
-  border: 1px solid var(--line-hi);
-  border-radius: 18px;
-  background: rgba(8, 13, 26, 0.96);
-  backdrop-filter: blur(18px);
-  -webkit-backdrop-filter: blur(18px);
-  box-shadow: 0 24px 60px -18px rgba(0, 0, 0, 0.85);
-  transform-origin: top left;
-}
-
-.cv-options[hidden] {
-  display: none;
-}
-
-.cv-up .cv-options {
-  top: auto;
-  bottom: calc(100% + 10px);
-  transform-origin: bottom left;
+  gap: 0.6rem;
 }
 
 .cv-options a {
   display: flex;
   align-items: center;
-  gap: 0.8rem;
-  min-height: 52px;
-  padding: 0.55rem 0.8rem;
-  border-radius: 12px;
-  transition: background 0.2s;
+  gap: 0.9rem;
+  min-height: 64px;
+  padding: 0.75rem 1rem;
+  border: 1px solid var(--line-hi);
+  border-radius: 16px;
+  background: rgba(var(--accent-rgb), 0.04);
+  transition: background 0.2s, border-color 0.2s;
 }
 
 .cv-options a:hover,
 .cv-options a:focus-visible {
+  border-color: rgba(var(--accent-rgb), 0.55);
   background: rgba(var(--accent-rgb), 0.12);
+}
+
+.cv-options a > svg {
+  width: 20px;
+  height: 20px;
+  margin-left: auto;
+  flex-shrink: 0;
+  color: var(--accent);
+}
+
+.cv-label {
+  min-width: 0;
 }
 
 .cv-flag {
   display: grid;
   place-items: center;
-  width: 36px;
-  height: 36px;
+  width: 40px;
+  height: 40px;
   flex-shrink: 0;
-  border-radius: 10px;
+  border-radius: 12px;
   border: 1px solid rgba(var(--accent-rgb), 0.35);
   background: rgba(var(--accent-rgb), 0.1);
   color: var(--accent);
-  font: 600 0.75rem/1 var(--font-mono);
+  font: 600 0.8rem/1 var(--font-mono);
 }
 
 .cv-options strong {
   display: block;
-  font: 600 0.95rem/1.2 var(--font-display);
+  font: 600 1rem/1.2 var(--font-display);
   color: var(--text);
 }
 
 .cv-options small {
   color: var(--muted);
-  font-size: 0.78rem;
+  font-size: 0.8rem;
 }
 
 .mobile-foot .cv-menu,
-.mobile-foot .cv-toggle,
-.mobile-foot .cv-options {
+.mobile-foot .cv-toggle {
   width: 100%;
 }
 
 @media (max-width: 640px) {
   .hero .btn-row .cv-menu { flex: 1 1 100%; }
   .hero .btn-row .cv-toggle { width: 100%; }
-  .hero .btn-row .cv-options { right: 0; }
+
+  /* No celular o pop-up vira um painel que sobe da base */
+  .cv-modal {
+    width: 100%;
+    margin: auto 0 0;
+  }
+
+  .cv-modal-box {
+    padding: 1.25rem 16px calc(1.25rem + env(safe-area-inset-bottom));
+    border-radius: 24px 24px 0 0;
+    border-bottom: 0;
+  }
+
+  .cv-modal-box::before {
+    content: '';
+    display: block;
+    width: 40px;
+    height: 4px;
+    margin: -0.4rem auto 1rem;
+    border-radius: 4px;
+    background: var(--line-hi);
+  }
 }
